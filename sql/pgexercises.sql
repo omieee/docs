@@ -45,7 +45,8 @@ where name LIKE '%Tennis%';
 
 -- How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
 
--- NOTES FROM ME: IT WORKED BECAUSE OF DATA SET. I KNOW WRONG WAY OF DOING
+-- NOTES FROM ME: IWROTE "where name LIKE '%2%';" IT WORKED BECAUSE OF DATA SET. I KNOW WRONG WAY OF DOING
+-- HENCE CORRECT IT LATER TO USE IN()
 
 select facid,
        name,
@@ -54,7 +55,7 @@ select facid,
        initialoutlay,
        monthlymaintenance
 from facilities
-where name LIKE '%2%';
+where facid IN(1,5);
 
 -- How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly
 -- maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.
