@@ -71,3 +71,68 @@ SELECT name,
            end as COST
 from facilities;
 
+-- How can you produce a list of members who joined after the start of September 2012? Return the memid, surname,
+-- firstname, and joindate of the members in question.
+
+-- NOTES FROM ME: I WROTE
+-- SELECT	cd.members.memid,
+-- 		cd.members.surname,
+-- 		cd.members.firstname,
+-- 		cd.bookings.statrtime
+-- 		JOIN cd.bookings.memid ON cd.memebers.memeid
+-- 		WHERE cd.bookings.starttime >= 2012-09-01 "WHICH TURNED OUT TO BE ERROR SQL SYNTAX"
+-- EVEN AFTER TAKING HINTS I FORGOT ''
+
+SELECT	memid,
+		surname,
+		firstname,
+		joindate
+		from members
+		WHERE members.joindate >= '2012-09-01';
+
+-- How can you produce an ordered list of the first 10 surnames in the members table?
+-- The list must not contain duplicates.
+
+-- NOTES BY ME : No help needed, the query errored first tiome and then saw they wanted only 10, then added LIMIT 10
+-- But no help, this shows didn't looked at question properly, distracted, hurry for no reason attitude
+
+select
+distinct(surname)
+from members
+ORDER BY surname
+LIMIT 10;
+
+-- You, for some reason, want a combined list of all surnames and all facility names.
+-- Yes, this is a contrived example :-). Produce that list!
+
+-- NOTES BY ME: I DON'T KNOW HOW TO WRITE, I WROTE:
+-- select * from(
+-- (select surname from cd.members)
+-- (select name from cd.facilities)
+-- )as surname
+-- FOLLOWING CORRECT ANSWER IS FROM HINTS
+
+select surname
+	from members
+union
+select name
+	from facilities;
+
+-- You'd like to get the signup date of your last member. How can you retrieve this information?
+
+--NOTES BY ME: Woo Hoo no help in one run
+
+SELECT joindate as latest
+from members
+ORDER BY joindate DESC
+LIMIT 1;
+
+-- You'd like to get the first and last name of the last member(s) who signed up - not just the date.
+-- How can you do that?
+
+-- NOTES BY ME: Woo Hoo no help in one run. But is this the best way :thinking:
+
+SELECT firstname, surname, joindate
+from members
+ORDER BY joindate DESC
+LIMIT 1;
