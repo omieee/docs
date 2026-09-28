@@ -1,4 +1,4 @@
--- How can you retrieve all the information from the cd.facilities table?
+-- 1 How can you retrieve all the information from the cd.facilities table?
 
 select facid,
        name,
@@ -8,19 +8,19 @@ select facid,
        monthlymaintenance
 from facilities;
 
--- You want to print out a list of all of the facilities and their cost to
+-- 2 You want to print out a list of all of the facilities and their cost to
 -- members. How would you retrieve a list of only facility names and costs?
 
 select name, membercost
 from facilities;
 
--- How can you produce a list of facilities that charge a fee to members?
+-- 3 How can you produce a list of facilities that charge a fee to members?
 
 select facid, name, membercost, guestcost, initialoutlay, monthlymaintenance
 from facilities
 where membercost > 0;
 
--- How can you produce a list of facilities that charge a fee to members,
+-- 4 How can you produce a list of facilities that charge a fee to members,
 -- and that fee is less than 1/50th of the monthly maintenance cost?
 -- Return the facid, facility name, member cost, and monthly maintenance
 -- of the facilities in question?.
@@ -34,7 +34,7 @@ where membercost > 0
   AND membercost < monthlymaintenance / 50;
 
 
--- How can you produce a list of all facilities with the word 'Tennis' in their name?
+-- 5 How can you produce a list of all facilities with the word 'Tennis' in their name?
 
 -- NOTES FROM ME: WHILE RUNNING FIRST I MADE A SYNTAX ERROR, I  WROTE %Tennis% THEN GOOGLE SAID
 -- IT SHOULD BE '%Tennis%'
@@ -43,7 +43,7 @@ SELECT facid, name, membercost, guestcost, initialoutlay, monthlymaintenance
 from facilities
 where name LIKE '%Tennis%';
 
--- How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
+-- 6 How can you retrieve the details of facilities with ID 1 and 5? Try to do it without using the OR operator.
 
 -- NOTES FROM ME: IWROTE "where name LIKE '%2%';" IT WORKED BECAUSE OF DATA SET. I KNOW WRONG WAY OF DOING
 -- HENCE CORRECT IT LATER TO USE IN()
@@ -57,7 +57,7 @@ select facid,
 from facilities
 where facid IN(1,5);
 
--- How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly
+-- 7 How can you produce a list of facilities, with each labelled as 'cheap' or 'expensive' depending on if their monthly
 -- maintenance cost is more than $100? Return the name and monthly maintenance of the facilities in question.
 
 -- NOTES FROM ME: I KNEW TO THAT I NEED TO USE CASE BUT DON'T KNOW SYNTAX HAD TO TAKE FULL HINTS AND SOLUTION
@@ -71,7 +71,7 @@ SELECT name,
            end as COST
 from facilities;
 
--- How can you produce a list of members who joined after the start of September 2012? Return the memid, surname,
+-- 8 How can you produce a list of members who joined after the start of September 2012? Return the memid, surname,
 -- firstname, and joindate of the members in question.
 
 -- NOTES FROM ME: I WROTE
@@ -90,7 +90,7 @@ SELECT	memid,
 		from members
 		WHERE members.joindate >= '2012-09-01';
 
--- How can you produce an ordered list of the first 10 surnames in the members table?
+-- 9 How can you produce an ordered list of the first 10 surnames in the members table?
 -- The list must not contain duplicates.
 
 -- NOTES BY ME : No help needed, the query errored first tiome and then saw they wanted only 10, then added LIMIT 10
@@ -102,7 +102,7 @@ from members
 ORDER BY surname
 LIMIT 10;
 
--- You, for some reason, want a combined list of all surnames and all facility names.
+-- 10 You, for some reason, want a combined list of all surnames and all facility names.
 -- Yes, this is a contrived example :-). Produce that list!
 
 -- NOTES BY ME: I DON'T KNOW HOW TO WRITE, I WROTE:
@@ -118,7 +118,7 @@ union
 select name
 	from facilities;
 
--- You'd like to get the signup date of your last member. How can you retrieve this information?
+-- 11 You'd like to get the signup date of your last member. How can you retrieve this information?
 
 --NOTES BY ME: Woo Hoo no help in one run
 
@@ -127,12 +127,23 @@ from members
 ORDER BY joindate DESC
 LIMIT 1;
 
--- You'd like to get the first and last name of the last member(s) who signed up - not just the date.
+-- 12 You'd like to get the first and last name of the last member(s) who signed up - not just the date.
 -- How can you do that?
 
 -- NOTES BY ME: Woo Hoo no help in one run. But is this the best way :thinking:
+-- TURNS OUT TO BE I DIDN'T READ THE QUESTION PROPERLY IT's member(s) AND MY BELOW QUERY
+-- WILL ALWAYS GIVE ONE RESULT, SO WILL COMMENT THE BELOW CODE AND RETRY IT AGAIN
 
-SELECT firstname, surname, joindate
+-- SELECT firstname, surname, joindate
+-- from members
+-- ORDER BY joindate DESC
+-- LIMIT 1;
+
+-- SO WHAT IS HAPPENING IN THE BELOW QUERY IS
+-- WE ARE SELECTING THE REQUIRED FILED AND CHECKING THE JOINDATE
+-- WHERE THE INNER QUERY IS GIVING ME THE MAX JOINDATE
+-- SO IT BASICALLY TELLS GIVE ME ALL THE USER WHO JOINED ON THIS JOINDATE 
+
+select firstname, surname, joindate
 from members
-ORDER BY joindate DESC
-LIMIT 1;
+where joindate = (select MAX(joindate) from members);
