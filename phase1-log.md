@@ -1,5 +1,5 @@
 # Phase 1 log
-Source of truth: Phase1_Master_Plan_v3.2.md
+Source of truth: Phase1_Master_Plan_v3.3.md (uploaded to the Claude project 2026-10-05)
 
 ## Weekly closes
 (Sunday: paste the section 7 template here, newest on top)
@@ -52,13 +52,13 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added D1 on 10-05).
 
 ## Contingency
-| Week | Unit | Hours | Reason | Total used | Remaining (of ~55) |
+| Week | Unit | Hours | Reason | Total used | Remaining (of ~50 from v3.3; ~55 before) |
 |---|---|---|---|---|---|
 | W0 | - | 0 | - | 0 | 55 |
 
 ## Later-refactor log
-- 2026-10-05: check_plan.py docstring still names v3.1 (cosmetic; the script reads the file passed to it). Fix when next touched.
-- 2026-10-05: coach test-folder rule, Checklist D coverage gap and Fluent Python placement are in the v3.3 draft; closes when Om uploads v3.3.
+- 2026-10-05: check_plan.py docstring still names v3.1. Done Oct 5: upgraded script uploaded to the Claude project.
+- 2026-10-05: coach test-folder rule, Checklist D coverage gap and Fluent Python placement are in the v3.3 draft; done: v3.3 uploaded to the Claude project Oct 5.
 
 ## Verdict log
 (newest on top)
