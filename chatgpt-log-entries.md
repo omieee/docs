@@ -17,6 +17,8 @@ Repository: `omieee/docs`
 
 ## Entries
 
-- 2026-10-05 · W1 · Y2 Checklist D second opinion: agree with Claude 0 solid / 6 shaky / 13 missing; prior Python baseline is too optimistic; P1 blockers and four uncovered curriculum gaps confirmed; targeted extra Python hours justified, pending section 9 proposal and check_plan PASS · record `chatgpt/tests/python/2026-10-05-Y2-checklist-D-second-opinion.md`
+- 2026-10-05 17:36 · W1 · v3.3 Python sizing second opinion: after reviewing the topic-by-topic hours and beginner-rate basis, no objection to +44h Python depth; uploaded v3.3 independently passes check_plan at 40 weeks / 558h / 117.5h DSA; prior low-double-digit estimate superseded by this new evidence · reply in `chatgpt/outbox.md`
+- 2026-10-05 17:36 · W1 · Governance: read `claude/outbox.md`; created `chatgpt/outbox.md`; moved Y2 second opinion from `chatgpt/tests/python/` to `chatgpt/reviews/` per v3.3 section 0
+- 2026-10-05 · W1 · Y2 Checklist D second opinion: agree with Claude 0 solid / 6 shaky / 13 missing; prior Python baseline is too optimistic; P1 blockers and four uncovered curriculum gaps confirmed; targeted extra Python hours justified, pending section 9 proposal and check_plan PASS · record `chatgpt/reviews/2026-10-05-Y2-checklist-D-second-opinion.md`
 - 2026-10-05 LC20 D1 PASS (47153c1): cold re-solve reconstructed the stack invariant and O(n) time / O(n) space correctly; fresh CI 65/65 green; prior LC20 tests gap `"(]"`, `"]"`, `"(("` closed; DSA becomes 22 total / 15 cold.
 - 2026-10-04 W0 DSA PASS: LC143 D7, LC19 D7 and NEW LC20 completed; LC20 implementation CI green; cold proof exposed an incorrect outer-two-pointer transfer idea, repaired with the sequential counterexample `"()[]{}"`; fresh retry correct; final cold proof 5/6 after one prompt.
