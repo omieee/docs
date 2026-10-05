@@ -25,7 +25,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 ## DSA tracker
 | Problem | First solved | D1 | D3 | D7 | D14 | D28 | Result |
 |---|---|---|---|---|---|---|---|
-| 20 Valid Parentheses | 2026-10-04 | due 10-05 | due 10-07 | due 10-11 | due 10-18 | due 11-01 | NEW PASS; cold proof 5/6 after one prompt (ChatGPT); tests gap open: "(]", "]", "((" |
+| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | due 10-07 | due 10-11 | due 10-18 | due 11-01 | NEW PASS; cold proof 5/6 after one prompt (ChatGPT); LC20 tests fixed (474569e); D1 tests still miss the unclosed-opener assert |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | due 10-08 | due 10-22 |  |
 | 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | due 10-07 | due 10-21 |  |
 | 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | due 10-06 | due 10-20 |  |
@@ -49,7 +49,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 | 217 Contains Duplicate | 2026-05-23 |  |  |  |  |  | pre-plan; cold 07-21 |
 | 682 Baseball Game | 2026-10-03 |  |  |  |  |  | DRILL, not counted; space O(n) and tests fix open |
 
-Count check: 22 counted rows = 22 total; 14 rows with a cold = 14 cold.
+Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added D1 on 10-05).
 
 ## Contingency
 | Week | Unit | Hours | Reason | Total used | Remaining (of ~55) |
