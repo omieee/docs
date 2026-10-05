@@ -59,6 +59,7 @@ Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added
 ## Later-refactor log
 - 2026-10-05: check_plan.py docstring still names v3.1. Done Oct 5: upgraded script uploaded to the Claude project.
 - 2026-10-05: coach test-folder rule, Checklist D coverage gap and Fluent Python placement are in the v3.3 draft; done: v3.3 uploaded to the Claude project Oct 5.
+- 2026-10-05: plan and checker master copy now in `plan/` (Om approved). Next plan revision: write this into section 12 (file hygiene). No re-upload needed until then.
 
 ## Verdict log
 (newest on top)
