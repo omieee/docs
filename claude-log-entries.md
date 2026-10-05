@@ -13,6 +13,8 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-05 15:47 · W1 · Y2 Checklist D baseline · PASS (diagnostic, written): 0 solid / 6 shaky / 13 missing; P1-blocking: context managers, pytest fixtures, dataclass eq/repr; Fluent Python trigger (6.9) met · record `claude/tests/python/2026-10-05-Y2-checklist-D-baseline.md` · Closes Y2
+- 2026-10-05 15:47 · W1 · Governance · created `claude/` and `chatgpt/` test folders per Om's rule: each coach writes only its own, reads both
 - 2026-10-05 10:48 · W1 · Governance · claude-log-entries.md created; phase1-log.md tracker row 20 D1 = 10-05 PASS and count 22 / 15 updated
 - 2026-10-05 10:29 · W1 · LC20 D1 · transfer retry PASS: push only openers (`closeOpenMappingDict.values()`) keeps the stack invariant; item cleared at 1/2, original miss recorded · D1 closed except row 4 assert
 - 2026-10-05 10:15 · W1 · LC20 D1 · transfer Q 1/2: trace and skip-letters fix right; push-and-clean option fails on "a(b)c" (leaves [a, c]) · retry asked
