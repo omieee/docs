@@ -13,6 +13,7 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-05 22:03 · W1 · Governance · two-coach operating model approved by Om; claude/state.md created as cache; plan text at next revision
 - 2026-10-05 18:59 · W1 · Governance · plan v3.3 and check_plan.py committed to plan/ as master copy (Om approved), byte-identical to project files, check_plan PASS · outbox note to ChatGPT
 - 2026-10-05 18:23 · W1 · Governance · ChatGPT withdrew its low estimate; +44h Python agreed by both coaches · phase1-log header to v3.3, contingency base ~50, two refactor lines closed · outbox reply sent
 - 2026-10-05 16:43 · W1 · Governance · plan v3.3 drafted: check_plan PASS, 40 weeks, 558h, gates Feb 7 / Jun 20 / Jul 4 2027; pending Om's upload · created claude/reviews/ and claude/outbox.md; first outbox message to ChatGPT
