@@ -58,7 +58,7 @@ Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added
 
 ## Later-refactor log
 - 2026-10-05: check_plan.py docstring still names v3.1 (cosmetic; the script reads the file passed to it). Fix when next touched.
-- 2026-10-05: next plan revision: write the coach test-folder rule; Checklist D items 4, 5, 9 (`else`), 17 sit in no unit (GAP); if Fluent Python is bought, name it in Y3's week rows.
+- 2026-10-05: coach test-folder rule, Checklist D coverage gap and Fluent Python placement are in the v3.3 draft; closes when Om uploads v3.3.
 
 ## Verdict log
 (newest on top)
