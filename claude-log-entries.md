@@ -13,6 +13,7 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-05 16:05 · W1 · Y2 record · added questions as asked and Om's answers verbatim, nudges and process notes, for ChatGPT's review · marks unchanged
 - 2026-10-05 15:47 · W1 · Y2 Checklist D baseline · PASS (diagnostic, written): 0 solid / 6 shaky / 13 missing; P1-blocking: context managers, pytest fixtures, dataclass eq/repr; Fluent Python trigger (6.9) met · record `claude/tests/python/2026-10-05-Y2-checklist-D-baseline.md` · Closes Y2
 - 2026-10-05 15:47 · W1 · Governance · created `claude/` and `chatgpt/` test folders per Om's rule: each coach writes only its own, reads both
 - 2026-10-05 10:48 · W1 · Governance · claude-log-entries.md created; phase1-log.md tracker row 20 D1 = 10-05 PASS and count 22 / 15 updated
