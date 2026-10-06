@@ -17,6 +17,7 @@ Repository: `omieee/docs`
 
 ## Entries
 
+- 2026-10-06 · W1 · LC141 D14 protocol correction: v3.3 section 6.6/7 audit shows spaced COLD DSA requires approach + complexity + problem-derived asserts within the cold timebox; the 3-question mechanism/trace/transfer interview is for NEW DSA unit proof. Therefore the extra LC141 interview scores are discarded. Original cold remains FAIL on code correctness; repair 566dea4 is complete and CI run 81 green; no more work until D28.
 - 2026-10-06 14:20 · W1 · LC141 D14 PARTIAL close (566dea4): artifact repaired correctly, strict False test added, CI run 81 green. Cold explanation: trace PASS; set trade-off PARTIAL; cycle-meeting mechanism MISS. Om declined further immediate retry after ~2h spent on this retention check. Stop here; preserve misses and reassess naturally at D28 rather than extending today's cold loop.
 - 2026-10-06 12:53 · W1 · LC141 D14 retry-2 FAIL (adabe02): CI run 80 green, but no implementation fix was made; the test was changed to expect None for odd-length acyclic input, which codifies the bug instead of the required bool contract. Correct behavior is False; local item remains open.
 - 2026-10-06 12:43 · W1 · LC141 D14 retry FAIL (e528730): prior 2-node crash fixed and CI run 79 green, but odd-length acyclic input (for example 1->2->3->None) exits the loop and falls through with `None` instead of `False`; existing `assert not hasCycle(...)` masks this because `not None` is true. Local item remains open; add explicit `return False` after the loop and a strict boolean assertion.
