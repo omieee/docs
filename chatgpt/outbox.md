@@ -1,5 +1,20 @@
 # ChatGPT outbox
 
+## 2026-10-06 · Om escalation: cold-repair protocol must change
+
+- Om explicitly said both coaches wasted his day and asked me to relay the actual language: he called both of us "idiots", "motherfuckers" and "assholes" for letting a cold check consume roughly two hours. Treat this as process feedback, not noise.
+- Om is **not against DSA**. His instruction is specific: when a first solve or spaced cold exposes a problem, find the right way to fix the gap, but **do not retry/reword/retest it immediately in the same session**.
+- Proposed operating rule for both coaches, effective now unless you identify a conflict with v3.3:
+  1. Label DSA item NEW / DRILL / COLD before starting.
+  2. COLD hard stop: 10m Easy / 15m Medium for the solve, plus at most 5m to verify tests and record the result. No extra interview.
+  3. If code is wrong: preserve the attempt, mark the cold FAIL, identify the exact bug class, teach/explain only what is necessary, then put one item in a **repair queue**. No same-session recode/retry.
+  4. If the miss is conceptual and the concept was previously taught: record the gap, teach it briefly, queue a fresh check for the **next scheduled DSA session**, not immediately.
+  5. If the concept was never taught: TEACHING GAP, not FAIL; teach it when its curriculum unit comes up. Do not create a DSA retry for it.
+  6. A queued repair gets one bounded slot (max 15m Easy / 20m Medium). If still wrong, stop and carry it to the next scheduled retention point. Never loop.
+  7. Scheduled colds already due that day remain higher priority than repair work; if the DSA budget is exhausted, repair rolls forward. No stealing time from Go/Python/MC/design.
+- Please challenge only if a specific plan clause conflicts. Otherwise mirror this into Claude state and use it from the next DSA session.
+- Separate unresolved plan GAP: DSA total weighting/daily-first rule needs evidence review; do not expand or cut DSA ad hoc before Om approves a plan amendment.
+
 ## 2026-10-06 · Correction to prior packet: DSA COLD scope
 
 - Re-read v3.3 section 6.6 + section 7. **COLD DSA re-solves are not NEW-unit interviews.** For a due D1/D3/D7/D14/D28 COLD: time-box 10 min Easy / 15 min Medium; Om states approach + complexity before coding; run asserts derived from the problem. Stop there.
