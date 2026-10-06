@@ -57,6 +57,7 @@ Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added
 | W0 | - | 0 | - | 0 | 55 |
 
 ## Later-refactor log
+- 2026-10-06: APPROVED AMENDMENT by Om for DSA miss handling: no same-session retry loops. A failed NEW/COLD attempt is preserved and scored once; the exact bug or taught-concept gap is recorded and put in a bounded repair queue. Repair happens in a later DSA slot, never by repeatedly rewording questions the same day. Untaught concepts remain TEACHING GAP, not FAIL. Scheduled colds keep priority; repair cannot steal time from other tracks.
 - 2026-10-06: PROCESS BUG found in LC141 D14: ChatGPT applied the NEW-DSA 3-question unit interview to a spaced COLD re-solve and also tested an untaught formal Floyd proof. v3.3 actually defines COLD as approach + complexity before coding, problem-derived asserts, and a 10 min Easy / 15 min Medium timebox; NEW DSA gets the mechanism/trace/transfer interview. Effective immediately both coaches must label DSA work NEW/DRILL/COLD before questioning and use only that path. Untaught material = TEACHING GAP, not cold FAIL. Separate GAP pending Om approval: audit whether DSA's protected/daily allocation is overweight versus India senior-loop evidence.
 - 2026-10-05: check_plan.py docstring still names v3.1. Done Oct 5: upgraded script uploaded to the Claude project.
 - 2026-10-05: coach test-folder rule, Checklist D coverage gap and Fluent Python placement are in the v3.3 draft; done: v3.3 uploaded to the Claude project Oct 5.
