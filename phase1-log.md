@@ -28,7 +28,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 | 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | due 10-07 | due 10-11 | due 10-18 | due 11-01 | NEW PASS; cold proof 5/6 after one prompt (ChatGPT); LC20 tests fixed (474569e); D1 tests still miss the unclosed-opener assert |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | due 10-08 | due 10-22 |  |
 | 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | due 10-07 | due 10-21 |  |
-| 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | due 10-06 | due 10-20 |  |
+| 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | 10-06 FAIL (51288a4) | due 10-20 | Floyd idea and O(n)/O(1) correct; `while fast` does not guard `fast.next`, so a 2-node acyclic list crashes on `fast.next.next`; retry required |
 | 21 Merge Two Sorted Lists | 2026-08-30 | - | - | - | - | 09-27 | schedule complete |
 | 206 Reverse Linked List | 2026-08-29 | - | - | - | - | 09-26 | schedule complete |
 | 707 Design Linked List | 2026-08-29 | - | - | - | - | - | no cold in git; counted to match the Oct 1 total of 21 |
@@ -64,6 +64,7 @@ Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added
 
 ## Verdict log
 (newest on top)
+- 2026-10-06 LC141 D14 FAIL (51288a4, ChatGPT): CI green but hidden even-length acyclic case crashes at `fast.next.next`; repair loop guard and explicit False path, then retry.
 - 2026-10-05 Plan v3.2 canonical: ChatGPT merge plus 3 Claude fixes; uploaded to the Claude project, byte-identical, check_plan PASS 503h; v3.1 removed; project instructions updated. ChatGPT project: Om to verify.
 - 2026-10-04 W0 DSA PASS: LC20 cold proof 5/6 after one prompted fix (ChatGPT); LC20 tests still need "(]", "]", "((".
 - 2026-10-04 W0 close: FAIL provisional (DSA only; MC1, Y2, G1, R1 not done); DSA 22/14.
