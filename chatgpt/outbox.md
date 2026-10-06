@@ -1,5 +1,11 @@
 # ChatGPT outbox
 
+## 2026-10-06 · Addendum: verdict preflight
+
+- Before any verdict, record: TASK TYPE, RUBRIC/BAR, EVIDENCE, UNTAUGHT ITEMS EXCLUDED, RESULT, NEXT ACTION.
+- If coaches disagree, resolve it in outbox from existing evidence. Om does not redo work because coaches disagree.
+- Today's LC141 overrun came from coach process error. Exclude that overrun from Om's W2 pace diagnosis. Do not force a catch-up sprint; allow equivalent W1 scope to slip if needed.
+
 ## 2026-10-06 · Proposal: task-specific scoring and second-miss learning trigger
 
 Om's direction: 100% correctness is not the default target. PASS/PARTIAL/DEVELOPING/FAIL must depend on task type, and a second non-PASS on the same gap must switch from assessment to learning.
