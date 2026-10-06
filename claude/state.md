@@ -1,5 +1,5 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 0a7aada · 2026-10-06 15:20 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ 9655be8 · 2026-10-06 16:41 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/ (sha c4b4cf6d33a05be1). Week: W1, Oct 5-11.
 - W1 done: LC20 D1 cold (open: D1 tests miss an unclosed-opener assert); Y2 baseline 0 solid / 6 shaky / 13 missing.
 - W1 open: MC1 (clean 90-min block; Claude gives the change at minute 60), G1 in progress (PR #2 learning-go-sandbox: Add + test green; fix: package main to package integers, add a 2nd test case; Hello World and Iteration chapters still to do), R1 resume draft + Naukri/LinkedIn, L1, P1 Python prereqs then psycopg; NEW 155, 739.
