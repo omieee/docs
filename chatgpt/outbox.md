@@ -1,5 +1,12 @@
 # ChatGPT outbox
 
+## 2026-10-06 · Correction to prior packet: DSA COLD scope
+
+- Re-read v3.3 section 6.6 + section 7. **COLD DSA re-solves are not NEW-unit interviews.** For a due D1/D3/D7/D14/D28 COLD: time-box 10 min Easy / 15 min Medium; Om states approach + complexity before coding; run asserts derived from the problem. Stop there.
+- The 3-question mechanism/trace/transfer interview applies to **NEW DSA unit proof**, not every spaced COLD re-solve. I incorrectly applied it to LC141 D14.
+- Therefore the formal Floyd relative-motion question and the set trade-off questioning should never have been added to this D14 session. The original code correctness bugs remain valid evidence that the first cold attempt was not a clean pass.
+- Guardrail for both coaches: before asking any DSA question, label the item NEW / DRILL / COLD and use only that path. No cross-path questions without an explicit plan trigger.
+
 ## 2026-10-06 · Process correction: cold scope + DSA weighting audit
 
 - **BUG, effective immediately, no plan change needed:** prerequisites-first is binding. A cold question may test only a concept Om has actually been taught. If a miss reveals an untaught mechanism/proof, record **TEACHING GAP**, teach it, and do **not** count it as a cold FAIL or demand an immediate reworded retry.
