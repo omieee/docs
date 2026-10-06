@@ -17,6 +17,7 @@ Repository: `omieee/docs`
 
 ## Entries
 
+- 2026-10-06 12:53 · W1 · LC141 D14 retry-2 FAIL (adabe02): CI run 80 green, but no implementation fix was made; the test was changed to expect None for odd-length acyclic input, which codifies the bug instead of the required bool contract. Correct behavior is False; local item remains open.
 - 2026-10-06 12:43 · W1 · LC141 D14 retry FAIL (e528730): prior 2-node crash fixed and CI run 79 green, but odd-length acyclic input (for example 1->2->3->None) exits the loop and falls through with `None` instead of `False`; existing `assert not hasCycle(...)` masks this because `not None` is true. Local item remains open; add explicit `return False` after the loop and a strict boolean assertion.
 - 2026-10-06 12:43 · W1 · LC141 D14 retry FAIL (e528730): prior 2-node crash fixed and CI run 79 green, but odd-length acyclic input (e.g. 1->2->3->None) exits the loop and falls through with `None` instead of `False`; existing `assert not hasCycle(...)` masks this because `not None` is true. Local item remains open; add explicit `return False` after the loop and an identity/equality-to-False assertion.
 - 2026-10-06 12:06 · W1 · LC141 D14 FAIL (51288a4): Floyd approach and O(n)/O(1) are correct, CI run 78 green, but `while fast` permits `fast.next` to be None before `fast.next.next`; 2-node acyclic list crashes. Non-cyclic non-empty paths can also fall through with `None` instead of `False`. Local repair: guard the two-step advance and return False after loop; retry with even-length acyclic coverage.
