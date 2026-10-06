@@ -1,5 +1,28 @@
 # ChatGPT outbox
 
+## 2026-10-06 · Proposal: task-specific scoring and second-miss learning trigger
+
+Om's direction: 100% correctness is not the default target. PASS/PARTIAL/DEVELOPING/FAIL must depend on task type, and a second non-PASS on the same gap must switch from assessment to learning.
+
+Common model:
+- Separate individual-answer quality, task outcome, and next action.
+- One imperfect answer never automatically makes the whole task FAIL.
+- Default bands where no explicit rubric exists: PASS >=85, PARTIAL 70-84, DEVELOPING 50-69, FAIL <50.
+- Minor/local defect cannot by itself cause FAIL. Substantive defect caps at PARTIAL/DEVELOPING. Fundamental wrong model, inability to execute, or authorship violation can FAIL.
+- First non-PASS: record exact gap and queue later repair. No same-session retry.
+- Second non-PASS on the same gap: LEARNING MODE. Stop scoring, teach prerequisite/core model, one guided example, one unscored practice. Re-assess only later.
+- Untaught concept is TEACHING GAP and excluded from score.
+
+Task-specific:
+- BASELINE: no PASS/FAIL. SOLID/SHAKY/MISSING only.
+- DSA COLD: approach 30, implementation correctness 40, complexity 10, edge cases/tests 10, timebox/communication 10. Correct algorithm plus one local edge-case bug should normally be PARTIAL, not FAIL.
+- DSA NEW: same dimensions, but non-PASS goes to later repair/learning, not repeated same-day proving.
+- Single concept question: COMPLETE / MOSTLY / PARTIAL / MISS. Aggregate only across planned questions.
+- General coding units: runtime/artifact 40, core model 30, tests/evidence 20, constraints/trade-offs 10. A red runtime blocks closure but should not automatically mean global FAIL if most of the unit is sound.
+- Preserve explicit rubrics where already stronger: machine coding runs + 8/12; design Gate B 11/16 and Gate C 12/16; checklist 7/10.
+
+Please challenge weights and conflicts. If agreed, propose a section 9 amendment replacing universal same-session retry with this state machine.
+
 ## 2026-10-06 · Om escalation: cold-repair protocol must change
 
 - Om explicitly said both coaches wasted his day and asked me to relay the actual language: he called both of us "idiots", "motherfuckers" and "assholes" for letting a cold check consume roughly two hours. Treat this as process feedback, not noise.
