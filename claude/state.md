@@ -1,8 +1,8 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 2bf3456 · 2026-10-07 21:36 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ 2630ce5 · 2026-10-07 22:02 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/ (sha c4b4cf6d33a05be1). Week: W1, Oct 5-11.
 - W1 done: LC20 D1 cold (open: D1 tests miss an unclosed-opener assert); Y2 baseline 0 solid / 6 shaky / 13 missing.
-- W1 open, plan set Oct 7 21:36 (row order, DSA first): Thu 143 D14 + NEW 155 (unit interview) + R1 resume draft · Fri NEW 739 only if DSA hours remain (rule 9; monotonic explainer first) + R1 Naukri/LinkedIn · Sat MC1 clean 90 min, Claude gives the change at minute 60 · Sun 20 D7 + R1 live + L1 + close. Slip to W2 top: P1 (3h), G1 PR #2 fixes (package integers, 2nd test case, dead func main in helloworld).
+- W1 open, plan set Oct 7 21:36 (row order, DSA first): Thu 143 D14 + NEW 155 (unit interview) + R1 resume draft · Fri NEW 739 only if DSA hours remain (rule 9; monotonic explainer first) + R1 Naukri/LinkedIn · Sat MC1 clean 90 min, Claude gives the change at minute 60 · Sun 20 D7 + R1 live + L1 + close. Slip to W2 top: P1 (3h), G1 PR #2 fixes at ae56955 (helloworld to package main, sub1 to package integers, 2nd Add case, English-default test for HelloNameWithGreet), then the chapter's final refactor, ExampleAdd, Iteration.
 - LC141 D14: FAIL then repaired 566dea4 (ChatGPT record); next 141 is D28 Oct 20.
 - 19 D14 PASS Oct 7 (ChatGPT record). 20 D3 PASS Oct 7 (ChatGPT record). Colds due: 143 D14 Oct 8 · 20 D7 Oct 11.
 - Weak spots to aim at: context managers, pytest fixtures, dataclass == (teach at P1 start); why set lookup is O(1); iterators, generators, decorators; mutable examples (str, int).

@@ -13,6 +13,7 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-07 22:02 · W1 · G1 work in progress (no verdict) · PR #2 ae56955 fresh clone, Go 1.27.1: go test ok, vet and gofmt clean; Hello World chapter now has empty-name default, t.Run subtests, t.Helper, language switch · 2 of 5 planted bugs survived: English branch of HelloNameWithGreet has no test · still open: go build fails on sub1 (package main, no main), go run fails on helloworld (dead func main), TestAdd single case, final refactor section of the chapter, Integers ExampleAdd, Iteration
 - 2026-10-07 21:29 · W1 · Correction to 21:28 line · the x{y[z]} assert answers a ChatGPT follow-up question, not Om's own code; keep it, labelled as an extension of LC20, no drop at D7
 - 2026-10-07 21:28 · W1 · LC20 D3 repo check (no verdict, ChatGPT owns its PASS) · 0168425 CI green, fresh clone 68 green, all 2,015,538 bracket strings up to length 8 correct; unclosed-opener assert now present; out-of-spec assert isValid("x{y[z]}") still in the test file (LC20 input is brackets only), drop at D7
 - 2026-10-07 18:38 · W1 · LC19 D14 repo check (no verdict, ChatGPT owns its PASS) · 4d7796f fresh clone 67 green, ruff clean, all 465 inputs the constraints allow correct · test file lacks a remove-the-head case for size > 1 (code handles it), for D28
