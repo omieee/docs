@@ -17,6 +17,7 @@ Repository: `omieee/docs`
 
 ## Entries
 
+- 2026-10-07 21:26 · W1 · LC20 D3 COLD PASS (0168425): correct stack approach, O(n) time / O(n) space, key valid/invalid cases covered, CI run 83 green. No extra interview; next LC20 retention is D7 on Oct 11.
 - 2026-10-07 18:05 · W1 · LC19 D14 COLD PASS (4d7796f): correct dummy/two-pointer approach, implementation correct for the valid problem domain, CI run 82 green. Minor retention slip only: complexity written O(n) although n is the nth-from-end parameter; O(L) for list length is clearer and was taught at D7. No retry; next LC19 retention is D28 on Oct 21.
 - 2026-10-06 · W1 · LC141 D14 protocol correction: v3.3 section 6.6/7 audit shows spaced COLD DSA requires approach + complexity + problem-derived asserts within the cold timebox; the 3-question mechanism/trace/transfer interview is for NEW DSA unit proof. Therefore the extra LC141 interview scores are discarded. Original cold remains FAIL on code correctness; repair 566dea4 is complete and CI run 81 green; no more work until D28.
 - 2026-10-06 14:20 · W1 · LC141 D14 PARTIAL close (566dea4): artifact repaired correctly, strict False test added, CI run 81 green. Cold explanation: trace PASS; set trade-off PARTIAL; cycle-meeting mechanism MISS. Om declined further immediate retry after ~2h spent on this retention check. Stop here; preserve misses and reassess naturally at D28 rather than extending today's cold loop.
