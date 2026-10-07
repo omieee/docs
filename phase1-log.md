@@ -27,7 +27,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 |---|---|---|---|---|---|---|---|
 | 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | due 10-07 | due 10-11 | due 10-18 | due 11-01 | NEW PASS; cold proof 5/6 after one prompt (ChatGPT); LC20 tests fixed (474569e); D1 tests still miss the unclosed-opener assert |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | due 10-08 | due 10-22 |  |
-| 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | due 10-07 | due 10-21 |  |
+| 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | due 10-21 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
 | 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | 10-06 FAIL, repair complete (566dea4) | due 10-20 | Original COLD had real code-correctness bugs, so it was not a clean pass. Same-day repair is correct and CI run 81 green. The extra mechanism/trace/trade-off interview was invalid for a spaced COLD and is discarded. No further work until D28 |
 | 21 Merge Two Sorted Lists | 2026-08-30 | - | - | - | - | 09-27 | schedule complete |
 | 206 Reverse Linked List | 2026-08-29 | - | - | - | - | 09-26 | schedule complete |
@@ -67,6 +67,7 @@ Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added
 
 ## Verdict log
 (newest on top)
+- 2026-10-07 LC19 D14 COLD PASS (4d7796f, ChatGPT): correct approach and implementation, CI run 82 green; O(n) vs O(L) notation retained as a minor note only, no retry.
 - 2026-10-06 LC141 D14 record corrected (ChatGPT): original COLD remains FAIL on code correctness; repair 566dea4 is correct with CI run 81 green. The added 3-question interview was invalid for a spaced COLD under v3.3 and its scores are discarded. No further work until D28.
 - 2026-10-06 LC141 D14 retry-2 FAIL (adabe02, ChatGPT): CI green, but test now expects None; implementation still violates the bool return contract. Test must require False, and code must satisfy it.
 - 2026-10-06 LC141 D14 retry FAIL (e528730, ChatGPT): CI green and dereference crash fixed, but odd-length acyclic input returns `None`; add explicit False after loop and a strict boolean assertion.
