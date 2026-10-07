@@ -13,6 +13,7 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-07 21:29 · W1 · Correction to 21:28 line · the x{y[z]} assert answers a ChatGPT follow-up question, not Om's own code; keep it, labelled as an extension of LC20, no drop at D7
 - 2026-10-07 21:28 · W1 · LC20 D3 repo check (no verdict, ChatGPT owns its PASS) · 0168425 CI green, fresh clone 68 green, all 2,015,538 bracket strings up to length 8 correct; unclosed-opener assert now present; out-of-spec assert isValid("x{y[z]}") still in the test file (LC20 input is brackets only), drop at D7
 - 2026-10-07 18:38 · W1 · LC19 D14 repo check (no verdict, ChatGPT owns its PASS) · 4d7796f fresh clone 67 green, ruff clean, all 465 inputs the constraints allow correct · test file lacks a remove-the-head case for size > 1 (code handles it), for D28
 - 2026-10-06 16:41 · W1 · G1 work in progress (no verdict) · PR #2 4a14946 fresh clone, Go 1.27.1: go test ok (helloworld, sub1), vet and gofmt clean; go build fails on sub1 (package main, no main, unchanged); go run ./g1/helloworld fails, package helloworld holds a dead func main; Hello World chapter stopped at Constants; Integers fix and Iteration not done
