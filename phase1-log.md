@@ -25,6 +25,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 ## DSA tracker
 | Problem | First solved | D1 | D3 | D7 | D14 | D28 | Result |
 |---|---|---|---|---|---|---|---|
+| 155 Min Stack | 2026-10-10 | due 10-11 | due 10-13 | due 10-17 | due 10-24 | due 11-07 | NEW PARTIAL (640354f, f17e69b, Claude): code correct, planted bugs 5/5 caught; interview 3/6, transfer (space-saving rules) in repair queue for the next DSA slot |
 | 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | due 10-11 | due 10-18 | due 11-01 | D3 cold PASS; correct stack approach and complexity; CI 83 green |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | due 10-22 | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
 | 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | due 10-21 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
@@ -49,7 +50,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 | 217 Contains Duplicate | 2026-05-23 |  |  |  |  |  | pre-plan; cold 07-21 |
 | 682 Baseball Game | 2026-10-03 |  |  |  |  |  | DRILL, not counted; space O(n) and tests fix open |
 
-Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added D1 on 10-05).
+Count check: 23 counted rows = 23 total; 15 rows with a cold = 15 cold (NEW 155 added 10-10).
 
 ## Contingency
 | Week | Unit | Hours | Reason | Total used | Remaining (of ~50 from v3.3; ~55 before) |
@@ -67,6 +68,7 @@ Count check: 22 counted rows = 22 total; 15 rows with a cold = 15 cold (20 added
 
 ## Verdict log
 (newest on top)
+- 2026-10-10 NEW 155 Min Stack PARTIAL (640354f, f17e69b, Claude): code correct (0/20,000 mismatches vs brute force), tests catch 5/5 planted bugs; interview 3/6 scored once, transfer local FAIL on the space-saving pop/push rules, taught; same-session retries were a Claude slip vs the Oct 6 amendment and are not counted; one repair question queued for the next DSA slot (max 5 min). Record: claude/tests/dsa/2026-10-10-LC155-NEW-min-stack.md
 - 2026-10-07 LC20 D3 COLD PASS (0168425, ChatGPT): correct stack solution and complexity; CI 83 green; no extra interview.
 - 2026-10-07 LC19 D14 COLD PASS (4d7796f, ChatGPT): correct approach and implementation, CI run 82 green; O(n) vs O(L) notation retained as a minor note only, no retry.
 - 2026-10-06 LC141 D14 record corrected (ChatGPT): original COLD remains FAIL on code correctness; repair 566dea4 is correct with CI run 81 green. The added 3-question interview was invalid for a spaced COLD under v3.3 and its scores are discarded. No further work until D28.
