@@ -1,10 +1,10 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 4d29240 + this commit · 2026-10-11 12:55 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ c8ebe59 + this commit · 2026-10-11 17:25 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/ (sha c4b4cf6d33a05be1). Week: W1, Oct 5-11.
 - W1 done: Y2 baseline 0 solid / 6 shaky / 13 missing. Colds 20 D1, 141 D14 (FAIL, repaired), 19 D14, 20 D3, 143 D14 (PARTIAL). NEW 155 PARTIAL Oct 10 (PR #8 f17e69b). MC1, R1, L1, P1 not started. G1 PR #2 still at ae56955, open (4 fixes listed in Oct 10 11:10 log line).
-- DSA 23 / 15. Repair queue: 155 space-saving push/pop rules, one fresh question, Claude, next DSA slot after Oct 11 colds, max 5 min.
-- Oct 11: 20 D7 PASS (8647552). Still due today: 155 D1 cold, then the 155 repair. 155 D3 Oct 13, D7 Oct 17, D14 Oct 24, D28 Nov 7. 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 20 D14 Oct 18.
-- Om pattern (155 interview): executes and traces right, leaves out the "why". Ask for the reason at every step.
+- DSA 23 / 16. Repair queue: 155 space-saving push/pop rules, one fresh question, Claude, next DSA slot after Oct 11 colds, max 5 min.
+- Oct 11: 20 D7 PARTIAL (ChatGPT; Claude PASS withdrawn, complexity missing). 155 D1 PASS (42c157e). 155 repair question asked 17:25. 155 D3 Oct 13, D7 Oct 17, D14 Oct 24, D28 Nov 7. 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 20 D14 Oct 18.
+- Om pattern (155 interview): executes and traces right, leaves out the "why". Ask for the reason at every step. Om sends some submissions to both coaches: check the other log before any verdict.
 - Oct 10: Sev 1 Oct 9 (zero day), on-call Oct 10-11; Om says W1-level hours are his normal week. Floor days per plan s9; never two zero days (Oct 10 has 155).
 - MC1 slipped W0 and W1. Needs a named clean 90-min day in W2; never fragments.
 - Capacity: plan assumes 15 hrs/week. W2 check Oct 18 (s5): under 10 avg since Oct 1 means re-forecast that Sunday. Asked Om for W1 actual hours incl. bedside, on-call/Sev frequency per month, cue time.
