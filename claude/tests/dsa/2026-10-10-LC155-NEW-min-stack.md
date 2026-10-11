@@ -5,7 +5,7 @@
 - **Type:** DSA NEW. Proof per plan section 7: artifact, tests, paragraph from memory, three cold questions (mechanism, trace, transfer).
 - **Mode:** written in chat, cold. Om stated code closed, no notes, no AI.
 - **Prerequisite check:** stack lesson done before LC20 (W0). Min Stack worked example from NeetCode, per the docstring in 640354f. Space-saving variant not taught before the interview; it was asked as the transfer question.
-- **Result:** NEW PARTIAL. Artifact PASS. Interview 3/6 scored once, transfer item is a local FAIL. Repair queued for the next DSA slot (see end).
+- **Result:** NEW PASS on Oct 11 after the queued repair. Oct 10: PARTIAL (artifact PASS, interview 3/6 scored once, transfer local FAIL). Oct 11 repair correct: transfer item now 1, interview 4/6.
 
 ## Artifact evidence
 
@@ -95,3 +95,15 @@ Om executes correctly but leaves out the "why" (Q1, retry 1, retry 2 reasons). S
 - **NEW 155: PARTIAL.** Code correct, tests honest (5/5), trace solid. Open item: the space-saving pop/push rules (Q3).
 - **Repair queue:** one fresh question on the space-saving push/pop rules, Claude, in the next DSA slot after that day's due colds (Oct 11: LC20 D7, LC155 D1). Max 5 minutes. Correct means PASS. Wrong means it carries to the next retention point, no loop.
 - **Polish, logged once:** test uses `min` as a variable name, which hides the built-in.
+
+## Repair, 2026-10-11 17:2x IST (next DSA slot, after the 20 D7 and 155 D1 colds)
+
+Context: Om's 155 D1 cold (42c157e) included the space-saving version, with pop written as `if popped <= self.minstack[-1]`. Code correct (0/20,000 vs brute force, planted bugs 5/5).
+
+Question as asked: In your space-saving pop you wrote `if popped <= self.minstack[-1]`. Can the popped value ever be smaller than the min top? So what is that check really testing, and why?
+
+> You might be right we can only check ==  because while inserting only we are checking <= so doesn't make sense to do <= while popping it should pop only when both are equal .. because we are inserting for < and = both
+
+Mark: **correct.** Concludes the check is really `==` and gives the reason: every value less than or equal to the min top is pushed onto minstack, so nothing in the stack is ever smaller than the min top. Stated loosely, but the mechanism is right and unprompted. Transfer item scores 1 (original 0 stays recorded). Local FAIL cleared.
+
+**Final: NEW 155 PASS.** Interview 4/6: mechanism 1, trace 2, transfer 1 after repair. Polish, not required: `==` states the intent more clearly than `<=`; both are correct.
