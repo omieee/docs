@@ -13,6 +13,7 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-12 00:09 · W2 · G1 work in progress (no verdict) · PR #2 67e388b: English-branch test added, reaches the default branch; replanted "Hi! " bug now caught; build, vet, test, gofmt clean · all four Oct 10 fixes done · left: Iteration chapter, then the G1 interview
 - 2026-10-12 00:02 · W2 · G1 work in progress (no verdict) · PR #2 2279bbf: sub1 deleted, go build ./... now passes, dead main removed from helloworld, package renamed integers; test, vet, gofmt clean · open: English-branch test (taught: no test reaches the default return), Iteration chapter
 - 2026-10-11 23:53 · W1 · G1 work in progress (no verdict) · PR #2 c0cd850, Go 1.27: go test ok, vet and gofmt clean · Integers added: Add, TestAdd, ExampleAdd; the example runs and catches a hardcoded Add, so the second-case ask is met · planted bugs 4/5 caught; English branch of HelloNameWithGreet still untested · still open: go build ./... fails (sub1 is package main with no main, now a duplicate of integers), dead func main in helloworld, package addition in folder integers (rename to integers), Iteration chapter
 - 2026-10-11 17:30 · W1 · Weekly close facts · proposed PARTIAL: Y2 closed, NEW 155 PASS, 7 colds (4 PASS, 2 PARTIAL, 1 FAIL repaired), DSA 23/16, artifacts 6 of 7 days; MC1 missed a second week, 739, G1, R1, L1, P1 not done; hours not logged · W2 scope written in phase1-log, capped at 15h · cue time still not set · ChatGPT runs the spoken check
