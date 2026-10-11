@@ -5,6 +5,27 @@ Source of truth: Phase1_Master_Plan_v3.3.md (uploaded to the Claude project 2026
 (Sunday: paste the section 7 template here, newest on top)
 
 ```
+WEEK 1: PARTIAL (proposed by Claude from git, CI and tracker facts, 2026-10-11 17:30 IST; ChatGPT spoken check pending, one combined close)
+Focused hours, planned / actual (bedside required items included): 15 / not logged (Om: "variable"; logging starts W2)
+Actual vs planned hours, each unit closed: Y2 1h planned, actual not logged; NEW 155 actual not logged
+Largest overrun or underrun, and why: underrun: MC1, R1, L1, P1 got 0 of 9.5h planned (Sev 1 Oct 9, on-call Oct 10-11, no cue time); LC141 D14 ran about 2h on Oct 6 against a 15-min cold box, coach process error, excluded per the Oct 6 amendment
+Contingency used this week / total used / remaining (of about 50): 0 / 0 / 50
+Planned: DSA 3.5h (NEW 155, NEW 739), MC1 2.5h, Y2 1h, G1 0.5h, R1 3h, L1 1h, P1 3h, proofs 0.5h
+Completed (with commit hashes): Y2 baseline (0ddf130): 0 solid / 6 shaky / 13 missing. NEW 155 PASS (640354f, f17e69b; PARTIAL Oct 10, repair correct Oct 11, interview 4/6). Colds: 20 D1 PASS (47153c1), 141 D14 FAIL then repaired (566dea4), 19 D14 PASS (4d7796f), 20 D3 PASS (0168425), 143 D14 PARTIAL (781a8f4), 20 D7 PARTIAL (8647552), 155 D1 PASS (42c157e)
+Not completed: NEW 739; MC1 (second week missed); G1 (PR #2 open at ae56955: go build fails on sub1, dead main in helloworld, TestAdd has one case, English branch untested; Integers and Iteration not done); R1; L1; P1
+DSA total / cold: 23 / 16
+Machine coding reps: 0
+Design mocks: 0
+Git and production evidence: dsa-python PR #8 open (head 42c157e); learning-go-sandbox PR #2 open (ae56955); no PRCP or lld-patterns commits since Oct 1
+Execution gaps (days with no artifact): Oct 9 (Sev 1). 14-day tripwire (Sep 28-Oct 11): 12 of 14 days with an artifact, no two-day gap, not hit
+Carry-forward: NEW 739 (monotonic stack explainer first), MC1, G1 rest, R1 3h, L1 1h, P1 3h; LC20 D14: complexity first, add a "(])" assert
+Next week's scope: capped at 15h, in this order: DSA colds (155 D3 Oct 13, 155 D7 Oct 17, 20 D14 Oct 18) and NEW 739 (about 3h); MC1 on one named clean 90-min day plus review (2.5h); G1 to close per the W2 row (3h); R1 resume v1 plus Naukri and LinkedIn live, October deadline (3h); L1 (1h); P1 Python prerequisites (1.5h); proofs (0.5h). Slips to W3 in row order: P1 psycopg, W2 NEW 704 and binary search lessons, K1, H1, R3, L1 W2 part. Capacity check Oct 18 uses W2's logged hours (W0 and W1 unlogged)
+Change-control trigger: NO
+Om inputs: weekend on-call done for 2026; now about 1 weekday on-call a month and about 2 on-call weekends a year. Sev frequency not given. Cue time not set (open since Oct 1)
+Spoken check (ChatGPT): pending
+```
+
+```
 WEEK 0: FAIL (provisional: W0 DSA PASS; MC1 and Y2, the week's closing units, not done)
 Focused hours, planned / actual (bedside required items included): 8 / [Om to fill]
 Largest overrun or underrun, and why: [Om to fill]
