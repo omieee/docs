@@ -1,7 +1,7 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 4dff42b + this commit · 2026-10-11 17:30 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ c8a0f92 + this commit · 2026-10-11 23:53 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/ (sha c4b4cf6d33a05be1). Week: W1 closing Oct 11 (proposed PARTIAL, ChatGPT spoken check pending); W2 Oct 12-18.
-- W1 done: Y2 baseline 0 solid / 6 shaky / 13 missing. Colds 20 D1, 141 D14 (FAIL, repaired), 19 D14, 20 D3, 143 D14 (PARTIAL). NEW 155 PASS Oct 11 (PARTIAL Oct 10, repair correct). MC1, R1, L1, P1 not started. G1 PR #2 still at ae56955, open (4 fixes listed in Oct 10 11:10 log line).
+- W1 done: Y2 baseline 0 solid / 6 shaky / 13 missing. Colds 20 D1, 141 D14 (FAIL, repaired), 19 D14, 20 D3, 143 D14 (PARTIAL). NEW 155 PASS Oct 11 (PARTIAL Oct 10, repair correct). MC1, R1, L1, P1 not started. G1 PR #2 at c0cd850, open: Integers added (example covers 2nd case); open: delete or fix sub1 (build fails), dead main in helloworld, package addition -> integers, English-branch test, Iteration.
 - DSA 23 / 16. Repair queue: empty.
 - Oct 11: 20 D7 PARTIAL (ChatGPT; Claude PASS withdrawn, complexity missing). 155 D1 PASS (42c157e). 155 repair correct, NEW PASS. 155 D3 Oct 13, D7 Oct 17, D14 Oct 24, D28 Nov 7. 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 20 D14 Oct 18.
 - Om pattern (155 interview): executes and traces right, leaves out the "why". Ask for the reason at every step. Om sends some submissions to both coaches: check the other log before any verdict.
