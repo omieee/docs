@@ -26,7 +26,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 | Problem | First solved | D1 | D3 | D7 | D14 | D28 | Result |
 |---|---|---|---|---|---|---|---|
 | 155 Min Stack | 2026-10-10 | due 10-11 | due 10-13 | due 10-17 | due 10-24 | due 11-07 | NEW PARTIAL (640354f, f17e69b, Claude): code correct, planted bugs 5/5 caught; interview 3/6, transfer (space-saving rules) in repair queue for the next DSA slot |
-| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PASS (8647552, Claude) | due 10-18 | due 11-01 | D3 cold PASS; correct stack approach and complexity; CI 83 green |
+| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PASS (8647552, Claude) | due 10-18 | due 11-01 | D7 code and CI #87 PASS; D7 complexity not recorded before coding, so D7 PARTIAL. No repeat today; D14 Oct 18 |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | due 10-22 | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
 | 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | due 10-21 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
 | 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | 10-06 FAIL, repair complete (566dea4) | due 10-20 | Original COLD had real code-correctness bugs, so it was not a clean pass. Same-day repair is correct and CI run 81 green. The extra mechanism/trace/trade-off interview was invalid for a spaced COLD and is discarded. No further work until D28 |
@@ -68,6 +68,7 @@ Count check: 23 counted rows = 23 total; 15 rows with a cold = 15 cold (NEW 155 
 
 ## Verdict log
 (newest on top)
+- 2026-10-11 12:49 IST LC20 D7 COLD PARTIAL (8647552, ChatGPT): stack implementation correct, CI #87 green; D7 source states approach but omits complexity proof. No extra interview/retry; D14 Oct 18. Record `chatgpt/tests/dsa/2026-10-11-LC20-D7-COLD.md`.
 - 2026-10-11 LC20 D7 COLD PASS (8647552, Claude): correct on all 2,015,539 bracket strings up to length 8, 71 green; complexity not written before coding; add a mismatched-closer assert such as "(])" at D14.
 - 2026-10-10 NEW 155 Min Stack PARTIAL (640354f, f17e69b, Claude): code correct (0/20,000 mismatches vs brute force), tests catch 5/5 planted bugs; interview 3/6 scored once, transfer local FAIL on the space-saving pop/push rules, taught; same-session retries were a Claude slip vs the Oct 6 amendment and are not counted; one repair question queued for the next DSA slot (max 5 min). Record: claude/tests/dsa/2026-10-10-LC155-NEW-min-stack.md
 - 2026-10-07 LC20 D3 COLD PASS (0168425, ChatGPT): correct stack solution and complexity; CI 83 green; no extra interview.
