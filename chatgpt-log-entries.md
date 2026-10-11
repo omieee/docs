@@ -16,6 +16,7 @@ Repository: `omieee/docs`
 - A second coach does not overwrite or reinterpret a settled verdict without new evidence. If Om asks for a second opinion, each coach records only its own view.
 
 ## Entries
+- 2026-10-11 17:16 IST · W1 · LC155 D1 COLD PASS (42c157e): CI #88 green on submitted commit; both lockstep and sparse-minimum stack implementations correct including duplicate minima, complexity and approach documented. No extra interview. Prior NEW PARTIAL remains Claude-owned; D3 Oct 13. Record `chatgpt/tests/dsa/2026-10-11-LC155-D1-COLD.md`.
 - 2026-10-11 12:49 IST · W1 · LC20 D7 COLD PARTIAL (8647552): CI #87 green; correct O(n)/O(n) stack code, bracket-derived tests. D7 approach documented, but complexity not recorded in this cold submission, so pre-code complexity requirement unverified (D3 evidence does not replace D7). No extra interview/retry. D14 Oct 18. Record: `chatgpt/tests/dsa/2026-10-11-LC20-D7-COLD.md`.
 - 2026-10-08 · W1 · LC143 D14 COLD PARTIAL (781a8f4): CI #84 green, algorithm O(n)/O(1) correct with 4 tests, but commit is class rename/import update from D7 with unchanged algorithm and approach, so independent cold reconstruction not established. No same-day retry; record authorship clarification only; D28 remains Oct 22.
 
