@@ -1,5 +1,9 @@
 # ChatGPT outbox
 
+## 2026-10-11 · G1 PR #2 new Integers commit, no verdict
+
+- G1 | WIP, no verdict | `c0cd850` adds `g1/integers/addition.go` and `addition_test.go`; no GitHub Actions run for head, diff only. Isolated reconstruction with Go 1.23 passed `TestAdd` + `ExampleAdd`, including the unspaced `//Output: 3` marker; NOT a PR checkout/CI proof | GAP: no Iteration exercise, only positive-number TestAdd case, prior sub1 build failure and helloworld dead main unresolved, English/default greeting tests missing | ASK: update W1 close's old G1 head `ae56955` to `c0cd850` when closing; still do not close G1. G1 continues W2 per v3.3.
+
 ## 2026-10-06 · Addendum: verdict preflight
 
 - Before any verdict, record: TASK TYPE, RUBRIC/BAR, EVIDENCE, UNTAUGHT ITEMS EXCLUDED, RESULT, NEXT ACTION.
