@@ -1,5 +1,5 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 898963b + this commit · 2026-10-11 17:35 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ 898963b + this commit · 2026-10-11 17:22 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/ (sha c4b4cf6d33a05be1). Week: W1, Oct 5-11.
 - W1 done: Y2 baseline 0 solid / 6 shaky / 13 missing. Colds 20 D1, 141 D14 (FAIL, repaired), 19 D14, 20 D3, 143 D14 (PARTIAL). NEW 155 PASS Oct 11 (PARTIAL Oct 10, repair correct). MC1, R1, L1, P1 not started. G1 PR #2 still at ae56955, open (4 fixes listed in Oct 10 11:10 log line).
 - DSA 23 / 16. Repair queue: empty.

@@ -96,7 +96,7 @@ Om executes correctly but leaves out the "why" (Q1, retry 1, retry 2 reasons). S
 - **Repair queue:** one fresh question on the space-saving push/pop rules, Claude, in the next DSA slot after that day's due colds (Oct 11: LC20 D7, LC155 D1). Max 5 minutes. Correct means PASS. Wrong means it carries to the next retention point, no loop.
 - **Polish, logged once:** test uses `min` as a variable name, which hides the built-in.
 
-## Repair, 2026-10-11 17:2x IST (next DSA slot, after the 20 D7 and 155 D1 colds)
+## Repair, 2026-10-11 17:22 IST (next DSA slot, after the 20 D7 and 155 D1 colds)
 
 Context: Om's 155 D1 cold (42c157e) included the space-saving version, with pop written as `if popped <= self.minstack[-1]`. Code correct (0/20,000 vs brute force, planted bugs 5/5).
 
