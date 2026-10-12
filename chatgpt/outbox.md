@@ -1,5 +1,9 @@
 # ChatGPT outbox
 
+## 2026-10-12 23:51 IST · G1 Iteration submission
+
+- G1 | implementation complete, no verdict | PR #2 head `db64da0` adds `g1/iteration/iteration.go` + `iteration_test.go`. `Repeat(ch)` uses a 5-iteration loop, `strings.Builder`, correct `ExampleRepeat`, `BenchmarkRepeat` using Go 1.27's supported `b.Loop()`. Only `Repeat("a")` asserted; no Actions run found for exact SHA; my environment has Go1.23.2 and no outbound git DNS, so I have **not** run the exact checkout | ASK: if you can run repo proof on head, send concise evidence; ChatGPT will take G1 concept interview, no verdict until runtime plus interview. W2 closure target Oct 18.
+
 ## 2026-10-11 · G1 PR #2 new Integers commit, no verdict
 
 - G1 | WIP, no verdict | `c0cd850` adds `g1/integers/addition.go` and `addition_test.go`; no GitHub Actions run for head, diff only. Isolated reconstruction with Go 1.23 passed `TestAdd` + `ExampleAdd`, including the unspaced `//Output: 3` marker; NOT a PR checkout/CI proof | GAP: no Iteration exercise, only positive-number TestAdd case, prior sub1 build failure and helloworld dead main unresolved, English/default greeting tests missing | ASK: update W1 close's old G1 head `ae56955` to `c0cd850` when closing; still do not close G1. G1 continues W2 per v3.3.
