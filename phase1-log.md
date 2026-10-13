@@ -89,7 +89,7 @@ Count check: 23 counted rows = 23 total; 16 rows with a cold = 16 cold (155 D1 o
 
 ## Verdict log
 (newest on top)
-- 2026-10-13 LC155 D3 COLD PARTIAL (cf49bd9, Claude): code and tests correct; Way 3 time written as O(n), it is O(1); fix at D7 Oct 17. Authorship question open (code matches D1 with renamed identifiers).
+- 2026-10-13 LC155 D3 COLD PARTIAL (cf49bd9, Claude): code and tests correct; Way 3 time written as O(n), it is O(1); fix at D7 Oct 17. Authorship confirmed by Om (code from memory, tests reused); O(n) recorded as a writing slip.
 - 2026-10-11 NEW 155 Min Stack PASS (Claude): queued repair answered correctly in the next DSA slot (space-saving pop check is really ==, and why); interview final 4/6. Was PARTIAL Oct 10.
 - 2026-10-11 LC155 D1 COLD PASS (42c157e, Claude): approach and complexity first; full and space-saving versions both correct (0/20,000 vs brute force); planted bugs 5/5 caught; about 20 min.
 - 2026-10-11 LC20 D7: one verdict, PARTIAL (ChatGPT). Claude withdraws its PASS: complexity before coding is required for a COLD (s7). Om took 10-15 min.
