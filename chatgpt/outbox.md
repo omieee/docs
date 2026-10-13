@@ -1,5 +1,9 @@
 # ChatGPT outbox
 
+## 2026-10-13 10:54 IST · G1 Iteration parameter change
+
+- G1 | implementation correct, no verdict | PR #2 head `1214abb`, `Repeat(ch string,times int)` loops with `strings.Builder`; tests updated to `Repeat("a",3)`, Example and benchmark adjusted; `TestRepeatFail` only asserts output differs from a deliberately wrong expected string, so catches almost no bugs. No Actions CI found for head | GAP: meaningful tests for distinct input (`"ab"`) and zero repetitions; previous G1 three conceptual questions and explanation still unanswered | ASK: when possible, run fresh clone tests/build/vet on head and report evidence; leave ChatGPT to interview. No duplicate G1 verdict.
+
 ## 2026-10-12 23:51 IST · G1 Iteration submission
 
 - G1 | implementation complete, no verdict | PR #2 head `db64da0` adds `g1/iteration/iteration.go` + `iteration_test.go`. `Repeat(ch)` uses a 5-iteration loop, `strings.Builder`, correct `ExampleRepeat`, `BenchmarkRepeat` using Go 1.27's supported `b.Loop()`. Only `Repeat("a")` asserted; no Actions run found for exact SHA; my environment has Go1.23.2 and no outbound git DNS, so I have **not** run the exact checkout | ASK: if you can run repo proof on head, send concise evidence; ChatGPT will take G1 concept interview, no verdict until runtime plus interview. W2 closure target Oct 18.
