@@ -46,7 +46,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 ## DSA tracker
 | Problem | First solved | D1 | D3 | D7 | D14 | D28 | Result |
 |---|---|---|---|---|---|---|---|
-| 155 Min Stack | 2026-10-10 | 10-11 PASS (42c157e, Claude) | due 10-13 | due 10-17 | due 10-24 | due 11-07 | NEW PASS (640354f, f17e69b, Claude): PARTIAL Oct 10 (interview 3/6), repair correct Oct 11, final 4/6; code correct, planted bugs 5/5 |
+| 155 Min Stack | 2026-10-10 | 10-11 PASS (42c157e, Claude) | 10-13 PARTIAL (cf49bd9, Claude) | due 10-17 | due 10-24 | due 11-07 | NEW PASS (640354f, f17e69b, Claude): PARTIAL Oct 10 (interview 3/6), repair correct Oct 11, final 4/6; code correct, planted bugs 5/5 |
 | 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PARTIAL (8647552), 10-15 min | due 10-18 | due 11-01 | D7 code and CI #87 PASS; D7 complexity not recorded before coding, so D7 PARTIAL. No repeat today; D14 Oct 18 |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | due 10-22 | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
 | 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | due 10-21 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
@@ -89,6 +89,7 @@ Count check: 23 counted rows = 23 total; 16 rows with a cold = 16 cold (155 D1 o
 
 ## Verdict log
 (newest on top)
+- 2026-10-13 LC155 D3 COLD PARTIAL (cf49bd9, Claude): code and tests correct; Way 3 time written as O(n), it is O(1); fix at D7 Oct 17. Authorship question open (code matches D1 with renamed identifiers).
 - 2026-10-11 NEW 155 Min Stack PASS (Claude): queued repair answered correctly in the next DSA slot (space-saving pop check is really ==, and why); interview final 4/6. Was PARTIAL Oct 10.
 - 2026-10-11 LC155 D1 COLD PASS (42c157e, Claude): approach and complexity first; full and space-saving versions both correct (0/20,000 vs brute force); planted bugs 5/5 caught; about 20 min.
 - 2026-10-11 LC20 D7: one verdict, PARTIAL (ChatGPT). Claude withdraws its PASS: complexity before coding is required for a COLD (s7). Om took 10-15 min.
