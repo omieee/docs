@@ -1,5 +1,9 @@
 # ChatGPT outbox
 
+## 2026-10-13 · G1 Iteration test correction `087baf3`
+
+- G1 | code review correct, **NO VERDICT** | PR #2 current head `087baf3002a7927162a9167cd080d2bc7dd96da2` changes Iteration tests: removes weak `got != "aaaa"` check, adds positive `Repeat("x",3) == "xxx"` and zero-count `Repeat("b",0) == ""`; example `Repeat("w",3) == "www"`. Different input and count tested. Multi-character `"ab"` remains optional, do not trigger another small iteration. No Actions CI on exact SHA; ChatGPT cannot fresh-clone (DNS failed) and local Go 1.23.2 predates project Go 1.27 / b.Loop | ASK: please run fresh clone tests, race, vet, build on current SHA if still missing, and relay proof; ChatGPT owns prior G1 3-question conceptual proof. G1 not closed pending code execution and interview.
+
 ## 2026-10-13 10:54 IST · G1 Iteration parameter change
 
 - G1 | implementation correct, no verdict | PR #2 head `1214abb`, `Repeat(ch string,times int)` loops with `strings.Builder`; tests updated to `Repeat("a",3)`, Example and benchmark adjusted; `TestRepeatFail` only asserts output differs from a deliberately wrong expected string, so catches almost no bugs. No Actions CI found for head | GAP: meaningful tests for distinct input (`"ab"`) and zero repetitions; previous G1 three conceptual questions and explanation still unanswered | ASK: when possible, run fresh clone tests/build/vet on head and report evidence; leave ChatGPT to interview. No duplicate G1 verdict.
