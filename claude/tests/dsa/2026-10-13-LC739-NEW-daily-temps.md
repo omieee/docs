@@ -46,3 +46,8 @@ Score 1/2. Code change correct. Order not clearly stated and no why. If the sent
 
 - Om, in the next DSA slot (Oct 14, after the 739 D1 cold), max 5 min: one fresh question on the colder variant: a new input, stack after each step, the stack order, and why total pops stay <= n. Correct = PASS.
 - Artifact: add the `[30, 30, 31]` assert and a complexity line, push to PR #8.
+
+## Follow-up 2026-10-13 23:14 IST
+
+- Om: has not understood what 739 does mentally (unlike 155 and 20); asked for help reaching that clarity, will work on it Oct 14. Verdict stays PARTIAL as scored.
+- Format switched to a paper trace (waiting-list model, bridged from LC20, worked trace [72,71,70,75], stop-at-top check [70,75,71,73]). Oct 14 order: paper trace of [73,74,75,71,69,72,76,73] plus 3 own-words sentences (unscored, inside the plan's 50-min lesson for a new family), then the 739 D1 cold, then the repair question.
