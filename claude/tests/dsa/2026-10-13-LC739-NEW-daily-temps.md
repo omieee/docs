@@ -56,3 +56,11 @@ Score 1/2. Code change correct. Order not clearly stated and no why. If the sent
 
 - Prerequisite answered: Om watched the NeetCode 739 video before coding but "didn't understand fully". Taught, so the Oct 13 scores stand (not TEACHING GAP).
 - Format switched again: interactive stepper on [72,71,70,75,71,73] (multi-pop on day 3; stop-at-top on day 5 with the oldest-first counterexample; 6 pushes / 4 pops) plus a five-line model. Om now traces [73,74,75,71,69,72,76,73] on paper with 3 own-words sentences (unscored), then the D1 cold, then the repair question.
+
+## Unscored lesson check 2026-10-14 10:45-11:03 IST (not part of any score)
+
+- Trace [73,74,75,71,69,72,76,73]: final res [1,1,4,2,1,1,0,0] right; drawing missed day-6 pops, Om stated them correctly on ask ("when 76 came it popped 72 and 75").
+- Q2 verbatim: "pile holds the temperature in descending order which are not yet popped .. because when ever a new temperature comes in it trie sto replace all other colder ones already existing in pile and then sets itself up on top". Right, reason given. Taught: say "days with no warmer day yet"; equal temps stack, so "never rising".
+- Q3 verbatim: "First part don't know / didnot get . Day 4 has 4 pops ... the first for loop takes each ith temperature and the inner while loop does not run for that temp stack it checks the pile stack". Day-4 pops right; stop-at-top and O(n) why missing. Taught: top is the coldest waiter, everyone below is >= it; count pops not loops, push once, pop at most once, total pops <= n.
+
+## D1 cold 2026-10-14 (PR #9 2089877): PARTIAL, see claude-log-entries

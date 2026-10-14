@@ -46,7 +46,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 ## DSA tracker
 | Problem | First solved | D1 | D3 | D7 | D14 | D28 | Result |
 |---|---|---|---|---|---|---|---|
-| 739 Daily Temperatures | 2026-10-13 | due 10-14 | due 10-16 | due 10-20 | due 10-27 | due 11-10 | NEW PARTIAL (551675e, Claude): code correct (0/41,845 vs brute force); planted bugs 3/4 (`>=` survives, add [30,30,31] -> [2,1,0]); complexity not written; interview 3/6; repair question queued Oct 14 |
+| 739 Daily Temperatures | 2026-10-13 | 10-14 PARTIAL (2089877, Claude) | due 10-16 | due 10-20 | due 10-27 | due 11-10 | NEW PARTIAL (551675e, Claude): code correct (0/41,845 vs brute force); planted bugs 3/4 (`>=` survives, add [30,30,31] -> [2,1,0]); complexity not written; interview 3/6; repair question queued Oct 14 |
 | 155 Min Stack | 2026-10-10 | 10-11 PASS (42c157e, Claude) | 10-13 PARTIAL (cf49bd9, Claude) | due 10-17 | due 10-24 | due 11-07 | NEW PASS (640354f, f17e69b, Claude): PARTIAL Oct 10 (interview 3/6), repair correct Oct 11, final 4/6; code correct, planted bugs 5/5 |
 | 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PARTIAL (8647552), 10-15 min | due 10-18 | due 11-01 | D7 code and CI #87 PASS; D7 complexity not recorded before coding, so D7 PARTIAL. No repeat today; D14 Oct 18 |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | due 10-22 | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
@@ -72,7 +72,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 | 217 Contains Duplicate | 2026-05-23 |  |  |  |  |  | pre-plan; cold 07-21 |
 | 682 Baseball Game | 2026-10-03 |  |  |  |  |  | DRILL, not counted; space O(n) and tests fix open |
 
-Count check: 24 counted rows = 24 total; 16 rows with a cold = 16 cold (739 NEW on 10-13).
+Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 on 10-14).
 
 ## Contingency
 | Week | Unit | Hours | Reason | Total used | Remaining (of ~50 from v3.3; ~55 before) |
@@ -90,6 +90,7 @@ Count check: 24 counted rows = 24 total; 16 rows with a cold = 16 cold (739 NEW 
 
 ## Verdict log
 (newest on top)
+- 2026-10-14 LC739 D1 COLD PARTIAL (PR #9 2089877, Claude): code correct (0/41,845 vs brute force), 77 green, ruff clean; approach and complexity written first; tests miss 2 of the 3 named asserts (LeetCode example, [30,30,31]) so planted `>=` survives again (4/5 caught); commit 50 min after start vs 15+5 box, actual minutes not given. No retry. Artifact fix: add the two asserts to PR #9. D3 Oct 16.
 - 2026-10-13 NEW 739 Daily Temperatures PARTIAL (551675e, Claude): code correct (0/41,845 vs brute force); tests miss the equal-temps rule (`>=` survives); interview 3/6 scored once, why missing in all three; taught; one repair question Oct 14 after the D1 cold. Record: claude/tests/dsa/2026-10-13-LC739-NEW-daily-temps.md
 - 2026-10-13 G1 PASS (learning-go-sandbox PR #2 087baf3, Claude): build, vet, race, gofmt clean; planted bugs caught; interview 5/6 after one correct retry. Record: claude/tests/go/2026-10-13-G1-unit-interview.md
 - 2026-10-13 LC155 D3 COLD PARTIAL (cf49bd9, Claude): code and tests correct; Way 3 time written as O(n), it is O(1); fix at D7 Oct 17. Authorship confirmed by Om (code from memory, tests reused); O(n) recorded as a writing slip.
