@@ -64,3 +64,17 @@ Score 1/2. Code change correct. Order not clearly stated and no why. If the sent
 - Q3 verbatim: "First part don't know / didnot get . Day 4 has 4 pops ... the first for loop takes each ith temperature and the inner while loop does not run for that temp stack it checks the pile stack". Day-4 pops right; stop-at-top and O(n) why missing. Taught: top is the coldest waiter, everyone below is >= it; count pops not loops, push once, pop at most once, total pops <= n.
 
 ## D1 cold 2026-10-14 (PR #9 2089877): PARTIAL, see claude-log-entries
+
+## Repair question 2026-10-14 (asked 12:00 IST, answered 14:27 IST): NOT PASSED
+
+Question: colder variant, input [50, 60, 55, 70, 40]. (a) pile after each day bottom to top as temp@day, final res. (b) Which way does the pile run now, and why? (c) Why do total pops stay <= n?
+
+Answer verbatim:
+> [4, 1, 2, 1, 0]
+> 50@-1 / 50@-2 60@-1 / 50@-2 55@-1 / 50@-3 55@-2 70@-1 / 40@-1
+> Now the hottest is on top because our comparison is `while binstk and binstk[-1][0] > t:`
+> Total pops stay low then n because the last one will never get popped
+
+Score: (a) 2/2 (contents and order right each day; @ used as stack position, not day). (b) 1/2 (direction right; reason is the code condition, not the mechanism: a new day pops everyone warmer before it sits, so what is under it is equal or colder). (c) 0/2 (wrong reason; "last one never popped" does not stop a day being popped twice; real reason: each day pushed once, a popped day never comes back, so pops <= pushes = n).
+
+Result: not passed; 739 NEW stays PARTIAL. Taught with brute force vs pile look counts. Carried to D3 Oct 16 (complexity why at the cold). No same-session retry.
