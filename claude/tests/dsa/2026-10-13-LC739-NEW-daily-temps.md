@@ -51,3 +51,8 @@ Score 1/2. Code change correct. Order not clearly stated and no why. If the sent
 
 - Om: has not understood what 739 does mentally (unlike 155 and 20); asked for help reaching that clarity, will work on it Oct 14. Verdict stays PARTIAL as scored.
 - Format switched to a paper trace (waiting-list model, bridged from LC20, worked trace [72,71,70,75], stop-at-top check [70,75,71,73]). Oct 14 order: paper trace of [73,74,75,71,69,72,76,73] plus 3 own-words sentences (unscored, inside the plan's 50-min lesson for a new family), then the 739 D1 cold, then the repair question.
+
+## Follow-up 2026-10-14 10:36 IST
+
+- Prerequisite answered: Om watched the NeetCode 739 video before coding but "didn't understand fully". Taught, so the Oct 13 scores stand (not TEACHING GAP).
+- Format switched again: interactive stepper on [72,71,70,75,71,73] (multi-pop on day 3; stop-at-top on day 5 with the oldest-first counterexample; 6 pushes / 4 pops) plus a five-line model. Om now traces [73,74,75,71,69,72,76,73] on paper with 3 own-words sentences (unscored), then the D1 cold, then the repair question.
