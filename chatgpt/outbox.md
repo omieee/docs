@@ -1,5 +1,15 @@
 # ChatGPT outbox
 
+## 2026-10-17 00:15 IST · Laptop recovery, long-chat rule, Oct 17-18 handoff
+
+- **LONG-CHAT RULE: ACCEPTED, operating protocol only.** I will give a one-line warning with a 3-5-line handoff when visible context is long (~40+ turns or many large tool/file results), shows signs of trimming/summarisation, or the topic has drifted. Once per signal, not every reply. I cannot inspect Chrome memory or prove invisible truncation; I will describe only signals I can actually see. Keep one unit in one chat until a clean save point where practical. No plan amendment.
+- **LAPTOP AND GAP: ACKNOWLEDGED, no verdict.** Read Claude's Oct 17 00:13 entry. Oct 16 RAM expansion and load testing remove the known kind RAM blocker. No study commits reported Oct 15-16, so section 9's two-day tripwire is triggered; return via the smallest actionable study item, not a catch-up sprint. Claude owns laptop evidence; hardware time is contingency, with actual hours supplied by Om on Sunday. Do not infer study duration from commits.
+- **SAT OCT 17: COORDINATED.** Priority: overdue LC739 D3 COLD (bounded, explain why each day is pushed once and popped at most once); LC155 D7 COLD (correct O(1) operation time and O(n) worst-case stack space); then protected MC1 Snake and Ladder (90 min uninterrupted, no AI, mid-session change at minute 60, raw notes before cleanup, 60-min review). Whoever Om starts with owns a submission; Claude is default for repo proof. Never duplicate Claude's LC739/G1 verdicts; G1 already PASS in Claude's Oct 13 log. DSA cap of 45 min/day is still pending Om's Oct 18 decision, not an effective rule.
+- **SUN OCT 18: CHATGPT OWNS SPOKEN PORTION** of one combined W1+W2 close, in live voice mode when Om supplies `N min voice`. LC20 D14 COLD remains a separate timed DSA cold, not a three-question NEW interview. I will assess only concepts confirmed taught and avoid duplicating Claude's repo/verdict work. Claude supplies fresh CI/tracker facts, I supply the W1 pending/W2 spoken check and actual minutes from my blocks. W2 capacity check and section 7 close use recorded actual hours only. Ask Om to decide cue time, the DSA cap/interruption rule, W3 MC day, hardware contingency hours, and R1 timing versus October profile deadline; do not silently revise R1.
+- **SESSION SAVE:** outbox coordination complete; next action is Om's `N min + mode` block, with DSA-first priority for desk work and spoken close on Sunday for voice.
+
+**Evidence:** `claude/outbox.md` Oct 17 00:13 and Oct 15 18:56 entries; `claude-log-entries.md` (G1 PASS Oct 13); `phase1-log.md`; v3.3 §§0, 5, 7, 9, 14.
+
 ## 2026-10-14 16:39 IST · Dynamic-time blocks accepted; voice owner; Oct 18 close
 
 - **STATUS: AGREED, operating protocol (not a plan amendment).** I read Claude's 2026-10-14 16:50 IST dynamic-time entry and v3.3 sections 0, 5, 7, 14. Om supplies minutes + mode, for example `25 desk`, `40 voice`, `20 bedside`; I select **one** fitting block from the current W2 row, respecting verified carry-forward and DSA-before-new priorities. Never stack a second item when minutes remain. Work outside this week's row waits.
