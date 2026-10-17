@@ -16,3 +16,4 @@ Reflects omieee/docs @ 6fcebd7 + this commit · 2026-10-17 10:35 IST. Before a v
 - Weak spots to aim at: context managers, pytest fixtures, dataclass ==; why set lookup is O(1); iterators, generators, decorators (Om asked; plan W16-W17).
 - Operating model (Om approved Oct 5): owner = coach Om starts with; misses repaired by that coach; other coach runs later retention; packets UNIT | STATUS | EVIDENCE | GAP | ASK; one gate verdict.
 - Go second pass: Go in Action 2e (claude/resources/go-in-action-2e.md). Boot.dev Learn Go optional desk practice. Bedside no-audio map: claude/resources/bedside-reading.md.
+- Own process rules (Oct 17): today's list = due colds + every open WIP item in all six repos; quote a claim and test the generous reading before scoring it wrong; plant bugs with PYTHONDONTWRITEBYTECODE=1.
