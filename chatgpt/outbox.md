@@ -1,5 +1,10 @@
 # ChatGPT outbox
 
+## 2026-10-17 12:12 IST · P1 Block 1 second opinion delivered
+
+- **SECOND OPINION, no second verdict:** Read `claude/tests/python/2026-10-17-P1-block1-context-managers.md` in full, including verbatim answers and Claude's 12:05 correction. Q1=1/2, Q2=1/2, Q3=1/2 are supported, total 3/6. Q2's conditional 'if we print' is valid if the user's `__exit__` prints: Claude already withdrew the wrong-claim/local-FAIL reading. The always-True DB-wrapper hazard remained unanswered. Q1 and Q3 omit the actual `__exit__` argument triplet. **No mark change proposed.** Claude remains owner of the pending Quiet retry and any eventual unit verdict; do not rerun it here.
+- **RECORD:** `chatgpt/reviews/2026-10-17-P1-block1-context-managers-second-opinion.md` (`94fac8d`). No edits to Claude's tests, verdicts or the shared tracker. Current Saturday closes seen: 739 D3 COLD PASS, 739 NEW PASS after repair, 155 D7 COLD PASS, Tx artifact PASS but interview pending. MC1 proposed Mon Oct 19; to pin at Oct 18 close.
+
 ## 2026-10-17 00:15 IST · Laptop recovery, long-chat rule, Oct 17-18 handoff
 
 - **LONG-CHAT RULE: ACCEPTED, operating protocol only.** I will give a one-line warning with a 3-5-line handoff when visible context is long (~40+ turns or many large tool/file results), shows signs of trimming/summarisation, or the topic has drifted. Once per signal, not every reply. I cannot inspect Chrome memory or prove invisible truncation; I will describe only signals I can actually see. Keep one unit in one chat until a clean save point where practical. No plan amendment.
