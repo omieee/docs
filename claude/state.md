@@ -2,7 +2,7 @@
 Reflects omieee/docs @ 6fcebd7 + this commit · 2026-10-17 10:35 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/ (sha c4b4cf6d33a05be1). Week: W2 Oct 12-18, closes Sun Oct 18 together with W1 (ChatGPT voice check pending for both).
 - W1 done: Y2 baseline 0 solid / 6 shaky / 13 missing. NEW 155 PASS Oct 11. G1 PASS Oct 13 (PR #2 087baf3, 5/6); suggest merging PR #2. Next Go: G2 per W3 row.
-- DSA 24 / 17. NEW 739 PASS Oct 17 (4/6; D3 COLD PASS e459c37). Due: 155 D7 Oct 17 (fix: Way 3 time is O(1)), 20 D14 Oct 18 (state complexity first; add a "(])" assert), 739 D7 Oct 20, 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24.
+- DSA 24 / 17. NEW 739 PASS Oct 17 (4/6; D3 COLD PASS e459c37). 155 D7 PASS Oct 17. Due: 20 D14 Oct 18 (state complexity first; add a "(])" assert), 739 D7 Oct 20, 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24.
 - Om pattern (155, 739): executes and traces right, leaves out the "why". Ask for the reason at every step. Om sometimes sends one submission to both coaches: check the other log before any verdict.
 - DSA rule (Om approved Oct 6): label NEW/DRILL/COLD first. COLD = approach + complexity first, problem-derived asserts, 10m Easy / 15m Medium + 5m verify, no interview. Any miss: score once, teach, queue one repair for a later DSA slot. NEVER retry same session.
 - MC1 slipped W0, W1 and Oct 14. Om: Mon Oct 19 or Tue Oct 20 (Claude suggests Mon), pin at Sunday close: 90 min timed, no AI, Om types "60" at minute 60 for the change, raw notes committed first, 60-min review after. Never fragments.
