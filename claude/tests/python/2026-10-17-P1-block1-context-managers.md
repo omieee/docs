@@ -36,3 +36,7 @@ Ran demo (Peek class printing its three arguments, returning True): normal finis
 
 Class Quiet: __enter__ returns "x"; __exit__ returns `exc_type == KeyError`. Block 1 body `{}["missing"]` then print("A"); block 2 body `[][0]` then print("B"). (a) What does Python pass into __exit__ in block 1? (b) Does "A" print, and does anything about the KeyError show on screen? (c) Does "B" print? If not, what happens instead?
 Key (verified by running): (a) KeyError class, the KeyError object, a traceback object. (b) A prints; nothing about KeyError shows. (c) B does not print: __exit__ returns False, IndexError propagates, traceback shown, program stops.
+
+## Correction 2026-10-17 12:05 IST (Claude scoring error)
+
+Om challenged the "suppressed error prints nothing" point with his own Tx run (return True): the four lines after "----" came from his own print() calls in __exit__; Python printed no "Traceback" block and "Hello World" ran. Re-reading Q2: "if we print we will still see those IndexError gets printed" is conditional (if __exit__ prints it), which is correct. The "wrong claim" and the local FAIL on Q2 are withdrawn. Q2 stays 1/2 only because the always-True danger was not answered. Total still 3/6. Shown with a run: Tx with the prints removed and return True prints nothing about the error; with return False Python prints the Traceback and stops before "Hello World". Retry unchanged.
