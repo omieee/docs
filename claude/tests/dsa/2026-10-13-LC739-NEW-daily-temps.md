@@ -78,3 +78,17 @@ Answer verbatim:
 Score: (a) 2/2 (contents and order right each day; @ used as stack position, not day). (b) 1/2 (direction right; reason is the code condition, not the mechanism: a new day pops everyone warmer before it sits, so what is under it is equal or colder). (c) 0/2 (wrong reason; "last one never popped" does not stop a day being popped twice; real reason: each day pushed once, a popped day never comes back, so pops <= pushes = n).
 
 Result: not passed; 739 NEW stays PARTIAL. Taught with brute force vs pile look counts. Carried to D3 Oct 16 (complexity why at the cold). No same-session retry.
+
+## D3 cold 2026-10-17 (PR #9 042c50a, fixed e459c37): PASS, see claude-log-entries
+
+## Repair question 2026-10-17 (asked 10:22 IST, answered 10:27 IST): PASSED at 1/2
+
+Question: Temps [80, 70, 60, 50, 90], n = 5. On day 4 the while loop pops 4 times in one go. (a) How many pops happen across the whole run? (b) Someone says: "a while inside a for, and one day popped 4 of 5 items, so it's O(n²)." In one or two sentences, what rule about pushes caps the total pops at n for any input?
+
+Answer verbatim:
+> a: 4
+> b: when 90 comes all others will get popped one by one from while loop .. but it happens only once and we never look at that index again . Rulke is after making sure all are after all possible is popped that day's tem iself gets pushed .. so definatly nothing less than that will be there in the stack underneeth
+
+Score: (a) right. (b) 1/2: core mechanism right and new since Oct 14 (a popped day is never looked at again, so each day is popped at most once); the counting link is missing (each day pushed exactly once, so pops <= pushes = n, so the while loop runs <= n times over the whole run, O(n)); the "rule" given is the stack-order invariant, true but it answers why the stack stays sorted, not why pops are capped. No wrong conclusion, so the retry clears the local item (s7). Taught the counting link with a push/pop ledger on this input.
+
+Result: NEW 739 PASS, final 4/6 (3/6 Oct 13 + repair 1). Original misses stay recorded. At D7 Oct 20 the complexity line carries the full reason in Om's words.
