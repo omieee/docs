@@ -40,3 +40,13 @@ Key (verified by running): (a) KeyError class, the KeyError object, a traceback 
 ## Correction 2026-10-17 12:05 IST (Claude scoring error)
 
 Om challenged the "suppressed error prints nothing" point with his own Tx run (return True): the four lines after "----" came from his own print() calls in __exit__; Python printed no "Traceback" block and "Hello World" ran. Re-reading Q2: "if we print we will still see those IndexError gets printed" is conditional (if __exit__ prints it), which is correct. The "wrong claim" and the local FAIL on Q2 are withdrawn. Q2 stays 1/2 only because the always-True danger was not answered. Total still 3/6. Shown with a run: Tx with the prints removed and return True prints nothing about the error; with return False Python prints the Traceback and stops before "Hello World". Retry unchanged.
+
+## Retry answer verbatim (asked 12:54 re-post, answered 13:13 IST)
+
+> a. it received exception type, the exception itself, and traceback
+> b. "A" will  print eventhough  there is no key "missing" an exception should get raised but will get suppreser by return whic will become True in this case
+> c. B will not print index error will come and return will be False hence it will print IndexError and exit without printing "B"
+
+Score: correct on all three parts against the run-verified key. (b) did not say outright that nothing about the KeyError shows on screen; right by implication (suppressed). Retry clears the Block 1 items (s7); original 3/6 stays recorded.
+
+Result: P1 prerequisite Block 1 (context managers) PASS, final 4/6 (3/6 + retry 1), same scoring as NEW 155 and NEW 739. Open for P1: Block 2 (pytest fixtures with yield), Block 3 (dataclass ==), each video first.

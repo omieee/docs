@@ -90,6 +90,7 @@ Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 o
 
 ## Verdict log
 (newest on top)
+- 2026-10-17 P1 prereq Block 1 context managers PASS (learning-python-sandbox PR #1 7b450d4, Claude): artifact planted 5/5; interview 3/6, retry correct, final 4/6. Block 2 and 3 open.
 - 2026-10-17 LC155 D7 COLD PASS (PR #9 4938f13, Claude): both versions correct (0/40,000 op sequences vs brute force), planted bugs 5/5, time O(1) both (D3 slip fixed); 34 min active vs 20 box.
 - 2026-10-17 LC739 NEW repair PASSED at 1/2 (Claude), NEW 739 now PASS, final 4/6: 4 pops right; popped day never revisited right; pushes-once counting link missing, taught. D7 Oct 20 writes the full reason.
 - 2026-10-17 LC739 D3 COLD PASS (PR #9 e459c37, Claude), 1 day late: 79 green, 0/87,380 vs brute force, planted bugs 5/5; first push 042c50a said Time O(1), self-fixed unprompted in 3 min. Why pops <= n not written: NEW 739 repair still open, one fresh question asked Oct 17.
