@@ -8,12 +8,12 @@ Reflects omieee/docs @ 427e42f + this commit · 2026-10-18 12:45 IST. Before a v
 - Om pattern (155, 739): executes and traces right, leaves out the "why"; asserts miss the one case that isolates a bug (20: "(])"). Ask for the reason and the isolating case.
 - MC1: Mon Oct 19, morning block after the cue; 90 min timed, no AI, "60" at minute 60, raw notes committed first, 60-min review can be a later day. Never fragments.
 - Cue 10:30 AM daily (Om to calendar it). Office 1-2 days a week from now; Om flags short days.
-- P1 prereqs: Block 1 PASS Oct 17 (PR #1 7b450d4). Block 2 (yield fixtures) packet given Oct 17: merge PR #1, video, fixture lab on a new branch, predictions in raw notes first. Then Block 3 (dataclass ==), then psycopg.
+- P1 prereqs: Block 1 PASS Oct 17 (PR #1 7b450d4, merged c39ca00). Block 2 RESTART from zero (Oct 18 coach error, Om had never seen pytest): step 1 what pytest is, step 2 fixture with return, step 3 fixture with yield; one runnable example each; nothing beyond the plan line (no xfail, no tricks). Resource PCC 3e ch 11. Then Block 3 (dataclass ==), then psycopg.
 - Open PRs to merge (all passed): dsa-python #9, learning-go-sandbox #2, learning-python-sandbox #1.
 - R1: resume v1 draft (975886e6) blanks for Om; LinkedIn live in October; Naukri later.
 - Office-Go test FAIL (Oct 18): no Go work, AI writes what comes. Go = study track only. Office Go counts only via the office proof path, never AI-written.
 - Gap diagnosis: Claude drafted "no fixed cue or protected slot, time set by son and office; fix = 10:30 cue + minutes logged per block"; Om's yes pending.
 - Contingency: 2 used (laptop), 48 left.
 - Token rule (Om, Oct 18): use the docs token only with Om's explicit OK each time. Ask when stuck.
-- Own process rules: today's list = due colds + every open WIP item in all six repos; quote a claim and test the generous reading before scoring it wrong; plant bugs with PYTHONDONTWRITEBYTECODE=1.
+- Own process rules: today's list = due colds + every open WIP item in all six repos; quote a claim and test the generous reading before scoring it wrong; plant bugs with PYTHONDONTWRITEBYTECODE=1. NEW Oct 18: before teaching any tool or topic, ask Om what he has used; start from his answer; teach only the plan line; when he says he is lost, go back a level, never add more.
 - Operating model: owner = coach Om starts with; misses repaired by that coach; packets UNIT | STATUS | EVIDENCE | GAP | ASK; one gate verdict.
