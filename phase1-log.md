@@ -5,6 +5,27 @@ Source of truth: Phase1_Master_Plan_v3.3.md (uploaded to the Claude project 2026
 (Sunday: paste the section 7 template here, newest on top)
 
 ```
+WEEK 2: PARTIAL (proposed by Claude from git, CI and tracker facts, 2026-10-18 11:55 IST; ChatGPT spoken check pending for W1 and W2, one combined close)
+Focused hours, planned / actual (bedside required items included): 15 / no number from Om ("a little better than W1"); logged blocks [99m]. Plan scope done Oct 1-18 at plan rates: about 13h of 33 (Claude estimate)
+Actual vs planned hours, each unit closed: G1 3h planned (0.5 W1 + 2.5 W2), actual not logged; NEW 739 (W1 row) not logged; 20 D14 [20m] vs 15 box
+Largest overrun or underrun, and why: underrun: MC1 (third week missed), R1, L1, P1 psycopg, K1, H1, R3, binary search lessons and NEW 704 got 0h; laptop RAM failure Oct 15-16. Overruns: 155 D7 34m vs 20; 739 needed two repair slots
+Contingency used this week / total used / remaining (of about 50): 2 / 2 / 48 (laptop fix)
+Planned: W2 scope from the W1 close: DSA colds and NEW 739 3h, MC1 2.5h, G1 3h, R1 3h, L1 1h, P1 prereqs 1.5h, proofs 0.5h
+Completed (with commit hashes): G1 PASS (learning-go-sandbox PR #2 087baf3, 5/6). NEW 739 PASS (dsa-python 551675e, repair Oct 17, final 4/6). Colds: 155 D3 PARTIAL (cf49bd9), 739 D1 PARTIAL (2089877), 739 D3 PASS (e459c37), 155 D7 PASS (4938f13), 20 D14 PASS (7d3c30e, 291dfad). P1 prereq Block 1 context managers PASS (learning-python-sandbox PR #1 7b450d4, 4/6). Laptop fixed and load-tested (claude/resources/laptop-2026-10-16.md)
+Not completed: MC1, R1 (resume v1 draft open, nothing live), L1, P1 Blocks 2-3 and psycopg, K1, H1, R3, binary search and NEW 704
+DSA total / cold: 24 / 17
+Machine coding reps: 0
+Design mocks: 0
+Git and production evidence: dsa-python PR #8 merged, PR #9 open (291dfad); learning-go-sandbox PR #2 open (087baf3); learning-python-sandbox PR #1 open (7b450d4); no PRCP or lld-patterns commits since Oct 1
+Execution gaps (days with no artifact): none in W2 (7 of 7). 14-day tripwire (Oct 5-18): 13 of 14, only Oct 9 missing, no two-day gap, not hit
+Carry-forward: MC1 (Mon Oct 19), R1 (resume v1 blanks, LinkedIn live), L1, P1 Blocks 2-3 then psycopg, binary search lessons and NEW 704, K1, H1, R3; due colds 739 D7 and 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24
+Next week's scope: W3 Oct 19-25 at 12h (Claude's recommended cap, pending Om): DSA 3h (the five colds, then binary search lessons and NEW 704, 45-min daily cap), MC1 2.5h, P1 3.5h (Blocks 2-3, then psycopg Getting Started and practice script), L1 1.5h, R1 1h (resume v1, LinkedIn), proofs and close 0.5h. If Om picks 14h: add G2 2h. Everything else slips in row order until the rebuild
+Change-control trigger: YES: W2 capacity check fired (about 5h a week of scope vs 15). Amendment being drafted: capacity and dates, R1 Naukri timing, cue 10:30, DSA rule, two-coach model text
+Om inputs Oct 18: 2h a day target (3h aim), bad days 30 min, rarely 0; office 1-2 days a week, Om flags short days; cue 10:30 AM; DSA rule approved; MC1 Mon Oct 19; LinkedIn now, no Premium, Naukri later; office-Go FAIL, office Go weighted low; gap diagnosis drafted, Om's yes pending
+Spoken check (ChatGPT): pending (W1 and W2)
+```
+
+```
 WEEK 1: PARTIAL (proposed by Claude from git, CI and tracker facts, 2026-10-11 17:30 IST; ChatGPT spoken check pending, one combined close)
 Focused hours, planned / actual (bedside required items included): 15 / not logged (Om: "variable"; logging starts W2)
 Actual vs planned hours, each unit closed: Y2 1h planned, actual not logged; NEW 155 actual not logged
@@ -48,7 +69,7 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 |---|---|---|---|---|---|---|---|
 | 739 Daily Temperatures | 2026-10-13 | 10-14 PARTIAL (2089877, Claude) | 10-17 PASS (e459c37, Claude), 1d late | due 10-20 | due 10-27 | due 11-10 | NEW PASS Oct 17, final 4/6 (repair 1/2 cleared, Claude); was NEW PARTIAL (551675e, Claude): code correct (0/41,845 vs brute force); planted bugs 3/4 (`>=` survives, add [30,30,31] -> [2,1,0]); complexity not written; interview 3/6; repair Oct 14 not passed (pile trace and res right, direction right but why missing, pops <= n reason wrong); carried to D3 Oct 16, one slot used. D1 artifact fix 1e721bc: LeetCode example and [30,30,31] asserts added, `>=` now caught |
 | 155 Min Stack | 2026-10-10 | 10-11 PASS (42c157e, Claude) | 10-13 PARTIAL (cf49bd9, Claude) | 10-17 PASS (4938f13, Claude), 34m active | due 10-24 | due 11-07 | NEW PASS (640354f, f17e69b, Claude): PARTIAL Oct 10 (interview 3/6), repair correct Oct 11, final 4/6; code correct, planted bugs 5/5 |
-| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PARTIAL (8647552), 10-15 min | due 10-18 | due 11-01 | D7 code and CI #87 PASS; D7 complexity not recorded before coding, so D7 PARTIAL. No repeat today; D14 Oct 18 |
+| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PARTIAL (8647552), 10-15 min | 10-18 PASS (7d3c30e, Claude), [20m]; "(])" assert added 291dfad | due 11-01 | D14 PASS: approach and complexity first, 0/2,015,539 vs brute force, planted 5/5 after the assert fix. D7 was PARTIAL (complexity not recorded before coding) |
 | 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | due 10-22 | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
 | 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | due 10-21 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
 | 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | 10-06 FAIL, repair complete (566dea4) | due 10-20 | Original COLD had real code-correctness bugs, so it was not a clean pass. Same-day repair is correct and CI run 81 green. The extra mechanism/trace/trade-off interview was invalid for a spaced COLD and is discarded. No further work until D28 |
@@ -78,8 +99,11 @@ Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 o
 | Week | Unit | Hours | Reason | Total used | Remaining (of ~50 from v3.3; ~55 before) |
 |---|---|---|---|---|---|
 | W0 | - | 0 | - | 0 | 55 |
+| W2 | Laptop RAM fix Oct 15-16 (claude/resources/laptop-2026-10-16.md) | 2 | Genuine surprise; Om: a full day, charged at his 2h/day study rate | 2 | 48 |
 
 ## Later-refactor log
+- 2026-10-18: APPROVED by Om (operating rule, plan text at next revision): DSA max 45 min a day, one item per session, clock paused on interruptions (active minutes logged); a miss gets its teaching or understanding session in a separate later slot, then the retry in another slot. Extends the Oct 6 no-same-session-retry rule.
+- 2026-10-18: DECIDED by Om, needs s9 amendment: R1 = resume v1 and LinkedIn live in October, no LinkedIn Premium; Naukri goes live about 15 days before Om is interview-ready. Cue time 10:30 AM (fills the s9 blank).
 - 2026-10-06: SCORING FRAMEWORK GAP under review with both coaches: replace binary/global verdict behavior with task-specific rubrics; default bands where no explicit rubric exists are PASS >=85, PARTIAL 70-84, DEVELOPING 50-69, FAIL <50; preserve explicit machine-coding/design/checklist thresholds; second non-PASS on the same gap switches to learning mode; verdict preflight must name task type, rubric, evidence, untaught exclusions and next action. Pending Om approval before plan edit.
 - 2026-10-06: APPROVED AMENDMENT by Om for DSA miss handling: no same-session retry loops. A failed NEW/COLD attempt is preserved and scored once; the exact bug or taught-concept gap is recorded and put in a bounded repair queue. Repair happens in a later DSA slot, never by repeatedly rewording questions the same day. Untaught concepts remain TEACHING GAP, not FAIL. Scheduled colds keep priority; repair cannot steal time from other tracks.
 - 2026-10-06: PROCESS BUG found in LC141 D14: ChatGPT applied the NEW-DSA 3-question unit interview to a spaced COLD re-solve and also tested an untaught formal Floyd proof. v3.3 actually defines COLD as approach + complexity before coding, problem-derived asserts, and a 10 min Easy / 15 min Medium timebox; NEW DSA gets the mechanism/trace/transfer interview. Effective immediately both coaches must label DSA work NEW/DRILL/COLD before questioning and use only that path. Untaught material = TEACHING GAP, not cold FAIL. Separate GAP pending Om approval: audit whether DSA's protected/daily allocation is overweight versus India senior-loop evidence.
