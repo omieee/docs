@@ -1,5 +1,5 @@
 # Phase 1 log
-Source of truth: Phase1_Master_Plan_v3.3.md (uploaded to the Claude project 2026-10-05)
+Source of truth: Phase1_Master_Plan_v3.4.md (uploaded by Om to both projects 2026-10-18; master copy in plan/)
 
 ## Weekly closes
 (Sunday: paste the section 7 template here, newest on top)
@@ -20,7 +20,7 @@ Git and production evidence: dsa-python PR #8 merged, PR #9 open (291dfad); lear
 Execution gaps (days with no artifact): none in W2 (7 of 7). 14-day tripwire (Oct 5-18): 13 of 14, only Oct 9 missing, no two-day gap, not hit
 Carry-forward: MC1 (Mon Oct 19), R1 (resume v1 blanks, LinkedIn live), L1, P1 Blocks 2-3 then psycopg, binary search lessons and NEW 704, K1, H1, R3; due colds 739 D7 and 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24
 Next week's scope: W3 Oct 19-25, 12h (Om picked 12h weeks, Oct 18), the v3.4 draft row: DSA 2.5h (due colds first: 739 D7 and 141 D28 Oct 20, 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24; then binary search lessons 14-15 and NEW 704; 45-min daily cap), MC1 2.5h (Mon Oct 19), R1 2h (resume v1, LinkedIn live), L1 1h, P1 3.5h (Blocks 2-3, then psycopg), proofs and close 0.5h
-Change-control trigger: YES: W2 capacity check fired (about 5h a week of scope vs 15). v3.4 drafted (claude/plan-drafts/, check_plan PASS, 564h, gates Mar 21, Sep 5, Sep 26 2027): capacity and dates, R1 Naukri timing, cue 10:30, DSA rule, two-coach model text. Pending Om's approval and upload
+Change-control trigger: YES: W2 capacity check fired (about 5h a week of scope vs 15). v3.4 drafted (claude/plan-drafts/, check_plan PASS, 564h, gates Mar 21, Sep 5, Sep 26 2027): capacity and dates, R1 Naukri timing, cue 10:30, DSA rule, two-coach model text. Pending Om's approval and upload UPDATE Oct 18 23:20: v3.4 APPROVED and uploaded by Om to both projects (565.5h, sha256 a8717a0d890e199b, check_plan PASS); master copy in plan/.
 Om inputs Oct 18: 2h a day target (3h aim), bad days 30 min, rarely 0; office 1-2 days a week, Om flags short days; cue 10:30 AM; DSA rule approved; MC1 Mon Oct 19; LinkedIn now, no Premium, Naukri later; office-Go FAIL, office Go weighted low; gap diagnosis drafted, Om's yes pending
 Spoken check (ChatGPT): pending (W1 and W2)
 ```

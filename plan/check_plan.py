@@ -1,6 +1,6 @@
 """Check the Phase 1 master plan for internal consistency.
 
-Usage: python3 check_plan.py Phase1_Master_Plan_v3.3.md
+Usage: python3 check_plan.py Phase1_Master_Plan_v3.4.md
 Run by whichever coach edits the plan. Exit code 0 means PASS.
 """
 import datetime
@@ -8,7 +8,7 @@ import re
 import sys
 from collections import defaultdict
 
-CAP, LIGHT_CAP, LIGHT_WEEKS = 15, 8, {0, 5, 12, 13}
+CAP, LIGHT_CAP, LIGHT_WEEKS = 12, 7, {0, 5, 12, 13}  # v3.4: 12h weeks from the W2 capacity check
 NON_UNIT = {"DSA", "Setup", "Gate", "Proof", "Proofs and weekly close"}
 DEPS = [("K6", "D1"), ("K6", "A6"), ("F1", "O1"), ("MC4", "L4"), ("MC2", "L3"), ("A1", "G7")]
 

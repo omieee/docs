@@ -1,7 +1,7 @@
 # Claude state (cache only, max 20 lines)
 Reflects omieee/docs @ 898f4ae + this commit · 2026-10-18 22:50 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/. W2 closed PARTIAL (proposed, phase1-log); ChatGPT spoken check for W1 and W2 still pending. W3 = Oct 19-25.
-- CAPACITY (Oct 18): Om picked 12h weeks. v3.4 FINAL DRAFT 22:50 (ChatGPT's 3 fixes, pytest basics +1.5h, 12 coach safeguards in s0): claude/plan-drafts/ sha a8717a0d890e199b, check_plan PASS, 52 weeks, 565.5h, gates Mar 21, Sep 5, Sep 26 2027. PENDING Om's upload to both projects; then commit to plan/ with README hashes.
+- PLAN: v3.4 GOVERNING (Om uploaded to both projects Oct 18; ChatGPT confirmed sha256 a8717a0d890e199b + PASS); master in plan/ with README hashes (Claude synced 23:20). 565.5h, 12h weeks, gates Mar 21, Sep 5, Sep 26 2027. Coach safeguards in s0. Next: s9 GAP draft for the MC0 method lesson (+1.5h). Nov 15 re-forecast from logged minutes only.
 - v3.4 contents: 12/7/9 caps, W1-W2 as done, R1 (LinkedIn now, Naukri W22, no Premium), cue 10:30, DSA session rule s6.6 #11, two-coach model + per-block minutes in s0, office-Go FAIL in s10, Phase 2 dates follow Gate C.
 - DSA 24 / 17. 20 D14 PASS Oct 18 (7d3c30e, assert fix 291dfad). Due: 739 D7 and 141 D28 Oct 20 (one may slide a day under the cap), 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24, 20 D28 Nov 1. Carried: binary search lessons 14-15, NEW 704.
 - DSA rule APPROVED Oct 18: 45 min a day max, one item per session, clock paused on interruptions; a miss: teach in a separate later slot, retry in another. Label NEW/DRILL/COLD first. Never same-session retry.
