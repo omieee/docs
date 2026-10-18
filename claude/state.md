@@ -1,8 +1,8 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 7267e5a + this commit · 2026-10-18 11:58 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ 427e42f + this commit · 2026-10-18 12:45 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - Plan: v3.3, master in plan/. W2 closed PARTIAL (proposed, phase1-log); ChatGPT spoken check for W1 and W2 still pending. W3 = Oct 19-25.
-- CAPACITY (Oct 18): s5 check fired. About 13h of 33 scheduled done since Oct 1. Om: 2h a day target, bad days 30 min. Claude recommends 12h scheduled weeks (14 gross): Gate A Mar 21, B Sep 5, C Sep 26 2027. At 14h: Feb 28, Jul 25, Aug 8. PENDING Om's pick, then rebuild week map + check_plan PASS + re-upload.
-- Amendment to draft (max 5): capacity and dates; R1 (LinkedIn now, Naukri ~15 days before interview-ready, no Premium); cue 10:30 AM; DSA rule; two-coach model text from Oct 5.
+- CAPACITY (Oct 18): s5 check fired, Om picked 12h weeks. v3.4 DRAFT in claude/plan-drafts/ (check_plan PASS, 52 weeks, 564h, gates Mar 21, Sep 5, Sep 26 2027). PENDING Om's approval + upload to both projects; then commit to plan/ with README hashes. First monthly re-forecast Nov 15 from logged minutes.
+- v3.4 contents: 12/7/9 caps, W1-W2 as done, R1 (LinkedIn now, Naukri W22, no Premium), cue 10:30, DSA session rule s6.6 #11, two-coach model + per-block minutes in s0, office-Go FAIL in s10, Phase 2 dates follow Gate C.
 - DSA 24 / 17. 20 D14 PASS Oct 18 (7d3c30e, assert fix 291dfad). Due: 739 D7 and 141 D28 Oct 20 (one may slide a day under the cap), 19 D28 Oct 21, 143 D28 Oct 22, 155 D14 Oct 24, 20 D28 Nov 1. Carried: binary search lessons 14-15, NEW 704.
 - DSA rule APPROVED Oct 18: 45 min a day max, one item per session, clock paused on interruptions; a miss: teach in a separate later slot, retry in another. Label NEW/DRILL/COLD first. Never same-session retry.
 - Om pattern (155, 739): executes and traces right, leaves out the "why"; asserts miss the one case that isolates a bug (20: "(])"). Ask for the reason and the isolating case.
