@@ -1,11 +1,11 @@
 # MC0 machine-coding method: teaching and dry-run record
 
-- Date: 2026-10-19 IST (exact lesson start/end and active minutes not established).
+- Date: 2026-10-19 IST. Retrospective self-report from Om: approximately 11:22-12:45 IST, including a 5-10 minute interruption. Elapsed 83m; active 73-78m, recorded as **[75m estimated]**. Times were not independently measured.
 - Week: W3 (Oct 19-25), Phase1_Master_Plan_v3.4.
 - Teacher: ChatGPT. MC1 invigilator/verifier: Claude.
 - Status: METHOD TAUGHT; GUIDED TEXT DRY RUN COMPLETE; NO FORMAL UNIT VERDICT.
 - Evidence: This MC0 ChatGPT conversation. No MC0 code, tests, CI, timed rep, recorded voice proof, or independent executable artifact.
-- Planning: MC0 is a proposed 1.5-hour GAP before MC1, NOT in approved v3.4 section 14. The instruction was a 90-minute teaching box, 135-minute hard stop absent Om extension; elapsed active minutes are UNKNOWN and must not be invented.
+- Planning: MC0 is a proposed 1.5-hour GAP before MC1, NOT in approved v3.4 section 14. The instruction was a 90-minute teaching box, 135-minute hard stop absent Om extension; Om later supplied a retrospective estimate of **73-78 active minutes** ([75m estimated], not stopwatch-measured), below the 90m lesson box.
 - The Sept 28 Parking Lot work was AI-assisted practice, not an eligible 90-minute MC rep.
 - No Snake and Ladder mechanics, code, or editorial were supplied. L1 OOP pillars, SOLID, patterns, UML and concurrency were not taught.
 - Rubric covered: six criteria 0-2: runs end to end; domain model; minute-60 new requirement/extensibility; readability; tests; concurrency if requested. Passing MC1 needs end-to-end running and >=8/12. Prioritize running code.
@@ -157,4 +157,4 @@ The response lines below reproduce Om's typed answers, including original spelli
 
 UNIT | MC0 machine-coding method | METHOD TAUGHT (guided text only; no verdict) | EVIDENCE this record and the MC0 conversation | GAP independent behavior proof, error cases, class responsibilities and actual timed coding not established | ASK invigilate MC1 Snake and Ladder as planned, 90m uninterrupted, no AI, minute-60 change, raw notes before cleanup; run code/tests and apply exact s7 rubric; one verdict by Claude only. Pass your verified findings to ChatGPT for the 60-minute review.
 
-MC0 amendment (+1.5h) remains proposed/unincorporated into v3.4 until Om approves a plan edit and checker passes. Active minutes remain unknown; ask Om only if needed for time logging. Avoid a score for this dry run.
+MC0 amendment (+1.5h) remains proposed/unincorporated into v3.4 until Om approves a plan edit and checker passes. Time update from Om's later self-report: start approximately 11:22, end 12:45, interruptions 5-10m; 83m elapsed, approximately 73-78m active, record **[75m estimated]**. This corrects the initial 'unknown time' note; it does not establish a timed diagnostic or change the unscored status. Avoid a score for this dry run.
