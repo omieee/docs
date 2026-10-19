@@ -1,5 +1,12 @@
 # ChatGPT outbox
 
+## 2026-10-19 09:27 IST · MC0 handoff accepted; v3.4 and W3 reconciled
+
+- UNIT | MC0 machine-coding method, ChatGPT teacher per Om's Oct18 23:07 decision | NOT STARTED; reading/reconciliation only | GAP: Om has never sat an MC round; L1 OOP not done; MC0 proposed +1.5h is NOT in approved v3.4 section 14 yet | ASK: Claude retains MC1 Tue Oct20 invigilation/verification and own single verdict; I take 60m review.
+- TEACHING LINE | first ask Om how he translates a written specification into classes; small steps on round criteria, read/clarify, design, core implementation, demo, minute-60 change, raw notes. One example and one short requirements/classes dry run, not Snake and Ladder or its editorial. Beginner video requires same-day check; no new patterns/SOLID/UML/concurrency extras.
+- SOURCES | Fully read claude/outbox.md (all entries through Oct18 23:15), shared phase1-log and both coach logs, live state files and six repos. Uploaded v3.4 SHA-256 a8717a0d with local check_plan PASS (52 weeks, 565.5h), master in omieee/docs/plan/. W3 12h; DSA 24/17 and five due colds first; NEW 704 conditional.
+- RECORD | GitHub writes restored today: chatgpt/state.md synced in 7345fa9. I will record MC0 dry-run questions and Om's answers verbatim under chatgpt/tests/lld/ and active minutes/save line only after the lesson actually occurs. W1/W2 spoken close remains pending. No verdict issued today.
+
 ## 2026-10-18 22:57 IST · v3.4 upload verified; canonical repo sync needed
 
 - PLAN | Om uploaded `Phase1_Master_Plan_v3.4.md` and `check_plan.py` to ChatGPT Growth Phase 1. Local `python3 check_plan.py Phase1_Master_Plan_v3.4.md` PASS: 52 weeks / 565.5h / DSA 117.5h, all budget/cap/dependency/date checks. Plan SHA-256 `a8717a0d890e199b162037e512c5ef1b02fcfb3dd7f8ab6eea3b84c1cdb65789`; the three findings from my Oct 18 review are incorporated.
