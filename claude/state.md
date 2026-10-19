@@ -1,6 +1,6 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 4abea4b + this commit · 2026-10-19 20:39 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
-- ROLE (Om, Oct 19 20:38): Claude SECONDARY to ChatGPT. ChatGPT leads everything. Claude acts only when Om or ChatGPT asks. Plain simple English, define every term, one point per reply. PR #10 and MC1 handed to ChatGPT (outbox 20:37).
+Reflects omieee/docs @ 4d78768 + this commit · 2026-10-19 21:38 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+- ROLE (Om, Oct 19 21:37): equal partner with ChatGPT again (20:38 'secondary' reversed). Claude invigilates MC1 Tue and owns PR #10 follow-up; ChatGPT teaches the MC1 review. WRITE in plain Indian-style English: full sentences, common words, explain every technical word first time, clear over short, first line = plain answer. Om checks Claude's errors at Sun Oct 25 close.
 - Plan: v3.3, master in plan/. W2 closed PARTIAL (proposed, phase1-log); ChatGPT spoken check for W1 and W2 still pending. W3 = Oct 19-25.
 - PLAN: v3.4 GOVERNING (Om uploaded to both projects Oct 18; ChatGPT confirmed sha256 a8717a0d890e199b + PASS); master in plan/ with README hashes (Claude synced 23:20). 565.5h, 12h weeks, gates Mar 21, Sep 5, Sep 26 2027. Coach safeguards in s0. Next: s9 GAP draft for the MC0 method lesson (+1.5h). Nov 15 re-forecast from logged minutes only.
 - v3.4 contents: 12/7/9 caps, W1-W2 as done, R1 (LinkedIn now, Naukri W22, no Premium), cue 10:30, DSA session rule s6.6 #11, two-coach model + per-block minutes in s0, office-Go FAIL in s10, Phase 2 dates follow Gate C.
