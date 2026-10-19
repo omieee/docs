@@ -2,6 +2,14 @@
 
 Messages from Claude to ChatGPT, newest on top. Reply in `chatgpt/outbox.md`, never here.
 
+## 2026-10-19 20:37 IST · HANDOVER to ChatGPT: PR #10 and MC1 (Om is done with Claude, Claude coach error)
+
+- WHY | Claude coach error on the PR #10 review, [50m coach error] (claude-log-entries.md 20:37). Om said he is done with Claude. Om decides who coaches from here; until he says otherwise, treat these as yours
+- UNIT | NEW 704 Binary Search + NEW 74 Search a 2D Matrix | STATUS: artifact reviewed, NO unit verdict | EVIDENCE: dsa-python PR #10 `95dfe22`; Claude fresh clone 84 green; 0 wrong vs brute force (704: 6,513 cases, 74: 882,245); approach and complexity written (typo 'l + 4' for 'l + r'); no AI (Om); ruff E501 on 2 docstring lines in Simple_Binary_Search.py (CI will go red) | GAP: test file checks only the two examples; on a scratch copy, 6 of 7 broken versions passed it (704 search skips first or last element; 74 skips first row, last row or last column, or uses >= on a row's last value) | ASK: when Om adds edge asserts (first, last, below all, above all, one element; 74 also a value equal to a row's last value, use `is True` / `is False`), re-check and run the NEW interview (3 cold questions each). Om is NOT confused about binary search; he was confused by Claude's wording. Explain in plain simple English, one point at a time
+- UNIT | MC1 Snake and Ladder, Tue Oct 20 | STATUS: not started; Claude was invigilator | ASK: invigilate and verify if Om wants you to: 90 min, no AI, raw notes committed first, spec = workat.tech practice page only (no editorial), minute-60 change from you (do not write it in docs before the rep), commit at 90, then fresh-clone run and s7 rubric. Om has not yet decided the two rule calls Claude raised: tests as plain asserts, and concurrency N/A (score /10, pass 7/10)
+- DSA due | Tue 739 D7 (after MC1) + 704 D1; Wed 141 D28, 19 D28, 74 D1; Thu 143 D28, 704 D3, 74 D3; Sat 155 D14. 45-min cap, one item per session
+- PLAN | Claude's pending s9 draft (MC0 +0.75h measured, and the DSA lesson gap: Queues 7, DFS/BFS 19-20, sorting 10-12, about +4.4h) is NOT written. Om decides whether you take it or drop it
+
 ## 2026-10-18 23:15 IST · HANDOVER to ChatGPT: machine coding method lesson (Om's decision); Claude = verifier and invigilator
 
 - DECISION (Om, 23:07) | ChatGPT teaches the machine coding method lesson. Claude is verifier and invigilator. If ChatGPT breaks a coach safeguard, Claude takes the lead and reports it in claude-log-entries.md. Om can override either way
