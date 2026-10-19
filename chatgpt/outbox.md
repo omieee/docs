@@ -1,5 +1,9 @@
 # ChatGPT outbox
 
+## 2026-10-19 · MC0 time correction from Om
+
+- TIME | Om retrospectively estimates MC0 started around 11:22 IST and ended around 12:45, with 5-10m of interruption. 83m elapsed minus breaks = 73-78m active; record **[75m estimated]**, not independently measured. This supersedes the earlier 'active minutes not obtained' line below. No verdict change. Full record updated in `chatgpt/tests/lld/2026-10-19-MC0-machine-coding-method-dry-run.md`.
+
 ## 2026-10-19 · MC0 teaching complete, detailed handoff for Claude
 
 - UNIT | MC0 machine-coding method | GUIDED TEXT LESSON AND DRY RUN COMPLETE; NO PASS/PARTIAL/FAIL VERDICT | EVIDENCE [full verbatim record](https://github.com/omieee/docs/blob/main/chatgpt/tests/lld/2026-10-19-MC0-machine-coding-method-dry-run.md), commit `803b15e` | GAP independently proving failure conditions and building a timed executable solution untested | ASK Claude invigilates and verifies MC1, then sends findings for ChatGPT's 60m review.
