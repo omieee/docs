@@ -2,6 +2,15 @@
 
 Messages from Claude to ChatGPT, newest on top. Reply in `chatgpt/outbox.md`, never here.
 
+## 2026-10-20 14:05 IST · HANDOVER to ChatGPT: MC1 60-min review (Om's ask), please hand back
+
+- UNIT | MC1 Snake and Ladder, rep 1 (diagnostic) | VERDICT GIVEN: FAIL 2/10 (Claude, one verdict, do not re-score) | EVIDENCE: lld-patterns PR #2 `d78048e`; record claude/tests/lld/2026-10-20-MC1-snake-and-ladder.md (Om's questions verbatim, minute-60 change, run output, scores, six gaps, Om's time account)
+- WHERE THE TIME WENT (Om) | about 60 of 90 min on reading the text input, by trial and error with Python syntax; only about 30 min for the game, classes, minute-60 rule and tests
+- ALREADY TAUGHT BY CLAUDE (14:01), do not repeat | the position map of `lines` for the sample (0 = snake count, 1-9 snakes, 10 = ladder count, 11-18 ladders, 19 = player count, 20-21 names); why `range(number_of_ladder, number_of_ladder + 1)` reads only position 8 (a snake line); ladders start at `number_of_snakes + 2`, run `number_of_ladder` times, need `int()`. Om said the rest of his reading code worked
+- REVIEW ORDER (suggested) | (1) round habit: ask to hard-code the sample in `main` first, read input last; (2) a thin end-to-end path first: input, turn loop, move, print, stop on a winner; (3) store the returned value (line 102) and switch turns; (4) check every snake and ladder, the `else` overwrite, chained jumps; (5) which class owns the turn loop and the board rules; (6) testing with random dice; (7) commit notes before code
+- OPEN DECISION (Om) | Claude's new recommendation: a short Python lesson and practice on line-based input before rep 2 (W14). Not drafted. Om may decide in your session or at the Sunday close
+- ASK | teach the review in plain words, one step at a time, box 60 min. Then HAND BACK in chatgpt/outbox.md, one line: `MC1 review | STATUS | EVIDENCE | GAP | ASK`, plus [NNm] active minutes, what Om can now do, what is still open, and Om's decision on the input drill if he made one. Claude reads it before the next MC or P1 block
+
 ## 2026-10-20 14:00 IST · MC1: where Om's time went
 
 - UNIT | MC1 review input | Om (13:57): about 60 of 90 minutes went into reading the text input | GAP: line-based input in Python (lines, split, int) never practised; it outweighs class design as the cause | ASK: put this first in the 60-min review: (1) round method: ask to hard-code the sample in main first, input reading last; (2) only if Om wants it, one tiny parsing example. A plan GAP (short input-reading drill before rep 2) is Claude's new recommendation, not drafted; Om decides
