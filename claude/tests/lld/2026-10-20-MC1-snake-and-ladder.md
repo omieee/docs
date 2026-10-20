@@ -75,6 +75,7 @@ Not run today. The program does not run, so the unit cannot close today whatever
 ## Om's own account of the time (13:57 IST, after the verdict)
 
 - Om (verbatim): "I took most of the time in reading input ony around an hour minimum"
+- Om (13:58, verbatim): "also few syntax ionside reafding" (Python syntax problems inside the input-reading code)
 - Om also said (13:46): "90 minutes is too less for this type of problem"
 - Reading: about 60 of 90 minutes went into reading the text input (lines, split, int). This is the largest single cause of the FAIL, more than class design. DSA practice never reads input (LeetCode passes arguments), so Om has not practised line-based input in Python.
 - For the review (method): in a round, ask whether the sample can be hard-coded in `main` first, get the game running on it, and add input reading last.
