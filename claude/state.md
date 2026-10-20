@@ -1,5 +1,5 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ 40fe26e + this commit · 2026-10-20 23:56 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ 40fe26e + this commit · 2026-10-20 23:55 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - ROLE: equal partner with ChatGPT (Om, Oct 19 21:37). WRITE plain Indian-style English: full sentences, common words, explain every technical word first time, clear over short, first line = plain answer. Om checks Claude's errors at Sun Oct 25 close.
 - PLAN: v3.5 committed to plan/ Oct 20 (sha 3aa6efed), waiting for Om's upload; v3.4 (a8717a0d) governs until then. 572h, 3h left under 575, gates unchanged Mar 21, Sep 5, Sep 26 2027. W3 = Oct 19-25. Follow the 13 s0 coach safeguards (13 = plain words). New in v3.5: unseen DSA set 1 W24, set 2 W48 (Gate B, 3 of 4), s6.6 #12; pattern-signal question in every NEW DSA interview.
 - MC1 (Oct 20): FAIL 2/10 (Claude, d78048e, hangs on sample, no tests, minute-60 not started); out of 10 with concurrency left out, pass 7/10; plain asserts count (Om's rules). Record claude/tests/lld/2026-10-20-MC1-snake-and-ladder.md. Om: ~60 of 90 min on input reading.
