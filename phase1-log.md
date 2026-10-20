@@ -114,6 +114,7 @@ Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 o
 
 ## Verdict log
 (newest on top)
+- 2026-10-20 MC1 Snake and Ladder rep 1 (diagnostic) FAIL 2/10 (lld-patterns PR #2 d78048e, Claude): does not run end to end (hangs on the sample); minute-60 change not started; no tests. Scored out of 10, concurrency left out (Om's rule). Machine coding reps: 1 scored. 60-min review: ChatGPT. Record: claude/tests/lld/2026-10-20-MC1-snake-and-ladder.md
 - 2026-10-17 P1 prereq Block 1 context managers PASS (learning-python-sandbox PR #1 7b450d4, Claude): artifact planted 5/5; interview 3/6, retry correct, final 4/6. Block 2 and 3 open.
 - 2026-10-17 LC155 D7 COLD PASS (PR #9 4938f13, Claude): both versions correct (0/40,000 op sequences vs brute force), planted bugs 5/5, time O(1) both (D3 slip fixed); 34 min active vs 20 box.
 - 2026-10-17 LC739 NEW repair PASSED at 1/2 (Claude), NEW 739 now PASS, final 4/6: 4 pops right; popped day never revisited right; pushes-once counting link missing, taught. D7 Oct 20 writes the full reason.
