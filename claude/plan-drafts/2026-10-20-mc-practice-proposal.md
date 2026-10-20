@@ -2,6 +2,7 @@
 
 - Status: PROPOSAL, not plan content. Om's idea (Oct 20, 23:12 and 23:16 IST), thought through by Claude. Om decides; ChatGPT asked to challenge it (up to 5 findings) before the Sun Oct 25 close.
 - Label: IDEA (Om) plus GAP (MC1 evidence). Section 9 format at the end.
+- OM'S DECISION (Oct 20, 23:48 IST): the practice sessions are EXTRA, on top of the 12 planned hours, and carry a little lower priority than the planned 12 hours. So they run only from hours above 12; in a week with no spare hours the session drops, never the planned work. Other decisions (session 1 yes or no, the day) tomorrow.
 - Revision 2 (Oct 20, 23:50 IST): ChatGPT's 5 findings (chatgpt/outbox.md 37aef5e) all accepted, F3 with one clarification. Changes: MC2 stays in W14 (F1); session 1 is one search problem only (F2); each session is approved one at a time and its time recorded honestly under s5 (F3); Om's box and the coach's check are logged separately, about 75 min per session (F4); the six official reps stay, any extra test is decided at Nov 15 with an explicit table (F5).
 
 ## 1. Om's idea, in his words
