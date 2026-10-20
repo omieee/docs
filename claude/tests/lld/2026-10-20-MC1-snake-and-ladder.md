@@ -71,3 +71,11 @@ Not run today. The program does not run, so the unit cannot close today whatever
 4. Behaviour ownership: which class owns the turn loop and the board rules (MC0 found the same gap).
 5. Testing a game with random dice (how to test the minute-60 rule at all).
 6. Time use: no commit or runnable check before minute 90.
+
+## Om's own account of the time (13:57 IST, after the verdict)
+
+- Om (verbatim): "I took most of the time in reading input ony around an hour minimum"
+- Om also said (13:46): "90 minutes is too less for this type of problem"
+- Reading: about 60 of 90 minutes went into reading the text input (lines, split, int). This is the largest single cause of the FAIL, more than class design. DSA practice never reads input (LeetCode passes arguments), so Om has not practised line-based input in Python.
+- For the review (method): in a round, ask whether the sample can be hard-coded in `main` first, get the game running on it, and add input reading last.
+- For the plan (new recommendation, not yet drafted in s9): a short Python lesson and drill on reading line-based input before rep 2 (W14). Om decides.
