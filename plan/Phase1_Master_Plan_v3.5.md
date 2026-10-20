@@ -1,6 +1,6 @@
-# Phase 1 Master Plan v3.4: Portable Skills You Can Prove
+# Phase 1 Master Plan v3.5: Portable Skills You Can Prove
 
-**Owner:** Om · **Written:** 2026-09-25 · **Base plan effective:** 2026-10-01 · **v3.2 amendment effective:** 2026-10-04 (teach-first coaching) · **v3.3 amendment effective:** 2026-10-05 (realistic Python sizing from the Oct 5 baseline, coach channel, test records) · **v3.4 amendment effective:** 2026-10-19 (capacity re-forecast from the W2 check at 12 hrs/week, R1 timing, cue time, DSA session rule, two-coach operating model, coach safeguards) · **Replaces:** v3.3, v3.2, v3.1, Phase_1_Source_of_Truth v2.0, Files 1, 2 and 3, and the v3 draft doc
+**Owner:** Om · **Written:** 2026-09-25 · **Base plan effective:** 2026-10-01 · **v3.2 amendment effective:** 2026-10-04 (teach-first coaching) · **v3.3 amendment effective:** 2026-10-05 (realistic Python sizing from the Oct 5 baseline, coach channel, test records) · **v3.4 amendment effective:** 2026-10-19 (capacity re-forecast from the W2 check at 12 hrs/week, R1 timing, cue time, DSA session rule, two-coach operating model, coach safeguards) · **v3.5 amendment effective:** 2026-10-20 (two unseen DSA sets, in W24 and W48, the pattern-signal question, the plain-words safeguard) · **Replaces:** v3.4, v3.3, v3.2, v3.1, Phase_1_Source_of_Truth v2.0, Files 1, 2 and 3, and the v3 draft doc
 
 **Portable skills you can prove are the only insurance you control.**
 
@@ -72,6 +72,9 @@ This is the single source of truth for Phase 1 from 2026-10-01. Any assistant (C
 11. **Own it the same day.** Every coach error gets one line in that coach's log: what happened, minutes lost, the rule broken, the fix. The coach tells Om plainly, once, with no excuses.
 12. **Repeat becomes a rule.** The same error type twice is written into this list at the next revision. A third time on the same unit, Om may hand it to the other coach, who restarts it from zero.
 
+*Language (protects understanding)*
+13. **Plain words (v3.5, written in by rule 12 after the Oct 18 and Oct 19 errors).** Write in plain Indian-style English: full sentences and common words. Explain every technical word the first time it is used, including words from the coach logs such as NEW, COLD, D1 or planted bug. One point per reply. Clear matters more than short.
+
 **Two coaches, one repository.** Claude and ChatGPT are equal peers; Om decides. Their only channel is `omieee/docs` on GitHub:
 
 - Each coach writes only in its own folder, `claude/` or `chatgpt/`, and reads both. Inside each: `tests/<track>/` for test records (section 7), `reviews/` for second opinions (only when Om asks), and `outbox.md` for messages to the other coach, newest on top, each with date and time in IST, subject, ask and an evidence link. A reply goes in the replying coach's own outbox.
@@ -81,7 +84,7 @@ This is the single source of truth for Phase 1 from 2026-10-01. Any assistant (C
 - Operating model (approved by Om Oct 5, written in v3.4): the coach Om starts a unit with owns its teaching, proof and single verdict; a miss is scored, taught and retried by that same coach; the other coach runs the later scheduled retention checks. Handoffs are one line: `UNIT | STATUS | EVIDENCE | GAP | ASK`. The coach running a gate gives the one gate verdict, using both coaches' evidence. The Sunday close is split: Claude supplies git, CI and tracker facts, ChatGPT runs a short spoken check, and they make one combined close. Each coach keeps a `state.md` cache of at most 20 lines naming the repo commit it reflects; canonical logs and outboxes still win before any verdict, gate or plan change.
 - Sessions: Om opens with minutes and mode (desk, voice or bedside); the coach picks one block from the current week; the block ends with a save line and its active minutes, logged as `[NNm]` by the coach that ran it. The Sunday close totals both logs. Logged minutes are the only input to the monthly re-forecast.
 
-**Reply style:** short, blunt, action-first. Plain words, no em-dashes. Correctness is judged at 100%; polish at 90% is enough.
+**Reply style:** action-first, in plain Indian-style English: full sentences, common words, no em-dashes; clear matters more than short (Om, Oct 19; safeguard 13). Correctness is judged at 100%; polish at 90% is enough.
 
 ---
 
@@ -104,7 +107,7 @@ This is the single source of truth for Phase 1 from 2026-10-01. Any assistant (C
 | 1 | Go fundamentals learned in office hours at zero cost | Go is a study track: fundamentals, then a real app. Office Go is a bonus, never scheduled | Office Go is about one day a month, on operator code. Zero Go written in September |
 | 2 | Kubernetes 13 hrs, hands-on in January | 36 hrs, local kind cluster from October | Cold audit 4.0/15 on 2026-09-24 |
 | 3 | Staff as a selective stretch | Phase 1 targets Senior. Staff is an opportunistic stretch only: no Staff preparation, never a top referral spent on a Staff loop | Band 7B, ₹37L CTC and the skill audits all read Senior |
-| 4 | Fixed end date Jan 31 2027 | Gates set the end. Forecast (v3.4): Gate A Mar 21 2027, Gate B Sep 5 2027, Gate C Sep 26 2027, at 12 hrs/week from the W2 capacity check, re-forecast monthly from actual hours | 503 hrs from Oct 1: the 490-hour bottom-up estimate plus 13 from the Oct 1 handoff evidence (SQL correction, service repository restart, clean rep 1). 558 after the Oct 5 Python baseline (v3.3). 564 after the W2 capacity check (v3.4: a weekly close for each added week), 565.5 with pytest basics added to P1 (v3.4). Om authorized up to 575 |
+| 4 | Fixed end date Jan 31 2027 | Gates set the end. Forecast (v3.4): Gate A Mar 21 2027, Gate B Sep 5 2027, Gate C Sep 26 2027, at 12 hrs/week from the W2 capacity check, re-forecast monthly from actual hours | 503 hrs from Oct 1: the 490-hour bottom-up estimate plus 13 from the Oct 1 handoff evidence (SQL correction, service repository restart, clean rep 1). 558 after the Oct 5 Python baseline (v3.3). 564 after the W2 capacity check (v3.4: a weekly close for each added week), 565.5 with pytest basics added to P1 (v3.4). 572 with two unseen DSA sets (v3.5). Om authorized up to 575 |
 | 5 | Separate `go-probe-runner` toy | The Go app is PRCP's probe agent (data plane) | One coherent system beats two unconnected repos |
 | 6 | System design about 20 hrs scheduled | 63.5 hrs including 4 mocks | Top priority at 12 years; Nutanix ran three design rounds in a Jul 2026 loop |
 | 7 | Units close on self-report | Units close on proof the assistant verifies (section 7) | Learn, prove, then move |
@@ -189,8 +192,8 @@ Phase 1 exits on gates, not dates. At 12 hrs/week the forecast is Gate A Mar 21 
 | Phase | Window | Hours | Scope |
 | --- | --- | --- | --- |
 | Bridge | Sep 26-30 2026 | ~8 | 25-min floors, machine coding rep 1, psycopg `Service` repository with a rollback test, office-Go test recorded |
-| 1a Foundations | Oct 1 2026 - Mar 21 2027, W0-W24 | 255 | Go fundamentals. Python core. Kubernetes on kind: architecture, workloads, networking, config and RBAC, scenarios 1-5. PRCP persistence, SQL fluency, Postgres internals, SQLAlchemy and Alembic. LLD foundations, rep 2. HLD framework and building blocks. Insurance pack, stories |
-| 1b Build and design | Mar 22 - Sep 5 2027, W25-W48 | 285 | Go agent. Docker, CI self-gating, metrics. Both apps on kind, scenarios 6-10. Distributed systems, practice designs, mocks 1-3. Reps 3-5. Python classes and data model, Python depth, a PRCP code walk. Load experiment, concurrency, networking and OS with real tools, gRPC, API security. PRCP v1.0 and a game day |
+| 1a Foundations | Oct 1 2026 - Mar 21 2027, W0-W24 | 258.5 | Go fundamentals. Python core. Kubernetes on kind: architecture, workloads, networking, config and RBAC, scenarios 1-5. PRCP persistence, SQL fluency, Postgres internals, SQLAlchemy and Alembic. LLD foundations, rep 2. HLD framework and building blocks. Insurance pack, stories |
+| 1b Build and design | Mar 22 - Sep 5 2027, W25-W48 | 288 | Go agent. Docker, CI self-gating, metrics. Both apps on kind, scenarios 6-10. Distributed systems, practice designs, mocks 1-3. Reps 3-5. Python classes and data model, Python depth, a PRCP code walk. Load experiment, concurrency, networking and OS with real tools, gRPC, API security. PRCP v1.0 and a game day |
 | 1c Convert | Sep 6 - Sep 26 2027, W49-W51 | 25.5 | Rep 6, mock 4, deep dive, DSA finish, checklist re-runs, Gate C. Light on purpose: interviews peak here |
 
 **Gate A (Mar 21).** Every item, verified per section 7:
@@ -203,6 +206,8 @@ Phase 1 exits on gates, not dates. At 12 hrs/week the forecast is Gate A Mar 21 
 - Checklist D baseline run. DSA 40 total / 24 cold. Machine coding reps 1 and 2 scored.
 - Insurance pack live: resume v1, LinkedIn, Naukri (live since W22, about 15 days before this gate), 60-second pitch. 2-3 stories told aloud.
 
+Also in W24, but never a Gate A item: unseen DSA set 1 (section 6.6 #12), scored and recorded. Its misses show which families need more practice on reworded problems in 1b.
+
 **Gate B (Sep 5).**
 
 - Craft-demo ready: a stranger runs PRCP from the README in 5 minutes, and you defend any line for 30.
@@ -210,7 +215,7 @@ Phase 1 exits on gates, not dates. At 12 hrs/week the forecast is Gate A Mar 21 
 - Kubernetes audit at 10/15 plus a live debugging challenge on your own cluster. Checklist C at 7/10.
 - Checklists A and D at 7/10. Metrics, one symptom alert, self-gating CI green.
 - 3 design mocks, at least 1 with a human, each at 11/16 or better with no zero.
-- DSA 50 / 34, all 16 families touched, and the latest blind mixed set before the gate (W41-W42) at 80% or better solved without hints, Mediums in 30-35 min.
+- DSA 50 / 34, all 16 families touched, and the latest blind mixed set before the gate (W41-W42) at 80% or better solved without hints, Mediums in 30-35 min. Plus unseen set 2 (W48, section 6.6 #12): 3 of 4 problems Om has never seen, solved without hints inside the time box.
 - Machine coding reps 1-5 done, and the latest two pass the rubric (runs end to end, 8/12 or better).
 - Story checkpoint: 4 defensible stories. Fewer is PARTIAL, not a blocker, except for top referrals (below).
 
@@ -234,7 +239,7 @@ Phase 1 exits on gates, not dates. At 12 hrs/week the forecast is Gate A Mar 21 
 
 ## 5. Track priorities and hours
 
-**Scheduled from Oct 1: 565.5 hours.** The 490-hour bottom-up estimate at beginner rates (rates table below) plus 13 hours the Oct 1 handoff proved necessary: SQL correction from the measured Sep 27 level (+7), the service repository restarting from zero with a psycopg prerequisite (+3), and a clean rep 1 because the parking-lot attempt used AI (+2.5, half an hour already inside P1). Then 55 hours the Oct 5 Python baseline proved necessary (v3.3): Python depth re-estimated from the measured level at realistic rates (+44), Python prerequisites before P1 (+1.5), a Checklist A baseline (+0.5), and DSA, weekly close and proofs in the three weeks this adds (+9). Then 6 hours the W2 capacity check made necessary (v3.4): the 12-hour week adds twelve weeks, each with a 0.5-hour close. Then 1.5 hours for pytest basics inside P1's prerequisites (v3.4): Om had never used pytest as a framework, and no unit taught it before P1 needs fixtures (Y6 is beyond the basics). Om authorized up to 575: if measured actuals run slower than these rates, a track's remaining hours rise by the measured amount, up to that ceiling. A script checked every week, unit and track. Credited before Oct 1 and not counted: the schema (4 hrs), pgexercises Simple Queries, and the September cold re-solves.
+**Scheduled from Oct 1: 572 hours.** The 490-hour bottom-up estimate at beginner rates (rates table below) plus 13 hours the Oct 1 handoff proved necessary: SQL correction from the measured Sep 27 level (+7), the service repository restarting from zero with a psycopg prerequisite (+3), and a clean rep 1 because the parking-lot attempt used AI (+2.5, half an hour already inside P1). Then 55 hours the Oct 5 Python baseline proved necessary (v3.3): Python depth re-estimated from the measured level at realistic rates (+44), Python prerequisites before P1 (+1.5), a Checklist A baseline (+0.5), and DSA, weekly close and proofs in the three weeks this adds (+9). Then 6 hours the W2 capacity check made necessary (v3.4): the 12-hour week adds twelve weeks, each with a 0.5-hour close. Then 1.5 hours for pytest basics inside P1's prerequisites (v3.4): Om had never used pytest as a framework, and no unit taught it before P1 needs fixtures (Y6 is beyond the basics). Then 6.5 hours for two unseen DSA sets (v3.5, section 6.6 #12): set 1 in W24 (3.5) and set 2 in W48 (3), because no check before them used a problem Om had never seen. Om authorized up to 575: if measured actuals run slower than these rates, a track's remaining hours rise by the measured amount, up to that ceiling. A script checked every week, unit and track. Credited before Oct 1 and not counted: the schema (4 hrs), pgexercises Simple Queries, and the September cold re-solves.
 
 | Track | Priority | Hours from Oct 1 | Notes |
 | --- | --- | --- | --- |
@@ -243,11 +248,11 @@ Phase 1 exits on gates, not dates. At 12 hrs/week the forecast is Gate A Mar 21 
 | Kubernetes on kind | Very high | 36 | Ten scenarios at about 45 minutes each |
 | HLD and distributed systems 51.5, mocks 12 | Very high | 63.5 | Starting from zero; the round that sets level at 12 years |
 | LLD 18, machine coding reps 1-6 15 | Very high | 33 | Rep 1 is a clean Snake and Ladder rep, now in W3 (slipped from W0) |
-| DSA | High, daily | 117.5 | Early beginner; breadth first, depth is Phase 2. Includes 7.5 for the three weeks v3.3 adds |
+| DSA | High, daily | 124 | Early beginner; breadth first, depth is Phase 2. Includes 7.5 for the three weeks v3.3 adds and 6.5 for the two unseen sets (v3.5) |
 | Supporting: concurrency 5.5, networking 8, gRPC 3, OS 5, API security 6, cloud vocabulary 4 | Supporting | 31.5 | Tool-based practice; concurrency starts with a Checklist A baseline |
 | Stories, resume, narratives | Insurance | 24 | Two deep dives, five stories |
 | Verification and governance: unit proofs and weekly close 24, gates 14, Oct 1 procedure 1 | Required | 39 | Hidden hours made visible; v3.4 adds a close for each added week |
-| **Total** | | **565.5** | 1a 255, 1b 285, 1c 25.5 |
+| **Total** | | **572** | 1a 258.5, 1b 288, 1c 25.5 |
 
 **How the hours were estimated.** Assistants re-estimate from these rates and from actuals, never by feel.
 
@@ -427,7 +432,7 @@ Each track lists its depth bar, ordered units with hours and proof, then resourc
 
 **Not in Phase 1:** all 23 GoF patterns, UML beyond class and sequence diagrams, Java.
 
-### 6.6 DSA (117.5 hrs, daily)
+### 6.6 DSA (124 hrs, daily)
 
 **Depth bar.** Clear the coding screen, not win contests. Every family touched before good referrals open at Gate B; Easy and Medium solid; unseen Mediums in 30-35 minutes with approach and complexity said aloud. Depth beyond this is Phase 2.
 
@@ -437,13 +442,14 @@ Each track lists its depth bar, ordered units with hours and proof, then resourc
 2. New technique: watch the worked example, reimplement it closed-book, explain the mechanism aloud. Cold-first applies only to re-solves.
 3. Easy, then Medium, per family. Hards are optional and unscheduled, never required.
 4. Tests come from the problem statement, never from your own code. Hand-trace every state when reading triggers recognition instead of construction.
-5. Label every item: NEW counts toward the total; DRILL builds a structure and does not count; COLD is a spaced re-solve and counts toward the cold number.
+5. Label every item: NEW counts toward the total; DRILL builds a structure and does not count; COLD is a spaced re-solve and counts toward the cold number; UNSEEN is a test on a problem never seen before and does not count (#12).
 6. Spaced re-solves on days 1, 3, 7, 14 and 28. No other intervals.
-7. From W35, blind mixed sets with no pattern label run in the weeks marked in section 14.
+7. From W35, blind mixed sets with no pattern label run in the weeks marked in section 14. They mix problems Om has already solved, so they test whether he recognises a known problem without its label. Whether a pattern carries over to a problem he has never seen is tested by the unseen sets (#12).
 8. DSA goes first in the daily block.
-9. **Cold before new.** Due cold re-solves come before scheduled NEW problems. The 117.5 hours (110, plus 7.5 for the three weeks v3.3 adds) cover NEW problems at beginner pace (about 45 min Easy, 90 min Medium), a lesson per new family, about 200 colds at about 13 minutes each, and the blind sets. Time-box each cold (about 10 min Easy, 15 Medium). If cold debt still exceeds the week's DSA hours, NEW problems slip; reviews are never skipped.
+9. **Cold before new.** Due cold re-solves come before scheduled NEW problems. The 124 hours (110, plus 7.5 for the three weeks v3.3 adds, plus 6.5 for the two unseen sets in v3.5) cover NEW problems at beginner pace (about 45 min Easy, 90 min Medium), a lesson per new family, about 200 colds at about 13 minutes each, the blind sets and the two unseen sets. Time-box each cold (about 10 min Easy, 15 Medium). If cold debt still exceeds the week's DSA hours, NEW problems slip; reviews are never skipped.
 10. **Tracker:** one row per problem: problem · first solved · D1 · D3 · D7 · D14 · D28 · result.
 11. **Session rule (v3.4, approved by Om Oct 18):** at most 45 minutes of DSA a day, one item per session, the clock paused during interruptions (active minutes logged). A miss is scored once; its teaching or understanding session takes a separate later slot, and the retry another slot after that. Never a same-session retry (approved Oct 6).
+12. **Unseen sets (v3.5, approved by Om Oct 20):** twice in Phase 1 the coach sets four problems that Om has never solved, from families he has already studied, with no pattern label. Set 1 runs in W24 and uses the families studied by then (arrays and hashing, two pointers, sliding window, linked lists, and families 1-7 below): 2 Easy and 2 Medium. Set 2 runs in W48 and may use any of the 20 families: 1 Easy and 3 Medium. Before giving a problem, the coach checks `dsa-python` and the tracker to confirm Om has never solved it. One problem a day, under #11. For each problem, before writing code, Om says which pattern it is and which words in the problem point to it, then the approach and the complexity; then he codes against asserts taken from the problem statement. Time box: 20 minutes for an Easy, 35 for a Medium. Each item is labelled UNSEEN: it is a test, it never counts toward the NEW or cold totals, and it is never re-solved. Set 1 (3.5 hours: four sessions of up to 45 minutes, plus one 30-minute repair slot; any further repair comes from contingency) is scored and recorded but never blocks Gate A; each miss gets its teaching in a later slot (#11), and the misses show which families need more practice on reworded problems in 1b. Set 2 (3 hours: four sessions) is a Gate B item: 3 of 4 solved without hints inside the box. Both sets are recorded in the coach's `tests/dsa/` folder (section 7).
 
 **Family order and totals (34 NEW, from 21 to 55)**
 
@@ -468,7 +474,7 @@ Each track lists its depth bar, ordered units with hours and proof, then resourc
 
 Sorting lessons 10 to 12 are DRILLs: implement merge sort and quicksort, not counted. Section 14 names a default problem for every NEW slot; swap any you have already solved.
 
-**Targets:** Gate A 40 / 24 cold. Gate B 50 / 34. Gate C 55 / 40-45 plus the performance gate.
+**Targets:** Gate A 40 / 24 cold, with unseen set 1 recorded the same week (not a gate item). Gate B 50 / 34, plus unseen set 2 at 3 of 4. Gate C 55 / 40-45 plus the performance gate.
 
 **Not in Phase 1:** segment and Fenwick trees, KMP, advanced DP, contest practice.
 
@@ -543,7 +549,7 @@ Teacher and proctor are both mandatory. Teaching must not leak answers into a co
 1. A meaningful artifact in git: code, tests, a SQL file, lab output, a design scorecard or mock notes.
 2. Tests or lab evidence, checked in the evidence order from section 0.
 3. One paragraph from memory, no AI: what it does, why this way, what you rejected.
-4. Three cold questions from the ladder below, scored, with on-the-spot teaching on any miss (section 0). NEW DSA problems get this too: the mechanism, a trace, and one transfer question.
+4. Three cold questions from the ladder below, scored, with on-the-spot teaching on any miss (section 0). NEW DSA problems get this too: the mechanism, a trace, one transfer question, and the pattern-signal question: which words in the problem point to this pattern (v3.5).
 
 **Milestone and gate proof (the five checks)**
 
@@ -563,7 +569,7 @@ Teacher and proctor are both mandatory. Teaching must not leak answers into a co
 
 **Track-specific checks**
 
-- **DSA:** cold re-solves must pass asserts derived from the problem; the recall bar does not apply to them. Approach and complexity stated before coding.
+- **DSA:** cold re-solves must pass asserts derived from the problem; the recall bar does not apply to them. Approach and complexity stated before coding; on NEW and UNSEEN problems, the pattern and the words that point to it come first (v3.5).
 - **Go:** `go vet` and `go test -race ./...` clean. For every goroutine: who starts it, who cancels it, who closes its channel.
 - **Kubernetes:** the assistant describes a symptom or hands over a broken manifest. You reproduce it on kind and paste `kubectl` output before and after. Memory alone does not count.
 - **Postgres:** two-session `psql` demonstrations pasted, real `EXPLAIN` plans, timed SQL on a schema you have not seen.
@@ -801,8 +807,9 @@ Keep one file. Conflicting numbers across files caused past confusion.
 | `Phase1_Master_Plan_v3.1.md` | Remove from both projects once v3.2 is uploaded; archive a copy | Superseded by v3.2 |
 | `Phase1_Master_Plan_v3.2.md` | Remove from both projects once v3.3 is uploaded; archive a copy | Superseded by v3.3 |
 | `Phase1_Master_Plan_v3.3.md` | Remove from both projects once v3.4 is uploaded; it stays in `omieee/docs` git history | Superseded by v3.4 |
+| `Phase1_Master_Plan_v3.4.md` | Remove from both projects once v3.5 is uploaded; it stays in `omieee/docs` git history | Superseded by v3.5 |
 | `omieee/docs/plan/` | Master copy of this file and `check_plan.py`, sha256 in its README. An approved change is committed there first, then uploaded to both projects the same day | Approved by Om Oct 5 |
-| Project instructions (Claude project settings) | Replace the line "Baseline plan: Phase 1 runs May 21 2026 to Nov 20 2026" with "Governing plan: Phase1_Master_Plan_v3.4.md" | The old baseline contradicts this file |
+| Project instructions (Claude project settings) | The line "Source of truth: Phase1_Master_Plan_v3.3.md" must name the current file: "Source of truth: Phase1_Master_Plan_v3.5.md". Om edits it; coaches cannot | The old name points at a retired file |
 | This file | The only plan file in the Claude project and in ChatGPT | Single source of truth |
 
 **After any approved change,** edit this file, re-run the script, and re-upload to both assistants the same day.
@@ -810,7 +817,7 @@ Keep one file. Conflicting numbers across files caused past confusion.
 **Assistant memory.** Saved notes that still name the old files, the May 21 to Nov 20 plan, or the Jan 31 end date are stale; point them here. Current state (DSA count, audit scores, decisions) lives in the weekly close and the repos, never in memory alone.
 
 ---
-## 13. Change log: v3 to v3.4
+## 13. Change log: v3 to v3.5
 
 v3.1 folds in 70 corrections: 23 agreed after an outside review, 2 found by the week-map script, 16 more from the same review after cross-checking, the bedside rule, 2 positioning points from a former teammate's resume, 6 from the final pass, 13 from a second outside review, checked point by point, 1 for an owned KodeKloud subscription, 1 delta fix, 1 set of zero-hour substitutions from a third review, 1 overrun rule, the 420-hour authorization, a bottom-up re-estimate, and the Oct 1 handoff. All are already written into the sections above.
 
@@ -848,6 +855,8 @@ v3.1 folds in 70 corrections: 23 agreed after an outside review, 2 found by the 
 
 **Capacity re-forecast, R1 timing, cue, DSA session rule, two-coach model (73), Oct 18, v3.4. BUG and GAP, drafted by Claude; approved by Om by uploading this file.** What: (1) the week map is rebuilt at 12 hours a normal week, 7 in light weeks and 9 or less in 1c. W1 and W2 now show what was done (13 hours credited at plan rates), and everything unfinished slips forward in row order, reps and mocks kept whole. Gates move to Mar 21, Sep 5 and Sep 26 2027. Six hours are added for the twelve extra weekly closes, and 1.5 for pytest basics, total 565.5. (1b) Review fixes from ChatGPT (Oct 18, chatgpt/outbox.md fbb82f6), all accepted: DSA exception to on-the-spot retry in sections 0 and 7 (BUG); section 11 anchored to Gate C instead of July-based months (BUG); W3 lists the five due colds first and makes NEW 704 conditional (GAP). (1c) Pytest basics added to P1's prerequisites, +1.5h (GAP, Claude, Oct 18): Om had never used pytest as a framework; Block 2 was taught past his level and restarted from zero. (1d) Coach safeguards in section 0 (BUG, Om's order Oct 18, drafted by Claude): twelve rules on asking before teaching, staying on the plan line, beginner resources, one step at a time, going back when Om is lost, boxing every block, keeping coach-error time out of pace, fresh evidence before claims, quoting before scoring, running before passing, owning errors the same day, and turning repeats into rules; plus a coach-errors line in the weekly close. Evidence: the coach errors listed in section 0, about 4 measured hours lost in W0 to W2. (2) R1: resume v1 and LinkedIn live in October, no Premium; Naukri live about 15 days before Gate A, or on a layoff notice. (3) Cue time 10:30 AM. (4) The DSA session rule in section 6.6. (5) The two-coach operating model approved Oct 5, written into section 0, with minutes logged per block. Why: the W2 capacity check fired. Evidence: git across the six repos and both coach logs (W2 close in `phase1-log.md`, Oct 18): about 13 of 33 scheduled hours closed by Oct 18, about 5 a week against 15, so Feb 7 would have needed 238.5 hours in 16 weeks; only 99 minutes were logged; Om's stated capacity on Oct 18 is about 2 hours a day, 12-13 a week, with 1-2 office days. Trigger: the section 5 W2 capacity rule, a material execution shortfall. Time cost: +7.5 hours (6 for closes, 1.5 for pytest basics); gates move 6 to 12 weeks. Removed: nothing; scope unchanged. Risk reduced: dates that could not be met, a schedule with no room for bad days, Naukri visibility spent before Om can interview, and DSA sessions that overrun. Open risk: if logged minutes show units take longer than the plan's rates, the pace check raises hours again; first monthly re-forecast Nov 15, and the ceiling of 575 leaves 9.5 hours.
 
+**Unseen DSA sets, the pattern-signal question, plain-words rule (74), Oct 20, v3.5. GAP, drafted by Claude; approved by Om in chat (Oct 19 23:30, "go ahead"; Oct 20, the W24 and W48 option chosen).** What: (1) section 6.6 #12 adds two unseen sets of four problems Om has never solved, from families already studied, with no pattern label: set 1 in W24 (3.5 hours, recorded, never a Gate A item) and set 2 in W48 (3 hours, a Gate B item at 3 of 4). #5 adds the UNSEEN label; #7 says the blind mixed sets re-use solved problems. (2) Section 7 adds the pattern-signal question to every NEW interview and to the DSA check: which words in the problem point to this pattern. (3) Section 0 adds safeguard 13 (plain words) and the reply style follows Om's Oct 19 rule. Safeguard 12 requires this one: the same error type happened twice (the Oct 18 pytest block and the Oct 19 PR #10 review). Why: the section 6.6 depth bar promises unseen Mediums in 30-35 minutes, but no Phase 1 check used a problem Om had never seen. Gate C's performance gate re-solves 10 old problems, and the blind sets never said whether their problems were new. So the skill Om asked about on Oct 19, spotting a known pattern in a reworded problem, was never measured before real loops. Evidence: the section 6.6 depth bar against the Gate B and Gate C wording in section 4; no definition of the blind sets anywhere in `omieee/docs` (fresh clone `e122711`, Oct 19). Trigger: a newly found defect in the verification protocol (a promised bar with no test). Time cost: +6.5 hours, total 572, 3 under the 575 ceiling. W24 goes from 5 to 8.5 hours and W48 from 9 to 12, so no gate date moves; Gate B repairs now use 1c's spare hours. Removed: nothing. Risk reduced: learning after Gate B, in a real loop, that patterns do not carry over to new problems; set 1 gives the first signal 11 weeks before the first blind set. Options not taken: making the W35-W42 blind sets unseen (same hours, but 1b is full, so Gates B and C would move a week); the pattern-signal question alone (no hours, but the bar stays untested). Open risk: only 3 hours remain under 575, and two drafts still wait for Om (MC0 +0.75 measured, the DSA lesson gap about +4.4). If both are approved the total is about 577, so Om decides on the ceiling then (section 5).
+
 **Checked and not added:** backend JDs asking to spot subtly wrong AI-generated Go (only AI-trainer gigs found; rep 5 already trains this) · a live Senior median of ₹56.8L (page would not load; the Dec 2025 snapshot is used) · Intuit Staff roles at 8+ years (not needed for a Senior target) · specific Nutanix Go, Kubernetes-deployment and query-planner questions (reports found show design and code-reading rounds instead).
 
 **Rejected:** 8/10 pass bars on every checklist; Kubernetes 12/15 at Gate B; setting the date from September's demonstrated capacity of 3-4 hrs/week.
@@ -856,7 +865,7 @@ v3.1 folds in 70 corrections: 23 agreed after an outside review, 2 found by the 
 
 ## 14. Week map from Oct 1
 
-Fifty-two weeks, Oct 1 2026 to Sep 26 2027, 565.5 scheduled hours (v3.4). W0 to W2 show what was done; from W3 the unfinished work runs in the original order at 12 hours a week. A script built and checked this map: every week fits its cap (12, or 7 in light weeks), every unit's hours match section 6, every sub-task is visible, DSA totals 117.5, verification plus gates total 39, and no unit starts before the units it depends on. The proof column names the units that close that week; each unit's proof is in section 6.
+Fifty-two weeks, Oct 1 2026 to Sep 26 2027, 572 scheduled hours (v3.5). W0 to W2 show what was done; from W3 the unfinished work runs in the original order at 12 hours a week. A script built and checked this map: every week fits its cap (12, or 7 in light weeks), every unit's hours match section 6, every sub-task is visible, DSA totals 124, verification plus gates total 39, and no unit starts before the units it depends on. The proof column names the units that close that week; each unit's proof is in section 6.
 
 **How to use a row.** Work runs left to right within a week, DSA first each day. Watch the bracketed video first (bedside time is ideal), then read the docs as the authority, then build at the desk. A unit's proof is due in the week it ends. DSA problems are default picks from the NeetCode roadmap; swap any you have already solved. Each week's DSA hours cover the due colds first, under the 45-minute daily cap (section 6.6). Campaign work comes from the reserve, never from these hours.
 
@@ -943,7 +952,7 @@ Fifty-two weeks, Oct 1 2026 to Sep 26 2027, 565.5 scheduled hours (v3.4). W0 to 
 | W21 · Feb 22-28 · 12h | **DSA** 2.5h: Colds only (continued) [NC] · **P4** 1h: Alembic: an expand, backfill, contract migration with old and new app versions running together; a quick N+1 check (continued) [SQLA, ALEMBIC] · **Y3** 2.5h: Names and references: everything is an object, `is` vs `==`, mutable vs immutable, how arguments are passed [RP ("Shallow vs Deep Copying of Python Objects": the mutable vs immutable part), FLUENT (ch 6), MCODING] · **Y3** 1.5h: Shallow vs deep copy: the `copy` module, copies of nested lists [RP ("Shallow vs Deep Copying of Python Objects"), FLUENT (ch 6)] · **Y3** 3h: Hashing: what a hash table does, the `__eq__` and `__hash__` contract, why a list cannot be a dict key, list, dict and set costs [FLUENT (ch 3), MCODING] · **Y3** 1h: Iterables vs iterators: the iterator protocol, what a `for` loop really does, why an iterator gets used up [RP ("Iterators and Iterables in Python: Run Efficient Iterations"), FLUENT (ch 17)] · **Proofs and weekly close** 0.5h | Work in progress |
 | W22 · Mar 1-7 · 12h | **DSA** 2.5h: Colds only (continued) [NC] · **Y3** 1.5h: Iterables vs iterators: the iterator protocol, what a `for` loop really does, why an iterator gets used up (continued) [RP ("Iterators and Iterables in Python: Run Efficient Iterations"), FLUENT (ch 17)] · **Y3** 2.5h: Generators: `yield`, generator expressions, lazy evaluation [RP ("How to Use Generators and yield in Python"), FLUENT (ch 17), MCODING] · **Y3** 3h: Functions as objects: `*args` and `**kwargs`, scope and the LEGB rule, `nonlocal`, closures [RP ("Python args and kwargs: Demystified", "Python Scope and the LEGB Rule", "Python Closures: Common Use Cases and Examples"), FLUENT (ch 7, 9)] · **Y3** 1h: Decorators: what `@` does, wrappers, `functools.wraps`, decorators with arguments, PRCP's route decorators [RP ("Primer on Python Decorators"), FLUENT (ch 9), ARJAN] · **R1** 1h: Naukri live, every filter field filled, notice 90 days, about 15 days before Gate A (Om, Oct 18); on a layoff notice it goes live that day · **Proofs and weekly close** 0.5h | Naukri goes live |
 | W23 · Mar 8-14 · 12h | **DSA** 3h: Colds only (continued) [NC] · **Y3** 2h: Decorators: what `@` does, wrappers, `functools.wraps`, decorators with arguments, PRCP's route decorators (continued) [RP ("Primer on Python Decorators"), FLUENT (ch 9), ARJAN] · **Y3** 2.5h: Exceptions: the hierarchy, `try`, `except`, `else`, `finally`, `raise from`, custom exceptions such as PRCP's `exceptions.py` [RP ("Python Exceptions: An Introduction"), FLUENT (ch 18)] · **Y3** 2h: Context managers in depth: what `__exit__` receives, suppressing an exception, `contextlib.contextmanager` [RP ("Python's with Statement: Manage External Resources Safely"), FLUENT (ch 18)] · **P4** 2h: Alembic: an expand, backfill, contract migration with old and new app versions running together; a quick N+1 check (continued) [SQLA, ALEMBIC] · **Proofs and weekly close** 0.5h | Closes Y3 |
-| W24 · Mar 15-21 · 5h | **P4** 0.5h: Alembic: an expand, backfill, contract migration with old and new app versions running together; a quick N+1 check (continued) [SQLA, ALEMBIC] · **S1** 0.5h: Checklist A baseline, cold, recorded per section 7 [section 7] · **Gate** 4h: Gate A: Go practical, Checklist B fundamentals half, K8s audit 10/15, DSA 40/24 | Closes P4; GATE A. About 7 hours free this week for gate repairs or contingency |
+| W24 · Mar 15-21 · 8.5h | **DSA** 3.5h: Unseen set 1: four problems Om has never solved (2 Easy, 2 Medium) from the families studied so far, no pattern label, one a day; the pattern and its signal words aloud before coding; scored and recorded, never a Gate A item; one 30-minute repair slot (section 6.6 #12) [NC] · **P4** 0.5h: Alembic: an expand, backfill, contract migration with old and new app versions running together; a quick N+1 check (continued) [SQLA, ALEMBIC] · **S1** 0.5h: Checklist A baseline, cold, recorded per section 7 [section 7] · **Gate** 4h: Gate A: Go practical, Checklist B fundamentals half, K8s audit 10/15, DSA 40/24 | Closes P4; GATE A. Unseen set 1 recorded. About 3.5 hours free this week for gate repairs or contingency |
 
 ### 1b Build and design: W25 to W48, Mar 22 to Sep 5 2027
 
@@ -972,7 +981,7 @@ Fifty-two weeks, Oct 1 2026 to Sep 26 2027, 565.5 scheduled hours (v3.4). W0 to 
 | W45 · Aug 9-15 · 12h | **DSA** 2h: Colds only (continued) [NC] · **F1** 6h: ADR index; README leads with the verdict; a short ADR on Keptn, Argo Rollouts, Flagger; known limitations; tag `v1.0.0`; stranger test (continued) [GHA] · **Mock** 3h: Mock 2 with a human [Peers, or a paid expert mock per section 6.9] · **H5** 0.5h: Practice: notification service [HI] · **Proofs and weekly close** 0.5h | Work in progress |
 | W46 · Aug 16-22 · 12h | **DSA** 2.5h: Colds only (continued) [NC] · **H5** 2h: Practice: notification service (continued) [HI] · **Mock** 3h: Mock 3 [HI] · **F1** 4h: Game day on kind: inject a database or probe-timeout failure, let the alert fire, diagnose, mitigate, write a postmortem and runbook [section 6.1] · **Proofs and weekly close** 0.5h | Closes H5 |
 | W47 · Aug 23-29 · 12h | **DSA** 2h: Colds only (continued) [NC] · **F1** 0.5h: Game day on kind: inject a database or probe-timeout failure, let the alert fire, diagnose, mitigate, write a postmortem and runbook (continued) [section 6.1] · **Y8** 2.5h: Inheritance, MRO and `super()`, cooperative multiple inheritance [RP (realpython.com/python-super), FLUENT (ch 14)] · **Y8** 2.5h: ABC vs Protocol: nominal vs structural typing, `abstractmethod`, `runtime_checkable`, PRCP's repository Protocols [RP ("Implementing Interfaces in Python: ABCs and Protocols", "Python Protocols: Leveraging Structural Subtyping"), FLUENT (ch 13)] · **Y8** 1.5h: Reference counting, reference cycles, the `gc` module [RP ("Memory Management in Python"), FLUENT (ch 6)] · **Y7** 2.5h: PRCP code walk: every pre-plan module explained cold (Pydantic schemas, FastAPI `Depends` and `dependency_overrides`, Enums, exceptions, fixtures, `decide()`); fix or log what you cannot defend [section 6.1] · **Proofs and weekly close** 0.5h | Closes F1 |
-| W48 · Aug 30-Sep 5 · 9h | **DSA** 1h: Colds only (continued) [NC] · **Y7** 2.5h: PRCP code walk: every pre-plan module explained cold (Pydantic schemas, FastAPI `Depends` and `dependency_overrides`, Enums, exceptions, fixtures, `decide()`); fix or log what you cannot defend (continued) [section 6.1] · **Y8** 1.5h: Checklist D cold re-run; repair what is still shaky [section 7] · **Gate** 4h: Gate B: checklists A, B, C, D; K8s audit plus live challenge; craft demo; 3 mocks; last 2 reps pass; latest blind set 80%; stories | Closes Y7, Y8; GATE B |
+| W48 · Aug 30-Sep 5 · 12h | **DSA** 1h: Colds only (continued) [NC] · **DSA** 3h: Unseen set 2: four problems Om has never solved (1 Easy, 3 Medium) from any of the 20 families, no pattern label, one a day; a Gate B item, 3 of 4 inside the box (section 6.6 #12) [NC] · **Y7** 2.5h: PRCP code walk: every pre-plan module explained cold (Pydantic schemas, FastAPI `Depends` and `dependency_overrides`, Enums, exceptions, fixtures, `decide()`); fix or log what you cannot defend (continued) [section 6.1] · **Y8** 1.5h: Checklist D cold re-run; repair what is still shaky [section 7] · **Gate** 4h: Gate B: checklists A, B, C, D; K8s audit plus live challenge; craft demo; 3 mocks; last 2 reps pass; latest blind set 80%; unseen set 2 at 3 of 4; stories | Closes Y7, Y8; GATE B |
 
 ### 1c Convert: W49 to W51, Sep 6 to Sep 26 2027
 
@@ -984,7 +993,7 @@ Fifty-two weeks, Oct 1 2026 to Sep 26 2027, 565.5 scheduled hours (v3.4). W0 to 
 
 1c runs under the 12-hour cap on purpose (9, 7.5, 9 hours): interviews peak here and their hours come from campaign time. If Gate B needs repairs, 1c has about 10.5 spare hours before Gate C moves.
 
-**Running totals at each gate:** Gate A: DSA 40, reps 1-2, Go fundamentals, Kubernetes 10/15. Gate B: DSA 50 with all 16 families, reps 1-5 done, 3 mocks, agent shipped, PRCP v1.0 on kind. Gate C: DSA 55 with 40-45 cold, 6 reps, 4 mocks, 5 stories.
+**Running totals at each gate:** Gate A: DSA 40, unseen set 1 recorded, reps 1-2, Go fundamentals, Kubernetes 10/15. Gate B: DSA 50 with all 16 families and unseen set 2 at 3 of 4, reps 1-5 done, 3 mocks, agent shipped, PRCP v1.0 on kind. Gate C: DSA 55 with 40-45 cold, 6 reps, 4 mocks, 5 stories.
 
 ---
 
