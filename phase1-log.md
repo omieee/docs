@@ -1,5 +1,5 @@
 # Phase 1 log
-Source of truth: Phase1_Master_Plan_v3.4.md (uploaded by Om to both projects 2026-10-18; master copy in plan/)
+Source of truth: Phase1_Master_Plan_v3.5.md, Oct 21 copy (master in plan/, sha256 5e9a9bf242f47fc1; Om uploads it to both projects). Before that: v3.4, uploaded 2026-10-18
 
 ## Weekly closes
 (Sunday: paste the section 7 template here, newest on top)
