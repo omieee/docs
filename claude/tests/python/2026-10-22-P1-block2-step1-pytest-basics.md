@@ -47,4 +47,4 @@ Score 2/2. Right: it sees 0; the fixture function runs again for each test (func
 
 - 6/6, no prompts, no correctness errors. P1 Block 2 step 1 (pytest basics) PASS. Fixture with `return`: used correctly in running code and explained (Q3).
 - Next: fixtures with `yield` (setup, yield, teardown), then Block 3 dataclass equality, then psycopg.
-- Minutes: about [125m] against a 60-minute box: video about 60 (estimated from the range Om watched), practice 60 (15:57 to 16:56, planned 25), check about 8 (16:58 to 17:06). Om chose to continue ("now only", 15:57) and answered the check after being told the overrun in minutes.
+- Minutes: [70-75m] active (Om, 17:10: breaks and office work in between). Claude first wrote about [125m] from elapsed times (13:0x to 17:06), corrected the same day.
