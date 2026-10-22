@@ -20,7 +20,11 @@ Score 1/2. Right: it fails because `area()` is not implemented and `get_area()` 
 
 Taught on the spot (after scoring): Python builds the class without complaint, because a child that leaves an abstract method empty is simply another abstract class, which is legal (for example Shape, then an abstract Polygon, then Square). The check runs only when someone tries to create an object. The early warning seen in Bro Code's video at the class line comes from the editor, not from Python.
 
-Retry (fresh wording, same mechanism): pending.
+Retry (fresh wording, same mechanism), asked 22:23: `Vehicle(ABC)` with abstract `go()`, `class Bike(Vehicle): pass`, then `print("A")`, `b = Bike()`, `print("B")`. What gets printed before the program stops, and on which line does it stop?
+
+Om (22:24): "A will be printed / Then python wil compalain because we are creating bike obkect now"
+
+Retry correct: "A" only, stops at `b = Bike()` (object creation). Repair landed; Q2 stays 1/2 as recorded.
 
 **Q3.** In your code, is a `Car` an `Engine`, or does it have an `Engine`? Point to the exact line in your code that makes it so. And who creates the `Engine` object: the person who creates the car, or the `Car` itself?
 
@@ -30,4 +34,4 @@ Score 2/2 (rule 9, generous reading). Has-a / owns, right line. Who creates it w
 
 ## Result
 
-- 5/6 before the retry. One mechanism miss (Q2, when the abstract check runs), taught on the spot. L1 stays open until W7 per the plan.
+- 5/6. One mechanism miss (Q2, when the abstract check runs), taught on the spot, fresh retry correct. Today's L1 topics (abstract class, interface vs abstract class, composition) checked. L1 stays open until W7 per the plan.
