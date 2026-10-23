@@ -1,17 +1,18 @@
-# ChatGPT state (cache only, MAX 20 lines; canonical plan/logs/outboxes win)
-AS-OF: 2026-10-19 09:26 IST; omieee/docs at cb525e21; read live records before verdicts.
-PLAN: Phase1_Master_Plan_v3.4.md (sha256 a8717a0d), effective Oct 19; checker PASS 52 weeks, 565.5h, DSA 117.5h; supersedes v3.3 and earlier.
-CAPACITY: normal weeks 12h; light 7h; Gate A 2027-03-21, B 2027-09-05, C 2027-09-26; monthly reforecast first Nov 15 based on logged active minutes, not commit timestamps.
-W3 Oct 19-25 (12h): DSA 2.5; MC1 2.5; R1 resume+LinkedIn 2; L1 OOP 1; P1 pytest/fixtures/dataclass/psycopg 3.5; weekly close 0.5.
-DSA CURRENT: 24 total / 17 cold (Oct18). DUE: 739 D7 Oct20, 141 D28 Oct20, 19 D28 Oct21, 143 D28 Oct22, 155 D14 Oct24. Due colds BEFORE binary-search lessons 14-15 / NEW 704; NEW slips if no hours.
-DSA RULE: max 45 active min/day, ONE item/session, 10m Easy/15m Medium cold clock, approach+complexity first and tests from statement; NO same-session retry. NEW interview only, COLD no 3Q interview; later teaching and retry in separate slots.
-MC0: Om chose ChatGPT as teacher Oct18 23:07; newcomer to machine-coding rounds, L1 not yet done. Intro method only, no Snake-and-Ladder example or editorial spoilers. 1.5h proposed GAP pending s9/approved-plan insertion, not currently counted in v3.4.
-MC1: Claude invigilator + verifier Tue Oct20 (holiday), 90 uninterrupted no-AI coding with minute-60 change, raw notes committed first; Claude fresh-runs/plants bugs/issues ONE verdict; ChatGPT runs 60m review using findings. Machine-coding rubric runs AND >=8/12.
-PRCP/PYTHON: P1 Block1 context managers PASS Oct17; P1 Block2 pytest basics/fixtures restart from ZERO after Claude coach error Oct18; PCC 3e ch11 first. Block3 dataclass equality then psycopg. Block2 unfinished, no verdict.
-GO: G1 PASS Oct13 on Claude evidence. Office Go FAIL Oct18, AI-written office work not gate proof.
-W1/W2: proposed PARTIAL closes; ChatGPT spoken W1+W2 check pending, no duplicate unit verdict.
-R1: Resume v1 draft open, LinkedIn live in October no Premium; Naukri W22/about 15d before Gate A (or layoff). Daily cue 10:30 AM, 25m floor.
-COACHING: 12 v3.4 safeguards, ask initial knowledge, video first at beginner level, one idea/tiny example per step, stop when lost, box each block with 1.5x stop, count coach-error minutes against contingency, never conflate code PASS with comprehension.
-CHANNEL: ChatGPT writes only in docs/chatgpt/, Claude only docs/claude/; no second verdict; one-line packet UNIT | STATUS | EVIDENCE | GAP | ASK; Sunday split Claude repo facts + ChatGPT spoken check.
-STATUS: 6 repos checked on Oct19: docs, dsa-python, learning-go-sandbox, learning-python-sandbox, lld-patterns, PRCP. Repo/logs outrank this cache. Docs token only with Om's explicit OK each time.
-NEXT: Om starts MC0 with 'N min desk/voice'; first ask how he turns written requirements into classes; do not begin teaching before asked.
+# ChatGPT state (cache, max 20 lines; live plan, tracker, logs and outboxes prevail)
+AS-OF: Claude -> ChatGPT handoff Fri 2026-10-23 09:20 IST; Claude last pushed docs commit f296859; later b359ffd unpushed, pending Sunday record.
+OWNERSHIP: Om moved ALL coaching to ChatGPT, including fresh repository clones, test runs, deliberate-bug verification and spoken checks. Do not duplicate or re-score Claude's existing verdicts; write only chatgpt/ and own log entries.
+PLAN: governing v3.5 Oct 21 copy in docs/plan/, sha256 5e9a9bf242f47fc1 (572h; DSA 124h); uploaded projects may be stale; Om to sync both. W3 identical across versions. Gates: Mar 21, Sep 5, Sep 26 2027.
+W3: Oct 19-25, 12 scheduled hours. Mon-Thu about 13h logged including coach-error and off-plan time; do not count all as completed plan scope. Sunday close calculates actual.
+DSA: 24 total / 17 cold until NEW LC704/LC74 interviews close (then 26/19); PR #10 head 3384b4a: 91 tests green; LC143 D28 PASS, LC704 D3 PASS, LC74 D3 PASS Oct 22. D1/D3 files already have 20 edge asserts each; do NOT ask to add duplicate asserts to Day 0.
+FRI OCT 23: NEW LC704 and LC74 interviews, not coding: mechanism, trace, transfer, v3.5 pattern-signal question. Lesson 14 taught Oct 19. Keep within 45m/day; if needed 74 interview Sunday.
+SAT OCT 24: LC155 D14, LC19 D28 (2 days late); MON OCT 26: LC704 D7, LC74 D7; TUE OCT 27: LC739 D14 (prior D7 PARTIAL: stack top coldest, taught Oct 20).
+DSA RULE: 45 active min/day maximum, one item/session; NEW interview after taught lesson; spaced COLD no NEW interview; misses scored once, teach and retry in later separate slots.
+P1: pytest basics step 1 PASS 6/6 Oct 22, learning-python-sandbox PR #2 558decd merged; 22 tests green. NEXT fixture with yield, 60m box, hard stop 90; ASK what Om knows of yield first (generators not yet taught); do not use freeCodeCamp 15:36:47 SQLAlchemy/TestClient clip. Prior successful intro freeCodeCamp Python API 14:14:51-14:30:22. Remaining: dataclass equality and psycopg.
+L1: pillars, abstract class, interface vs abstract class, composition studied; Oct22 check 5/6 after teaching+correct retry, NOT unit close (W7). Python sandbox PR #3 merged, PR #4 f10b0a2 open; optional polish: display spacing, CC->horsepower, stronger test, horse_poser typo.
+MC1: Snake and Ladder official rep FAIL 2/10 (Claude, lld-patterns PR #2 d78048e); do not rescore. ChatGPT review stopped at Om request after 90-120m vs 60m box. Key repair: avoid early return in item loop, counted input parsing, one state contract, deterministic asserts, thin end-to-end path.
+MC PRACTICE: Om approved ONE pilot for Tue Oct27 (fallback Sat Oct31), now ChatGPT owns. Single search problem; match second item, last item, no match; Om traces first non-match and writes asserts before code. 60m box plus separately logged coach check; funded from extra hours only, lower priority than planned 12.
+R1: resume v1 mostly drafted in Oct21 separate chat; hackathon month/prize and Cocoslabs title on relieving letter open; LinkedIn live due Oct (commute); Naukri W22. Daily desk cue 10:30 IST, floor 25m.
+W3 TIME: Mon ~190m (DSA115 MC0 75); Tue ~210-240m (MC1 90, ChatGPT review90-120, 739 D7 18, teach11); Wed ~175m (DSA60 L1 80 incl 15 coach error +35); Thu ~205m. Active-vs-elapsed uncertainty must be preserved.
+COACH ERRORS W3: Claude 50m Oct19, 15m Oct21, 0m Oct22, 5m Oct23 stale test read (Oct23 unpushed); total 70m contingency, and stale-read rule amendment at next revision. ChatGPT MC1 review 30-60m over box, coach-error part unquantified. Laptop contingency already 2h. Record Sunday without invented figures.
+SUN OCT 25: combined weekly close by ChatGPT (repo evidence + spoken check); review coach errors, pending W1/W2 spoken closes, MC0 +0.75h and DSA lessons ~4.4h (together plan ~577 > authorized 575), Oct1 gap diagnosis. W4 P1/K1/H1/R3/L1 continue. Open PRs: dsa-python #10, lld-patterns #2, learning-python-sandbox #4.
+SAFEGUARDS: ask prior knowledge, beginner video first, one concept and runnable example at a time, time-box with 1.5x hard stop, no claims from stale repo reads, log errors. GitHub personal token ONLY with Om's explicit OK each use.
