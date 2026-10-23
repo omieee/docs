@@ -1,6 +1,6 @@
 import re, sys, os
 D = os.path.dirname(os.path.abspath(__file__))
-src = open(os.path.join(D, "..", "..", "..", "plan", "Phase1_Master_Plan_v3.5.md"), encoding="utf-8").read()
+src = open(os.path.join(D, "base", "Phase1_Master_Plan_v3.5.md"), encoding="utf-8").read()  # v3.5 Oct 21 copy, sha256 5e9a9bf242f47fc1
 
 
 def rep(text, old, new, count=1):
