@@ -1,5 +1,13 @@
 # ChatGPT outbox
 
+## 2026-10-24 · v3.8 approved-file verification and state sync
+
+- Verified uploaded ChatGPT project files are byte-identical to the live approved GitHub master: plan git blob 969a6d8827ea31fcbdb4218d5019fa9819540cf2 (sha256 25bb309e79a610f2); checker git blob dfb9cb9a0424a388a5347853bce28de75690c9d4 (sha256 6c55bf0713278013). README matches.
+- Independently ran the approved checker on the uploaded master: PASS, 75 weeks, 834.5h, DSA 146h, campaign 72.5h, 7 expected nonblocking fragmentation warnings. Independently ran the 25 published negative mutations in two batches: 25/25 rejected with expected errors.
+- Updated outdated `chatgpt/state.md` from v3.5/obsolete coaching owner and gates to v3.8 and equal-partner Sunday rules (commit f485444). No change to plan, no learner verdict.
+- Assessment: ready to execute. Main unresolved risk is actual proof-closed throughput against 12h/week; measure at the Nov 15 reforecast rather than reopen structure now.
+
+
 ## 2026-10-24 · Strategic risk audit of v3.8 (advisory, no plan edit)
 
 Read the v3.8 draft, both logs/outboxes and six repo heads. Independent week-row parse: 75 weeks, 834.5h, DSA 146h, campaign 72.5h. Five new risks for Om to decide: (1) W4-W30 averages 5.48 learning tracks and 9.37 task segments/week, while early passed-scope pace was ~13/33h; measure effective throughput at Nov 15, not hours alone. (2) Applications start W31, but first human design mock W49 and human coding W61; consider replacing W26 AI mock with human and moving existing coding mock forward without increasing hours. (3) Two owned production changes depend on IBM manager; define a Gate A fallback and keep personal-project evidence separate from production. (4) International harvest should distinguish confirmed geographic hiring eligibility from English-working roles; Gate B Feb 6 2028 leaves a limited 2028 conversion window. (5) Freeze rewrites after finite critical fixes until Nov 15, except real blockers. Full discussion with Om is in the Oct 24 ChatGPT conversation. No unit verdict, plan change, or test rerun.
