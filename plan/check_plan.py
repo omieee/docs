@@ -1,6 +1,6 @@
 """Check the Phase 1 master plan for internal consistency.
 
-Usage: python3 check_plan.py Phase1_Master_Plan_v3.7.md
+Usage: python3 check_plan.py Phase1_Master_Plan_v3.8.md
 Run by whichever coach edits the plan. Exit code 0 means PASS.
 
 v3.6 adds: two-letter and split unit labels (OP1, CL2, K6a, Y8b, MP, RR), section 6.10-6.12,
@@ -11,6 +11,12 @@ v3.7 adds: no coaching-owner wording outside the change log unless it says there
 was withdrawn; the human live-coding mock (section 6.6 #13) scheduled before Gate B; the international
 slice in a harvest week of 1a and of 1b before Gate B; the four-line Gate C readiness record; the gate
 dates in sections 1, 4 and 11 agreeing with the gate weeks; section 14's stated hours and DSA total.
+
+v3.8 adds: every teaching part in the map (weeks from W4) carries a typed use step in real code
+("Use in PRCP (code):", "Use in the agent (code):", "Use on kind (code):" or "(explain)"); no unit part starts
+in a week with under 30 minutes; no row names a listed tool or test style before the first week of the unit that teaches it;
+K3 after D1; section 7 no longer says DSA alone keeps spaced review; section 6 states the use rule and
+section 6.12 the warm-up and the scheduled bedside cards.
 """
 import datetime
 import re
@@ -24,7 +30,7 @@ DEPS = [("K6a", "D1"), ("K6a", "K5"), ("K7b", "K6a"), ("K6b", "A6"), ("K6b", "K6
         ("F1", "O1"), ("F1", "K6b"), ("MC2", "L3"), ("MC2", "Y8a"), ("MC5", "L4"),
         ("A1", "G7"), ("A3", "S5"), ("C1", "D1"), ("C1", "Y1"), ("P4", "Y8a"), ("H6", "H2"),
         ("OP1", "G7"), ("OP1", "K5"), ("OP4", "OP3"), ("OP4", "K6a"), ("OP4", "A2"),
-        ("CL2", "CL1"), ("CL3", "CL2"), ("CL3", "K6a"), ("CL4", "CL3"), ("CL4", "C1")]
+        ("CL2", "CL1"), ("CL3", "CL2"), ("CL3", "K6a"), ("CL4", "CL3"), ("CL4", "C1"), ("K3", "D1")]
 # Continuity rule (section 6.12): idle weeks allowed in a row, before and after the track's foundation unit closes
 GAP_TRACKS = {"Go": "G7", "Kubernetes": "K5", "LLD": "L3", "HLD": "H2", "Operators": "OP5", "Cloud": "CL2"}
 LIMIT_LEARNING, LIMIT_AFTER = 1, 3
@@ -243,6 +249,41 @@ md = re.search(r"DSA totals ([\d.]+)", intro)
 if not md or abs(float(md.group(1)) - dsa_budget) > 1e-9:
     errors.append(f"Section 14 intro: DSA total should be {dsa_budget:g}")
 
+# ---------------- v3.8 rules ----------------
+# Use in real code within 7 days (section 6): every teaching part in the map carries its use step
+REQUIRE_USE = {"Y3", "Y4", "Y5", "Y8a", "Y8b", "P2", "P3", "G2", "G3", "G4", "G5", "G6", "G7", "K3", "K4", "K5", "L1", "L2", "L3", "L4"}
+USE_EXEMPT = ("Reference counting", "Checklist D cold re-run", "WAL on commit", "OOP pillars")   # knowledge-only parts, or done before v3.8
+for n, its in items_by_week.items():
+    if n < 4:
+        continue
+    for lab, h_, t in its:
+        t = (t or "").strip()
+        if lab in REQUIRE_USE and not t.startswith(USE_EXEMPT) and not re.search(r"Use (in PRCP|in the agent|on kind) \((code|explain)\):", t):
+            errors.append(f"Use step: W{n} {lab} has no typed use in real code ('{t[:50]}...')")
+        # 30-minute start rule (A3): a unit part never starts in a week with under 30 minutes
+        if lab not in NON_UNIT and lab not in ("RR", "MP", "Mock") and not re.fullmatch(r"MC\d", lab) and h_ < 0.5 - 1e-9 and "(continued)" not in t:
+            errors.append(f"Small start: W{n} {lab} starts a part with {h_:g}h (under 30 minutes)")
+# Taught before named (section 6.12): a listed term may appear in a row only from its teaching unit's first week
+TERMS = {"table-driven": "G6", "-race": "G7", "`yield`": "Y3", "asyncio": "Y4", "mypy": "Y1", "EXPLAIN": "P3",
+         "errgroup": "A2", "Hypothesis": "Y6", "envtest": "OP6", "`IN`": "P2", "subquer": "P2"}
+for n, its in items_by_week.items():
+    if n < 4:
+        continue
+    for lab, _, t in its:
+        for term, unit in TERMS.items():
+            if term in (t or "") and unit in first and n < first[unit]:
+                errors.append(f"Taught before named: W{n} {lab} names {term} before {unit} teaches it (W{first[unit]})")
+sec7 = text.split("## 7. ")[1].split("## 8.")[0]
+if "DSA alone keeps continuous spaced review" in sec7:
+    errors.append("Section 7: spaced review is limited to DSA again (v3.8 gives every topic warm-ups and cards)")
+if "**Use in real code within 7 days" not in sec6:
+    errors.append("Section 6: the use rule (Use in real code within 7 days) is missing")
+sec612 = sec6.split("### 6.12")[1] if "### 6.12" in sec6 else ""
+if "**Warm-up (v3.8).**" not in sec612:
+    errors.append("Section 6.12: the warm-up rule is missing")
+if "**Bedside cards (v3.8, optional).**" not in sec612:
+    errors.append("Section 6.12: the bedside cards rule is missing")
+
 if small:
     warnings.append(f"{small} unit pieces under 0.5h (fragmentation warning only, section 6.12)")
 
@@ -256,4 +297,6 @@ if errors:
     sys.exit(1)
 print("PASS: every week fits its cap and sums to its label, every unit matches section 6, totals and dependencies hold, "
       "week dates run on, phase and track totals match sections 4 and 5, gate dates match in sections 1, 4 and 11, "
-      "no track breaks the continuity rule, no coaching owner is named, and the v3.7 international items are in place")
+      "no track breaks the continuity rule, no coaching owner is named, the v3.7 international items are in place, "
+      "every teaching part carries a typed use step, no part starts with under 30 minutes, and no row names a tool before "
+      "the unit that teaches it")

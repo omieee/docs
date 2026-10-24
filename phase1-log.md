@@ -1,5 +1,5 @@
 # Phase 1 log
-Source of truth: Phase1_Master_Plan_v3.7.md, approved by Om 2026-10-23 (master in plan/, sha256 31d6753c48138696; Om uploads it to both projects). Before that: v3.5 Oct 21 copy (5e9a9bf242f47fc1); v3.6 was a draft, never uploaded
+Source of truth: Phase1_Master_Plan_v3.8.md, approved by Om 2026-10-24 14:32 IST (master in plan/, sha256 25bb309e79a610f2; Om uploads it to both projects). Before that: v3.7 (31d6753c48138696, Oct 23); v3.5 Oct 21 copy (5e9a9bf242f47fc1); v3.6 was a draft, never uploaded. Structure frozen until the Nov 15 re-forecast (section 9)
 
 ## Weekly closes
 (Sunday: paste the section 7 template here, newest on top)
