@@ -13,17 +13,17 @@ unit("P1", "6.1", [
     (0.5, "Python prerequisite Block 1, context managers and `with`, done Oct 17 [RP (\"Python's with Statement: Manage External Resources Safely\")]"),
     (2.25, "Python prerequisites left after Block 1, Block 2 restarted Oct 18 from zero: pytest basics (what pytest is, how it finds and runs tests, reading a failure), done Oct 22; then fixtures with `return` [PCC (ch 11), RP, PYTEST (fixtures), MCODING]"),
     (1.0, "Fixtures with `yield`, right after Y3's generator basics, then dataclass equality [PYTEST (fixtures), RP, MCODING]"),
-    (7.25, "psycopg 3 prerequisite first (Getting Started: basic usage, passing parameters, transactions; a 15-line insert, select, rollback practice script); then one use case end to end through the real database, including one specified failure; then repositories for all 5 entities with rollback tests. Reuse what October taught (v3.8): the rollback fixture is a `yield` fixture, each transaction uses `with`, and at least one query uses `IN` and one a subquery (Sep 27) [PSY]"),
+    (7.25, "psycopg 3 prerequisite first (Getting Started: basic usage, passing parameters, transactions; a 15-line insert, select, rollback practice script); then one use case end to end through the real database, including one specified failure; then repositories for all 5 entities with rollback tests. Reuse what October taught (v3.8): the rollback fixture is a `yield` fixture and each transaction uses `with` [PSY]"),
 ])
 unit("P2", "6.1", [
-    (6.25, "SQL correction, lesson before exercise: SQLBolt lessons on joins, outer joins and NULLs, then its subqueries and set-operations topics (IN, UNION); then pgexercises Joins and Subqueries. Use in PRCP: one repository query that joins probes to their results and one with a subquery, each tested on `prcp_test` [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
-    (5.25, "SQLBolt aggregates and order of execution, then pgexercises Aggregation (GROUP BY, HAVING); window functions lesson, then the window exercises. Use in PRCP: pass rate per service with GROUP BY and the latest result per probe with a window function, each tested [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
-    (3.75, "pgexercises Working with Timestamps and Modifying Data; 3 timed unseen problems set by the assistant. Use in PRCP: results from the last 24 hours, and one UPDATE inside a transaction, each tested [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
+    (6.25, "SQL correction, lesson before exercise: SQLBolt lessons on joins, outer joins and NULLs, then its subqueries and set-operations topics (IN, UNION); then pgexercises Joins and Subqueries. Use in PRCP (code): one repository query that joins probes to their results and one with a subquery, each tested on `prcp_test` [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
+    (5.25, "SQLBolt aggregates and order of execution, then pgexercises Aggregation (GROUP BY, HAVING); window functions lesson, then the window exercises. Use in PRCP (code): pass rate per service with GROUP BY and the latest result per probe with a window function, each tested [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
+    (3.75, "pgexercises Working with Timestamps and Modifying Data; 3 timed unseen problems set by the assistant. Use in PRCP (code): results from the last 24 hours, and one UPDATE inside a transaction, each tested [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
 ], deps=["P1"])
 unit("P3", "6.1", [
-    (2.5, "Isolation intuition before the docs. Use in PRCP: run the demo on PRCP's own tables [TS-ISO, CMU (Multi-Version Concurrency Control)]"),
-    (3.5, "B-tree, composite order, index-only scans; EXPLAIN ANALYZE; ADR. Use in PRCP: the index and the plans are on PRCP's results table [UTIL (Anatomy of an Index, The Where Clause), PG (Indexes, Using EXPLAIN), CMU (Join Algorithms)]"),
-    (3.5, "Isolation levels, MVCC, row locks, deadlocks; two-session demos. Use in PRCP: both demos on PRCP's tables [INTERDB (Concurrency Control), PG (Concurrency Control), CMU (Two-Phase Locking)]"),
+    (2.5, "Isolation intuition before the docs. Use in PRCP (code): run the demo on PRCP's own tables [TS-ISO, CMU (Multi-Version Concurrency Control)]"),
+    (3.5, "B-tree, composite order, index-only scans; EXPLAIN ANALYZE; ADR. Use in PRCP (code): the index and the plans are on PRCP's results table [UTIL (Anatomy of an Index, The Where Clause), PG (Indexes, Using EXPLAIN), CMU (Join Algorithms)]"),
+    (3.5, "Isolation levels, MVCC, row locks, deadlocks; two-session demos. Use in PRCP (code): both demos on PRCP's tables [INTERDB (Concurrency Control), PG (Concurrency Control), CMU (Two-Phase Locking)]"),
     (2.5, "WAL on commit, pooling, replication and failover, VACUUM; code-read how `psycopg_pool` hands out a connection [INTERDB (VACUUM, WAL, Replication), PG (Reliability and the Write-Ahead Log, Routine Vacuuming, High Availability), HN]"),
 ], deps=["P2"])
 unit("P4", "6.1", [
@@ -35,25 +35,25 @@ unit("Y1", "6.1", [
 ])
 unit("Y2", "6.1", [(1.0, "Checklist D baseline, cold [section 7]")])
 unit("Y3", "6.1", [
-    (1.0, "Generators, first part (v3.6, moved forward for P1): what `yield` does, how a generator pauses and resumes, so `yield` fixtures make sense. Use in PRCP: the psycopg rollback fixture in P1 (W5-W8) is a `yield` fixture [RP (\"How to Use Generators and yield in Python\"), MCODING]"),
-    (2.75, "Names and references: everything is an object, `is` vs `==`, mutable vs immutable, how arguments are passed. Use in PRCP: a test proving `decide()` does not change the list it is given; find one place where PRCP shares a mutable object and fix or log it [RP (\"Shallow vs Deep Copying of Python Objects\": the mutable vs immutable part), FLUENT (ch 6), MCODING]"),
-    (1.75, "Shallow vs deep copy: the `copy` module, copies of nested lists. Use in PRCP: return copies from one in-memory repository, or show with a test why a shallow copy is enough there [RP (\"Shallow vs Deep Copying of Python Objects\"), FLUENT (ch 6)]"),
-    (3.25, "Hashing: what a hash table does, the `__eq__` and `__hash__` contract, why a list cannot be a dict key, list, dict and set costs. Use in PRCP: a frozen dataclass key (service, environment) for the latest GateDecision in a dict, with a test that equal keys find the same entry; say why `ProbeResult` cannot be a key [FLUENT (ch 3), MCODING]"),
-    (2.75, "Iterables vs iterators: the iterator protocol, what a `for` loop really does, why an iterator gets used up. Use in PRCP: a test that a generator passed to `decide()` is used up by its first `any()`, then the fix [RP (\"Iterators and Iterables in Python: Run Efficient Iterations\"), FLUENT (ch 17)]"),
-    (1.75, "Generators, rest: generator expressions, lazy evaluation. Use in PRCP: count failed results with a generator expression, without building a list [RP (\"How to Use Generators and yield in Python\"), FLUENT (ch 17), MCODING]"),
-    (3.25, "Functions as objects: `*args` and `**kwargs`, scope and the LEGB rule, `nonlocal`, closures. Use in PRCP: `checker.py` already takes its HTTP getter as an argument; write a closure that fixes the timeout and use it in a test [RP (\"Python args and kwargs: Demystified\", \"Python Scope and the LEGB Rule\", \"Python Closures: Common Use Cases and Examples\"), FLUENT (ch 7, 9)]"),
-    (3.25, "Decorators: what `@` does, wrappers, `functools.wraps`, decorators with arguments, PRCP's route decorators. Use in PRCP: a timing decorator on `decide()` with `functools.wraps`, tested; explain `@app.get` in `api/main.py` [RP (\"Primer on Python Decorators\"), FLUENT (ch 9), ARJAN]"),
-    (2.75, "Exceptions: the hierarchy, `try`, `except`, `else`, `finally`, `raise from`, custom exceptions such as PRCP's `exceptions.py`. Use in PRCP: one new exception raised with `raise ... from`, with a test on `__cause__` [RP (\"Python Exceptions: An Introduction\"), FLUENT (ch 18)]"),
-    (2.25, "Context managers in depth: what `__exit__` receives, suppressing an exception, `contextlib.contextmanager`. Use in PRCP: a `contextmanager` transaction that rolls back on error, used in one repository, with a test for the error path [RP (\"Python's with Statement: Manage External Resources Safely\"), FLUENT (ch 18)]"),
+    (1.0, "Generators, first part (v3.6, moved forward for P1): what `yield` does, how a generator pauses and resumes, so `yield` fixtures make sense. Use in PRCP (code): the psycopg rollback fixture in P1 (W5-W8) is a `yield` fixture [RP (\"How to Use Generators and yield in Python\"), MCODING]"),
+    (2.75, "Names and references: everything is an object, `is` vs `==`, mutable vs immutable, how arguments are passed. Use in PRCP (code): a test proving `decide()` does not change the list it is given; find one place where PRCP shares a mutable object and fix or log it [RP (\"Shallow vs Deep Copying of Python Objects\": the mutable vs immutable part), FLUENT (ch 6), MCODING]"),
+    (1.75, "Shallow vs deep copy: the `copy` module, copies of nested lists. Use in PRCP (code): return copies from one in-memory repository, or show with a test why a shallow copy is enough there [RP (\"Shallow vs Deep Copying of Python Objects\"), FLUENT (ch 6)]"),
+    (3.25, "Hashing: what a hash table does, the `__eq__` and `__hash__` contract, why a list cannot be a dict key, list, dict and set costs. Use in PRCP (code): a frozen dataclass key (service, environment) for the latest GateDecision in a dict, with a test that equal keys find the same entry; say why `ProbeResult` cannot be a key [FLUENT (ch 3), MCODING]"),
+    (2.75, "Iterables vs iterators: the iterator protocol, what a `for` loop really does, why an iterator gets used up. Use in PRCP (code): a test that a generator passed to `decide()` is used up by its first `any()`, then the fix [RP (\"Iterators and Iterables in Python: Run Efficient Iterations\"), FLUENT (ch 17)]"),
+    (1.75, "Generators, rest: generator expressions, lazy evaluation. Use in PRCP (code): count failed results with a generator expression, without building a list [RP (\"How to Use Generators and yield in Python\"), FLUENT (ch 17), MCODING]"),
+    (3.25, "Functions as objects: `*args` and `**kwargs`, scope and the LEGB rule, `nonlocal`, closures. Use in PRCP (code): `checker.py` already takes its HTTP getter as an argument; write a closure that fixes the timeout and use it in a test [RP (\"Python args and kwargs: Demystified\", \"Python Scope and the LEGB Rule\", \"Python Closures: Common Use Cases and Examples\"), FLUENT (ch 7, 9)]"),
+    (3.25, "Decorators: what `@` does, wrappers, `functools.wraps`, decorators with arguments, PRCP's route decorators. Use in PRCP (code): a timing decorator on `decide()` with `functools.wraps`, tested; explain `@app.get` in `api/main.py` [RP (\"Primer on Python Decorators\"), FLUENT (ch 9), ARJAN]"),
+    (2.75, "Exceptions: the hierarchy, `try`, `except`, `else`, `finally`, `raise from`, custom exceptions such as PRCP's `exceptions.py`. Use in PRCP (code): one new exception raised with `raise ... from`, with a test on `__cause__` [RP (\"Python Exceptions: An Introduction\"), FLUENT (ch 18)]"),
+    (2.25, "Context managers in depth: what `__exit__` receives, suppressing an exception, `contextlib.contextmanager`. Use in PRCP (code): a `contextmanager` transaction that rolls back on error, used in one repository, with a test for the error path [RP (\"Python's with Statement: Manage External Resources Safely\"), FLUENT (ch 18)]"),
 ])
 unit("Y4", "6.1", [
-    (2.75, "asyncio from zero: coroutines vs functions, `await`, the event loop, tasks. Use in PRCP: an async version of one probe check with httpx's `AsyncClient`, tested [RP-ASYNC, MCODING]"),
-    (4.25, "`TaskGroup`, semaphores, cancellation, timeouts. Use in PRCP: probe checks run in a `TaskGroup` under one timeout, tested; add goroutines vs asyncio tasks to `go-notes.md` (moved here from G7) [RP-ASYNC, BEAZ, PYDOCS (asyncio)]"),
-    (7.5, "Bounded async fan-out; starvation lab and write-up. Use in PRCP: the fan-out is PRCP's local probe runner [RP-ASYNC, PYDOCS (asyncio)]"),
+    (2.75, "asyncio from zero: coroutines vs functions, `await`, the event loop, tasks. Use in PRCP (code): an async version of one probe check with httpx's `AsyncClient`, tested [RP-ASYNC, MCODING]"),
+    (4.25, "`TaskGroup`, semaphores, cancellation, timeouts. Use in PRCP (code): probe checks run in a `TaskGroup` under one timeout, tested; add goroutines vs asyncio tasks to `go-notes.md` (moved here from G7) [RP-ASYNC, BEAZ, PYDOCS (asyncio)]"),
+    (7.5, "Bounded async fan-out; starvation lab and write-up. Use in PRCP (code): the fan-out is PRCP's local probe runner [RP-ASYNC, PYDOCS (asyncio)]"),
 ], deps=["Y3"])
 unit("Y5", "6.1", [
-    (5.25, "Threads from zero (start, join, a shared-counter race and its lock fix), processes, the GIL, threads vs processes vs asyncio; state the Python version and GIL mode you ran. Use in PRCP: the race and its lock fix on a counter inside PRCP's in-memory result repository, tested on a controlled schedule [PYDOCS (threading, profile), BEAZ]"),
-    (2.0, "GIL, threads vs processes vs asyncio, `cProfile` before and after. Use in PRCP: profile PRCP's fan-out [PYDOCS (profile), BEAZ]"),
+    (5.25, "Threads from zero (start, join, a shared-counter race and its lock fix), processes, the GIL, threads vs processes vs asyncio; state the Python version and GIL mode you ran. Use in PRCP (code): the race and its lock fix on a counter inside PRCP's in-memory result repository, tested on a controlled schedule [PYDOCS (threading, profile), BEAZ]"),
+    (2.0, "GIL, threads vs processes vs asyncio, `cProfile` before and after. Use in PRCP (code): profile PRCP's fan-out [PYDOCS (profile), BEAZ]"),
 ], deps=["Y4"])
 unit("Y6", "6.1", [
     (4.5, "pytest beyond the basics: fixture scopes, `conftest.py`, parametrize, `monkeypatch`, `tmp_path`; then Hypothesis on `decide()` [PYTEST, HYP]"),
@@ -65,12 +65,12 @@ unit("Y7b", "6.1", [
     (4.0, "PRCP code walk, part 2: every other pre-plan module explained cold (Pydantic schemas, FastAPI `Depends` and `dependency_overrides`, Enums, exceptions, `decide()`); fix or log what you cannot defend [section 6.1]"),
 ])
 unit("Y8a", "6.1", [
-    (3.25, "Classes from the ground up (v3.6, moved before MC2): `__init__` and `self`, instance vs class attributes, `@classmethod` and `@staticmethod`, special methods, `Enum`; credit what L1 already showed. Use in PRCP: a `@classmethod` constructor such as `ProbeResult.from_row` for psycopg rows, tested [RP (\"Object-Oriented Programming (OOP) in Python\", \"Python's Magic Methods: Leverage Their Power in Your Classes\"), FLUENT (ch 11), PYDOCS (enum)]"),
-    (2.75, "Dataclasses in depth (v3.6, moved before MC2): generated methods, `field()`, the mutable-default trap, `frozen`, `slots`. Use in PRCP: decide which `models.py` dataclasses should be frozen, fix any mutable default with `field(default_factory=...)`, tested [RP (realpython.com/python-data-classes), FLUENT (ch 5)]"),
+    (3.25, "Classes from the ground up (v3.6, moved before MC2): `__init__` and `self`, instance vs class attributes, `@classmethod` and `@staticmethod`, special methods, `Enum`; credit what L1 already showed. Use in PRCP (code): a `@classmethod` constructor such as `ProbeResult.from_row` for psycopg rows, tested [RP (\"Object-Oriented Programming (OOP) in Python\", \"Python's Magic Methods: Leverage Their Power in Your Classes\"), FLUENT (ch 11), PYDOCS (enum)]"),
+    (2.75, "Dataclasses in depth (v3.6, moved before MC2): generated methods, `field()`, the mutable-default trap, `frozen`, `slots`. Use in PRCP (code): decide which `models.py` dataclasses should be frozen, fix any mutable default with `field(default_factory=...)`, tested [RP (realpython.com/python-data-classes), FLUENT (ch 5)]"),
 ])
 unit("Y8b", "6.1", [
-    (2.75, "Inheritance, MRO and `super()`, cooperative multiple inheritance. Use in PRCP: explain each `super().__init__` in `exceptions.py` and test that catching `PRCPError` catches every child [RP (realpython.com/python-super), FLUENT (ch 14)]"),
-    (2.5, "ABC vs Protocol: nominal vs structural typing, `abstractmethod`, `runtime_checkable`, PRCP's repository Protocols (abstract classes were first met in L1). Use in PRCP: say which repository Protocol a new Postgres class satisfies and prove it with mypy or a test [RP (\"Implementing Interfaces in Python: ABCs and Protocols\", \"Python Protocols: Leveraging Structural Subtyping\"), FLUENT (ch 13)]"),
+    (2.75, "Inheritance, MRO and `super()`, cooperative multiple inheritance. Use in PRCP (code): explain each `super().__init__` in `exceptions.py` and test that catching `PRCPError` catches every child [RP (realpython.com/python-super), FLUENT (ch 14)]"),
+    (2.5, "ABC vs Protocol: nominal vs structural typing, `abstractmethod`, `runtime_checkable`, PRCP's repository Protocols (abstract classes were first met in L1). Use in PRCP (code): say which repository Protocol a new Postgres class satisfies and prove it with mypy or a test [RP (\"Implementing Interfaces in Python: ABCs and Protocols\", \"Python Protocols: Leveraging Structural Subtyping\"), FLUENT (ch 13)]"),
     (1.5, "Reference counting, reference cycles, the `gc` module [RP (\"Memory Management in Python\"), FLUENT (ch 6)]"),
     (1.5, "Checklist D cold re-run; repair what is still shaky [section 7]"),
 ])
@@ -97,14 +97,14 @@ unit("F1", "6.1", [
 
 # ---------- 6.2 Go ----------
 unit("G1", "6.2", [(3.0, "Install Go, Hello World, Integers, Iteration [FCC-Go ch 1-3, LGWT, GOBYEX for lookups]")])
-unit("G2", "6.2", [(3.5, "Arrays and slices: `len` vs `cap`, `append`, aliasing; start the Go vs Python list in `go-notes.md` (a slice is not a Python list copy). First file from a blank page with `t *testing.T` and a `strings.Builder` (the Oct 24 rep slipped on both). Use in the agent: start the Go module in PRCP's `agent/` folder; the probe targets are a slice, with a test on what `append` to a copy does [FCC-Go ch 8, LGWT, GO-SLICES]")])
-unit("G3", "6.2", [(5.0, "Structs, methods and interfaces; receivers. Use in the agent: `Probe` and `Result` structs, a method on `Result`, and a `Prober` interface with a fake prober in the test [FCC-Go ch 4-5, LGWT]")])
-unit("G4", "6.2", [(5.5, "Pointers and errors: `*` and `&`, the nil-interface trap, `%w`, `errors.Is` and `errors.As`; Go vs Python note: nil vs None, error values vs exceptions. Use in the agent: probe errors wrapped with `%w`, and a test that `errors.Is` finds a timeout through the wrapping [FCC-Go ch 6 and 11, LGWT (Pointers and errors, Error types), GO-ERRORS, GO100]")])
-unit("G5", "6.2", [(3.5, "Maps; Generics chapter. Use in the agent: a registry map from probe name to `Prober`, with a test for a missing name [FCC-Go ch 9 and 15, LGWT (Maps, Generics)]")])
-unit("G6", "6.2", [(5.0, "Dependency injection, mocking, HTTP server, httptest. Use in the agent: an HTTP prober with the `http.Client` injected, tested against an `httptest` server [LGWT (Dependency Injection, Mocking, HTTP server)]")])
+unit("G2", "6.2", [(3.5, "Arrays and slices: `len` vs `cap`, `append`, aliasing; start the Go vs Python list in `go-notes.md` (a slice is not a Python list copy). First file from a blank page with `t *testing.T` and a `strings.Builder` (the Oct 24 rep slipped on both). Use in the agent (code): start the Go module in PRCP's `agent/` folder; the probe targets are a slice, with a test on what `append` to a copy does [FCC-Go ch 8, LGWT, GO-SLICES]")])
+unit("G3", "6.2", [(5.0, "Structs, methods and interfaces; receivers. Use in the agent (code): `Probe` and `Result` structs, a method on `Result`, and a `Prober` interface with a fake prober in the test [FCC-Go ch 4-5, LGWT]")])
+unit("G4", "6.2", [(5.5, "Pointers and errors: `*` and `&`, the nil-interface trap, `%w`, `errors.Is` and `errors.As`; Go vs Python note: nil vs None, error values vs exceptions. Use in the agent (code): probe errors wrapped with `%w`, and a test that `errors.Is` finds a timeout through the wrapping [FCC-Go ch 6 and 11, LGWT (Pointers and errors, Error types), GO-ERRORS, GO100]")])
+unit("G5", "6.2", [(3.5, "Maps; Generics chapter. Use in the agent (code): a registry map from probe name to `Prober`, with a test for a missing name [FCC-Go ch 9 and 15, LGWT (Maps, Generics)]")])
+unit("G6", "6.2", [(5.0, "Dependency injection, mocking, HTTP server, httptest. Use in the agent (code): an HTTP prober with the `http.Client` injected, tested against an `httptest` server [LGWT (Dependency Injection, Mocking, HTTP server)]")])
 unit("G7", "6.2", [
-    (4.0, "Goroutines, channels, select, closed-channel reads. Use in the agent: run the probers in goroutines and collect results over a channel; run `go test -race` [FCC-Go ch 13, LGWT (Concurrency, Select), PIKE]"),
-    (4.0, "`sync.Mutex` vs `RWMutex`, `WaitGroup`, context; scheduler model (G, M, P) and GC basics. Use in the agent: a `WaitGroup` and a per-probe `context.WithTimeout`, with a test that a slow server is cut off [FCC-Go ch 14, LGWT (Sync, Context), GO-CONTEXT, GO-PIPELINES, ARDAN (Scheduling in Go, Garbage Collection in Go)]"),
+    (4.0, "Goroutines, channels, select, closed-channel reads. Use in the agent (code): run the probers in goroutines and collect results over a channel; run `go test -race` [FCC-Go ch 13, LGWT (Concurrency, Select), PIKE]"),
+    (4.0, "`sync.Mutex` vs `RWMutex`, `WaitGroup`, context; scheduler model (G, M, P) and GC basics. Use in the agent (code): a `WaitGroup` and a per-probe `context.WithTimeout`, with a test that a slow server is cut off [FCC-Go ch 14, LGWT (Sync, Context), GO-CONTEXT, GO-PIPELINES, ARDAN (Scheduling in Go, Garbage Collection in Go)]"),
 ])
 unit("A1", "6.2", [(6.0, "Sequential agent (v3.6: starts right after G7; v3.8: from the skeleton built in G2-G7): config, `net/http`, per-probe timeout; code-read the timeout fields of the `net/http` Client [LGWT (HTTP server, JSON), EFFGO]")], deps=["G7"])
 unit("A2", "6.2", [(8.0, "`errgroup` with `SetLimit` (the only concurrency model in the agent), cancellation; `-race` clean; prove the active probe count stays bounded and a slow probe is cancelled [PIKE, GO-PIPELINES, ERRGROUP]")], deps=["A1"])
@@ -120,11 +120,11 @@ unit("K1", "6.3", [
 ])
 unit("K2", "6.3", [(5.0, "Architecture: every component; the chain after `kubectl apply`; controller anatomy: watch, cache, work queue, reconcile, requeue with backoff, finalizers, owner references, leader election [KK (Core Concepts: etcd, API server, controller manager, scheduler, kubelet, kube-proxy), K8S]")], deps=["K1"])
 unit("K3", "6.3", [
-    (3.25, "Pods, Deployment to ReplicaSet, rollout status, history, undo. Use on kind: PRCP's own image (from D1) as a Deployment; roll out a new tag, then undo it [KK (Pods, ReplicaSets, Deployments practice tests; Application Lifecycle: Rolling Updates and Rollbacks), K8S (Workloads)]"),
-    (3.25, "StatefulSet vs DaemonSet vs Job; requests, limits, QoS; the three probe types; HPA vs VPA vs cluster autoscaler. Use on kind: requests, limits and liveness and readiness probes on PRCP's `/health` and `/ready` [KK (Scheduling: Resource Requirements, DaemonSets), K8S (StatefulSet, Job and CronJob, probes, QoS)]"),
+    (3.25, "Pods, Deployment to ReplicaSet, rollout status, history, undo. Use on kind (code): PRCP's own image (from D1) as a Deployment; roll out a new tag, then undo it [KK (Pods, ReplicaSets, Deployments practice tests; Application Lifecycle: Rolling Updates and Rollbacks), K8S (Workloads)]"),
+    (3.25, "StatefulSet vs DaemonSet vs Job; requests, limits, QoS; the three probe types; HPA vs VPA vs cluster autoscaler. Use on kind (code): requests, limits and liveness and readiness probes on PRCP's `/health` and `/ready` [KK (Scheduling: Resource Requirements, DaemonSets), K8S (StatefulSet, Job and CronJob, probes, QoS)]"),
 ], deps=["K2", "D1"])
-unit("K4", "6.3", [(4.25, "Services, EndpointSlices, the Service dataplane (iptables mode, not IPVS internals), cluster DNS; CNI vs CSI at architecture level. Use on kind: a Service in front of PRCP, reached by DNS name from another pod [KK (Networking: Service Networking, DNS, CoreDNS, Ingress), K8S (Virtual IPs)]")], deps=["K3"])
-unit("K5", "6.3", [(4.25, "ConfigMap env vs volume, Secret, ServiceAccount, RBAC least-privilege lab. Use on kind: PRCP's settings from a ConfigMap and a Secret, and a ServiceAccount with no extra rights [KK (Application Lifecycle: ConfigMaps, Secrets; Security: RBAC, ServiceAccounts), K8S (RBAC good practices)]")], deps=["K4"])
+unit("K4", "6.3", [(4.25, "Services, EndpointSlices, the Service dataplane (iptables mode, not IPVS internals), cluster DNS; CNI vs CSI at architecture level. Use on kind (code): a Service in front of PRCP, reached by DNS name from another pod [KK (Networking: Service Networking, DNS, CoreDNS, Ingress), K8S (Virtual IPs)]")], deps=["K3"])
+unit("K5", "6.3", [(4.25, "ConfigMap env vs volume, Secret, ServiceAccount, RBAC least-privilege lab. Use on kind (code): PRCP's settings from a ConfigMap and a Secret, and a ServiceAccount with no extra rights [KK (Application Lifecycle: ConfigMaps, Secrets; Security: RBAC, ServiceAccounts), K8S (RBAC good practices)]")], deps=["K4"])
 unit("K7a", "6.3", [
     (2.5, "Scenarios 1-3 on a sample app: CrashLoopBackOff, Pending, OOMKilled [KK (Troubleshooting: Application Failure labs), LEARNK8S, K8S (Debug)]"),
     (1.5, "Scenarios 4-5: Service without endpoints; an object stuck on a finalizer [KK (Troubleshooting labs), LEARNK8S, K8S (Debug)]"),
@@ -165,7 +165,7 @@ unit("H5", "6.4", [
     (2.5, "Practice: notification service [HI]"),
 ], deps=["H4"])
 unit("H6", "6.4", [
-    (3.0, "Mock 1 with the assistant (v3.6: moved before normal application volume; only taught material is scored) [HI]"),
+    (3.0, "Mock 1, with a human peer when one is available, else the assistant (v3.6: moved before normal application volume; v3.8: a human first; only taught material is scored) [HI]"),
     (3.0, "Mock 2 with a human [Peers, or a paid expert mock per section 6.9]"),
     (3.0, "Mock 3 [HI]"),
     (3.0, "Mock 4 with a human [Peers, or a paid expert mock per section 6.9]"),
@@ -174,20 +174,20 @@ unit("H6", "6.4", [
 # ---------- 6.5 LLD and machine coding ----------
 unit("L1", "6.5", [
     (1.0, "OOP pillars, interface vs abstract class, composition [ARJAN, RG]"),
-    (2.75, "Association, aggregation, coupling and cohesion (v3.6: 1h more, from W3's measured pace). Use in PRCP: name one association, one aggregation and one composition among `models.py`'s classes, and one coupling problem in `api/main.py`, in a short note in `docs/` [ARJAN]"),
-    (0.5, "Composition over inheritance, cold explanation. Use in PRCP: explain it with `checker.py`, which takes its HTTP getter as a parameter instead of subclassing [ARJAN]"),
+    (2.75, "Association, aggregation, coupling and cohesion (v3.6: 1h more, from W3's measured pace). Use in PRCP (explain): name one association, one aggregation and one composition among `models.py`'s classes, and one coupling problem in `api/main.py`, in a short note in `docs/` [ARJAN]"),
+    (0.5, "Composition over inheritance, cold explanation. Use in PRCP (explain): explain it with `checker.py`, which takes its HTTP getter as a parameter instead of subclassing [ARJAN]"),
 ])
 unit("L2", "6.5", [
-    (2.75, "SOLID: SRP, OCP, LSP. Use in PRCP: find one SRP and one OCP problem (for example the probe endpoints in `api/main.py`) and fix one, tests green [ARJAN]"),
-    (2.75, "SOLID: ISP, DIP; violation and fix for each. Use in PRCP: show where `api/dependencies.py` applies DIP through the repository Protocols, and fix one ISP or DIP problem [ARJAN]"),
+    (2.75, "SOLID: SRP, OCP, LSP. Use in PRCP (code): find one SRP and one OCP problem (for example the probe endpoints in `api/main.py`) and fix one, tests green [ARJAN]"),
+    (2.75, "SOLID: ISP, DIP; violation and fix for each. Use in PRCP (code): show where `api/dependencies.py` applies DIP through the repository Protocols, and fix one ISP or DIP problem [ARJAN]"),
 ], deps=["L1"])
 unit("L3", "6.5", [
-    (3.75, "Strategy, Factory, Observer. Use in PRCP: probe types as a Strategy and their creation as a Factory, replacing one `if` chain, tests green [RG, ARJAN]"),
-    (3.75, "State, Decorator; class and sequence diagrams. Use in PRCP: a class diagram of the domain and a sequence diagram of one probe run, committed to `docs/` [RG]"),
+    (3.75, "Strategy, Factory, Observer. Use in PRCP (code): probe types as a Strategy and their creation as a Factory, replacing one `if` chain, tests green [RG, ARJAN]"),
+    (3.75, "State, Decorator; class and sequence diagrams. Use in PRCP (explain): a class diagram of the domain and a sequence diagram of one probe run, committed to `docs/` [RG]"),
 ], deps=["L2"])
 unit("L4", "6.5", [
-    (1.0, "Where the lock goes; lock granularity. Use in PRCP: decide where the lock goes in the in-memory result repository and why [PYDOCS (threading)]"),
-    (2.0, "A thread-safe class with a test that fails without the lock. Use in PRCP: the class is the in-memory result repository [PYDOCS (threading, queue)]"),
+    (1.0, "Where the lock goes; lock granularity. Use in PRCP (explain): decide where the lock goes in the in-memory result repository and why, for the next part to build [PYDOCS (threading)]"),
+    (2.0, "A thread-safe class with a test that fails without the lock. Use in PRCP (code): the class is the in-memory result repository [PYDOCS (threading, queue)]"),
 ], deps=["L3"])
 MC_PARTS = [
     ("MC0", 1.25, "Machine coding method (MC0), taught and dry-run Oct 19, 75 min measured (v3.6 records it) [section 6.5]"),
@@ -242,7 +242,7 @@ unit("R1", "6.8", [
 ])
 unit("R2", "6.8", [
     (2.0, "Write the first two honest stories (registry cost, IKS upgrades); fix the registry figures [section 6.8]"),
-    (1.0, "Tell the first two stories aloud in voice mode, with two follow-ups each (v3.8: moved from W23, before calibration interviews need them) [section 6.8]"),
+    (1.0, "Tell the first two stories aloud in voice mode, with two follow-ups each (v3.8: moved from W23; calibration calls before this are diagnostic) [section 6.8]"),
     (2.0, "Write the third honest story (Circuit Breaker) [section 6.8]"),
     (3.0, "Two dated older stories (v3.6): the GetMyUni build (what you wrote alone, decisions, outcome) and one tech-lead delivery decision; for every story, separate what you wrote, decided, reviewed and coordinated; confirm your exact part in the IBM Circuit Breaker CRD before any resume line [section 6.8]"),
     (1.0, "Tell each story aloud; answer follow-ups [section 6.8]"),

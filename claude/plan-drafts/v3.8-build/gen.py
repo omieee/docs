@@ -136,6 +136,10 @@ def pour(lane, hours, week, items):
             return hours
         label, pi = q[i]
         ph, ptxt = U[label]["parts"][pi]
+        # v3.8 (A3): a lane never starts a new part with under 30 minutes; the hours go to the PY lane instead,
+        # and the PY lane leaves them open
+        if (label, pi) not in part_started and h_used < EPS and hours < 0.5 - EPS and ph >= 0.5 - EPS:
+            return hours   # the PY lane leaves these minutes open (warm-ups, setup)
         for dep in U[label]["deps"]:
             if dep in U and (used[dep] < total(dep) - EPS):
                 if label not in first:

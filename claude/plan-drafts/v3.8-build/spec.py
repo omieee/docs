@@ -74,8 +74,8 @@ w(30, contacts=["Go", "Kubernetes", "HLD"], DSA=3.5, dsa_skip_pool=True, dsa_pha
 GB = 70
 MC_WEEKS = {33: "MC4", 40: "MC5", 47: "MC6", 57: "MC7"}
 MOCK_WEEKS = {49: 1, 59: 2}
-KB_WEEKS = {35: 1.0, 38: 0.75, 41: 0.75, 44: 0.75, 49: 0.75}
-L_WEEKS = {36: 1.0, 37: 1.0, 38: 1.0}
+KB_WEEKS = {36: 1.0, 38: 0.75, 41: 0.75, 44: 0.75, 49: 0.75}
+L_WEEKS = {36: 1.0, 37: 1.0, 38: 1.25}
 CAR_1B = {31: 2.0, 42: 1.0, 45: 1.25, 46: 1.25, 52: 1.0, 59: 1.5, 60: 1.5}
 CL3_WEEKS = {51: 3.0, 52: 3.0, 53: 0.0, 54: 3.0, 55: 3.0}
 mp_flip = True
@@ -105,12 +105,12 @@ for n in range(31, GB):
         mp_flip = not mp_flip
     w(n, **kw)
 w(58, camp=2.5, camp_text="JD harvest refresh with the same section 8 fields, India and international slices, for resume v2 and the Gate B region decision; Om re-marks both top 5 lists (v3.7, +0.5h)")
-w(61, dsa_extra=[(2.0, "Human live-coding mock (v3.7, section 6.6 #13): one problem Om has not seen, with a stranger on a peer mock platform, aloud, in English, 1 hour with turns, plus booking and a 30-minute review; scored on the DSA proof rules [PEER]")])
+w(32, dsa_extra=[(2.0, "Human live-coding mock (v3.7, section 6.6 #13; v3.8: moved from W61 to just after Gate A, before valuable loops): one problem Om has not seen, with a stranger on a peer mock platform, aloud, in English, 1 hour with turns, plus booking and a 30-minute review; scored on the DSA proof rules [PEER]")])
 w(GB, contacts=["Go", "Kubernetes", "HLD", "LLD", "Operators", "Cloud"], DSA=3.0, dsa_skip_pool=True,
   gate=[("Gate", 5.0, "Gate B: checklists A to F; K8s audit plus live challenge; craft demo; controller on kind with envtest green; PRCP on AWS from the README; 3 mocks; human live-coding mock scored; last 2 reps pass; latest blind set 80%; unseen set 2 at 3 of 4; stories; region decision recorded")])
 
 # ---------------- 1c: W71-W74 ----------------
-w(71, no_fill=True, CAR=2.0)
+w(71, no_fill=True, CAR=2.25)
 w(72, no_fill=True, CAR=2.0, MC=["MC8"])
 w(73, no_fill=True, Mock=3)
 w(74, no_fill=True, camp=2.5, contacts=["Go", "Kubernetes", "HLD", "LLD", "Operators", "Cloud"],

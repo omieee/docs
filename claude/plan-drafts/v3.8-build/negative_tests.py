@@ -26,15 +26,18 @@ CASES = [
     ("DSA header off (v3.6 rule)", "### 6.6 DSA (146 hrs, daily)", "### 6.6 DSA (144.25 hrs, daily)", "DSA: section 6.6 says"),
     ("week label off (v3.6 rule)", "| W61 · Nov 29-Dec 5 · 12h |", "| W61 · Nov 29-Dec 5 · 12.5h |", "W61: items sum to"),
     # ---- v3.8 rules ----
-    ("use step removed from a Go part", "Use in the agent: `Probe` and `Result` structs", "Then `Probe` and `Result` structs", "Use step: W"),
-    ("use step removed from a Python part", "Use in PRCP: a frozen dataclass key", "Then a frozen dataclass key", "Use step: W"),
-    ("use step removed from a Kubernetes part", "Use on kind: a Service in front of PRCP", "Then a Service in front of PRCP", "Use step: W"),
+    ("use step removed from a Go part", "Use in the agent (code): `Probe` and `Result` structs", "Then `Probe` and `Result` structs", "Use step: W"),
+    ("use step removed from a Python part", "Use in PRCP (code): a frozen dataclass key", "Then a frozen dataclass key", "Use step: W"),
+    ("use step removed from a Kubernetes part", "Use on kind (code): a Service in front of PRCP", "Then a Service in front of PRCP", "Use step: W"),
+    ("use step without its type (A2)", "Use in the agent (code): `Probe` and `Result` structs", "Use in the agent: `Probe` and `Result` structs", "Use step: W"),
+    ("part starts with 15 minutes (A3)", "fix or log what you cannot defend [section 6.1] (continued)", "fix or log what you cannot defend [section 6.1]", "Small start: W5 Y7a"),
+    ("untaught SQL in P1 (A1)", "the rollback fixture is a `yield` fixture and each transaction uses `with`", "the rollback fixture is a `yield` fixture, each transaction uses `with` and one query uses `IN`", "Taught before named: W5 P1"),
     ("untaught term named early", "rewrite one closed Go kata and its tests as that unit wrote them, and add one changed case", "rewrite one closed Go kata and its table-driven test, and add one changed case", "Taught before named: W4 RR names table-driven"),
     ("asyncio note back in G7", "collect results over a channel; run `go test -race`", "collect results over a channel; note goroutines vs asyncio tasks", "Taught before named: W"),
     ("spaced review limited to DSA again", "DSA keeps its spaced re-solves; every other topic", "DSA alone keeps continuous spaced review; every other topic", "Section 7: spaced review is limited to DSA"),
     ("use rule removed", "**Use in real code within 7 days (v3.8, Om, Oct 24).**", "**Practice note.**", "Section 6: the use rule"),
     ("warm-up rule removed", "**Warm-up (v3.8).**", "**Warm-up.**", "Section 6.12: the warm-up rule"),
-    ("scheduled cards removed", "**Bedside cards (v3.8, scheduled).**", "**Optional bedside cards.**", "Section 6.12: the scheduled bedside cards"),
+    ("cards rule removed", "**Bedside cards (v3.8, optional).**", "**Cards.**", "Section 6.12: the bedside cards rule"),
 ]
 
 fails = 0

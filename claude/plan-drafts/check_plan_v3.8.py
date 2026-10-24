@@ -12,8 +12,9 @@ was withdrawn; the human live-coding mock (section 6.6 #13) scheduled before Gat
 slice in a harvest week of 1a and of 1b before Gate B; the four-line Gate C readiness record; the gate
 dates in sections 1, 4 and 11 agreeing with the gate weeks; section 14's stated hours and DSA total.
 
-v3.8 adds: every teaching part in the map (weeks from W4) carries its use step in real code ("Use in" or
-"Use on kind"); no row names a listed tool or test style before the first week of the unit that teaches it;
+v3.8 adds: every teaching part in the map (weeks from W4) carries a typed use step in real code
+("Use in PRCP (code):", "Use in the agent (code):", "Use on kind (code):" or "(explain)"); no unit part starts
+in a week with under 30 minutes; no row names a listed tool or test style before the first week of the unit that teaches it;
 K3 after D1; section 7 no longer says DSA alone keeps spaced review; section 6 states the use rule and
 section 6.12 the warm-up and the scheduled bedside cards.
 """
@@ -255,13 +256,16 @@ USE_EXEMPT = ("Reference counting", "Checklist D cold re-run", "WAL on commit", 
 for n, its in items_by_week.items():
     if n < 4:
         continue
-    for lab, _, t in its:
+    for lab, h_, t in its:
         t = (t or "").strip()
-        if lab in REQUIRE_USE and not t.startswith(USE_EXEMPT) and "Use in " not in t and "Use on kind" not in t:
-            errors.append(f"Use step: W{n} {lab} has no use in real code ('{t[:50]}...')")
+        if lab in REQUIRE_USE and not t.startswith(USE_EXEMPT) and not re.search(r"Use (in PRCP|in the agent|on kind) \((code|explain)\):", t):
+            errors.append(f"Use step: W{n} {lab} has no typed use in real code ('{t[:50]}...')")
+        # 30-minute start rule (A3): a unit part never starts in a week with under 30 minutes
+        if lab not in NON_UNIT and lab not in ("RR", "MP", "Mock") and not re.fullmatch(r"MC\d", lab) and h_ < 0.5 - 1e-9 and "(continued)" not in t:
+            errors.append(f"Small start: W{n} {lab} starts a part with {h_:g}h (under 30 minutes)")
 # Taught before named (section 6.12): a listed term may appear in a row only from its teaching unit's first week
 TERMS = {"table-driven": "G6", "-race": "G7", "`yield`": "Y3", "asyncio": "Y4", "mypy": "Y1", "EXPLAIN": "P3",
-         "errgroup": "A2", "Hypothesis": "Y6", "envtest": "OP6"}
+         "errgroup": "A2", "Hypothesis": "Y6", "envtest": "OP6", "`IN`": "P2", "subquer": "P2"}
 for n, its in items_by_week.items():
     if n < 4:
         continue
@@ -277,8 +281,8 @@ if "**Use in real code within 7 days" not in sec6:
 sec612 = sec6.split("### 6.12")[1] if "### 6.12" in sec6 else ""
 if "**Warm-up (v3.8).**" not in sec612:
     errors.append("Section 6.12: the warm-up rule is missing")
-if "**Bedside cards (v3.8, scheduled).**" not in sec612:
-    errors.append("Section 6.12: the scheduled bedside cards are missing")
+if "**Bedside cards (v3.8, optional).**" not in sec612:
+    errors.append("Section 6.12: the bedside cards rule is missing")
 
 if small:
     warnings.append(f"{small} unit pieces under 0.5h (fragmentation warning only, section 6.12)")
@@ -294,4 +298,5 @@ if errors:
 print("PASS: every week fits its cap and sums to its label, every unit matches section 6, totals and dependencies hold, "
       "week dates run on, phase and track totals match sections 4 and 5, gate dates match in sections 1, 4 and 11, "
       "no track breaks the continuity rule, no coaching owner is named, the v3.7 international items are in place, "
-      "every teaching part carries its use step, and no row names a tool before the unit that teaches it")
+      "every teaching part carries a typed use step, no part starts with under 30 minutes, and no row names a tool before "
+      "the unit that teaches it")
