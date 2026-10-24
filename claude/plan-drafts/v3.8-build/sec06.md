@@ -1,0 +1,303 @@
+## 6. Curriculum by track
+
+Each track lists its depth bar, ordered units with hours and proof, then resources: video first for the mental model, official docs as the authority. Units run in order inside a track; tracks run in parallel; section 14 places every unit in a week. Resource keys (NC, LGWT and so on) are defined in section 14.
+
+**The week row picks the resource.** Never browse the resource key for more material, and no resource needs finishing: each one exists only to serve its named unit.
+
+**Docs are for lookup, not learning.** Learn from the videos, texts and labs listed. When a claim is going into an ADR or an interview answer, confirm it in the official docs: a two-minute lookup, not a chapter. Videos and blogs carry their own assumptions and go stale, so the docs stay the final word on facts.
+
+**Prerequisites at first use (v3.6).** When a unit needs a small piece of a later unit (a `yield` before `yield` fixtures, classes before a machine coding rep, a module's code walk before changing it), that piece moves to the first week that needs it and leaves its later slot. Section 14 shows each move. The full later unit still runs for the rest.
+
+**Use in real code within 7 days (v3.8, Om, Oct 24).** Every part of a teaching unit ends with its **Use in** step: the idea just taught, applied in Om's real project inside the same part's hours, tested and committed. Python, pytest and SQL go into PRCP; Go goes into the probe agent, which starts at G2 in PRCP's `agent/` folder; Kubernetes goes onto kind with PRCP's own image (D1 moves to right after P1 for this); LLD goes into PRCP's domain code or the machine coding practice. The week rows show each step. A topic with no real place to be used within 7 days is not taught early: it moves to the week the project first needs it. Why: Om built Duplive and GetMyUni in PHP about 12 years ago, and today cannot recall how `print` works in PHP; one run of Go practice on Oct 11-13 lost its syntax in 11 idle days (the Oct 24 rep). Depth once is not enough; use keeps a skill. Each use step costs about 30 minutes; about 15 come out of the toy practice it replaces, so a part grows by about 15 minutes (30 for a Go part, whose katas stay as the learning path). Units that are already project work (P1, P4, Y1, Y6, Y7, D1, C1, O1, the agent, the operators, cloud, PRCP on kind) need no extra step. Knowledge-only parts (WAL and replication, reference counting, Checklist D, architecture theory, HLD, gRPC, OS basics) are kept alive by the warm-ups and cards in section 6.12, and HLD by its practice designs and mocks. `check_plan.py` fails any teaching part in the map without its use step.
+
+### 6.1 PRCP core: Python, Postgres, Docker, CI, metrics, AI-assisted checkpoint (164.5 hrs from Oct 1)
+
+**Depth bar.** You can build, test and defend every layer of PRCP from memory: SQL written by hand, database behaviour under concurrency, the Python runtime under load, and a container that starts and stops cleanly.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| P1 Access layer | 11 | Python prerequisites first (3h, from the Oct 5 baseline; 1.5h added in v3.4 for pytest basics): context managers and `with`, pytest basics (what pytest is, how it finds and runs tests, reading a failure; Om had never used it as a framework), pytest fixtures with `return` then `yield` (after Y3's generator basics, v3.6), dataclass equality. Then the psycopg prerequisite: install with `uv add "psycopg[binary]"`, read psycopg 3 Getting Started (basic usage, passing parameters, transactions management), and run a 15-line insert, select, rollback script against `prcp_test` (practice, not committed). Then one existing use case end to end through the real database, including one specified failure (v3.6), then raw-SQL repositories for Service, Environment, Probe, ProbeResult, GateDecision, with integration tests on `prcp_test`, one transaction rolled back per test. GateDecision links to the ProbeResults it used | Practice output pasted. Tests green on a fresh clone. A failed operation leaves the database in the specified state, and a committed one survives a new connection (v3.6). Explain connection vs cursor vs transaction, parameter binding, what rollback undoes |
+| P2 SQL correction and fluency | 15.25 | From the Sep 27 baseline, lesson before exercise: SQLBolt lessons on joins, outer joins, NULLs, aggregates and order of execution, plus its subqueries and set-operations topics (`IN`, `UNION`); a window-functions lesson. Then pgexercises in order: Joins and Subqueries, Aggregation, Working with Timestamps, Modifying Data; skip Recursive and String. Method: restate the asked output (columns, rows, limits, singular or plural) before writing; build a subquery by running the inner query alone first. Then 3 timed problems. Each of the three parts ends with its use in PRCP (v3.8): a join and a subquery, GROUP BY and a window function, a time filter and an UPDATE, each as a tested repository query | Queries in `omieee/docs` `sql/pgexercises.sql` with a one-line note each. 3 unseen problems on a new schema, 20 min each |
+| P3 Postgres internals | 12 | B-tree and composite index order, index-only scans, `EXPLAIN ANALYZE` and join types, isolation levels and anomalies including write skew, MVCC, row locks and deadlocks, WAL on commit, pooling, replication and failover, VACUUM. Code-read: how `psycopg_pool` hands out a connection. The demos, indexes and plans run on PRCP's own tables (v3.8) | ADR with real `EXPLAIN` output. Two `psql` sessions showing a non-repeatable read and a deadlock, both explained. Internals set 7/10 |
+| P4 SQLAlchemy 2.0 and Alembic | 9 | Port the repositories, keep the same tests. Main migration proof: expand, backfill, contract, with old and new app versions running together. A quick N+1 check if time remains | Old and new versions both work mid-migration, with the rollback boundary written down; upgrade and downgrade round-trip. Explain the Session |
+| Y1 Typing | 4 | PRCP has no mypy config yet. Type hints, `Optional`, generics, `Callable`; install and configure mypy; then `mypy --strict` clean on `src/prcp/` (v3.6: moved to 1b, just before C1, which runs mypy in CI) | Clean run on a fresh clone |
+| Y2 Baseline | 1 | Checklist D cold. Only gaps that block current PRCP work move into 1a; the rest wait for Y3 and Y8. Done Oct 5: 0 solid, 6 shaky, 13 missing. The P1 blockers are taught at P1's start (P1 row) | Scored gap list |
+| Y3 Python core | 24.75 | Sized from the Oct 5 baseline: generators first part, 1h, moved to W4 for P1's `yield` fixtures (v3.6); names and references, `is` vs `==`, mutability (2.75); shallow vs deep copy (1.75); hashing, `__eq__` and `__hash__`, container costs (3.25); iterables and iterators (2.75); generators, the rest (1.75); functions as objects, `*args` and `**kwargs`, scope, closures (3.25); decorators (3.25); exceptions, `raise from`, custom exceptions (2.75); context managers in depth, `contextlib` (2.25). Each topic ends with its use in PRCP, named in the week row (v3.8, +0.25 each). The last four topics finish in W36, after Gate A: P3, P4 and S5, which Gate A and A3 need, now come first (v3.8) | Each topic's use step in PRCP, tested; unit interview per topic |
+| Y4 asyncio | 14.5 | From zero first: coroutines vs functions, `await`, the event loop, tasks. Then `TaskGroup`, semaphores, cancellation, timeouts. Bounded async probe fan-out. Block the loop on purpose, observe it, fix it with `asyncio.to_thread`. Every part runs on PRCP's probe checks (v3.8); the goroutines vs asyncio note moves here from G7 | Commit plus a one-page starvation write-up; the cancellation and the blocked loop are both observable in the output |
+| Y5 GIL and profiling | 7.25 | Threads from zero (start, join, a shared-counter race). Threads vs processes vs asyncio; why the GIL does not make `x += 1` atomic; `cProfile` on the fan-out. State the Python version and GIL mode used, since free-threaded builds exist. The race and its fix are on PRCP's in-memory result repository (v3.8) | A thread race and its lock fix, with a test built on a controlled schedule rather than luck. Before and after numbers |
+| Y6 Test depth | 4.5 | pytest beyond the basics: fixture scopes, `conftest.py`, parametrize, `monkeypatch`, `tmp_path`; a Hypothesis property test on `decide()` | The property test catches a bug the assistant plants |
+| Y7a PRCP code walk, part 1 (v3.6) | 1 | Before P1 changes them: the repository Protocols, schemas and `conftest.py` fixtures, explained line by line; fix or log what you cannot defend | Each module explained without notes |
+| Y7b PRCP code walk, part 2 | 4 | Every other pre-plan module, read cold: Pydantic schemas, FastAPI `Depends` and `dependency_overrides`, Enums, exceptions, `decide()`. Explain each module's job and every line an interviewer could ask you to defend; fix what you cannot defend, or log it | Each module explained without notes; findings file committed |
+| Y8a Classes and dataclasses, moved before MC2 (v3.6) | 6 | Classes from the ground up, special methods, `classmethod` and `staticmethod`, `Enum` (3.25); dataclasses in depth (2.75). Credit what L1 already showed in October. Each ends with its use in PRCP's `models.py` (v3.8) | Each topic's use step in PRCP, tested |
+| Y8b Data model depth | 8.25 | Inheritance, MRO, `super()` (2.75, used on PRCP's `exceptions.py`, v3.8); ABC vs Protocol (2.5; abstract classes were first met in L1); reference counting and GC (1.5); Checklist D cold re-run and repair (1.5) | One tested kata per topic; Checklist D 7/10 at Gate B |
+| D1 Docker | 5 | Moved to right after P1 (v3.8), so the Kubernetes units from K3 deploy PRCP's own image. Multi-stage Dockerfile, non-root user, `.dockerignore`, Compose with Postgres and healthchecks | `docker compose up` on a fresh clone reaches healthy |
+| D2 Container internals | 3 | Namespaces, cgroups, layers and copy-on-write, PID 1 and SIGTERM | Graceful shutdown on `docker stop`; explain cgroups vs namespaces |
+| C1 CI and self-gating | 8 | Lint, mypy, tests, coverage, image build. PRCP gates its own release | Green run on the exact commit. A planted failing probe blocks the release |
+| O1 Metrics, load and SLO | 11 | `/metrics`, `/live`, `/ready`. Counter, gauge, histogram, label cardinality. A controlled load experiment: throughput, p50/p95/p99, the saturation point and one observed bottleneck, with before and after numbers. RED and USE. SLI and SLO for the gate. JSON logs with a correlation ID. One symptom-based alert rule. Tracing concepts: trace, span, context propagation, sampling, correlation with logs and metrics | Load report with numbers. PromQL against your own metrics. Alert rule file. Explain why it alerts on symptoms |
+| AI1 AI-assisted delivery checkpoint (v3.6) | 3 | One bounded PRCP change with an AI tool (Claude Code, Cursor or Copilot) after the design is decided: write the expected cases yourself before the AI drafts tests; log every suggestion accepted or rejected and why; inspect one failure case. Then a 60-minute timed AI-assisted change on a small repo you have not seen, the format Razorpay, Meta and Canva describe | The log committed; the change runs; you explain every line the AI wrote |
+| F1 Finish v1.0 and game day | 12 | ADR index. README that leads with the verdict and covers the kind and AWS paths. A short ADR on why not Keptn, Argo Rollouts or Flagger (the deep dive needs it; OP3's reading feeds it). Known limitations. Tag `v1.0.0`. Then a game day on kind: inject a database or probe-timeout failure, let the alert fire, diagnose, mitigate, and write a postmortem and runbook | Stranger test: the assistant runs it from the README alone in 5 min. Postmortem and runbook committed |
+
+**Resources:** learn from SQLBOLT and PG-TUT (P2 concept lessons), INTERDB (the main text for P3), UTIL, CMU, HN, TS-ISO, PGEX, RP (first read for Y3 and Y8), FLUENT (second pass for Y3 and Y8, named chapters only), RP-ASYNC (the main text for Y4), BEAZ, MCODING, ARJAN, NANA-DOCKER, VEGETA (load generator for O1). Look up in PSY, SQLA, ALEMBIC, PG, PYDOCS, MYPY, PYTEST, HYP, DOCKER, GHA, PROM, USE, SRE (ch 6).
+
+**Not in Phase 1:** Redis and Kafka hands-on, Grafana, OpenTelemetry implementation, other ORMs, AI features inside PRCP.
+
+### 6.2 Go: fundamentals, then the PRCP probe agent (68.5 hrs)
+
+**Depth bar.** You write Go fundamentals without lookups, and you can defend a concurrent service you built: why each goroutine exits, who cancels it, and how you would prove there is no leak. Office Go is a bonus and never counts toward a gate unless it meets the office proof path.
+
+**The agent's contract.** The Go agent is PRCP's data plane. It loads a static JSON config, runs HTTP probes where the service lives, and pushes `ProbeResult`s to the Python control plane. It never decides: `decide()` stays in Python and stays pure. Non-goals: no cluster discovery, no controller, no Kubernetes API calls. The separate gate controller in section 6.10 is not the agent and does not change these non-goals. The agent's only concurrency model is `errgroup` with `SetLimit`; hand-built channel worker pools stay in the sandbox. PRCP's Python async runner (Y4) is the local reference runner and a Python concurrency lab, frozen at Y4 scope. The Go agent is the only deployable external execution path, and every new probe feature goes there. Both emit the same `ProbeResult` contract.
+
+**Go after Python (v3.6).** Keep a running Go vs Python list in `go-notes.md` from G2: nil vs None, a slice vs a Python list copy, error values vs exceptions, goroutines vs asyncio tasks, value vs pointer receivers. Developers learning a second language carry wrong assumptions from the first (Shrestha and others, 2020); naming them is cheap. The goroutines vs asyncio entry waits for Y4, which teaches asyncio (v3.8).
+
+**The agent from G2 (v3.8).** Each G unit ends by using its topic in the agent's skeleton in PRCP's `agent/` folder: the probe targets as a slice (G2), `Probe` and `Result` structs and a `Prober` interface (G3), wrapped probe errors (G4), a registry map (G5), an HTTP prober tested with `httptest` (G6), concurrent probers with a per-probe timeout (G7). A1 then starts from that skeleton, not from a blank folder. Its hours stay at 6 until logged minutes show what the skeleton saved.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| G1 Setup and basics | 3 | Toolchain, modules, `go test`, `go doc`. Learn Go with Tests: Hello World, Integers, Iteration | Tests green in `learning-go-sandbox` |
+| G2 Slices | 3.5 | Arrays vs slices, length vs capacity, `append` growth and aliasing | A test proving two slices share a backing array, explained cold |
+| G3 Types | 5 | Structs, methods, interfaces, implicit satisfaction, embedding, value vs pointer receivers | Kata with tests; explain which receiver and why |
+| G4 Pointers and errors | 5.5 | `*` and `&`, nil, the nil-interface trap, `errors.New`, `%w`, `errors.Is` and `errors.As`, `defer`, panic and recover | A test showing the nil-interface trap; a wrapped-error test |
+| G5 Maps and generics | 3.5 | Map semantics, why concurrent map writes crash, generics basics | Kata with tests |
+| G6 Design for tests | 5 | Dependency injection, interfaces as seams, table-driven tests with `t.Run`, `httptest` | A table-driven test for an HTTP handler |
+| G7 Concurrency basics | 8 | Goroutines, buffered vs unbuffered channels, `select`, closed-channel reads, `sync.Mutex` vs `RWMutex`, `WaitGroup`, `context`. The scheduler model (G, M, P) and GC basics, at interview level. Hand-built worker pool in the sandbox only | Feeds Gate A: Go practical plus Checklist B fundamentals half |
+| A1 Sequential agent | 6 | Starts right after G7 (v3.6), from the skeleton built in G2-G7 (v3.8). Load config, run probes one by one with `net/http`, per-probe `context.WithTimeout`, results match PRCP's `ProbeResult`. Code-read the timeout fields of the `net/http` Client | Table-driven tests with `httptest`, including a slow server that must time out |
+| A2 Bounded concurrency | 8 | `errgroup` with `SetLimit`, cancellation through every goroutine | `go test -race` clean under load, and tests showing the active probe count stays bounded and a slow probe is cancelled (the race detector only sees paths a test runs). Explain who cancels what |
+| A3 Push to control plane | 5 | POST results, bounded retries with backoff and jitter, an idempotency key per batch that the server de-duplicates, a service token | Tests: two simultaneous pushes with one key, and a lost response followed by a retry, each create exactly one record |
+| A4 Operability | 5 | `log/slog` JSON logs, Prometheus `client_golang` metrics, graceful shutdown with `signal.NotifyContext`. Code-read how a `client_golang` histogram records a value | SIGTERM stops new work and drains in-flight probes within a stated time limit; metrics scraped |
+| A5 Leak lab | 6 | Remove a timeout, watch goroutines climb, find it in the pprof goroutine profile, fix it, add a goroutine-count test | Write-up with before and after counts, the load used and the observation window |
+| A6 Ship it | 5 | Static binary in a small image; ADR on the control-plane and data-plane split | Image builds in CI; ADR merged |
+
+**Resources:** FCC-Go (video, by chapter), LGWT (primary text), PIKE, GO100 (the classic Go traps with examples; it maps onto Checklist B), GOBYEX (for "how do I do X" instead of package docs), GO-SLICES, GO-ERRORS, GO-CONTEXT, GO-PIPELINES, GO-PPROF, GO-SLOG, ARDAN (scheduler and GC series; its Kubernetes CPU and memory limits articles also serve K7b scenario 6). Look up in EFFGO, ERRGROUP, CLIENTGO, or `go doc <pkg>` in the terminal.
+
+**Not in Phase 1:** reflection, escape-analysis tuning, gRPC implementation in Go, CLI frameworks. (controller-runtime is taught in section 6.10.)
+
+### 6.3 Kubernetes on kind (37 hrs)
+
+**Depth bar.** You explain the control plane by component name, drive `kubectl` without notes, and diagnose the ten scenarios on your own system. The audit showed the mental model is real; this track adds names, commands and saying it out loud. From K3, each part ends by applying its topic to PRCP's own image on kind (v3.8; D1 now comes right after P1).
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| K1 Cluster and kubectl | 4 | kind cluster, contexts, namespaces, `get`, `describe`, `logs`, `exec`, `port-forward`, `-o yaml`, `explain`, events sorted by time | Cold drill: 10 tasks, no notes, 8 correct |
+| K2 Architecture | 5 | API server, etcd, scheduler, controller manager, kubelet, kube-proxy, CoreDNS; the full chain after `kubectl apply`. Controller anatomy at concept level: watch, informer cache, work queue, reconcile as an idempotent move toward desired state, requeue with backoff, finalizers, owner references, leader election | Narrative, no notes, 7/10 |
+| K3 Workloads | 6.5 | Pod lifecycle, Deployment to ReplicaSet, rollout status, history and undo. StatefulSet vs DaemonSet vs Job and CronJob. Requests vs limits, QoS. Liveness, readiness and startup probes. HPA vs VPA vs cluster autoscaler, in concept | Each object applied, changed and rolled back on kind |
+| K4 Networking | 4.25 | Service types, EndpointSlices, the Service dataplane: kube-proxy in iptables mode is one implementation and some network plugins replace it; skip IPVS internals, which the docs expect to deprecate. Cluster DNS path, Ingress basics, NetworkPolicy in concept. CNI vs CSI at architecture level | Trace a request from a pod to a Service name, step by step |
+| K5 Config and access | 4.25 | ConfigMap as env vs volume and what happens on change, Secrets, ServiceAccounts, Role and RoleBinding, least privilege, as a standalone lab | A denied API call, fixed with the smallest Role |
+| K7a Debugging drills, scenarios 1-5 | 4 | In KodeKloud's troubleshooting labs or on a sample app in 1a. Each goes into `k8s-notes.md`: symptom, commands, cause, fix | Broken state reproduced, `kubectl` output pasted, fix committed, cold explanation |
+| K6a PRCP on kind, part 1 (v3.6) | 3 | Right after D1: Postgres and the PRCP API on kind. Services, ConfigMap, Secret, probes, limits | Manifests in the repo; the assistant deploys them from a fresh clone |
+| K7b Debugging drills, scenarios 6-10 on PRCP | 4 | One scenario every 2-3 weeks through 1b (v3.6), on your own PRCP deployment. KodeKloud's control-plane and worker-node failure labs, which kind cannot easily simulate, are optional bonus only; they are not Gate B requirements and never add Kubernetes hours | Same as K7a |
+| K6b PRCP on kind, part 2 | 2 | Add the Go agent. Its ServiceAccount sets `automountServiceAccountToken: false` and gets no Role | The assistant deploys every part from a fresh clone |
+
+**The ten scenarios:** (1) CrashLoopBackOff using `logs --previous`; (2) Pending: resources vs taint vs unbound PVC; (3) OOMKilled; (4) a Service with no endpoints; (5) an object stuck on a finalizer, and a namespace stuck Terminating (reading events by time is a K1 tooling skill); (6) CPU throttling vs a memory-limit kill; (7) an aggressive liveness probe killing pods under load; (8) a bad rollout: status, history, undo; (9) ConfigMap as env vs volume after an update; (10) DNS resolution failing inside a pod.
+
+**Resources:** KK (owned; the main Kubernetes video and lab source: lectures plus in-browser lab clusters with auto-checked practice tests; use only the lessons each week names, never the whole course), K8SAF (one real postmortem a week for K7 and for incident talk), KIND, K8S (Concepts, Debug tasks, [RBAC good practices](https://kubernetes.io/docs/concepts/security/rbac-good-practices/), [Virtual IPs and Service Proxies](https://kubernetes.io/docs/reference/networking/virtual-ips/)), LEARNK8S. NANA-K8S only if a KodeKloud lesson does not click. `kubectl explain <resource>` in the terminal.
+
+**Not in Phase 1:** Helm chart authoring, service mesh, CKA preparation, multi-cluster. (Operators and CRDs are taught in section 6.10.)
+
+### 6.4 HLD and distributed systems (68.5 hrs)
+
+**Depth bar.** In 45 minutes, out loud, you take an open problem to requirements, numbers, an API, a data model, a working design and a failure story. Every choice comes with the option you rejected and why.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| H1 Framework | 5 | Functional and non-functional requirements, back-of-envelope estimates, API, data model, high-level design, deep dive, bottlenecks | One design on paper, graded step by step |
+| H2 Building blocks | 12 | L4 vs L7 load balancing, caching and invalidation, CDN, queue vs pub/sub, rate limiting, object storage with presigned uploads, WebSocket vs SSE vs polling, ID generation, storage selection: relational, key-value, document, wide-column, search, time-series | For each: when, what it costs, what breaks. 7/10 cold |
+| H3 Distributed data | 9 | Leader and follower replication, sync vs async, lag. Hash vs range partitioning, consistent hashing, hot keys. Linearizable, eventual and read-your-writes consistency. Quorums | A quorum read and write explained with numbers |
+| H4 Coordination and failure | 13 | Leader election, leases, split brain, what Raft solves. Partial failure and timeouts. Retries with backoff and jitter, idempotency. 2PC vs Saga vs outbox. Delivery semantics, consumer groups, DLQ, backpressure. Multi-region, active-passive vs active-active, RTO and RPO | A retry-storm scenario diagnosed and fixed in writing. 7/10 cold |
+| H5 Practice designs | 17.5 | Seven designs (v3.6 adds two): multi-tenant PRCP at 10,000 services (tenant boundary, data isolation, quotas, noisy-neighbour protection, per-tenant rate limits, blast radius), a job scheduler, a Kubernetes fleet upgrade orchestrator for 300 clusters and 19k nodes from your IKS work (v3.6), a payment or reservation system with idempotency and reconciliation, a distributed rate limiter, a global deployment system with canary steps and automated gates (v3.6), a notification service. Each: a one-page skeleton, then spoken against the clock | Scored spoken run per design |
+| H6 Mocks | 12 | Mock 1 with the assistant before Gate A (v3.6, was W39), scoring only taught material; mocks 2-4, at least 2 with humans who interrupt | Section 7 rubric per mock |
+
+**Resources:** HI (Core Concepts, Key Technologies) and HI-YT, KLEP (lectures 5.1-7.3 map to H3 and H4), BBG (5-10 minute visual refreshers, good for bedside time), SRE (ch 21, 22, 23), PRIMER. DDIA (owned since Oct 2026) is an optional second read for H3 and H4 only; the counted reading is Phase 2.
+
+**Human mocks:** if two peer interviewers are not lined up by Aug 1 2027 (mock 2 is in W49), book paid expert mocks per section 6.9, 1-4 weeks before a real high-value loop.
+
+**Not in Phase 1:** DDIA cover to cover (Phase 2), Raft implementation, Kafka or Cassandra internals, staff-level org strategy.
+
+### 6.5 LLD and machine coding (70.5 hrs from Oct 1)
+
+**Depth bar.** In 90 minutes you ship working Python with a clean domain model, absorb a new requirement mid-session without a rewrite, and defend every class. Priority when time runs short: working code, domain model, extensibility, readability, tests, concurrency. A pattern appears only because it solved a problem.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| L1 OOP foundations | 4.25 | Four pillars, interfaces vs abstract classes, association vs aggregation vs composition, coupling and cohesion, composition over inheritance (v3.6: 1h more, from W3's measured pace) | Each explained in two sentences cold, 7/10 |
+| L2 SOLID | 5.5 | All five principles with Python examples; Liskov violations are the classic senior trap. Each part ends with one fix in PRCP's code (v3.8) | A violation and its fix for each, in code |
+| L3 Patterns and diagrams | 7.5 | Strategy, Factory, Observer, State, Decorator. Recognise Builder and Singleton. Minimal class and sequence diagrams. Show the design pressure before the pattern. Probe types become a Strategy in PRCP, and PRCP's diagrams are committed (v3.8) | One kata per pattern; a diagram of rep 2 |
+| L4 Thread-safe design | 3 | Locks, `queue.Queue`, where the lock goes, lock granularity | A thread-safe class with a test that fails without the lock, on a controlled schedule |
+| MC0-MC8 | 21.25 | MC0, the round method, taught Oct 19 (75 min, recorded in v3.6), then eight reps, 90 min each plus a 60-minute review. A session under 90 minutes, or one with AI-written code outside rep 6, is practice, not a rep. Commit raw notes before any cleanup | Section 7 machine-coding rubric |
+| MP Machine coding practice sessions (v3.6: core) | 29 | One 60-minute learn-then-do session on one skill, every normal week until Gate A and every second normal week until Gate B, never in a rep week | "Skill shown" or "not yet", with the commit and the minutes |
+
+**The eight reps:** (1) Snake and Ladder, diagnostic, W3, FAIL 2/10 on Oct 20 (the Sep 28 parking-lot attempt is logged as AI-assisted practice); (2) Splitwise; (3) Parking Lot, clean and without AI (v3.6); (4) in-memory relational datastore with keys, indexes and constraints, as reported at Razorpay; (5) thread-safe key-value store with TTL or a job scheduler, the concurrency rep; (6) reservation system, AI-assisted: architecture first, every generated line read, tests required, and a log of what AI proposed, what you accepted and rejected, and why; (7) Elevator system (v3.6); (8) cab or gym booking, as reported at Flipkart.
+
+**Practice sessions (Om's idea, Oct 20; trial approved Oct 21; core from v3.6).** Om's idea after MC1 (FAIL 2/10, `claude/tests/lld/2026-10-20-MC1-snake-and-ladder.md`): short learn-then-do sessions, each on one skill, with a small problem made for that skill.
+
+- Shape: a 60-minute box for Om. 5 minutes to name the skill and show where the last rep went wrong; 10 minutes to learn it with one tiny runnable example and one counterexample; 35 minutes to solve the problem on hard-coded data, Om writing the code and 2-3 asserts himself; push at minute 60. The coach's check (about 15 minutes) runs afterwards, without Om, and is logged as coach work (section 5, three clocks). No AI. Box 60, hard stop 90 (safeguard 6).
+- Low stakes: no 0-10 score. The result is "skill shown" or "not yet", with the commit and the minutes. "Not yet" means the same skill again later with a new problem. A practice session is never a rep and never counts toward the rep bars.
+- Session 1, approved by Om (Oct 21): look at every item before deciding. One small search problem with three cases: the match is the 2nd item, the match is the last item, and no match. Om traces the first non-matching item and writes the asserts before coding. Tue Oct 27 (W4), fallback Sat Oct 31 or any free slot in between; whichever coach Om opens runs it (v3.7).
+- The first eight sessions, in order (one MC1 gap each): (1) look at every item before deciding; (2) read counted input with one moving pointer; (3) make random things testable; (4) one owner of state; (5) a thin working version first; (6) who owns which behaviour, using L1; (7) absorb a change in one place; (8) dress rehearsal, all skills together. After session 8, each session takes the skill the latest rep scored lowest, on a fresh problem.
+- The coach designs a fresh problem for each session, never a planned rep problem or an editorial. The session list and problems are in `claude/plan-drafts/2026-10-20-mc-practice-proposal.md` (revision 2).
+
+**Resources:** WAT, ALLD, RG, ARJAN.
+
+**Not in Phase 1:** all 23 GoF patterns, UML beyond class and sequence diagrams, Java.
+
+### 6.6 DSA (146 hrs, daily)
+
+**Depth bar.** Clear the coding screen, not win contests. Every family touched before good referrals open at Gate B; Easy and Medium solid; unseen Mediums in 30-35 minutes with approach and complexity said aloud. Depth beyond this is Phase 2.
+
+**Why DSA stays (settled Oct 23 2026).** Om's bar (Oct 14) was linked proof that at least 60% of recent loops at his level include DSA. In Claude's 104-loop study of India senior loops (`claude/resources/dsa-loop-study-2026-10-14.md`, one link per row), 90 of the 98 loops with a clear answer had a DSA round, 70 of 78 complete loops, and 11 of 13 for candidates with 8+ years. The sample leans on LeetCode Discuss, so the figure is not a population percentage, but it clears the bar by a wide margin. The question is not reopened without new evidence.
+
+**Method, non-negotiable**
+
+1. No problem before its NeetCode lesson or pattern explainer.
+2. New technique: watch the worked example, reimplement it closed-book, explain the mechanism aloud. Cold-first applies only to re-solves.
+3. Easy, then Medium, per family. Hards are optional and unscheduled, never required.
+4. Tests come from the problem statement, never from your own code. Hand-trace every state when reading triggers recognition instead of construction.
+5. Label every item: NEW counts toward the total; DRILL builds a structure and does not count; COLD is a spaced re-solve and counts toward the cold number; UNSEEN is a test on a problem never seen before and does not count (#12).
+6. Spaced re-solves on days 1, 3, 7, 14, 28 and 90 (v3.6 adds day 90, because the plan now runs to Feb 2028). No other intervals.
+7. In the 13 weeks before Gate B (W57-W69; v3.7 adds W68 and v3.8 adds W69), blind mixed sets with no pattern label. They mix problems Om has already solved, so they test whether he recognises a known problem without its label. Whether a pattern carries over to a problem he has never seen is tested by the unseen sets (#12).
+8. DSA goes first in the daily block.
+9. **Cold before new.** Due cold re-solves come before scheduled NEW problems. The 146 hours (124 from v3.5, plus 4.5 for lessons v3.5 named but did not fund, plus 12 for the day-90 re-solves, plus 2 for the human live-coding mock, and 1.75 each for the colds of the weeks v3.7 and v3.8 add before Gate B) cover NEW problems at beginner pace (about 45 min Easy, 90 min Medium), a lesson per new family, about 255 colds at about 13 minutes each, the blind sets and the two unseen sets. Time-box each cold (about 10 min Easy, 15 Medium). If cold debt still exceeds the week's DSA hours, NEW problems slip; reviews are never skipped.
+10. **Tracker:** one row per problem: problem · first solved · D1 · D3 · D7 · D14 · D28 · D90 · result.
+11. **Session rule (v3.4, approved by Om Oct 18):** at most 45 minutes of DSA a day, one item per session, the clock paused during interruptions (active minutes logged). A miss is scored once; its teaching or understanding session takes a separate later slot, and the retry another slot after that. Never a same-session retry (approved Oct 6).
+12. **Unseen sets (v3.5, approved by Om Oct 20):** twice in Phase 1 the coach sets four problems that Om has never solved, from families he has already studied, with no pattern label. Set 1 runs in the Gate A week (W30) and uses the families studied by then (arrays and hashing, two pointers, sliding window, linked lists, and families 1-7 below): 2 Easy and 2 Medium. Set 2 runs in the Gate B week (W70) and may use any of the 20 families: 1 Easy and 3 Medium. Before giving a problem, the coach checks `dsa-python` and the tracker to confirm Om has never solved it. One problem a day, under #11. For each problem, before writing code, Om says which pattern it is, which words in the problem point to it and the structural reason the pattern fits (v3.6: words alone train brittle recognition), then the approach and the complexity; then he codes against asserts taken from the problem statement. Time box: 20 minutes for an Easy, 35 for a Medium. Each item is labelled UNSEEN: it is a test, it never counts toward the NEW or cold totals, and it is never re-solved. Set 1 (3.5 hours: four sessions of up to 45 minutes, plus one 30-minute repair slot; any further repair comes from contingency) is scored and recorded but never blocks Gate A; each miss gets its teaching in a later slot (#11), and the misses show which families need more practice on reworded problems in 1b. Set 2 (3 hours: four sessions) is a Gate B item: 3 of 4 solved without hints inside the box. Both sets are recorded in the coach's `tests/dsa/` folder (section 7).
+
+**Family order and totals (34 NEW, from 21 to 55)**
+
+| # | Family | NEW | Lesson before it | When |
+| --- | --- | --- | --- | --- |
+| 1 | Stack, then monotonic stack | 3 | Stacks lesson, monotonic stack explainer | 1a |
+| 2 | Binary search | 3 | Lessons 14 and 15 | 1a |
+| 3 | Trees and BST | 4 | Recursion lessons 8 and 9, then 16 and 17; queue lesson 7 and tree DFS and BFS lessons 19 and 20 before NEW 102 (v3.6 funds them) | 1a |
+| 4 | Heap and priority queue | 3 | Lessons 23 to 25 | 1a |
+| 5 | Intervals | 2 | Intervals explainer | 1a |
+| 6 | Prefix sums | 2 | Advanced Algorithms: prefix sums | 1a |
+| 7 | Backtracking | 2 | Lesson 22 | 1a |
+| 8 | Graphs, BFS and DFS | 4 | Lessons 28 to 31 | 2 in 1b, 2 in 1c |
+| 9 | Topological sort | 1 | Advanced Algorithms: topological sort | 1b |
+| 10 | Union-find, built from scratch | 1 | Advanced Algorithms: union-find | 1b |
+| 11 | Dijkstra and 0-1 BFS | 1 | Advanced Algorithms: Dijkstra; the one NEW problem shows Dijkstra, and 0-1 BFS stays at explainer level | 1b |
+| 12 | 1-D DP | 3 | Lesson 32 | 1 in 1b, 2 in 1c |
+| 13 | 2-D DP | 2 | Lesson 33 | 1 in 1b, 1 in 1c |
+| 14 | Greedy | 1 | Greedy explainer | 1b |
+| 15 | Trie | 1 | Trie lesson | 1b |
+| 16 | Bit manipulation | 1 | Bit manipulation explainer | 1b |
+
+Sorting lessons 10 to 12 are DRILLs (v3.6 funds them, 2.5h in W5-W6): implement insertion sort, merge sort and quicksort, not counted. Section 14 names a default problem for every NEW slot; swap any you have already solved.
+
+13. **Human live-coding mock (v3.7, F4; Om approved Oct 23):** once before Gate B (W61), Om solves one problem he has not seen with a stranger, never a coach or a colleague he works with, on a peer mock platform (PEER in section 14) or with any engineer outside his team: aloud, in English, approach and complexity first, then code, then correctness shown on the interviewer's cases. 2 hours: the hour-long session (on PEER, partners take turns, so Om also interviews the other person), booking and setup, and a 30-minute review. Om commits his code and raw notes the same day; the coach Om opens scores the session on the DSA proof rules from those and the interviewer's feedback, then asks the section 7 questions on it. There is no pass bar. It is labelled HUMAN and never counts toward the NEW or cold totals. A miss gets its teaching in a later slot (#11). Why: five of the six international loop reports in the Oct 23 review have live coding with a human, and every other coding proof in this plan is coach-run.
+
+**Targets:** Gate A 40 / 24 cold, with unseen set 1 recorded the same week (not a gate item). Gate B 50 / 34, plus unseen set 2 at 3 of 4 and the human live-coding mock scored. Gate C 55 / 40-45 plus the performance gate.
+
+**Not in Phase 1:** segment and Fenwick trees, KMP, advanced DP, contest practice.
+
+### 6.7 Supporting tracks (27.5 hrs)
+
+**Depth bar.** Enough to debug Kubernetes and defend a design under follow-up questions.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| S1 Concurrency fundamentals | 5.5 | First a Checklist A baseline, cold and recorded (0.5h, in the Gate A week), so the rest of S1 is taught against measured gaps. Then race condition, critical section, mutex vs RW lock, atomics, semaphore, condition variable, the four deadlock conditions, livelock, starvation, lock granularity, optimistic vs pessimistic, producer-consumer, bounded queues and backpressure, mapped to Go and Python | Checklist A 7/10 cold (Gate B) |
+| S2 Network path | 8 | DNS, TCP handshake, TLS cost, HTTP/1.1 keep-alive vs HTTP/2 multiplexing, pooling, timeouts vs deadlines. TCP retransmission, flow vs congestion control. L4 vs L7, reverse proxy, service discovery, retry amplification, pool exhaustion. Practised with `dig`, `curl -v`, `openssl s_client`, `ss` and one `tcpdump` capture | A planted timeout on a real probe request diagnosed with those tools, the slow layer named, then explained end to end. 7/10 |
+| S3 gRPC | 3 | Protobuf and schema evolution, unary vs streaming, deadlines, cancellation, status codes, retry implications, why service-to-service often picks gRPC | A breaking vs non-breaking proto change explained |
+| S4 OS basics | 5 | Process vs thread, context switch, virtual memory, stack vs heap, syscalls, file descriptors, page cache, the OOM killer, signals. Practised on a misbehaving process with `ps`, `top`, `/proc`, `lsof`, `strace` and `ulimit` | The process diagnosed and explained from the tool output |
+| S5 API and security | 6 | Before A3 opens ingestion (v3.6). Resource modelling, verbs and idempotency, status codes, cursor vs offset pagination, versioning, error contract, idempotency keys. Authn vs authz, JWT validation, OAuth2 in concept, mTLS, secrets, RBAC, least privilege. A written rule for who may configure a probe target and which destinations are allowed (server-side request forgery, OWASP API7; internal probes may need private addresses, so the rule is a policy, not a blanket ban). One OWASP API Top 10 threat-model pass over PRCP | Findings file committed, BOLA and the probe-target rule covered |
+
+S6 (cloud vocabulary, 4h) moved into CL1 in v3.6, where the mapping table is built against real AWS work.
+
+**Resources:** JVNS and MWDNS (DNS and networking you can break safely), OSTEP (targeted chapters only), HPBN (TCP, TLS and HTTP/2 chapters), HN, GRPC, OWASP ([plain-language review from ISACA](https://www.isaca.org/resources/news-and-trends/industry-news/2023/reviewing-the-2023-owasp-api-top-10)).
+
+### 6.8 Stories, resume and narratives (27 hrs)
+
+**Depth bar.** At 12 years the hiring-manager round sets your level. Every story shows a decision you owned, the option you rejected, a number that moved, and what you would change. No story from practice problems; no story inflated past its real scope.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| R1 Insurance pack | 5 | Resume v1 in combination format, headline built on the role identity. LinkedIn complete in October, no Premium. Naukri complete and live about 15 days before Gate A (W28), or on a layoff notice (v3.4). Keywords only for proven skills. Refresh after Gate A when Go becomes listable. Resume and LinkedIn work can happen on walks and commutes (Om, Oct 21); it still counts | Resume v1 and LinkedIn live in October, Naukri live by W28; every keyword traced to a closed unit |
+| R2 Stories | 11 | The 2-3 honest stories now: registry cost reduction (reconcile the figures first), IKS upgrade programme, Circuit Breaker (cross-team; Om confirmed on Oct 21 that there was no deployment-gate or ArgoCD RBAC work, so neither is a story item). Two dated older stories (v3.6): the GetMyUni build (what you wrote alone, decisions, outcome; the acquisition is public, CollegeDekho, Feb 2022) and one tech-lead delivery decision. For every story, separate what you wrote, decided, reviewed and coordinated; confirm your exact part in the Circuit Breaker CRD before any resume line. Context, decision, rejected option, outcome with a number, lesson. The first two stories are told aloud right after they are written (W10, v3.8, was W23), because calibration interviews from W5 ask for them | Each told aloud in 3 minutes; follow-ups answered |
+| R3 Pitch and narratives | 8 | 60-second pitch and short recruiter answers. 5-minute PRCP narrative. Two 30-minute deep dives: PRCP (the problem, why existing tools do not fit, the design, determinism and `UNKNOWN`, the control-plane and data-plane split, the gate controller, what you would change), and one sanitized production system you owned (architecture, scale, failure modes, the decision you owned, the option you rejected, an operational consequence, the cross-team boundary, a measured result). Existing truthful work only. Prepare a two-sentence answer for "your recent years look managerial; how hands-on are you now?", used only when asked (section 8) | Timed, spoken, from memory |
+| R4 Resume v2 | 3 | Rebuilt against the classified JD harvest (section 8), India and international slices; one resume, with the title line swapped per region (section 8, v3.7) | Every line traces to a proof or a story |
+
+**Stories still to earn at work.** Seek tasks that produce these and log each the week it happens: (1) a Go production change, a feature, not a test; (2) a Kubernetes or platform debugging story; (3) an architecture decision you owned, with the option you rejected; (4) an incident: detection, mitigation, root cause, prevention; (5) cross-team ownership; (6) a measurable improvement with before and after numbers; (7) mentoring or code review. A controller task at work (for example in `cdp/formation-controller`) counts only through the office proof path; it is never scheduled.
+
+**Owned production code (v3.7, F3a; both coaches agree).** The CV screen comes before every round, and all of Om's recent code in this plan is personal-project code. So at his next objectives conversation, Om asks his manager for Go or Python changes he owns end to end, for example in `cdp/formation-controller` or CDP tooling. Target: 2 owned changes by Gate B, quality over count. A change counts only when its office proof record shows all five: what Om wrote himself; the design choice and the option he rejected; the tests and failure cases; the rollout; and what production showed afterwards. A test-only or config-only change does not count, and one strong change beats two trivial ones. It costs no study hours, but it is real office work and depends on the manager; it is office time, outside Om's 12-hour clock, and it is never scheduled or promised. It feeds story (1) above and line 2 of the Gate C readiness record (section 4).
+
+**Counts:** Gate B checkpoint 4 stories; Gate C 5, at least 3 recent and 2 leadership. Older stories are dated and never presented as recent. Fewer is PARTIAL and never blocks applications. Rehearse every story aloud once a month, 20 minutes, from the campaign line.
+
+### 6.9 Paid resources, trigger-only
+
+Nothing is bought without a proven gap. Already owned and used: NeetCode, Hello Interview, KodeKloud, Boot.dev. Expected spend for all of Phase 1: two expert mocks, maybe one month of LeetCode Premium, and AWS usage inside the free-plan credits.
+
+| Buy | Trigger | Note |
+| --- | --- | --- |
+| Expert mock interviews: [Hello Interview](https://www.hellointerview.com/) or Prepfully | No peer interviewers for mocks 2 and 4 by Aug 1 2027 | Book 1-4 weeks before a real high-value loop. Roughly $100-400 a session by one vendor's own figures, so treat that as the top of the range. At most two in Phase 1 |
+| LeetCode Premium, one month | A real loop is booked at a company with tagged questions | Work that company's list, then cancel |
+| *Fluent Python*, 2nd edition | The W0 Checklist D baseline shows 5 or more data-model items shaky or missing. **Met on Oct 5** | Owned. At the current level it is the second pass after Real Python, not the first read |
+| AWS usage (v3.6) | CL1 starts | New accounts get up to $200 in credits on a 6-month free plan ([AWS, Jul 2025](https://aws.amazon.com/about-aws/whats-new/2025/07/aws-free-tier-credits-month-free-plan/)); some services need the paid plan, where the credits still apply. A $10 budget alarm, and every CL3 lab destroyed the same day |
+| KodeKloud Kubernetes Operators course (v3.6) | OP1 starts and the course is live in Om's subscription | Use it only if the subscription already covers it; never buy it separately |
+
+[*Designing Data-Intensive Applications*, 2nd edition](https://martin.kleppmann.com/2026/03/24/designing-data-intensive-applications-2e.html) (Kleppmann and Riccomini, March 2026): owned since Oct 2026. The counted reading is Phase 2; in Phase 1 it is only an optional second read for H3 and H4.
+
+**Do not buy:** more DSA courses (you own NeetCode), other Kubernetes or CKA courses (you own KodeKloud; if IBM wants the exam, IBM pays), Alex Xu's books or Grokking (overlap with Hello Interview), paid Go courses (Learn Go with Tests and the free course cover Phase 1), AWS or other certifications, paid operator or Terraform courses, GenAI courses, paid resume writers (the resume needs real numbers, not phrasing).
+
+### 6.10 Kubernetes controllers in Go (46 hrs)
+
+**Why (v3.6, Om's Oct 23 addition).** In the job descriptions closest to "control plane" (Red Hat OpenShift, Intuit's Kubernetes runtime platform, ThoughtSpot Cloud Platforms), writing controllers or operators is required; in others, such as Nutanix NKP, it is a plus. Om's own record touches it: the Circuit Breaker CRD at IBM (YAML on an existing operator) and a controller repo at work (`cdp/formation-controller`). Phase 1 gives him the mechanism, two real operators read end to end, and one controller he built, so he can defend all three.
+
+**Depth bar.** You explain how a controller turns desired state into observed state, read a real operator's reconcile loop and say what each step is for, and defend a controller you built: why the reconcile is idempotent, when it requeues, what the finalizer protects, and how you tested it without a real cluster.
+
+**The controller's contract.** `prcp-gate-controller` lives in the PRCP repo. It adds a `ReleaseGate` custom resource (spec: service, environment, PRCP endpoint; status: decision, conditions, `observedGeneration`, last evaluated). Its reconcile asks PRCP's API for the GateDecision and writes it to status. It never decides: `decide()` stays in Python and stays pure. UNKNOWN never promotes. A finalizer deregisters the gate in PRCP on delete. It is an adapter that gives PRCP a Kubernetes-native interface, which is how Argo Rollouts and GitOps tools consume gates.
+
+**Claim discipline.** This is a personal-project controller and code-reading evidence. On the resume it reads "built a Kubernetes controller (controller-runtime) for PRCP's release gates; read sample-controller and Argo Rollouts' analysis controller end to end". It is never presented as production operator experience.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| OP1 Controller and CRD concepts | 6 | Beyond K2: CRD anatomy (group, version, kind, schema validation, status subresource), desired vs observed state, level-triggered reconcile, informer, lister and cache, work queue and rate-limited requeue, `observedGeneration` and conditions, owner references and garbage collection, finalizers, leader election, controller RBAC, admission webhooks in concept, client-go vs controller-runtime, Kubebuilder vs Operator SDK | Narrative, no notes, 7/10; Checklist E items covered |
+| OP2 Operator 1 read end to end | 5 | `kubernetes/sample-controller` on kind. Run it, then trace main, the shared informers, event handlers, the work queue, `syncHandler`, the Deployment it creates for a `Foo`, owner references and the status update. Change replicas, delete the Deployment, watch it come back | A one-page trace with a sequence diagram, committed; explained cold |
+| OP3 Operator 2 read end to end | 6 | Argo Rollouts' analysis controller on kind. Run a canary with an AnalysisTemplate using the `web` provider; trace how the Rollout creates an AnalysisRun, how measurements become Successful, Failed or Inconclusive, the requeue interval, and how the Rollout pauses or aborts. Map Inconclusive to PRCP's UNKNOWN | A one-page trace, committed; the mapping feeds F1's ADR |
+| OP4 Scaffold and first reconcile | 8 | Kubebuilder scaffold, the `ReleaseGate` CRD and a first reconcile that asks PRCP for the decision and writes status, run with `make run` against kind | The reconcile writes the right status for a PASS and a BLOCK on kind |
+| OP5 Correct controller behaviour | 7 | Idempotent reconcile, conditions, requeue with backoff on UNKNOWN or a PRCP error, the finalizer, Events recorded | A delete runs the finalizer; a PRCP outage leaves UNKNOWN and requeues |
+| OP6 Tests | 8 | envtest integration tests against a fake PRCP (`httptest`): create gives PASS in status; PRCP down gives UNKNOWN and a requeue; delete runs the finalizer; a spec change moves `observedGeneration`. Table-driven unit tests for the HTTP client | Suite green on a fresh clone; the assistant plants 1-2 bugs and the tests catch them |
+| OP7 Deploy and defend | 6 | Image, least-privilege RBAC from the markers (read every rule), leader election with 2 replicas, kill the leader and watch the takeover. Debug with logs, Events and `kubectl describe`. ADR: why a controller is PRCP's Kubernetes-native interface and only an adapter | Deployed from a fresh clone; takeover shown; ADR merged |
+
+**Resources:** KK (CKA course, 2025 updates: Custom Resource Definition, Custom Controllers, Operator Framework; owned), KK-OPS (KodeKloud's Kubernetes Operators course, only if it is live in Om's subscription), KB (the Kubebuilder Book: Architecture, Quick Start, and "Tutorial: Building CronJob" as the worked example; the envtest reference), SAMPLE-CTRL, ARGO-RO, KIND, K8S. Look up in CLIENTGO-K8S and `go doc`.
+
+**Not in Phase 1:** admission webhook implementation, OLM packaging, Helm-based operators, multi-cluster controllers, a second CRD (the 24-40h extra in section 5 only if lane (c) is chosen).
+
+### 6.11 Public cloud and Terraform on AWS (33 hrs)
+
+**Why AWS (v3.6, Claude's call as Om asked).** In the Oct 23 job description research, public cloud appeared in about 45% of Bengaluru Kubernetes-platform postings, mostly AWS and EKS, and Terraform in about 35% (a biased sample, so these are directions, not market percentages). ChatGPT's audit agreed on the shape of the answer: one provider and one named output. AWS is the one most named. GCP stays vocabulary inside CL1; Azure is out.
+
+**Depth bar.** You build PRCP's infrastructure on AWS from Terraform you understand, explain every resource and permission in it, bring it up and tear it down cleanly, and run `plan` from CI without long-lived keys.
+
+**Cost rules.** Free-plan credits only (section 6.9); a $10 budget alarm from day one; every CL3 lab is applied and destroyed in the same session; no NAT gateway or cluster is left running overnight; a cost log per session.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| CL1 AWS foundations, mapped from IBM Cloud | 8 | Account with MFA and the budget alarm, IAM users vs roles vs policies and least privilege, regions and AZs, VPC (CIDR, public and private subnets, route tables, internet and NAT gateways and NAT cost, security groups vs NACLs), EC2, S3, RDS and EKS in outline. The IBM Cloud to AWS and GCP mapping table (was S6): IAM, VPC, IKS to EKS or GKE, load balancing, object storage, managed Postgres, autoscaling, KMS | Mapping table from memory, 7/10; the account and alarm set up |
+| CL2 Terraform fundamentals | 8 | Providers, resources, variables, outputs, locals, state (local, then an S3 backend with locking), plan, apply, destroy, data sources, `for_each` vs `count`, one module of your own, `fmt` and `validate`, import and drift. Only free or near-free resources | A small VPC module applied and destroyed; state and locking explained |
+| CL3 PRCP on AWS with Terraform | 12 | Your own VPC module (2 AZs), EKS through `terraform-aws-modules/eks` with every input explained, RDS Postgres in private subnets, images in ECR. Deploy the K6 manifests, smoke-test the gate, then `terraform destroy`. Four 3-hour sessions | Apply, smoke test and destroy from the README; a runbook and a cost log |
+| CL4 IaC in CI | 5 | `fmt`, `validate` and `plan` on every PR through GitHub OIDC (no static keys), the plan as a PR artifact, remote state, one drift check; ADR on state, module boundaries and OIDC | A PR shows its plan; no AWS keys in the repo or CI secrets |
+
+**Resources:** AWS-CPE (free, beginner), EKSWS (Intro and Fundamentals), TF-TUT (Get Started - AWS, then the Modules and State tutorials), FCC-TF (video, by chapter; it has no modules section, so modules come from TF-TUT), TF-AWS-EKS, GH-OIDC, AWS-FREE. Look up in the official AWS and Terraform docs.
+
+**Not in Phase 1:** GCP or Azure hands-on (GCP is an extra in section 5), certifications, multi-account organisations, EKS add-on depth, Terraform Cloud.
+
+### 6.12 Continuity: the gap rule, warm-ups and cards (3.75 hrs)
+
+**Why (v3.6).** Om saw it on Oct 23: Go had not been touched for two weeks. The v3.5 map had Go idle for 2, 6 and 10 weeks, Kubernetes for 20 weeks, LLD lessons for 13, and 10-19 weeks between machine coding reps. Skills that are not used decay, and thinking-heavy, accuracy-scored skills decay most (Arthur and others, 1998). Recall practice beats re-reading (Roediger and Karpicke, 2006), and spaced reviews hold knowledge best when the gap grows with how long you must remember it (Cepeda and others, 2008). Blocked learning is still right for a new mechanism; mixing helps only when the problem types look alike, as DSA patterns do (Brunmair and Richter, 2019). So: focus while learning, and never let a learned track go idle for long.
+
+**Why more (v3.8).** The gap rule guards whole tracks, not single topics. Until v3.8, section 7 said DSA alone keeps continuous spaced review: every other topic was re-checked only after a gate, and the first gate is May 2027. A busy track can still let a topic go cold: v3.7's map did not touch `yield` again from Oct 23 until W16, nor the `IN`, `CASE` and subqueries of Sep 27 until W16, and Go's syntax went in 11 idle days (rep 1, Oct 24). Om's own record says the same: he built two products in PHP and cannot recall `print` today. So v3.8 adds three things: every taught part is used in real code within 7 days (section 6, the use rule), every session opens with a short recall, and bedside cards bring each closed unit back on day 1, 7 and 28.
+
+**The rule.** Six tracks are watched: Go, Kubernetes, LLD and machine coding, HLD, operators and cloud. From a track's first week until Gate C, it may sit idle (no unit hours, no rep, no gate check of it) for at most 1 week in a row until its foundation unit closes (G7, K5, L3, H2, OP5, CL2), and at most 3 weeks in a row after that. Python, SQL and DSA are not watched as tracks: DSA has its own spaced re-solves, and every Python and SQL topic is used in PRCP when it is taught (v3.8, section 6), then kept alive by the warm-ups and cards below. The 14-day and 28-day limits are coaching settings to test, not proven forgetting deadlines; the monthly re-forecast adjusts them from evidence.
+
+**How it is kept.**
+
+- The week map is built so that real work keeps most tracks alive: the agent starts right after G7, PRCP goes onto kind at the start of 1b, scenarios 6-10 spread through 1b, and machine coding practice runs most weeks.
+- Where no unit covers a track, the map places a **retrieval rep** (RR): 45 minutes inside the normal study block, never a 15-minute filler (Om's Oct 14 rule). Om redoes a small task from a closed unit from a blank file or a fresh kind cluster, with no notes and no AI, then checks it against asserts or `kubectl` output. Examples: rewrite a closed Go kata and its test and add one changed case; break and fix one K7 scenario; redraw one building block with its failure mode; a 40-minute small LLD problem. A rep gets no score: "held", or "slipped: <what>", in one line. A slip is taught in the track's next session. Only taught material, named the way that unit taught it: no row asks for a tool, flag or test style before the unit that teaches it (v3.8; the W4 Go rep had asked for a table-driven test and `go test -race`, which G6 and G7 teach). `check_plan.py` checks a list of such terms.
+- `phase1-log.md` keeps a continuity record: the last real use of each watched track, updated by whichever coach runs that Sunday's close (v3.7). When real weeks slip, the coach checks it before choosing a block, and books a rep for any track at its limit. Project work counts when the skill was actually used and recorded.
+- `check_plan.py` fails the plan if any track breaks the rule in the map. It also warns on unit pieces under 30 minutes, because each piece costs a restart.
+- **Warm-up (v3.8).** Every desk session of a non-DSA lane opens with 5 minutes of recall from a blank page, no notes and no AI: Om writes the core snippet of that lane's last session, or answers two short questions on it. "Held" or "slipped: <what>", in one line, no score; a slip is fixed in that same session. Trial in W4 and W5, paid from W4's 1.75 freed hours (P1's hour and the Go rep were done early, on Oct 23 and Oct 24). At the Nov 15 re-forecast the logged minutes set the real cost, between 28 and 45 hours over the plan for about 336 lane sessions; Om then chooses: the gates move, a named source pays (for example the 12 hours of DSA day-90 re-solves), or the warm-up runs every other session.
+- **Bedside cards (v3.8, scheduled).** When a unit closes, the coach commits 5 to 8 answer-first cards (a question, with the answer or a small snippet below it) to `claude/cards/<track>/` or `chatgpt/cards/<track>/`. Om reads them on his phone in bedside time on day 1, day 7 and day 28 after the close, trying each answer before he scrolls down. No desk hours. An unread card still creates no debt and blocks nothing.
+
+| Unit | Hrs | Content | Proof |
+| --- | --- | --- | --- |
+| RR Retrieval reps | 3.75 | Five reps, placed by the rule where no unit keeps a track alive (section 14). More are added only if real weeks slip, and they then displace forward work | "Held" or "slipped", with the commit |
