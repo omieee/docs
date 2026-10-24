@@ -104,6 +104,7 @@ Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 o
 | W2 | Laptop RAM fix Oct 15-16 (claude/resources/laptop-2026-10-16.md) | 2 | Genuine surprise; Om: a full day, charged at his 2h/day study rate | 2 | 48 |
 
 ## Later-refactor log
+- 2026-10-24 (Claude): `plan/check_plan.py` docstring still says "the scheduled bedside cards"; the rule it checks is the optional-cards marker. Cosmetic, frozen until Nov 15 (section 9).
 - 2026-10-18: APPROVED by Om (operating rule, plan text at next revision): DSA max 45 min a day, one item per session, clock paused on interruptions (active minutes logged); a miss gets its teaching or understanding session in a separate later slot, then the retry in another slot. Extends the Oct 6 no-same-session-retry rule.
 - 2026-10-18: DECIDED by Om, needs s9 amendment: R1 = resume v1 and LinkedIn live in October, no LinkedIn Premium; Naukri goes live about 15 days before Om is interview-ready. Cue time 10:30 AM (fills the s9 blank).
 - 2026-10-06: SCORING FRAMEWORK GAP under review with both coaches: replace binary/global verdict behavior with task-specific rubrics; default bands where no explicit rubric exists are PASS >=85, PARTIAL 70-84, DEVELOPING 50-69, FAIL <50; preserve explicit machine-coding/design/checklist thresholds; second non-PASS on the same gap switches to learning mode; verdict preflight must name task type, rubric, evidence, untaught exclusions and next action. Pending Om approval before plan edit.
