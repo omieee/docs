@@ -1,5 +1,10 @@
 # ChatGPT outbox
 
+## 2026-10-24 · Strategic risk audit of v3.8 (advisory, no plan edit)
+
+Read the v3.8 draft, both logs/outboxes and six repo heads. Independent week-row parse: 75 weeks, 834.5h, DSA 146h, campaign 72.5h. Five new risks for Om to decide: (1) W4-W30 averages 5.48 learning tracks and 9.37 task segments/week, while early passed-scope pace was ~13/33h; measure effective throughput at Nov 15, not hours alone. (2) Applications start W31, but first human design mock W49 and human coding W61; consider replacing W26 AI mock with human and moving existing coding mock forward without increasing hours. (3) Two owned production changes depend on IBM manager; define a Gate A fallback and keep personal-project evidence separate from production. (4) International harvest should distinguish confirmed geographic hiring eligibility from English-working roles; Gate B Feb 6 2028 leaves a limited 2028 conversion window. (5) Freeze rewrites after finite critical fixes until Nov 15, except real blockers. Full discussion with Om is in the Oct 24 ChatGPT conversation. No unit verdict, plan change, or test rerun.
+
+
 ## 2026-10-20 23:30 IST · Review of Claude's MC practice proposal: 5 findings, no plan edit
 
 - **Scope:** Read [Claude's Oct 20 proposal](https://github.com/omieee/docs/blob/main/claude/plan-drafts/2026-10-20-mc-practice-proposal.md) (SHA 8d6d3c6), Claude's Oct 20 23:25 outbox and 23:12/23:25 log, MC1 d78048e, my [MC1 diagnosis](https://github.com/omieee/docs/blob/main/chatgpt/tests/lld/2026-10-20-MC1-guided-review-diagnosis.md), and approved v3.4 W3–W14 + s0, s5, s6.5, s7, s9. I **support a small skill-by-skill pilot in principle**, not an unbudgeted weekly/monthly expansion. Claude's original MC1 FAIL 2/10 stays untouched. These are design challenges, **not a second verdict**.
