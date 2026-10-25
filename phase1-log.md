@@ -5,6 +5,30 @@ Source of truth: Phase1_Master_Plan_v3.8.md, approved by Om 2026-10-24 14:32 IST
 (Sunday: paste the section 7 template here, newest on top)
 
 ```
+WEEK 3: PARTIAL
+Close run by: Claude (Om opened Claude first on Sun Oct 25, 09:30 IST); other coach's note used: none for this close (ChatGPT's last outbox entries are Oct 24 plan checks); items UNVERIFIED: coach work minutes (both coaches), Om's minutes on plan reviews v3.5 to v3.8 (Oct 20-24), ChatGPT's share of the MC1 review overrun, the W1 and W2 spoken check (ChatGPT, still pending)
+Focused hours, planned / actual (bedside required items included): 12 / about 18.3 (Claude's estimate from the logs and message times, Om's instruction 11:00 "use your brain"; Oct 23 and the Oct 24 19 D28 start time are estimates). By day: Oct 19 190m, Oct 20 about 225m (MC1 review 90-120m), Oct 21 190m, Oct 22 221m, Oct 23 about 162m, Oct 24 about 66m, Oct 25 about 44m
+Actual vs planned hours, each unit closed: DSA about 7.3h vs 2.5h · MC0 75m vs 75m · MC1 rep 90m plus review 90-120m vs 2.5h · L1 about 157m vs 60m (closes W7) · P1 about 139m vs 2.25h, and that also covers W4's P1 hour (done early) · R1 resume about 65m vs 1h, LinkedIn 0 vs 1h · Go RR (W4 content, done early) 10m vs 45m · close about 20m vs 30m
+Largest overrun or underrun, and why: overrun DSA, about 7.3h vs 2.5h: W3 carried W2's binary search lesson and NEW 704 and 74, plus 9 spaced re-solves, 2 NEW interviews and 3 repair slots; the 45-min daily cap was passed on 5 of 7 days (Oct 19 115m, Oct 21 60m, Oct 22 79m, Oct 23 about 75m, Oct 24 about 54m), some by Om's own logged choice. Second: L1 2.6h vs 1h (v3.6 already gives W4's L1 one hour more). Underrun: LinkedIn live (0 of 1h)
+Contingency used this week / total used / remaining (of about 50): 1.2 (Claude coach errors, 70m measured) / 3.2 / 46.8; ChatGPT's share of the MC1 review overrun not separable, UNVERIFIED
+Planned: W3 row: DSA 2.5h (colds 739 D7, 141 D28, 19 D28, 143 D28, 155 D14; binary search lessons 14-15; NEW 704 and 74 with interviews), R1 2h (resume v1, LinkedIn live), L1 1h, P1 2.25h, MC0 1.25h, MC1 2.5h, proofs and close 0.5h
+Completed (with commit hashes): MC0 taught (ChatGPT, 803b15e). MC1 rep 1 FAIL 2/10 (lld-patterns PR #2 d78048e, Claude) and its review (ChatGPT, 56ac481). L1 three guided sessions and part check 5/6 (learning-python-sandbox PR #3 718e0ca, #4 f10b0a2). P1 pytest basics PASS 6/6 (PR #2 558decd), yield fixtures PASS 6/6 (PR #5 c8b275c), dataclass equality PASS 5/6 (PR #6 a3d5901, W4 content). DSA colds: 739 D7 PARTIAL (8825acb), 141 D28 PASS (15480e0), 704 D1 PASS and 74 D1 PASS (15480e0), 143 D28 PASS, 704 D3 PASS, 74 D3 PASS (3384b4a), 19 D28 PASS (c7f72e2), 155 D14 PARTIAL (c82132a; test fix d576731, Oct 25). NEW 704 PARTIAL 5/8 and NEW 74 PARTIAL 6/8 (3384b4a), both taught (Oct 24 [12m], Oct 25 [14m]). Resume v1 draft (doc rev 54). Go RR1 SLIPPED (learning-go-sandbox PR #3 75d2507, W4 content). Plan v3.6, v3.7, v3.8 approved (v3.8 sha256 25bb309e79a610f2)
+Not completed: LinkedIn live (R1); NEW 704 and 74 close (retry at D7, Mon Oct 26); binary search lesson 15 (before NEW 875; Om to say if the Oct 19 second video was it)
+DSA total / cold: 24 / 17 (704 and 74 count only when their NEW interviews close)
+Machine coding reps: 1 scored (MC1 FAIL 2/10)
+Design mocks: 0
+Git and production evidence: dsa-python PR #10 merged Oct 25 (70542c9); learning-python-sandbox PRs #2, #4, #5, #6 merged (#6 Oct 25, aff4d87), #3 open; lld-patterns PR #2 open; learning-go-sandbox PR #3 open; PRCP: no commits since Sep 29 (7958798); no production evidence
+Execution gaps (days with no artifact): none, 7 of 7 (Oct 19 95dfe22, Oct 20 d78048e, Oct 21 15480e0, Oct 22 3384b4a, Oct 23 c8b275c, Oct 24 c7f72e2, Oct 25 d576731)
+Coach errors this week (both coaches): Claude 11, measured loss 70m (Oct 19 PR #10 review jargon 50m, rules 1, 4, 13; Oct 21 video given by channel name 15m, rule 3; Oct 23 asked for tests that already existed 5m, rule 8, logged only today); the other 8 logged as 0m: Oct 20 hours-left claim (rule 8), Oct 21 minutes asked though visible (rule 7), Oct 22 elapsed time called an overrun (rules 7, 10), Oct 23 started P1 from an old plan row (rules 2, 8), Oct 23 test records left out of the commit (rule 10), Oct 24 Go rep written HELD before Om's report (rule 9), Oct 24 v3.3-v3.5 idle gaps (planning), Oct 24 v3.8 draft reused untaught `IN` and subqueries (rule 2). Om caught 6 of the 11. ChatGPT 3: Oct 19 MC0 article claimed verified without a same-day fetch (rule 3); Oct 20 MC1 review over-taught and ran 30-60m past its box (rules 1, 4, 6), minutes not separable; Oct 23 cap arithmetic in its audit (0m). Om's view (Oct 25 11:00, verbatim): "There were erros which i caught.. The plan was not optimised to it's extent these all give a lot of irritation and kills time and boils blood .. Too much time time goes in monitoring you particularly". Claude's reading: measured minutes are down from about 240m in W0-W2, but the count is not down, and the 0m labels hide Om's time spent checking Claude. Repeats this week: stale or partial reads (rule 8) 3 times; minutes read from elapsed time 2 times (rule 12: goes into the safeguards list at the Nov 15 revision)
+Hours by clock: Om's active about 18.3h / coach work UNVERIFIED / elapsed waits UNVERIFIED. Om's time on plan reviews (v3.5 Oct 20-21, v3.6 and v3.7 Oct 23, v3.8 Oct 24) is not in the 18.3h and was not logged: UNVERIFIED
+Continuity record: Go last real use Oct 24 (RR1), next G2 W5 (Nov 2), so W4 is its one allowed idle week before G7; Kubernetes starts W4 (K1); LLD and machine coding last used Oct 22 (L1) and Oct 20 (MC1), next W4 L1 and MP1 (Tue Oct 27); HLD starts W12, cloud W36, operators W45. No track at its limit
+Use steps and warm-ups (v3.8): none due in W3 (v3.8 starts W4; the warm-up trial runs W4-W5). P1's yield fixture is used in PRCP in P1 (W5-W8)
+Carry-forward: LinkedIn live (walks and commutes, Om's Oct 21 rule); NEW 704 and 74 retries at D7 Mon Oct 26 (one fresh question each); lesson 15 before NEW 875; Om merges lld-patterns #2, learning-go-sandbox #3, learning-python-sandbox #3; MC1 input-reading drill (20-30m) still waits for Om's yes or no
+Next week's scope: W4 Oct 26-Nov 1, 12h, the v3.8 row: DSA 2.25h (Mon 704 and 74 D7 with their retries, Tue 739 D14, Sun Nov 1 20 D28; lesson 15, then NEW 875), R3 1.5h, K1 1.5h, L1 1.5h, Y3 1h, Y7a 0.75h, MP1 1h (Tue Oct 27, fallback Sat Oct 31), proofs and close 0.75h. P1's hour and the Go rep are done; their 1.75h pays the warm-up trial
+Change-control trigger: NO (frozen until Nov 15, no section 9 trigger fired). For the Nov 15 re-forecast: DSA 7.3h vs 2.5h and L1 2.6h vs 1h this week; Om's unlogged plan-review time
+```
+
+```
 WEEK 2: PARTIAL (proposed by Claude from git, CI and tracker facts, 2026-10-18 11:55 IST; ChatGPT spoken check pending for W1 and W2, one combined close)
 Focused hours, planned / actual (bedside required items included): 15 / no number from Om ("a little better than W1"); logged blocks [99m]. Plan scope done Oct 1-18 at plan rates: about 13h of 33 (Claude estimate)
 Actual vs planned hours, each unit closed: G1 3h planned (0.5 W1 + 2.5 W2), actual not logged; NEW 739 (W1 row) not logged; 20 D14 [20m] vs 15 box
@@ -65,43 +89,56 @@ Change-control trigger: YES: v3.2 teach-first coaching (GAP 71, approved by Om, 
 ```
 
 ## DSA tracker
-| Problem | First solved | D1 | D3 | D7 | D14 | D28 | Result |
-|---|---|---|---|---|---|---|---|
-| 704 Binary Search | 2026-10-19 | 10-21 PASS (15480e0, Claude), 1d late | 10-22 PASS (3384b4a, Claude): 0/106,485 wrong, mistakes 5/5 caught; approach line thin ("shrink search boundary"), steps only in code comments | due 10-26 | due 11-02 | due 11-16 | NEW PARTIAL Oct 23, 5/8 (Claude, 3384b4a): trace right; window rule, `return left` change and the O(log n)-removed question thin; taught Sat Oct 24 [12m] (Claude: window rule and [1, 3] hang, `return left`, sorted is the real signal); retry at D7 Oct 26; not counted until then. Code correct (95dfe22, 0/6,513 vs brute force) |
-| 74 Search a 2D Matrix | 2026-10-19 | 10-21 PASS (15480e0, Claude), slid 1d under the cap | 10-22 PASS (3384b4a, Claude): 0/396,800 wrong, mistakes 6/6 caught | due 10-26 | due 11-02 | due 11-16 | NEW not closed: code correct (95dfe22, 0/882,245 vs brute force), Day 0 tests thin, NEW PARTIAL Oct 23, 6/8, one local FAIL (Claude, 3384b4a): why strong; first-loop `break` case traced wrong and overlapping-rows run wrong; teach Sun Oct 25, retry at D7 Oct 26; not counted until then |
-| 739 Daily Temperatures | 2026-10-13 | 10-14 PARTIAL (2089877, Claude) | 10-17 PASS (e459c37, Claude), 1d late | 10-20 PARTIAL (8825acb, Claude): code and tests right, approach says the top of the stack is the hottest day | due 10-27 | due 11-10 | NEW PASS Oct 17, final 4/6 (repair 1/2 cleared, Claude); was NEW PARTIAL (551675e, Claude): code correct (0/41,845 vs brute force); planted bugs 3/4 (`>=` survives, add [30,30,31] -> [2,1,0]); complexity not written; interview 3/6; repair Oct 14 not passed (pile trace and res right, direction right but why missing, pops <= n reason wrong); carried to D3 Oct 16, one slot used. D1 artifact fix 1e721bc: LeetCode example and [30,30,31] asserts added, `>=` now caught |
-| 155 Min Stack | 2026-10-10 | 10-11 PASS (42c157e, Claude) | 10-13 PARTIAL (cf49bd9, Claude) | 10-17 PASS (4938f13, Claude), 34m active | 10-24 PARTIAL (c82132a, Claude), [9m]: code correct (0/40,000 op sequences vs brute force); tests miss 1 of 6 deliberate mistakes (new min compared with the bottom of the min stack instead of the top survives; push 5, 3, 4 must give 3); tests reused from D7; complexity line names getMin only; fix: one assert in a later slot, no re-score | due 11-07 | NEW PASS (640354f, f17e69b, Claude): PARTIAL Oct 10 (interview 3/6), repair correct Oct 11, final 4/6; code correct, planted bugs 5/5 |
-| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PARTIAL (8647552), 10-15 min | 10-18 PASS (7d3c30e, Claude), [20m]; "(])" assert added 291dfad | due 11-01 | D14 PASS: approach and complexity first, 0/2,015,539 vs brute force, planted 5/5 after the assert fix. D7 was PARTIAL (complexity not recorded before coding) |
-| 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | 10-22 PASS (3384b4a, Claude): retyped with new names and new approach text, 0/199 wrong, mistakes 5/5 caught; schedule complete | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
-| 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | 10-24 PASS (c7f72e2, Claude), 3d late: code retyped (new names and approach text), 0/4,051 wrong vs expected, mistakes 6/6 caught; test file reused from D14 (function name still says d14), noted once; D90 due 12-22 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
-| 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | 10-06 FAIL, repair complete (566dea4) | 10-21 PASS (15480e0, Claude): self-written (Om), 0/45 wrong, mistakes 4/4 caught; schedule complete | Original COLD had real code-correctness bugs, so it was not a clean pass. Same-day repair is correct and CI run 81 green. The extra mechanism/trace/trade-off interview was invalid for a spaced COLD and is discarded. No further work until D28 |
-| 21 Merge Two Sorted Lists | 2026-08-30 | - | - | - | - | 09-27 | schedule complete |
-| 206 Reverse Linked List | 2026-08-29 | - | - | - | - | 09-26 | schedule complete |
-| 707 Design Linked List | 2026-08-29 | - | - | - | - | - | no cold in git; counted to match the Oct 1 total of 21 |
-| 977 Squares of a Sorted Array | 2026-07-21 |  |  |  |  |  | pre-plan; no cold in git |
-| 344 Reverse String | 2026-07-21 |  |  |  |  |  | pre-plan; no cold in git |
-| 11 Container With Most Water | 2026-07-21 |  |  |  |  |  | pre-plan; no cold in git |
-| 128 Longest Consecutive Sequence | 2026-07-20 |  |  |  |  |  | pre-plan; no cold in git |
-| 347 Top K Frequent Elements | 2026-07-20 |  |  |  |  |  | pre-plan; no cold in git |
-| 238 Product of Array Except Self | 2026-07-17 |  |  |  |  |  | pre-plan; no cold in git |
-| 643 Maximum Average Subarray I | 2026-07-15 |  |  |  |  |  | pre-plan; colds 07-15, 07-21 |
-| 3 Longest Substring Without Repeating | 2026-07-04 |  |  |  |  |  | pre-plan; colds 07-04, 07-21 |
-| 121 Best Time to Buy and Sell Stock | 2026-06-12 |  |  |  |  |  | pre-plan; cold 07-21 |
-| 167 Two Sum II | 2026-06-12 |  |  |  |  |  | pre-plan; cold 07-21 |
-| 125 Valid Palindrome | 2026-06-12 |  |  |  |  |  | pre-plan; cold 07-21 |
-| 49 Group Anagrams | 2026-06-08 |  |  |  |  |  | pre-plan; cold 07-21 |
-| 1 Two Sum | 2026-05-23 |  |  |  |  |  | pre-plan; cold 06-12 |
-| 242 Valid Anagram | 2026-05-23 |  |  |  |  |  | pre-plan; cold 07-21 |
-| 217 Contains Duplicate | 2026-05-23 |  |  |  |  |  | pre-plan; cold 07-21 |
-| 682 Baseball Game | 2026-10-03 |  |  |  |  |  | DRILL, not counted; space O(n) and tests fix open |
+| Problem | First solved | D1 | D3 | D7 | D14 | D28 | D90 | Result |
+|---|---|---|---|---|---|---|---|---|
+| 704 Binary Search | 2026-10-19 | 10-21 PASS (15480e0, Claude), 1d late | 10-22 PASS (3384b4a, Claude): 0/106,485 wrong, mistakes 5/5 caught; approach line thin ("shrink search boundary"), steps only in code comments | due 10-26 | due 11-02 | due 11-16 | due 2027-01-17 | NEW PARTIAL Oct 23, 5/8 (Claude, 3384b4a): trace right; window rule, `return left` change and the O(log n)-removed question thin; taught Sat Oct 24 [12m] (Claude: window rule and [1, 3] hang, `return left`, sorted is the real signal); retry at D7 Oct 26; not counted until then. Code correct (95dfe22, 0/6,513 vs brute force) |
+| 74 Search a 2D Matrix | 2026-10-19 | 10-21 PASS (15480e0, Claude), slid 1d under the cap | 10-22 PASS (3384b4a, Claude): 0/396,800 wrong, mistakes 6/6 caught | due 10-26 | due 11-02 | due 11-16 | due 2027-01-17 | NEW not closed: code correct (95dfe22, 0/882,245 vs brute force), Day 0 tests thin, NEW PARTIAL Oct 23, 6/8, one local FAIL (Claude, 3384b4a): why strong; first-loop `break` case traced wrong and overlapping-rows run wrong; taught Sun Oct 25 [14m] (Claude: three moves per round, the STOP case on the Oct 23 matrix, the overlapping-rows case that breaks it; Om ran both traces); retry at D7 Oct 26; not counted until then |
+| 739 Daily Temperatures | 2026-10-13 | 10-14 PARTIAL (2089877, Claude) | 10-17 PASS (e459c37, Claude), 1d late | 10-20 PARTIAL (8825acb, Claude): code and tests right, approach says the top of the stack is the hottest day | due 10-27 | due 11-10 | due 2027-01-11 | NEW PASS Oct 17, final 4/6 (repair 1/2 cleared, Claude); was NEW PARTIAL (551675e, Claude): code correct (0/41,845 vs brute force); planted bugs 3/4 (`>=` survives, add [30,30,31] -> [2,1,0]); complexity not written; interview 3/6; repair Oct 14 not passed (pile trace and res right, direction right but why missing, pops <= n reason wrong); carried to D3 Oct 16, one slot used. D1 artifact fix 1e721bc: LeetCode example and [30,30,31] asserts added, `>=` now caught |
+| 155 Min Stack | 2026-10-10 | 10-11 PASS (42c157e, Claude) | 10-13 PARTIAL (cf49bd9, Claude) | 10-17 PASS (4938f13, Claude), 34m active | 10-24 PARTIAL (c82132a, Claude), [9m]: code correct (0/40,000 op sequences vs brute force); tests miss 1 of 6 deliberate mistakes (new min compared with the bottom of the min stack instead of the top survives; push 5, 3, 4 must give 3); tests reused from D7; complexity line names getMin only; fix: one assert in a later slot, no re-score; DONE Oct 25 (d576731, Claude) [10m]: push 5, 3, 4, getMin 3 added; 93 green, the broken version now fails it (4 == 3) | due 11-07 | due 2027-01-08 | NEW PASS (640354f, f17e69b, Claude): PARTIAL Oct 10 (interview 3/6), repair correct Oct 11, final 4/6; code correct, planted bugs 5/5 |
+| 20 Valid Parentheses | 2026-10-04 | 10-05 PASS (47153c1) | 10-07 PASS (0168425) | 10-11 PARTIAL (8647552), 10-15 min | 10-18 PASS (7d3c30e, Claude), [20m]; "(])" assert added 291dfad | due 11-01 | due 2027-01-02 | D14 PASS: approach and complexity first, 0/2,015,539 vs brute force, planted 5/5 after the assert fix. D7 was PARTIAL (complexity not recorded before coding) |
+| 143 Reorder List | 2026-09-24 | 09-25 | missed | 10-02 PASS (1d late) | 10-08 PARTIAL (781a8f4), independent cold authorship not verified | 10-22 PASS (3384b4a, Claude): retyped with new names and new approach text, 0/199 wrong, mistakes 5/5 caught; D90 left (v3.6) | due 12-23 | CI #84 green, algorithm and tests correct; D14 commit reuses unchanged D7 logic, no same-day retry |
+| 19 Remove Nth From End | 2026-09-23 | - | 09-26 | 10-02 FAIL (copied), 10-03 PASS | 10-07 PASS (4d7796f) | 10-24 PASS (c7f72e2, Claude), 3d late: code retyped (new names and approach text), 0/4,051 wrong vs expected, mistakes 6/6 caught; test file reused from D14 (function name still says d14), noted once; D90 due 12-22 | due 12-22 | Correct dummy/two-pointer solution; CI 82 green. Minor notation slip only: use O(L) for list length rather than O(n), since n is the deletion index |
+| 141 Linked List Cycle | 2026-09-22 | - | 09-25 | 09-29 | 10-06 FAIL, repair complete (566dea4) | 10-21 PASS (15480e0, Claude): self-written (Om), 0/45 wrong, mistakes 4/4 caught; D90 left (v3.6) | due 12-21 | Original COLD had real code-correctness bugs, so it was not a clean pass. Same-day repair is correct and CI run 81 green. The extra mechanism/trace/trade-off interview was invalid for a spaced COLD and is discarded. No further work until D28 |
+| 21 Merge Two Sorted Lists | 2026-08-30 | - | - | - | - | 09-27 | due 11-28 | D90 left (v3.6) |
+| 206 Reverse Linked List | 2026-08-29 | - | - | - | - | 09-26 | due 11-27 | D90 left (v3.6) |
+| 707 Design Linked List | 2026-08-29 | - | - | - | - | - | - | no cold in git; counted to match the Oct 1 total of 21 |
+| 977 Squares of a Sorted Array | 2026-07-21 |  |  |  |  |  | - | pre-plan; no cold in git |
+| 344 Reverse String | 2026-07-21 |  |  |  |  |  | - | pre-plan; no cold in git |
+| 11 Container With Most Water | 2026-07-21 |  |  |  |  |  | - | pre-plan; no cold in git |
+| 128 Longest Consecutive Sequence | 2026-07-20 |  |  |  |  |  | - | pre-plan; no cold in git |
+| 347 Top K Frequent Elements | 2026-07-20 |  |  |  |  |  | - | pre-plan; no cold in git |
+| 238 Product of Array Except Self | 2026-07-17 |  |  |  |  |  | - | pre-plan; no cold in git |
+| 643 Maximum Average Subarray I | 2026-07-15 |  |  |  |  |  | - | pre-plan; colds 07-15, 07-21 |
+| 3 Longest Substring Without Repeating | 2026-07-04 |  |  |  |  |  | - | pre-plan; colds 07-04, 07-21 |
+| 121 Best Time to Buy and Sell Stock | 2026-06-12 |  |  |  |  |  | - | pre-plan; cold 07-21 |
+| 167 Two Sum II | 2026-06-12 |  |  |  |  |  | - | pre-plan; cold 07-21 |
+| 125 Valid Palindrome | 2026-06-12 |  |  |  |  |  | - | pre-plan; cold 07-21 |
+| 49 Group Anagrams | 2026-06-08 |  |  |  |  |  | - | pre-plan; cold 07-21 |
+| 1 Two Sum | 2026-05-23 |  |  |  |  |  | - | pre-plan; cold 06-12 |
+| 242 Valid Anagram | 2026-05-23 |  |  |  |  |  | - | pre-plan; cold 07-21 |
+| 217 Contains Duplicate | 2026-05-23 |  |  |  |  |  | - | pre-plan; cold 07-21 |
+| 682 Baseball Game | 2026-10-03 |  |  |  |  |  | - | DRILL, not counted; space O(n) and tests fix open |
 
-Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 on 10-14). The 704 and 74 rows are not counted until their NEW interviews close (704 PARTIAL Oct 23 and 74 PARTIAL Oct 23, both retry at D7 Oct 26).
+D90 column added Oct 25 (Claude, s6.6 #6 and #10, v3.6): day 90 after first solved; problems solved before Aug 2026 with no cold in the plan get no D90. Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 on 10-14). The 704 and 74 rows are not counted until their NEW interviews close (704 PARTIAL Oct 23 and 74 PARTIAL Oct 23, both retry at D7 Oct 26).
+
+## Continuity record
+(section 6.12: last real use of each watched track; updated at each Sunday close; newest close on top)
+| Track | Last real use | Foundation closed? (idle limit) | Next planned use | At limit? |
+|---|---|---|---|---|
+| Go | Oct 24, RR1 slipped (learning-go-sandbox PR #3 75d2507) | No, G7 open (1 idle week) | G2, W5 Nov 2-8 | No: W4 is its one idle week |
+| Kubernetes | none yet (Sep 24 self-audit was a baseline) | No, K5 open (1 idle week) | K1, W4 Oct 26-Nov 1 | No, starts W4 |
+| LLD and machine coding | Oct 22, L1 part check; Oct 20, MC1 (lld-patterns PR #2 d78048e) | No, L3 open (1 idle week) | L1 and MP1, W4 (MP1 Tue Oct 27) | No |
+| HLD | none yet | No, H2 open | H1, W12 Dec 21-27 | No, not started |
+| Cloud | none yet | No, CL2 open | CL1, W36 Jun 7-13 2027 | No, not started |
+| Operators | none yet | No, OP5 open | OP1, W45 Aug 9-15 2027 | No, not started |
+Updated 2026-10-25 by Claude at the W3 close.
 
 ## Contingency
 | Week | Unit | Hours | Reason | Total used | Remaining (of ~50 from v3.3; ~55 before) |
 |---|---|---|---|---|---|
 | W0 | - | 0 | - | 0 | 55 |
 | W2 | Laptop RAM fix Oct 15-16 (claude/resources/laptop-2026-10-16.md) | 2 | Genuine surprise; Om: a full day, charged at his 2h/day study rate | 2 | 48 |
+| W3 | Claude coach errors (Oct 19 50m, Oct 21 15m, Oct 23 5m) | 1.2 | Coach-error minutes, not Om's pace (safeguard 7); ChatGPT's share of the MC1 review overrun not separable, UNVERIFIED | 3.2 | 46.8 |
 
 ## Later-refactor log
 - 2026-10-24 (Claude): `plan/check_plan.py` docstring still says "the scheduled bedside cards"; the rule it checks is the optional-cards marker. Cosmetic, frozen until Nov 15 (section 9).
@@ -117,6 +154,9 @@ Count check: 24 counted rows = 24 total; 17 rows with a cold = 17 cold (739 D1 o
 
 ## Verdict log
 (newest on top)
+- 2026-10-25 WEEK 3 close PARTIAL (Claude, run because Om opened Claude first on Sunday): about 18.3h of Om's active time vs 12h planned (estimate); most of the row done; LinkedIn not live, NEW 704 and 74 still open (retry Mon Oct 26), lesson 15 open. Coach errors: Claude 11 (70m measured), ChatGPT 3. Full block under Weekly closes.
+- 2026-10-25 NEW 74 repair teaching done [14m] (Claude, no score, s6.6 #11 separate slot): three moves per round of the row loop, the STOP (`break`) case traced on the Oct 23 matrix, then the overlapping-rows matrix where STOP picks row [2, 5, 8] and misses 4 in row 0. Om ran both traces. Retry: one fresh question at 74 D7, Mon Oct 26.
+- 2026-10-25 LC155 D14 test fix done (dsa-python d576731, Claude, no re-score): push 5, 3, 4, getMin 3 added; 93 green; the broken version (compare with the bottom of the min stack) now fails it, 4 == 3. First push 42b56a1 had a pop before getMin, which hid the bug; told Om, fixed in 4 minutes. [10m]. D14 stays PARTIAL.
 - 2026-10-24 LC155 D14 COLD PARTIAL (dsa-python PR #10 c82132a, Claude): code correct (0/40,000 random op sequences vs a brute-force stack), 93 green, ruff clean; approach written first; [9m] active by Om's own times (11:07-11:09, 11:18-11:25) vs 15 box. Miss: tests pass a broken version (min compared with the bottom of the min stack, 5/6 caught); same tests as D7, where Claude's mistake set did not try this one. Artifact fix in a later slot: one assert where the minimum drops twice and a bigger value follows (push 5, 3, 4, getMin 3). Note, not scored: complexity names getMin only; all four operations are O(1). D28 Nov 7.
 - 2026-10-24 LC19 D28 COLD PASS (dsa-python PR #10 c7f72e2, Claude): 92 green, ruff clean; 0/4,051 wrong vs expected (every size 1-30 and every n, plus 0/1 duplicate lists up to size 8); deliberate mistakes 6/6 caught by Om's asserts; approach and O(N), O(1) written at the top; code retyped with new names. Test file reused from D14 (function name still d14): noted once, not blocking. D90 due Dec 22.
 - 2026-10-21 LC704 D1 COLD PASS and LC74 D1 COLD PASS (dsa-python PR #10 15480e0, Claude): 88 green, ruff clean; 704 0/25,511 and 74 0/362,447 wrong vs brute force; deliberate mistakes 6/6 and 7/7 caught by Om's own asserts; approach and complexity at the top; code retyped. LC141 D28 COLD PASS (Om confirmed he wrote it from a blank file, 11:40); 141 schedule complete.
