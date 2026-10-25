@@ -154,6 +154,7 @@ Updated 2026-10-25 by Claude at the W3 close.
 
 ## Verdict log
 (newest on top)
+- 2026-10-25 R1 LinkedIn check (Claude, no score): live since Oct 25 by Om's report; 4 mismatches against Om's own records (IBM title, empty IBM entry, the Pune MCA shown, GetMyUni title and end date); notice period UNVERIFIED. R1 stays open until fixed. Updates the W3 close line "LinkedIn not live".
 - 2026-10-25 WEEK 3 close PARTIAL (Claude, run because Om opened Claude first on Sunday): about 18.3h of Om's active time vs 12h planned (estimate); most of the row done; LinkedIn not live, NEW 704 and 74 still open (retry Mon Oct 26), lesson 15 open. Coach errors: Claude 11 (70m measured), ChatGPT 3. Full block under Weekly closes.
 - 2026-10-25 NEW 74 repair teaching done [14m] (Claude, no score, s6.6 #11 separate slot): three moves per round of the row loop, the STOP (`break`) case traced on the Oct 23 matrix, then the overlapping-rows matrix where STOP picks row [2, 5, 8] and misses 4 in row 0. Om ran both traces. Retry: one fresh question at 74 D7, Mon Oct 26.
 - 2026-10-25 LC155 D14 test fix done (dsa-python d576731, Claude, no re-score): push 5, 3, 4, getMin 3 added; 93 green; the broken version (compare with the bottom of the min stack) now fails it, 4 == 3. First push 42b56a1 had a pop before getMin, which hid the bug; told Om, fixed in 4 minutes. [10m]. D14 stays PARTIAL.
