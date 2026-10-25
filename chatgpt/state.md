@@ -1,17 +1,17 @@
 # ChatGPT state (cache, max 20 lines; canonical plan, phase1-log, coach logs and outboxes always win)
-AS-OF: 2026-10-24, plan v3.8 verified against live docs README and the two ChatGPT project uploads; fresh reads required before each session.
+AS-OF: 2026-10-25 W3 close read from docs main 70de90e, six repo heads re-fetched; cache only, not a substitute for fresh reads.
 PLAN: v3.8 APPROVED by Om 2026-10-24 14:32 IST, `plan/Phase1_Master_Plan_v3.8.md` sha256 25bb309e79a610f2; checker sha256 6c55bf0713278013. 75 weeks, 834.5h; gates A 2027-05-02, B 2028-02-06, C 2028-03-05.
 CHECKS: Local checker PASS, 7 nonblocking fragmentation warnings; 25/25 deliberately broken plan mutations rejected with expected reasons (ChatGPT Oct 24). No learner verdict from this review.
 ROLE: Claude and ChatGPT are equal partner coaches. Whoever Om starts a unit with owns teaching, proof and a SINGLE verdict. Sunday close belongs to the coach Om opens on Sunday. No coaching owner. ChatGPT voice/spoken proof, Claude repo proof by tool strength, not exclusive track ownership.
 SOURCE: Always read section 0 plus current s14 week, fresh `phase1-log.md`, both coach logs and the other outbox, then fresh repository evidence before any status claim. Cache is not proof; never re-score Claude verdicts.
-W3: Oct 19-25 2026, 12h. Focus due DSA colds, NEW 704/74 teaching as recorded, R1 resume + LinkedIn, L1, P1 basics/fixtures, MC0, MC1, close; actual completions must be checked fresh.
-W4: Oct 26-Nov 1 2026, 12h. DSA due items, R3 pitch, K1 kind, L1, Y3 generator intro, P1 yield + dataclasses (done early per Claude Oct 23), Y7a code walk, RR Go (attempt slipped Oct 24), MP session 1, weekly close. No rescore of early submissions.
+W3 CLOSE: Claude issued PARTIAL Oct 25, ~18.3h estimated active vs 12 planned; DSA ~7.3h vs 2.5h; 7/7 artifact days; coach errors Claude 11 (~70m measured), ChatGPT 3 (MC1 overrun minutes UNVERIFIED). Do not issue a second verdict.
+W4: Oct 26-Nov 1, 12h. DSA 704 and 74 D7 Monday with separately taught NEW interview fresh retries (Claude's prior PARTIAL remains), 739 D14 Tue, 20 D28 Sun, lesson 15 before NEW 875; R3 pitch, K1 kind, L1, Y3 generators, Y7a code walk, MP1 Tue Oct 27 (Sat fallback), weekly close.
 GO: G2 begins W5; from blank page review `t *testing.T` and `strings.Builder` before progressing. Build the agent in PRCP `agent/`, a separate Go module in the same repo.
 RETENTION: Every teaching part has a code-or-explain use step (coach verifies dated commit/test or spoken proof), 5m recall warm-up W4-W5 trial, cards optional on D1/D7/D28 with bedside minutes recorded if used. Track retrieval reps follow 6.12.
 CALIBRATION: W5-W9 applications are diagnostic without rehearsed stories; first two stories spoken in W10, normally ChatGPT voice; Mock 1 W26 with human peer if available, otherwise assistant; human live-coding mock W32.
 EMPLOYER: Seek ownership of meaningful Go/Python production features at IBM. W7 and Gate A checkpoints, then alternate IBM workstream/internal option or approved reviewed OSS fallback, never label OSS/PRCP as production.
 MARKET: November W6-W7 JD harvest covers India and international roles, including eligibility for candidates currently in India; expand research only by plan triggers. No visa/salary logistics unless Om asks.
 FREEZE: No v3.8 structural revisions until Nov 15 reforecast except section 9's three triggers. Measure actual active minutes, proof-closed plan hours and restart overhead. No new review loop without evidence.
-DSA: Session <=45 active minutes, one problem/session; NEW taught first; COLD scored once; miss teaching and retry in separate later slots. Check daily tracker, no stale date inference.
-MC: MC1 Snake/Ladder FAIL 2/10 (Claude Oct 20), do not re-score; MP1 Oct 27 fallback Oct 31, one search problem, independent asserts, 60m Om box. Later reps follow section 6.5.
-PROOF: Verified code run or exact-commit CI AND explanations required before PASS; follow 13 safeguards including ask-first, beginner video first, time boxes, coach error logs and privacy of office code.
+DSA: Tracker 24 NEW total / 17 cold passed at W3 close, D90 column now added; 704 and 74 NEW still PARTIAL until the separate D7 retry; 45m active daily cap, one problem/session. Check tracker for late/due items.
+MC: MC1 Snake/Ladder FAIL 2/10 (Claude Oct 20), no re-score; MP1 Oct 27 fallback Oct 31, one search problem with independent asserts, 60m Om box.
+PROOF: Fresh tests or exact-commit CI plus explanations required for PASS; no ungrounded status claims. Latest heads: docs 70de90e; dsa 70542c9; Go 78bb701; Python aff4d87; LLD 35daa7f; PRCP 7958798. PRs Go #3, Python #3, LLD #2 MERGED (post-close correction).
