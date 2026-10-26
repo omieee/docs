@@ -253,3 +253,14 @@ Events:
 ```
 
 **Score:** PASS 3/3: commands independently selected; Pod Running/1-of-1 Ready, correct node and container `web` established by independent CLI evidence. Same node/image digest as `k1-nginx`; no fresh pull needed because image already present. The container readiness result is not a substitute for independent HTTP test. Final interview cold questions remain pending; do not close entire K1 unit.
+
+
+### Round 3 cold Q1: manifest-to-container mechanism
+
+**Prompt as asked:** "You applied `k1-interview.yaml`, and a few seconds later the Pod was `Running`. Explain the sequence from submitting the YAML to the container starting. Include which Kubernetes component chose the node and which component started the container."
+
+**Om's first cold answer, verbatim:**
+
+> when i placed the order first scheduler schedules it and maps to teh node phase1-k1-control-plane then kublet will go to fetch the image if retrivable that is pulled by kublet and the kublet will create the container and finally kublet will report as started
+
+**First-attempt score: PARTIAL 3/4.** Correct scheduler node assignment, kubelet role, and status reporting. Missed that API server validates and records the Pod before scheduling. Clarification: image pull and container create/start are done by the container runtime under kubelet's direction. Prior minimal API-server sequence was taught in conversation; this is not an untaught K2 internals quiz. Explained the smallest chain and counterexample (invalid YAML is rejected by API server; no Pod exists for scheduler to place). One fresh retry pending; original score remains on record.
