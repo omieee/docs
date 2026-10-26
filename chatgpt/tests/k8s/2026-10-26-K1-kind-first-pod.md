@@ -326,3 +326,16 @@ Events:
 **First score: PARTIAL 2/3.** 0.75/1 local tunnel first, Pod status second, but Ready not a strict prerequisite; 0.25/1 correct intended command but missing resource selector `pod/k1-interview`; 1/1 HTTP 200 through local tunnel proves application response but not public reachability. On-the-spot teaching: `kubectl port-forward pod/k1-interview 8080:80`, left is local listener, right is container port, resource target mandatory. Counterexamples: healthy Ready Pod without tunnel yields curl connection refusal; running but NotReady Pod with a listening server may still be reachable through tunnel. Original answer and first score retained.
 
 **Fresh Q3 retry as asked:** "A Pod named `k1-interview` is Running, nginx listens on port 80, and there is no local tunnel. You want to reach it only from your own laptop on local port 9090. Write the complete `kubectl` command, and say whether a failed readiness check would necessarily prevent the tunnel from working." Answer pending.
+
+
+### Round 3 Q3 fresh retry and interview checkpoint verdict
+
+**Q3 retry, asked previously:** A Pod named `k1-interview` is Running, nginx listens on port 80, and no local tunnel exists. Reach it only from the laptop on local port 9090. Write the full command and explain whether a failed readiness check necessarily prevents port-forward.
+
+**Om's fresh answer, verbatim:**
+
+> kubectl port-forward pod/k1-interview 9090:80 .. No failing rediness probe wil not prevent me to port forward
+
+**Retry score:** PASS 2/2. Full correct command and correct recognition that a readiness-check failure does not necessarily prevent reaching a Running application's listening port with port-forward. Original Q3 2/3 remains unchanged.
+
+**Interview verdict (one submission, ChatGPT): PARTIAL cold / all identified gaps repaired in fresh retries.** W4 practical checkpoint is evidenced but K1 full unit remains OPEN through W5–W7. Original 3 question scores: Q1 3/4; Q2 2.5/3; Q3 2/3, summing 7.5/10 on this interview's originally stated scoring. Each fresh retry 2/2; no retroactive cold rescoring. Independent Pod YAML: first 4/7, spontaneous second 5/7, coached corrected 7/7, then `kubectl apply --context kind-phase1-k1 -f k1-interview.yaml` created it. Independent `kubectl get pods -owide` and `kubectl describe pod k1-interview` verified 1/1 Running, 0 restarts, node `phase1-k1-control-plane`, container `web`, expected labels and events, 3/3 runtime verification. Proof came from Om's pasted terminal output; assistant did not run cluster commands and has not inspected git commit of his local `k1-interview.yaml` (test record and interview answers committed to GitHub separately). Full K1 drill later: 10 tasks no notes >=8 correct. No extra CKA exam prep in this week's allocation. W4 block was originally estimated by Om at ~60 active minutes, separate interview requested another 30 minutes; actual added focused minutes not measured, do not claim [90m] as a measurement.
