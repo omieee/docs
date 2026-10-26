@@ -313,3 +313,16 @@ Events:
 **Cold Q3 prompt as asked:** "Two Pods are running on your local kind node. Your new Pod `k1-interview` shows `1/1 Running`. You run `curl -i http://127.0.0.1:8080`, but it reports 'Failed to connect'. Someone says 'the Pod is broken, recreate it'. What would you check, in order, before accepting that conclusion? Name the `kubectl` command that could restore this particular local access and explain what it does and does not prove. No commands need to be run."
 
 **Q3 answer:** pending.
+
+
+### Round 3 cold Q3: local access vs application
+
+**Om's first cold answer, verbatim:**
+
+> 1. will see if port-forwaring is running or not .. if running will see if containers are Running state and Ready is true&#x20;
+> 2. I assueme if port-foward is down will issue kubectl port-forward myport:container port&#x20;
+> 3. it proves pod is up, containers are up port forward is successfully handling traffic from my local hort and the nginx is returing the success hom,epage.. but it still not prove anyone on internet can access my page
+
+**First score: PARTIAL 2/3.** 0.75/1 local tunnel first, Pod status second, but Ready not a strict prerequisite; 0.25/1 correct intended command but missing resource selector `pod/k1-interview`; 1/1 HTTP 200 through local tunnel proves application response but not public reachability. On-the-spot teaching: `kubectl port-forward pod/k1-interview 8080:80`, left is local listener, right is container port, resource target mandatory. Counterexamples: healthy Ready Pod without tunnel yields curl connection refusal; running but NotReady Pod with a listening server may still be reachable through tunnel. Original answer and first score retained.
+
+**Fresh Q3 retry as asked:** "A Pod named `k1-interview` is Running, nginx listens on port 80, and there is no local tunnel. You want to reach it only from your own laptop on local port 9090. Write the complete `kubectl` command, and say whether a failed readiness check would necessarily prevent the tunnel from working." Answer pending.
