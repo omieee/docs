@@ -181,3 +181,75 @@ pod/k1-interview created
 ```
 
 Result: manifest accepted by API server, object created. Container running/state and name/node verification NOT YET CHECKED. Interview prompt next (no command supplied): "Show that `k1-interview` is running, identify the node it runs on, and confirm its container is named `web`. Use the kubectl commands you have already learned. Paste your commands and terminal output."
+
+
+### Round 2 independent verification
+
+**Prompt as asked:** "Show that `k1-interview` is running, identify the node it runs on, and confirm its container is named `web`. Use the `kubectl` commands you have already learned. Paste your commands and terminal output."
+
+**Om's answer, verbatim (selected commands and full information required for proof):**
+
+```text
+Containers:
+  web:
+
+kubectl get pods -owide
+NAME           READY   STATUS    RESTARTS   AGE    IP           NODE                      NOMINATED NODE   READINESS GATES
+k1-interview   1/1     Running   0          50s    10.244.0.7   phase1-k1-control-plane   <none>           <none>
+k1-nginx       1/1     Running   0          128m   10.244.0.5   phase1-k1-control-plane   <none>           <none>
+
+> kubectl describe pod k1-interview 
+Name:             k1-interview
+Namespace:        default
+Priority:         0
+Service Account:  default
+Node:             phase1-k1-control-plane/172.18.0.2
+Start Time:       Mon, 26 Oct 2026 16:04:29 +0530
+Labels:           app=k1-interview
+Annotations:      <none>
+Status:           Running
+IP:               10.244.0.7
+IPs:
+  IP:  10.244.0.7
+Containers:
+  web:
+    Container ID:   containerd://c6f8aaf3b5ce6de54fcf2008ec717f460f534a02bd771b2e84492d4c29aac462
+    Image:          nginx:stable-alpine
+    Image ID:       docker.io/library/nginx@sha256:47928bf67eb62a1863cb08d9ecb52d3e704304ba614eaee17884204677702951
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Mon, 26 Oct 2026 16:04:30 +0530
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bbzvp (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-bbzvp:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    Optional:                false
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age   From               Message
+  ----    ------     ----  ----               -------
+  Normal  Scheduled  77s   default-scheduler  Successfully assigned default/k1-interview to phase1-k1-control-plane
+  Normal  Pulled     76s   kubelet            spec.containers{web}: Container image "nginx:stable-alpine" already present on machine and can be accessed by the pod
+  Normal  Created    76s   kubelet            spec.containers{web}: Container created
+  Normal  Started    76s   kubelet            spec.containers{web}: Container started
+```
+
+**Score:** PASS 3/3: commands independently selected; Pod Running/1-of-1 Ready, correct node and container `web` established by independent CLI evidence. Same node/image digest as `k1-nginx`; no fresh pull needed because image already present. The container readiness result is not a substitute for independent HTTP test. Final interview cold questions remain pending; do not close entire K1 unit.
