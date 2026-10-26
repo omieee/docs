@@ -288,3 +288,13 @@ Events:
 > Answer all three. I'll score them together before Question 3.
 
 **Answer:** pending.
+
+### Round 3 Q2: ImagePullBackOff troubleshooting
+
+**Om's first cold answer, verbatim:**
+
+> 1. that the kublet was not able to pull the image mentioned in the yaml either image is not there or auth error while pulliungh
+> 2. kubectl describe pod test-pod and will look for events related to Image pulls
+> 3. No port forward works after pod is reeady to serve users it just exposes the port to be used via different port from outside it doesnot fix the pod issue or bad image of the container
+
+**First score: PARTIAL 2.5/3.** 1/1 image pull error causes; 1/1 `kubectl describe pod test-pod` and Events; 0.5/1 correctly excludes port-forward as image pull fix, but incorrectly says Pod must be Ready and suggests external reachability. Taught: `ImagePullBackOff` incorporates delays between retries; `kubectl port-forward` waits for a Running Pod, does not require a Ready condition, and binds localhost by default (not public exposure). Official kubectl reference confirmed `--pod-running-timeout` and default `--address localhost`: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/. Fresh transfer check pending. Original score remains on record; no unit verdict.
