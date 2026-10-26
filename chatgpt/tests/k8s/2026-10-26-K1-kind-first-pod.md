@@ -1,6 +1,6 @@
 # K1 Part 1 · 2026-10-26 · W4 · kind cluster and first Pod
 
-Owner: ChatGPT. Planned box: W4 K1 1.5h (90m), Om permitted 120m; actual focused learner minutes **NOT REPORTED**, must ask Om, never infer from timestamps. No final K1 verdict: full unit includes W5–W7 kubectl surfaces and the 10-task cold drill (8/10). Terminal evidence below is Om's pasted output; ChatGPT did not run commands itself.
+Owner: ChatGPT. Planned box: W4 K1 1.5h (90m), Om permitted 120m; actual focused learner minutes **~60m ESTIMATED BY OM**, not measured; Om said "Time i didnot calculate may be an hour or so .. but ok i still may have 30-45 min time". Do not infer precision from timestamps. No final K1 verdict: full unit includes W5–W7 kubectl surfaces and the 10-task cold drill (8/10). Terminal evidence below is Om's pasted output; ChatGPT did not run commands itself.
 
 ## Prerequisite and learning evidence
 
@@ -114,4 +114,4 @@ Retry scored 2/2. Confirmed empirically by curl failure + still-running Pod. Ori
 - Demonstrated cluster creation, correct context, Ready node, first nginx Pod running, `describe` event chain, port-forward and HTTP 200, independent Pod survival after tunnel stop.
 - Current concept repairs landed on fresh retries; original two misses remain in this record.
 - Not yet K1 unit close: remaining `kubectl` surfaces in W5–W7; no three-question unit cold proof or scheduled 10-task drill yet.
-- Actual active minutes UNVERIFIED: ask Om to provide [NNm] before counting pace. No auto-inferred clock duration, no pace claim. No public exposure or Service/Ingress tested.
+- Active duration: [~60m] Om's approximate self-report, not measured. Up to ~30m of original W4 90m K1 box remains for independent practice, not added unit scope. No auto-inferred clock duration, no exact pace claim. No public exposure or Service/Ingress tested.
