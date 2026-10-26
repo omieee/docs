@@ -172,3 +172,12 @@ spec:
 ```
 
 **Round 1 repair assessment:** 7/7 of the specified fields present and structurally correct on textual review. This is a successful coached repair, not a retroactive 7/7 cold first attempt; first attempt remains 4/7 and spontaneous pre-feedback revision 5/7. No cluster execution proof yet. Next: save as `k1-interview.yaml` and execute `kubectl apply --context kind-phase1-k1 -f k1-interview.yaml` and paste output; then inspect the Pod.
+
+**Round 2 first runtime evidence, Om's terminal output, verbatim:**
+
+```console
+> kubectl apply --context kind-phase1-k1 -f k1-interview.yaml 
+pod/k1-interview created
+```
+
+Result: manifest accepted by API server, object created. Container running/state and name/node verification NOT YET CHECKED. Interview prompt next (no command supplied): "Show that `k1-interview` is running, identify the node it runs on, and confirm its container is named `web`. Use the kubectl commands you have already learned. Paste your commands and terminal output."
