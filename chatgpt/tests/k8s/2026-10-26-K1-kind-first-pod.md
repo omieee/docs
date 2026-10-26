@@ -298,3 +298,18 @@ Events:
 > 3. No port forward works after pod is reeady to serve users it just exposes the port to be used via different port from outside it doesnot fix the pod issue or bad image of the container
 
 **First score: PARTIAL 2.5/3.** 1/1 image pull error causes; 1/1 `kubectl describe pod test-pod` and Events; 0.5/1 correctly excludes port-forward as image pull fix, but incorrectly says Pod must be Ready and suggests external reachability. Taught: `ImagePullBackOff` incorporates delays between retries; `kubectl port-forward` waits for a Running Pod, does not require a Ready condition, and binds localhost by default (not public exposure). Official kubectl reference confirmed `--pod-running-timeout` and default `--address localhost`: https://kubernetes.io/docs/reference/kubectl/generated/kubectl_port-forward/. Fresh transfer check pending. Original score remains on record; no unit verdict.
+
+
+### Round 3 Q2 fresh retry
+
+**Question as asked:** "A Pod has STATUS: Running, READY: 0/1. Its nginx container is running and listening on port 80, but a readiness check is failing. Can `kubectl port-forward` still connect to nginx? Would that make nginx accessible from the public internet? Explain both."
+
+**Om's answer verbatim:**
+
+> Yes port-forward will work but not accessible to public internet because port-forward works by routing local traffic to certain ports .. not public internet
+
+**Retry score: PASS 2/2.** Correct that a Running-but-NotReady Pod can still be port-forwarded to a listening container port, and the localhost tunnel does not create public exposure. Original Q2 first score remains PARTIAL 2.5/3.
+
+**Cold Q3 prompt as asked:** "Two Pods are running on your local kind node. Your new Pod `k1-interview` shows `1/1 Running`. You run `curl -i http://127.0.0.1:8080`, but it reports 'Failed to connect'. Someone says 'the Pod is broken, recreate it'. What would you check, in order, before accepting that conclusion? Name the `kubectl` command that could restore this particular local access and explain what it does and does not prove. No commands need to be run."
+
+**Q3 answer:** pending.
