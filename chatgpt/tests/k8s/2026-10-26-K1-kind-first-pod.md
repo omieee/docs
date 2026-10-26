@@ -153,3 +153,22 @@ spec:
 ```
 
 **Round 1 first score:** 4/7 rubric points (Pod/v1 yes, Pod name yes, explicit namespace no, exactly one container yes, container name no, image yes, correct label no). Revision now 5/7 (container name corrected unprompted). Unverified: actual file path and runtime validity, because only pasted content was seen. The omitted namespace could resolve to `default` under current kubectl context, but is not an explicit manifest guarantee. `metadata.label` (singular) is unrecognised; use `metadata.labels`. Keep original answer and score as recorded, even after correction. No full unit verdict. Continued repair prompt: correct both metadata fields in own YAML, paste, then run proof.
+
+
+**Om's post-feedback corrected YAML, verbatim:**
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k1-interview
+  namespace: default
+  labels:
+    app: k1-interview
+spec:
+  containers:
+  - name: web
+    image: nginx:stable-alpine
+```
+
+**Round 1 repair assessment:** 7/7 of the specified fields present and structurally correct on textual review. This is a successful coached repair, not a retroactive 7/7 cold first attempt; first attempt remains 4/7 and spontaneous pre-feedback revision 5/7. No cluster execution proof yet. Next: save as `k1-interview.yaml` and execute `kubectl apply --context kind-phase1-k1 -f k1-interview.yaml` and paste output; then inspect the Pod.
