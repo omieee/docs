@@ -55,3 +55,26 @@ Score 2/2. All three signals named, each with what it allows (sorted: binary sea
 - Teaching: a separate later DSA slot, about 10 min: the three ways the first loop can go (go down, go up, stop at this row), a trace of the `break` case on the Q2 input, then the Q3 matrix run step by step. Proposed Sun Oct 25 (Sat Oct 24 already has 155 D14, 19 D28 and the 704 teaching).
 - Retry: one fresh question in new wording at the 74 D7 re-solve, Mon Oct 26. Correct = NEW 74 PASS and it counts; it also clears the Q3 local FAIL. Wrong = carries to D14, no loop.
 - 74 is not counted until then.
+
+## Retry, Mon Oct 26 (Claude), after the D7 cold PASS (2ceee38)
+
+- Separate item from the cold and from the NEW 704 retry (s6.6 #11). Teaching was Sun Oct 25 [14m]. Sent about 10:45 IST, answered 11:01, written in chat, no notes, no code, no AI. [16m] elapsed, active not reported.
+
+**Question as asked.** (a) `[[2, 4], [6, 8], [10, 12], [14, 16], [18, 20]]`, target `7`, your D7 code. For each round of the first loop, write `to`, `bo` and `mi`, and say whether that round goes UP, STOPs at this row, or goes DOWN. Then write which row the second loop searches, and what the function returns. (b) `[[1, 5, 9], [4, 6, 10], [7, 8, 12]]`: each row sorted, rows overlap. Name one target that is in this matrix but for which your code returns False, and in one line say which promise of problem 74 this matrix breaks.
+
+**Answer verbatim.**
+
+> 1.  to = 0, bo = 4, mi = 2 : 7 < 12
+>
+>  to = 0, bo = 1, mi = 0 : 7 > 4
+>  to = 1, bo = 1, mi = 1 : 7 < 8
+>  So row 1 is correct row
+>
+> 2. it will return false for 5. It broke the promice of the matrix being sorted
+
+**Scoring** (Om's D7 code run by Claude on both inputs: (a) returns False; (b) returns False for 5, 7, 8 and 9).
+
+- (a) Partial. Right: `to`, `bo` and `mi` in all three rounds, so the moves were UP, DOWN, then STOP at row 1 ([6, 8]), which is the row the second loop searches. This is the `break` case the Oct 23 Q2 traced wrong. Not given: the return value (False, 7 is not in [6, 8]) and the UP, STOP, DOWN labels. The deciding check was not written: round 1 and round 3 both show "7 < last value" (12, then 8), yet one went UP and one STOPPED; what tells them apart is the row's first value (7 < 10 goes UP; 7 < 6 is false, so STOP).
+- (b) Right. 5 is in the matrix and the code returns False. Generous reading tested (rule 9): "the matrix being sorted" read as the whole matrix sorted row after row, which is the 74 promise that each row starts above the last value of the row before; the precise words are that rows must not overlap. Clears the Oct 23 Q3 local FAIL.
+
+**Result: retry 1.5 of 2. NEW 74 PASS, final 7/8** (Q3 cleared to 2; Q2 stays 1 because the return value and the deciding check were not given). Same pass rule as the LC739 repair at 1/2 (Oct 17). Teaching only, in a later separate slot (s6.6 #11), together with the NEW 704 (b) point: write the check that decides each move. Not scored, no further retry. 74 now counts.
