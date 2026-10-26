@@ -53,3 +53,23 @@ Score 1/2. Both signals named and each one's use is right. Second part (O(log n)
 - Teaching: a separate later DSA slot, Sat Oct 24 after the 155 D14 and 19 D28 colds, about 10 min, Claude: the window rule with the `[1, 3]` hang, then `return left` with a trace.
 - Retry: one fresh question in new wording at the 704 D7 cold, Mon Oct 26. Correct = NEW 704 PASS and it counts. Wrong = carries to D14, no loop.
 - 704 is not counted until then (same as 155 and 739).
+
+## Retry, Mon Oct 26 (Claude), after the D7 cold PASS (94d6a47)
+
+- Separate item from the cold (s6.6 #11). Teaching was Sat Oct 24 [12m]. Sent 10:35 IST, answered 10:41, written in chat, no notes, no code, no AI. [6m].
+
+**Question as asked.** `nums = [2, 4, 6, 8]`, target `7`, your 704 code with `while left <= right`. (a) When the loop stops, what are `left` and `right`? If the function had to return the place where 7 should go to keep the list sorted, which index is that, and in one sentence why is it right (what is true of every value before it, and every value from it onwards)? (b) Someone changes `right = mid - 1` to `right = mid`. Give one small list and target where the loop never stops, and say in one line why. (c) If the problem did not say "O(log n)", would you still pick binary search for 704? One line why.
+
+**Answer verbatim.**
+
+> 1. when loop stops left is at positin where value currently is 8 and instead of returning -1 will return left pointer right is 1 pos back of it which currently points at 6 all values before it will be lesser than 7 and all values after it will be greater than 7
+> 2. `nums = [1,3]` and target `3` will break becaue it will run for ever .. because mid alone cal let window always same while mid - 1 decreases the window size each iteration
+> 3. Yes I would still chose because the list is sorted .. O(logN) is just liek second confirmation that we should use bin search
+
+**Scoring.**
+
+- (a) Right. Generous reading tested (rule 9): left at the 8 is index 3, right at the 6 is index 2, return left = 3; everything before index 3 is below 7 and the value at it is above 7. Clears the Q3 gap (`return left` and why).
+- (b) Wrong. [1, 3] with target 3 is the taught case for `left = mid`. With `right = mid` it does not hang: mid 0, 3 > 1, left becomes 1; mid 1, found, returns 1. The reason given (the window stops shrinking) is right in general, but the example is the old one, not worked for the changed line. A list that hangs: [5] with target 3 (mid 0, 3 < 5, right = 0, forever), or [1, 3] with target 0.
+- (c) Right. Sorted is the real signal; O(log n) only confirms. Clears the Q4 gap.
+
+**Result: retry 2 of 3 right. NEW 704 PASS, final 7/8** (Oct 23 5/8, plus Q3 and Q4 cleared), same rule as the LC739 repair that passed at 1/2 on Oct 17. The (b) miss stays recorded: the taught counterexample was recalled, not rebuilt for the mirror line. Teaching only, in a later separate slot of about 5 minutes (s6.6 #11), not scored; no further retry, since NEW 704 is closed. 704 now counts.
