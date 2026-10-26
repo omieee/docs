@@ -115,3 +115,41 @@ Retry scored 2/2. Confirmed empirically by curl failure + still-running Pod. Ori
 - Current concept repairs landed on fresh retries; original two misses remain in this record.
 - Not yet K1 unit close: remaining `kubectl` surfaces in W5–W7; no three-question unit cold proof or scheduled 10-task drill yet.
 - Active duration: [~60m] Om's approximate self-report, not measured. Up to ~30m of original W4 90m K1 box remains for independent practice, not added unit scope. No auto-inferred clock duration, no exact pace claim. No public exposure or Service/Ingress tested.
+
+
+## 30-minute optional W4 interview, Round 1 (user asked for rigorous assessment including Pod YAML)
+
+**Question as asked:**
+"Create `k1-interview.yaml`, a standalone Pod named `k1-interview` in namespace `default`, exactly one container `web`, image `nginx:stable-alpine`, label `app: k1-interview`. No AI/copy/docs for first attempt. Paste complete YAML before applying."
+
+**Om's first answer, verbatim:**
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k1-interview
+  label:
+    app: k1-interview
+spec:
+  containers:
+  - name: k1-interview
+    image: nginx:stable-alpine
+```
+
+**Om's spontaneous revision, verbatim, before coach scoring:**
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: k1-interview
+  label:
+    app: k1-interview
+spec:
+  containers:
+  - name: web
+    image: nginx:stable-alpine
+```
+
+**Round 1 first score:** 4/7 rubric points (Pod/v1 yes, Pod name yes, explicit namespace no, exactly one container yes, container name no, image yes, correct label no). Revision now 5/7 (container name corrected unprompted). Unverified: actual file path and runtime validity, because only pasted content was seen. The omitted namespace could resolve to `default` under current kubectl context, but is not an explicit manifest guarantee. `metadata.label` (singular) is unrecognised; use `metadata.labels`. Keep original answer and score as recorded, even after correction. No full unit verdict. Continued repair prompt: correct both metadata fields in own YAML, paste, then run proof.
