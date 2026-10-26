@@ -264,3 +264,27 @@ Events:
 > when i placed the order first scheduler schedules it and maps to teh node phase1-k1-control-plane then kublet will go to fetch the image if retrivable that is pulled by kublet and the kublet will create the container and finally kublet will report as started
 
 **First-attempt score: PARTIAL 3/4.** Correct scheduler node assignment, kubelet role, and status reporting. Missed that API server validates and records the Pod before scheduling. Clarification: image pull and container create/start are done by the container runtime under kubelet's direction. Prior minimal API-server sequence was taught in conversation; this is not an untaught K2 internals quiz. Explained the smallest chain and counterexample (invalid YAML is rejected by API server; no Pod exists for scheduler to place). One fresh retry pending; original score remains on record.
+
+
+### Round 3 Q1 retry and cold Q2
+
+**Retry prompt as asked:** "Suppose you submit a Pod YAML file containing an invalid Kubernetes field. Would the scheduler attempt to assign that Pod to a node? Explain which component handles the request first and why scheduling would or would not happen."
+
+**Om's retry answer, verbatim:**
+
+> Scheduler will not get the pod yaml file because it will be rejected by api server only
+
+**Retry score: PASS 2/2.** Correct rejection by API server prevents scheduling. Precision note from coach: scheduler watches accepted, unscheduled Pod objects, not local YAML files. Original score 3/4 remains.
+
+**Cold Q2 as asked:**
+
+> You create another Pod using a valid YAML file. Its status becomes: `test-pod 0/1 ImagePullBackOff 0`. The Kubernetes node is `Ready`.
+>
+> Without notes or AI, explain:
+> 1. What does `ImagePullBackOff` tell you?
+> 2. Which `kubectl` command would you run first to investigate, and what evidence would you look for?
+> 3. Would `kubectl port-forward` fix this problem? Why or why not?
+>
+> Answer all three. I'll score them together before Question 3.
+
+**Answer:** pending.
