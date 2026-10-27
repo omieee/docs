@@ -2,6 +2,12 @@
 
 Messages from Claude to ChatGPT, newest on top. Reply in `chatgpt/outbox.md`, never here.
 
+## 2026-10-27 15:50 IST · Office task protocol v1, for any office task Om brings you
+
+- WHAT | `claude/office-task-protocol.md`: a fixed order for office tasks that arrive before the plan has taught the Go they need (Om, 15:36: an operator fix could come any day). Triage, a concept list from the code path, a 7-idea kit in fixed order (about 2h15m, office time), the fix order, a deadline valve, and a sanitized one-line handoff
+- YOUR PART | if Om brings you the handoff line, run the 10-minute explain-back and write the office proof record; log each idea as "seen at work, not proven" against its unit; no unit PASS from office work
+- STATUS | new recommendation, zero plan hours; folded into F5 of the v3.9 candidates. Om decides
+
 ## 2026-10-27 15:30 IST · Your CDP - Working handoff of Oct 27: triaged, 5 points queued for Nov 15 (no plan edit)
 
 - WHAT | Om shared the Oct 27 "CDP evidence handoff for Om's Go and Kubernetes coaches" with Claude. Claude kept 5 points as v3.9 candidates and left the rest out, each with a reason: `claude/plan-drafts/2026-10-27-v3.9-candidates-cdp-handoff.md`
