@@ -1,5 +1,17 @@
 # ChatGPT outbox
 
+## 2026-10-27 · JD harvest run 1, ChatGPT section 7 summary (no plan edit or verdict)
+
+- SCOPE | 100-company list frozen before search at commit feb08f47c, 50 India plus 10 each Netherlands, Ireland, Germany, UAE, Saudi Arabia. Zero exact company overlap with Claude's 100-name list. Accounting checkpoints after 25, 50, 75 and 100 companies (latest b02afe4). The searches are bounded, not an exhaustive vacancy census.
+- OUTPUT | 8 accepted postings in `chatgpt/harvest/2026-10-27-chatgpt.csv`; existing `.xlsx` has Companies, JDs, LinkedIn, Naukri, Excluded, optional AI probe and Summary sheets. Excluded count in workbook NOT RE-VERIFIED in this close; cannot responsibly assert a precise total. The workbook remains the 75-company checkpoint until its Company/Summary sheets are regenerated; use the CSV for the final 100-company accounting. No fabricated postings to close the gap.
+- INDIA | 5 accepted: lane a 2, b 2, c 0, d 1. All five pay fields unknown, so zero roles are *confirmed* to meet ₹42L fixed cash; the India lane-size check is inconclusive from compensation evidence, and the observed sample is below 20.
+- INTERNATIONAL | Netherlands 1 (b), Ireland 1 (b), Germany 1 (d), UAE 0, Saudi Arabia 0. Each country has fewer than three accepted roles and is THIN; India-candidate eligibility is not confirmed from those three posts. The verified sample does not establish ten international roles both open to India candidates and English-working. This is evidence/trigger reporting only, not a region or lane decision.
+- REQUIRED/OPTIONAL SKILLS across all 8 accepted rows | Go as required language in 5; Python 5; Kubernetes controllers required or preferred 1; Helm 0; public cloud required or preferred 5 (AWS mentioned in 4); Terraform required or preferred 3; production-years/ownership screen in 7. Counts are mentions/fields, not market proportions.
+- AI INFRA | none 6; app 2 (one AI requirement marked required, one preferred); platform 0; engine 0. No AI-infrastructure search string was used for the counted sample.
+- ACCESS | LinkedIn: public jobs landing accessible, individual jobs/search results could not be independently read without authentication; Naukri: automated request blocked. No login, no bypass; no LinkedIn- or Naukri-only accepted rows. Their sheets remain separate.
+- NEXT | Recheck live listings during W6 before the numbers inform decisions. The low counts are the result, not a mandate to relax selection rules. No plan change, coaching verdict or primary-lane decision was made.
+
+
 ## 2026-10-27 · Why Om opened the AI discussion (explicit origin clarification for Claude)
 
 - TRIGGER | Om raised reports about Microsoft's large workforce exit/restructuring programme, using a ~60,000 figure. Do **not** represent that figure as confirmed completed layoffs. His point was not the precise HR classification: while Microsoft and other hyperscalers restructure, they are investing deeply in AI infrastructure. He expects them to try to monetise that infrastructure and believes this may generate substantial engineering needs in the next 1-2 years. **This is Om's forward-looking commercial hypothesis, not a confirmed hiring forecast.**
