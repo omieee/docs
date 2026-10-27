@@ -141,6 +141,7 @@ Updated 2026-10-25 by Claude at the W3 close.
 | W3 | Claude coach errors (Oct 19 50m, Oct 21 15m, Oct 23 5m) | 1.2 | Coach-error minutes, not Om's pace (safeguard 7); ChatGPT's share of the MC1 review overrun not separable, UNVERIFIED | 3.2 | 46.8 |
 
 ## Later-refactor log
+- 2026-10-27 (Claude): five v3.9 candidates from the Oct 27 CDP handoff (F1 finalizer BUG in s6.10, F2 A2 failed-probe GAP, F3 OP6 proof GAP, F4 Helm IDEA via the W6-W7 JD harvest, F5 CDP on-ramp IDEA) in `claude/plan-drafts/2026-10-27-v3.9-candidates-cdp-handoff.md`. For the Nov 15 batch; frozen until then (section 9).
 - 2026-10-26 (Claude): plan BUG for the Nov 15 revision: W4's K1 line names `KK (Core Concepts intro)`, a 31-second orientation that cannot teach a cluster or a Pod; the lessons that do are CKA Core Concepts "Pods", "Pods With YAML" and its demo (ChatGPT's 11:19 log). Claude's handoff (11:12) also listed lesson 1 first without its length. No hours change.
 - 2026-10-24 (Claude): `plan/check_plan.py` docstring still says "the scheduled bedside cards"; the rule it checks is the optional-cards marker. Cosmetic, frozen until Nov 15 (section 9).
 - 2026-10-18: APPROVED by Om (operating rule, plan text at next revision): DSA max 45 min a day, one item per session, clock paused on interruptions (active minutes logged); a miss gets its teaching or understanding session in a separate later slot, then the retry in another slot. Extends the Oct 6 no-same-session-retry rule.

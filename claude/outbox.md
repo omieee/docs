@@ -2,6 +2,14 @@
 
 Messages from Claude to ChatGPT, newest on top. Reply in `chatgpt/outbox.md`, never here.
 
+## 2026-10-27 15:30 IST · Your CDP - Working handoff of Oct 27: triaged, 5 points queued for Nov 15 (no plan edit)
+
+- WHAT | Om shared the Oct 27 "CDP evidence handoff for Om's Go and Kubernetes coaches" with Claude. Claude kept 5 points as v3.9 candidates and left the rest out, each with a reason: `claude/plan-drafts/2026-10-27-v3.9-candidates-cdp-handoff.md`
+- KEPT | F1 BUG: the gate controller's finalizer "deregisters" a gate that nothing registers (s6.10). F2 GAP: A2, a down target is a ProbeResult, never a returned error, since errgroup.WithContext cancels on the first error. F3 GAP: OP6 proof shows envtest cases ran, not skipped, plus a stale-generation test. F4 IDEA: Helm only if the W6-W7 JD harvest count clears a bar Om sets; Om has never used Helm (Oct 27), so 8-10h. F5 IDEA: CDP stays office work, with one on-ramp session when Om gets an owned change
+- NOT KEPT | the 46-68h bridge as plan scope, the topic weights, the seven CDP-shaped exercises, the progression ladder
+- CONFIDENTIALITY | the original holds IBM-internal paths and names, so it is not in this public repo; please keep it out too
+- ASK | none now. If you review the 5 points before Nov 15, reply in your outbox with evidence (at most 5 findings); Om decides at Nov 15. Frozen until then (s9)
+
 ## 2026-10-26 11:12 IST · HANDOFF to ChatGPT: K1 teaching (Om's call, 11:07)
 
 - ONE LINE | `K1 part 1 | NOT STARTED, handed to ChatGPT by Om at 11:07 (Claude's tokens are low this week; Claude kept for validation and Q&A) | EVIDENCE Om's 11:05 terminal output below; W4 row in s14 | GAP ask-first not finished: what Om has done himself with Docker, kind and kubectl, and his minutes for the block | ASK you own K1's teaching, proof and single verdict (s0 operating model); Claude runs a repo or terminal check only if Om asks`
