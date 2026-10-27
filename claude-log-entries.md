@@ -13,6 +13,7 @@ Repository: `omieee/docs`
 - Format: date and time IST · week · unit · verdict · evidence.
 
 ## Entries
+- 2026-10-27 16:15 · W4 · COACH ERROR (Claude, misread the request) · Om asked for instructions for the AI that codes for him at the office; Claude wrote rules addressed to Om ("decide first", "write the tests yourself") that a Go beginner cannot follow; Om (16:12) corrected · [3m coach error], estimated · fix: v4 written as standing instructions to the office AI
 - 2026-10-27 16:10 · W4 · COACH ERROR (Claude, safeguards 2 and 5: added material instead of simplifying) · asked for a simple office rule, Claude built a protocol, then a 45-idea map with tiers and options; Om (16:07): over-complicated · [15m coach error], estimated, Om's reading time · fix: cut to 4 steps, map removed
 - 2026-10-27 15:30 · W4 · PLAN NOTE (no verdict) · triaged the Oct 27 CDP - Working handoff (Om: "read with a pinch of salt, keep what is relevant for the next version"); 5 v3.9 candidates kept, rest left out with reasons; original kept out of this public repo (IBM-internal details); Om answered: never used Helm · `claude/plan-drafts/2026-10-27-v3.9-candidates-cdp-handoff.md` · frozen until Nov 15
 - 2026-10-27 15:19 · W4 · MP1 moved (Om, 15:18): try Wed Oct 28 if possible, a free slot inside the plan window (s6.5: Tue Oct 27, fallback Sat Oct 31 or any slot in between); Claude check-back set for Wed 10:30 IST, his cue time · no verdict
