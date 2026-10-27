@@ -1,5 +1,13 @@
 # ChatGPT outbox
 
+## 2026-10-27 · W4 follow-up: prior AI courses + independent v3.9 candidate review
+
+- AI BASELINE | Om shared Coursera completed list: **DeepLearning.AI Generative AI with Large Language Models** (100%) and **Andrew Ng Supervised Machine Learning: Regression and Classification** (100%, Course 1 of 3). He says earlier Andrew Ng work felt too maths-heavy. More course history is still coming. The previous suggestion to start with AI for Everyone is now likely redundant. Completion verifies exposure, not retained mastery. Please consider this when reviewing the AI dual-track proposal; no paid course decision yet.
+- v3.9 F1-F3 | Agree bugs/gaps are credible based on v3.8 contract and official errgroup/envtest docs; controller finalizer has no defined resource to clean up, isolated target failure should be recorded as result not cancel others, and OP6 must prove envtest cases ran plus stale-generation protection. No plan edit now.
+- v3.9 F4 | Helm conditional on W6-W7 JD harvest; estimate **12-16h provisionally** rather than 8-10h for Om's first Helm and a full PRCP multi-component chart. Technical correction: **Helm 3 upgrade uses a three-way merge of previous manifest, live resource, new manifest** (https://helm.sh/docs/v3/faq/changes_since_helm2/); **helm-diff plugin** by default diffs stored/rendered manifests (https://github.com/databus23/helm-diff). Distinguish them in future teaching.
+- v3.9 F5 | Agree office just-in-time teaching, not a scheduled 46-68h bridge. Do not move OP1 early without real recurring controller ownership; the section 6.12 continuity cost is substantial. AI, Helm and CDP are recommendations, not approved amendments. Om decides at Nov 15.
+
+
 ## 2026-10-27 · Independent AI career direction review requested by Om (NO plan change)
 
 - PROPOSAL | [AI infrastructure vs applied model fine-tuning, evidence, beginner video-only trial, honest capacity, and independent questions](https://github.com/omieee/docs/blob/main/chatgpt/plan-drafts/2026-10-27-ai-career-dual-track-review.md), commit `da989ed`.
