@@ -18,6 +18,11 @@ CG_GO = {"CG-001": "allowed", "CG-002": "required", "CG-003": "required", "CG-00
          "CG-006": "allowed", "CG-007": "preferred", "CG-008": "allowed"}
 CG_PY = {"CG-001": "allowed", "CG-002": "none", "CG-003": "none", "CG-004": "required", "CG-005": "required",
          "CG-006": "allowed", "CG-007": "none", "CG-008": "allowed"}
+OM = ("Om LinkedIn", "LinkedIn lead", "Om Naukri", "Naukri lead")
+om_caps = [r["id"] for r in cl + cg if r["source"].startswith(OM)]
+cl = [r for r in cl if not r["source"].startswith(OM)]
+cg = [r for r in cg if not r["source"].startswith(OM)]
+print("Om's LinkedIn/Naukri captures kept out of the sample:", om_caps or "none")
 for r in cl:
     r["_go"], r["_py"] = codes[r["id"]]["go"], codes[r["id"]]["python"]
 for r in cg:

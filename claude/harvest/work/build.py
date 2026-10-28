@@ -38,6 +38,9 @@ for ids, val in [("001 049 054 060 062", "required"),
                  ("002 010 026 029 039 051 056 059 061 067", "preferred")]:
     for i in ids.split():
         PY["CL-" + i] = val
+# Rows from Om's LinkedIn or Naukri captures go to their own sheets and are not part of the
+# company-page sample that the Summary counts: they come from Om's alerts, not the lane strings.
+OM_SOURCES = ("Om LinkedIn", "LinkedIn lead", "Om Naukri", "Naukri lead")
 PRODUCT_BACKEND = set("CL-" + i for i in "016 018 022 036 038 040 049 054 057 060 070 072 073".split())
 
 # Manual notes for listed companies, from pages read on Oct 27.
@@ -86,7 +89,7 @@ cg_names = {r["company"].lower(): r["no"] for r in cg_companies}
 accepted, coding, withdrawn_rows = [], [], []
 for d in acc_raw:
     row = {k: d.get(k, "") for k in HEADER}
-    row.update(region="India", country="India", retrieved=RETRIEVED.isoformat(), status="open")
+    row.update(region="India", country="India", retrieved=d.get("retrieved") or RETRIEVED.isoformat(), status="open")
     row["pay_stated"] = d.get("pay_stated") or "unknown"
     for k in ("english_team", "local_language", "language_years_screen", "interview_format", "where_held", "india_candidates"):
         row[k] = "n/a"
@@ -103,6 +106,8 @@ for d in acc_raw:
         withdrawn_rows.append((row, WITHDRAWN[row["id"]]))
         continue
     accepted.append(row)
+    if row["source"].startswith(OM_SOURCES):
+        continue  # Om's captures: own sheet, kept out of the sample counts (spec v2.1 s8)
     yrs = re.search(r"\d+", row["years_asked"] or "")
     prod = (row["prod_history_screen"] or "").lower()
     cloud_txt_req = row["skills_required"]
@@ -255,14 +260,18 @@ for emp, (a, x) in web.items():
 sheet("Companies", ["no", "company", "group", "searched_on", "postings_read", "accepted", "result_note"], comp_rows,
       {"company": 26, "group": 24, "result_note": 90})
 # JDs
-ws = sheet("JDs", HEADER, [[r[k] for k in HEADER] for r in accepted],
+sample = [r for r in accepted if not r["source"].startswith(OM_SOURCES)]
+li_rows = [r for r in accepted if r["source"] in ("Om LinkedIn", "LinkedIn lead")]
+nk_rows = [r for r in accepted if r["source"] in ("Om Naukri", "Naukri lead")]
+ws = sheet("JDs", HEADER, [[r[k] for k in HEADER] for r in sample],
            {"title": 40, "url": 40, "work_summary": 60, "skills_required": 60, "skills_preferred": 50, "notes": 60, "employer": 22})
-nj = len(accepted) + 1
+nj = len(sample) + 1
 # LinkedIn, Naukri, AI probe: header only
-for t, note in [("LinkedIn", "No rows. Claude's web tools are refused by LinkedIn (robots disallowed, tested Oct 27). Rows arrive only from Om's capture (spec section 6) or from LinkedIn leads re-found on the employer page (none tonight)."),
-                ("Naukri", "No rows. Claude's web tools are refused by Naukri (robots disallowed, tested Oct 27). Rows arrive only from Om's capture (spec section 6)."),
-                ("AI probe", "Not run in this pass. No AI-infrastructure search string was used for the counted sample (spec section 3).")]:
-    s = sheet(t, HEADER, [])
+for t, rows, note in [("LinkedIn", li_rows, "Rows from Om's LinkedIn captures only (spec v2.1 section 8); Claude's tools are refused by LinkedIn. Raw pastes: claude/harvest/linkedin/. Not in the Summary sample counts."),
+                ("Naukri", nk_rows, "Rows from Om's Naukri captures only (spec v2.1 section 8); Claude's tools are refused by Naukri. Not in the Summary sample counts."),
+                ("AI probe", [], "Not run in this pass. No AI-infrastructure search string was used for the counted sample (spec section 3).")]:
+    s = sheet(t, HEADER, [[r[k] for k in HEADER] for r in rows],
+              {"title": 40, "url": 40, "work_summary": 60, "skills_required": 60, "skills_preferred": 50, "notes": 60, "employer": 22})
     s["A1"].comment = Comment(note, "Claude")
 # Excluded
 sheet("Excluded", ["id", "company_no", "employer", "title", "url", "retrieved", "reason", "reason_group", "chatgpt_list"],
@@ -289,7 +298,7 @@ def W(r, c, v, b=False):
 
 
 W(1, 1, "Claude JD harvest, run 1 (India), retrieved 2026-10-27", True)
-W(2, 1, "Spec: claude/harvest/HARVEST-SPEC-2026-10.md v2. All counts below are live formulas over the JDs, Coding and Excluded sheets.")
+W(2, 1, "Spec: claude/harvest/HARVEST-SPEC-2026-10.md v2.1. All counts below are live formulas over the JDs, Coding and Excluded sheets.")
 W(3, 1, "z for 95% range"); W(3, 2, 1.96)
 S["B3"].font = Font(name=F, color="0000FF")
 W(3, 7, "Input: z value for a 95% Wilson score interval.")
@@ -375,6 +384,9 @@ for lab, val in [("Retrieved", "2026-10-27 (page says updated Oct 26, 2026)"), (
                  ("Plan section 3 value (Dec 2025)", "25th 36.3L, median 53.5L, 75th 77.4L")]:
     W(r, 1, lab); W(r, 2, val); r += 1
 r += 1
+W(r, 1, "Om's captures (outside the sample above)", True); r += 1
+W(r, 1, "Accepted from Om's LinkedIn captures"); W(r, 2, f"=COUNTA(LinkedIn!A2:A{len(li_rows) + 1})" if li_rows else 0); W(r, 7, "LinkedIn sheet; from Om's alerts, not the lane strings"); r += 1
+W(r, 1, "Accepted from Om's Naukri captures"); W(r, 2, f"=COUNTA(Naukri!A2:A{len(nk_rows) + 1})" if nk_rows else 0); W(r, 7, "Naukri sheet"); r += 2
 W(r, 1, "Limits of this sample", True); r += 1
 for t in ["LinkedIn and Naukri unreadable by Claude's tools: Indian product companies (Flipkart, PhonePe, CRED, Groww, Zerodha, Dream11 and others) are under-represented.",
           "Readable sources skew to GCCs and SaaS on Greenhouse, Lever, Workday mirrors (Dreamwork), Built In and Getro boards.",
