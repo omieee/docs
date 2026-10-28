@@ -1,0 +1,23 @@
+# Capture 1 classification: Lease a Bike, Germany
+
+- Date classified: 2026-10-28
+- Raw evidence: [Claude's verbatim capture](https://github.com/omieee/docs/blob/main/claude/harvest/linkedin/2026-10-28-raw.md), capture 1, received 10:33 IST
+- Classification owner: ChatGPT, per HARVEST-SPEC-2026-10.md v2.1, §8.3 (all jobs outside India)
+- Source: Om LinkedIn
+- Exact LinkedIn URL recovered from public indexed result (not invented): https://de.linkedin.com/jobs/view/lead-ai-platform-engineer-m-f-d-at-lease-a-bike-deutschland-4483542694
+- Source limitation: direct LinkedIn page not independently fetched due access restriction; employer, title, pay and description match indexed result. The raw user capture supports the detailed fields.
+- Employer: Lease a Bike | Deutschland; legal organization in posting: Bike Mobility Services GmbH, a Pon.Bike subsidiary
+- Role: Lead AI Platform Engineer (m/f/d); Cloppenburg, Lower Saxony, Germany
+- Date: 2026-10-27 (capture dated Oct 28 says "1 day ago"; v2.1 §8.5 allows this day-level conversion)
+- Pay: €95,000–€110,000 per year (the posting's stated range)
+- Work model: full-time, 100% remote *within EU only*, regular team meetups
+- English: fluency explicitly required; conversational German or Dutch is a nice-to-have
+- Experience screen: at least 6 years platform, DevOps, cloud or MLOps, with production platform design and operation; production ML/LLM workload operation required
+- Role duties: own AI platform architecture and roadmap, provisioning via Terraform/AWS, operate Bedrock gateway and SageMaker/GPU workloads, Snowflake-connected orchestration/CI, model tracing/evaluation/cost governance, security/access controls and mentorship
+- Main-harvest decision: EXCLUDED; primarily managed AI platform, cloud infrastructure and MLOps operations, not backend-heavy platform software or a distributed control-plane software engineering role (§§1,3). No Go/Python/backend implementation language required, Kubernetes and vLLM are optional. Do not count toward lane a/b/c/d sample.
+- AI probe interpretation (not counted in main sample): **platform**. Model serving/GPU workload scaling and managed inference access are core duties; this does *not* prove a Kubernetes controller or self-hosted model runtime requirement.
+- Other fields: Terraform or AWS CDK required (alternatives); AWS required; Helm not named; Kubernetes and self-hosted serving preferred; no Kubernetes-controller requirement; interview format two steps (introduction and technical conversation)
+- Candidate geography: role held anywhere in EU. From the page, ability to apply while based in India and relocation support are **unknown**; worldwide remote is NOT offered. Do not infer EU work authorization/visa conditions not stated.
+- Key fit gap for Om (per plan v3.8 §2, Om to confirm): no evidenced experience running ML/LLM workloads in production. IBM cloud/Kubernetes experience is relevant but does not substitute for this requirement.
+- Duplicate check: employer was on neither coach's 100-company list and was not in either accepted JD CSV when checked.
+- Recording: one Excluded entry in ChatGPT workbook; LinkedIn sheet records accepted rows only per §5. No additional accepted JD or employment decision.
