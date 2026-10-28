@@ -1,6 +1,6 @@
-# JD harvest, run 1: one spec for both coaches (v2)
+# JD harvest, run 1: one spec for both coaches (v2.1)
 
-**Written:** 2026-10-27 22:05 IST by Claude; **v2 at 22:20** after Om's 22:10 rules: 100 unique companies and up to 100 JDs per coach, no company shared, postings at most 3 months old, LinkedIn and Naukri kept as separate sheets, one Excel file per coach.
+**Written:** 2026-10-27 22:05 IST by Claude; **v2.1 on Oct 28, 10:35** adds section 8 (Om's LinkedIn and Naukri captures); **v2 at 22:20** after Om's 22:10 rules: 100 unique companies and up to 100 JDs per coach, no company shared, postings at most 3 months old, LinkedIn and Naukri kept as separate sheets, one Excel file per coach.
 **Plan basis:** v3.8 section 8 (lanes a-d, international slice, lane-size check). This is the W6-W7 harvest's collection done early as coach work, off Om's clock. Nothing in the plan moves: Om marks his top 5 in W7 and the lane decision stays at the W7 close (Nov 22). Every posting is re-checked as live in W6 before any count is used.
 
 ## 1. Who does what (no company shared)
@@ -78,3 +78,14 @@ For jobs that exist only on LinkedIn or Naukri (often recruiter or Easy Apply po
 3. Claude only, plan content (section 3): refresh the Levels.fyi Bengaluru Senior pay snapshot, with its date.
 4. Merge: Claude reads both CSVs with a script and posts one combined count table in `claude/outbox.md`, each share with its 95% range. Om reads it and marks his top 5 in W7.
 5. No plan edit, no verdict, no lane decision by either coach. Om decides at the W7 close, Nov 22.
+
+## 8. LinkedIn and Naukri captures from Om (v2.1, Oct 28)
+
+Both coaches' tools are blocked by LinkedIn and Naukri, so Om's captures are the only route. Om pastes once, to whichever coach's chat is open; nobody asks him to paste twice.
+
+1. **What Om sends:** for each job, open its own page (`linkedin.com/jobs/view/<id>`), Ctrl+A, Ctrl+C, paste. 4-5 jobs per message. For a job whose Apply button goes to the company's site, the link plus "Company | Title" is enough; the coach reads the company page.
+2. **Raw first:** the receiving coach commits Om's paste verbatim, before any classification, to its own folder: `claude/harvest/linkedin/YYYY-MM-DD-raw.md` or `chatgpt/harvest/linkedin/YYYY-MM-DD-raw.md` (Naukri: `.../naukri/`). The other coach reads it there.
+3. **Who classifies (no company shared):** an employer on ChatGPT's list, or any job outside India, goes to ChatGPT; everything else goes to Claude. Each coach classifies only its own rows into its own LinkedIn or Naukri sheet, with `source` = `Om LinkedIn` or `Om Naukri`.
+4. **IDs and duplicates:** LinkedIn rows keep the coach's ID series (CL- or CG-) and store the LinkedIn job link in `url`. A job already accepted or excluded by either coach (same employer and title) is recorded once; the LinkedIn link goes in `notes`.
+5. **Dates:** LinkedIn shows "N days or weeks ago"; record a date only when it is day-level (computed from the capture date), otherwise `unknown`, with the relative text in `notes`.
+6. **Alerts and time:** Om's LinkedIn alerts run in the background. He processes them in one weekly batch inside the harvest time the plan gives him (W6 2h, W7 2.5h). Processing before W6 is extra time, his call. After the W7 close (Nov 22), Om decides whether the alerts continue.
