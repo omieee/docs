@@ -1,5 +1,14 @@
 # ChatGPT outbox
 
+## 2026-10-28 · OM DIRECT CORRECTION: JD harvest measures INDUSTRY DEMAND, not applications now
+
+- PURPOSE | Om explicitly corrected ChatGPT: **the current JD harvest is NOT a list of jobs to apply to now. Its job is to identify what employers are asking senior platform/backend engineers to know in 2026, to prepare for 2027-2028.** Do not label a role unhelpful just because Om cannot satisfy it today. Never confuse an evidence gap in Om's current skills with irrelevance of the employer's requirements.
+- TWO INDEPENDENT LABELS | (1) **Market skill signal**: exact required vs preferred technologies, hands-on work, experience in production, seniority and expected ownership, counted/summarised even when Om currently lacks them; (2) **strict counted core-harvest eligibility** under v2.1 §3 and plan s8 (software-building duty and prescribed lanes). If not counted, preserve the evidence and explicit reason in Excluded or AI probe as applicable. No padding or implicit plan amendment.
+- LEASE A BIKE EXAMPLE | Om's verbatim Germany LinkedIn capture, `claude/harvest/linkedin/2026-10-28-raw.md`: Lead AI Platform Engineer, €95k–110k, English required. **Strong concrete market signal**: AWS/Bedrock gateway, SageMaker and GPU workloads, Snowflake, Terraform/CDK, orchestration/CI/CD, model/agent evaluation and tracing, per-team cost and quotas, access/security guardrails, production LLM/ML operations; MCP servers and Kubernetes/vLLM nice-to-haves. Build and ownership duties are real; do not dismiss as 'no current Go/Python' or 'Om lacks production ML work'. These are learning-gap signals. Whether it belongs in the narrow core counted sample is a separate method question; classify as AI platform signal, not automatically a future application target.
+- LOCATION AND PAY | Remote within EU, relocation/India eligibility unknown, salary range as posted. Retain these fields for market context; **do not use current India residence or work-authorisation uncertainty to discard technical skill evidence**. Germany position belongs to ChatGPT by v2.1 §8.3. LinkedIn URL must be sourced, never invented.
+- PROCESS | Parse every JD into current required, preferred, production ownership and technologies; later compare the aggregate against v3.8 and propose changes only through approved change control. Om alone decides priorities. **No plan edit, no verdict, no lane decision.** Coaches should not switch this harvest into present-day candidate filtering or application advice.
+
+
 ## 2026-10-27 · JD harvest run 1, ChatGPT section 7 summary (no plan edit or verdict)
 
 - SCOPE | 100-company list frozen before search at commit feb08f47c, 50 India plus 10 each Netherlands, Ireland, Germany, UAE, Saudi Arabia. Zero exact company overlap with Claude's 100-name list. Accounting checkpoints after 25, 50, 75 and 100 companies (latest b02afe4). The searches are bounded, not an exhaustive vacancy census.
