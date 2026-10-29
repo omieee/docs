@@ -1,14 +1,15 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ this commit · 2026-10-26 16:40 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
-- ROLE: equal partner with ChatGPT; no coaching owner (Om, Oct 23 14:56). WRITE plain Indian-style English, full sentences, explain every technical word first time, clear over short. Om's Oct 25 view: too much of his time goes in monitoring Claude; errors he catches count even when logged 0m.
+Reflects omieee/docs @ this commit · 2026-10-29 21:15 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+- ROLE: equal partner with ChatGPT; no coaching owner (Om, Oct 23 14:56). WRITE plain Indian-style English, full sentences, explain every technical word first time, clear over short. Say every "why" out loud in questions too (Om, Oct 29: "mind needs to be spoken out").
+- OM'S OCT 29 RULES: video first for any new topic, ask prerequisites first, no proof question until Om says a topic is clear; questions must name the column, line and what is saved (no clipped style). He keeps going until he says "stop for the day"; ask his active minutes at the end.
 - PLAN: v3.8 in plan/ (25bb309e79a610f2, checker 6c55bf0713278013 PASS), 834.5h, gates May 2 2027, Feb 6 2028, Mar 5 2028. Frozen until Nov 15 except section 9 triggers.
-- W3 CLOSE (Claude, Oct 25): PARTIAL. Om active about 18.3h vs 12 (estimate). DSA about 7.3h vs 2.5h; L1 2.6h vs 1h. LinkedIn not live. Coach errors: Claude 11 (70m measured, Om caught 6), ChatGPT 3. Contingency 3.2 used, 46.8 left.
-- W4 (Oct 26-Nov 1, 12h): DSA 2.25h (Mon 704 and 74 D7 + one fresh question each; Tue 739 D14; Sun Nov 1 20 D28; lesson 15 then NEW 875), R3 1.5, K1 1.5 DONE Oct 26 by ChatGPT (part 1 about 60m + 30m interview, PARTIAL cold, repairs passed; K1 open to the W7 drill; ChatGPT owns K1), L1 1.5, Y3 1 DONE early Oct 25 (part check PASS 6/6), Y7a 0.75, MP1 1h Tue Oct 27 (fallback Sat Oct 31; Claude runs it), close 0.75. Warm-up trial W4-W5 (5 min recall at the start of each non-DSA desk session).
-- DSA 26 / 19 (Oct 26): 704 D7 PASS, 74 D7 PASS, NEW 704 PASS 7/8, NEW 74 PASS 7/8. Later teaching slot, not scored: 704 `right = mid` mirror hang ([5], 3); 74 write the row-start check that decides UP vs STOP. Next colds: 739 D14 Tue Oct 27, 20 D28 Sun Nov 1, 704 and 74 D14 Mon Nov 2, 155 D28 Nov 7.
-- P1: pytest basics, yield fixtures, dataclass equality all PASS (W3 plus W4's P1 hour). Next P1 item: psycopg 3 prerequisite (W5, ask first). L1 closes W7. GO: RR1 slipped Oct 24 (`t *testing.T`, `strings.Builder`); teach both at G2 start (W5).
-- MC1 FAIL 2/10 (Oct 20). Input-reading drill (20-30m) waits for Om's yes or no.
-- PRs merged Oct 25: lld-patterns #2, learning-go-sandbox #3, learning-python-sandbox #3 (ChatGPT checked). Open: dsa-python #11 (704 D7), #12 (74 D7).
-- Continuity: Go last used Oct 24, W4 is its one idle week, G2 W5. K1 starts W4. LLD last Oct 22.
-- Cue 10:30 AM daily. Office 1-2 days a week (often Mon, Wed, Fri).
-- Pushes: add_repo push was refused at 09:31 and granted at 11:03 on retry; writable clone in /home/claude/docs. No token use.
+- W4 (Oct 26-Nov 1, 12h): DSA colds done (704 and 74 D7 Oct 26, 739 D14 Oct 27), teaching slots done Oct 27-28, lesson 15 Oct 28; NEW 875 code done Oct 29. K1 ChatGPT (PARTIAL cold, repairs passed). L1 open (ChatGPT check PARTIAL Oct 26; PRCP use note in docs/ not done). Y3 part 1 done Oct 25. MP1 SKILL SHOWN Oct 28. Y7a in progress. R3 not started. Sun Nov 1: 20 D28, then the weekly close.
+- 875 (Oct 29): PR #14 `8021257`, 0/149,180 wrong, 8/9 planted caught (`le = 0` survives: add one assert with answer 1, no re-score). [25m], video first, closed-book, no AI. NEW interview (mechanism, trace, transfer, pattern signal) due in the next DSA slot, Fri Oct 30.
+- Y7a (Oct 29): part check PARTIAL 3/6 after retries (Protocol, repository, conftest). Unit proof open: paragraph in; SQL Q1 2/2; Q2 1/2 taught, retry (gate_decision RESTRICT to CASCADE) unanswered; Q3 (probe_result id with no source) to ask. Then the verdict. Records in claude/tests/python/2026-10-29-Y7a-*.md.
+- DSA 26 / 19. Next colds: 20 D28 Sun Nov 1, 704 and 74 D14 Mon Nov 2, 155 D28 Nov 7, 739 D28 Nov 10.
+- P1 next: psycopg 3 prerequisite (W5, ask first). GO: G2 W5, teach `t *testing.T` and `strings.Builder` first (RR1 slip).
+- Continuity: Go last Oct 24 (W4 idle week), Kubernetes K1 Oct 26, LLD MP1 Oct 28.
+- Coach errors W4 (Claude): Oct 26 K1 resource (contributing), Oct 27 x3, Oct 29 video-first [10m] and clipped questions [2m].
+- Local Postgres 16 works in the container (run as user claude); used for SQL teaching with real output.
+- Pushes: add_repo push refused at 14:11 Oct 29, granted at 21:11 on Om's yes. No token use.
 - Own process rules: fetch every branch and PR head before saying anything is missing; push a coach-error line before the reply that admits it; minutes from message times, elapsed vs active, ask only to confirm; check the clock before any timestamp; plant bugs with PYTHONDONTWRITEBYTECODE=1.
