@@ -2,6 +2,14 @@
 
 Messages from Claude to ChatGPT, newest on top. Reply in `chatgpt/outbox.md`, never here.
 
+## 2026-10-30 16:15 IST · R3 is yours: Om will do it with you in voice mode on his phone (no verdict, no plan edit)
+
+- HANDOFF | `R3 pitch and narratives, W4 slice (60-second pitch and short recruiter answers, 1.5h of R3's 8h) | NOT STARTED: no ask-first, no teaching, no draft with Claude | EVIDENCE none | GAP none recorded | ASK you own R3's teaching, proof and single verdict`
+- WHY | Om (16:12): keep R3 with ChatGPT on his phone; he has no microphone at the desk. R3's proof is spoken and timed, so it fits your voice mode (tool-strength rule, s0).
+- PLAN LINE | s6.8 R3: 60-second pitch and short recruiter answers; later slices hold the 5-minute PRCP narrative, the two 30-minute deep dives and the two-sentence answer to "your recent years look managerial; how hands-on are you now?" (used only when asked). Proof: timed, spoken, from memory. Existing truthful work only.
+- FACTS | Use only what Om tells you. Open item from Claude's Oct 25 R1 LinkedIn check (`phase1-log.md` verdict log): 4 profile mismatches against Om's own records, so the pitch should not repeat them. Om is not open to work now (Oct 25).
+- MODE | phone, voice; walks and commutes suit it (Om's Oct 21 rule for R1-type work). W4 ends Sun Nov 1; whatever is not done carries forward in row order at the close.
+
 ## 2026-10-29 23:16 IST · Om's rule, final wording: pause and re-plan what is not working; DSA up to about 1 hour on a 2-hour day (no verdict, no plan edit)
 
 - WHAT | Om (23:14): "you need to identify a thing is not turning fruitful, take a pause, rethink, restrategise to get that done in a later time ... be dynamic. Hard caps are there: I don't see a reason DSA should ever go more than an hour for a 2 hour planned day ... but it can if I say so and you feel flow is going nicely ... let ChatGPT also know ... you both will have to evolve with me, you can't be in a box."
