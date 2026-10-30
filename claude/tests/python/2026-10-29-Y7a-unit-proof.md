@@ -36,3 +36,25 @@ Score 1/2. Right: the cost, specific and valid (an environment with results cann
 **Q2 retry (fresh wording, 21:08), unanswered.** `gate_decision` → `service` also uses RESTRICT (lines 101-104). A teammate wants CASCADE "so deleting a retired service is one easy command". What would PRCP lose, and why does that matter?
 
 Om (21:09): "understood and done for the day". Block stopped. Q2 retry and Q3 open for the next session. No verdict.
+
+## Session 2: Fri Oct 30, 15:16-15:23 IST
+
+Warm-up first (W4 trial, not scored, on the Oct 29 part check): W1 Protocol without inheriting counts, only a checker such as mypy checks it: HELD. W2 pytest loads `conftest.py` itself, matches the fixture by parameter name, fresh object per test: HELD. About [3m].
+
+Om was asked not to look anything up between sessions. Both questions re-sent 15:16, same wording as Oct 29.
+
+**Q2 retry (answer 15:23, verbatim).**
+
+> prcp will loose all the history of previous gate decisions related to that service . It matters because if we want to know what decision was taken regarding a service in an environment in past at that time
+
+Retry right: CASCADE would erase the service's gate decision history, and that history is how PRCP shows what was decided for a service in an environment at the time. Repair landed; Q2 stays 1/2 as recorded, local item closed (s7 scoring).
+
+**Q3 (failure and fix), sent Oct 29 17:00 and 20:59, answered 15:23, verbatim.** In P1 you will save Python's `ProbeResult` objects into the `probe_result` table. Two facts: in SQL, `probe_result.id` is `UUID PRIMARY KEY`, with no default; in Python, `create_probe_result(...)` builds a `ProbeResult` from `probe`, `status`, `actual_status_code`, `failure_reason` and `latency_ms`, with no `id` field. What happens when P1 tries to save one of these results? Name two different ways to fix it.
+
+> As UUID is primary key and doesnot have a default gen_random_uuid() and even python code doesnot pass a valid UUID value ... it will not save as a primary key is required for saving. Two ways to fix is one in SQL we can give gen_random_uuid as DEFAULT or in python generate a UUID and pass it to the datbases like other values
+
+Score 2/2. Right and unprompted: the insert is refused, because a primary key cannot be empty and nothing supplies the id; fix 1 `DEFAULT gen_random_uuid()` in the SQL, fix 2 make the id in Python (for example `uuid.uuid4()`) and pass it with the other values. This also answers the later-refactor finding of Oct 29 (schema vs models); which fix P1 uses is a P1 decision.
+
+## Verdict
+
+**Y7a PASS** (Claude, Oct 30 15:25). Artifact: PRCP `7958798`, 87 passed, `sql/001-init.sql` loads clean on Postgres 16. Paragraph: repository and `conftest.py` explained with what, why and a rejected alternative; SQL part what only, why thin, no rejected alternative (noted once; the cold questions covered the SQL why). Cold questions 5/6: Q1 2, Q2 1 (retry right), Q3 2. No wrong conclusion. Part check of Oct 29 (Protocol, repository, conftest) was PARTIAL 3/6 after retries; both parts held in today's warm-up. Logged, not fixed (s6.1 "fix or log"): `tests/test_repository.py` protocol tests check two methods only; `probe_result.id` has no source (fix named above, chosen in P1); `client` fixture out of Y7a scope (plan BUG, Y7b). Active minutes: about [60m] Oct 29 (Om's "1 hour", to confirm) plus [7m] Oct 30.

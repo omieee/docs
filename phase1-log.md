@@ -161,6 +161,7 @@ Updated 2026-10-25 by Claude at the W3 close.
 
 ## Verdict log
 (newest on top)
+- 2026-10-30 Y7a PRCP code walk part 1 PASS (Claude): PRCP 7958798, 87 passed; paragraph in (SQL why thin, noted once); cold 5/6 (Q2 retry right). Record claude/tests/python/2026-10-29-Y7a-unit-proof.md
 - 2026-10-30 NEW 875 Koko Eating Bananas PARTIAL, 5/8 (Claude): mechanism 2, trace 1.5, transfer 1, pattern signal 0.5. Teaching in a later slot, retry in another; not counted until then, DSA stays 26 / 19. [12m]. Record claude/tests/dsa/2026-10-30-LC875-NEW-koko-eating-bananas.md
 - 2026-10-27 LC739 D14 COLD PASS (dsa-python PR #13 3d7d3e9, Claude): fresh clone 96 passed, ruff check and format clean; 0/117,656 wrong vs brute force; deliberate mistakes 9/9 caught; approach and O(n), O(n) written at the top; the D7 miss (hottest day on top) is fixed: hottest waiting days are at the start (bottom) of the stack, generous reading tested; test asserts identical to D7 (function still named Day_7), noted once, not blocking. [16m] vs 15 box. DSA stays 26 / 19.
 - 2026-10-26 NEW 74 retry PASS at 1.5/2, NEW 74 now PASS, final 7/8 (Claude): (b) right; (a) partial (values and STOP row right, return value and the row-start check not written). Teaching only in a later slot. DSA now 26 / 19. Record claude/tests/dsa/2026-10-23-LC74-NEW-search-2d-matrix.md
