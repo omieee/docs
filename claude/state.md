@@ -1,5 +1,5 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ this commit · 2026-11-02 11:10 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+Reflects omieee/docs @ this commit · 2026-11-02 23:22 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
 - ROLE: equal partner with ChatGPT; no coaching owner (Om, Oct 23 14:56). WRITE plain Indian-style English, full sentences, explain every technical word first time, clear over short. Say every "why" out loud in questions too (Om, Oct 29: "mind needs to be spoken out").
 - OM'S OCT 29 RULES: video first for any new topic, ask prerequisites first, no proof question until Om says a topic is clear; questions must name the column, line and what is saved (no clipped style). He keeps going until he says "stop for the day"; ask his active minutes at the end. Oct 29 23:10: boxes are a guide, not a stop; judge flow, suggest a break only if it truly drags or he is frustrated; log minutes quietly, don't raise them (23:14: weekly plan is the floor; DSA at most about 1h on a 2h day, more only if Om says so and flow is good; not fruitful = pause, rethink, re-plan later).
 - PLAN: v3.8 in plan/ (25bb309e79a610f2, checker 6c55bf0713278013 PASS), 834.5h, gates May 2 2027, Feb 6 2028, Mar 5 2028. Frozen until Nov 15 except section 9 triggers. Om (Oct 30 16:15): every pending change waits for Nov 15; one list in `claude/plan-drafts/2026-11-15-batch.md` (incl. ChatGPT's v3.9 proposal and Claude's review).
@@ -7,7 +7,7 @@ Reflects omieee/docs @ this commit · 2026-11-02 11:10 IST. Before a verdict, ga
 - 875: NEW PARTIAL 5/8 Oct 30, teaching done Oct 30; D1 PARTIAL Oct 31 (approach direction inverted); D3 PASS Nov 1 (be287c6, PR #17 open), direction now right in comments. D1 teaching slot dropped (Claude's call); ONE retry in its own slot covers NEW gaps and direction. D7 Nov 5.
 - Y7a PASS Oct 30 (cold 5/6, Q2 retry right; SQL paragraph why thin). Closed early (plan closes it in W5).
 - DSA 26 / 19. 704 and 74 D14 PASS Nov 2 (PR #18 0563de6, asserts copied from D7, noted once). Next colds: 875 D7 Nov 5, 155 D28 Nov 7, 739 D28 Nov 10, 704 and 74 D28 Nov 16.
-- P1 next: psycopg 3 prerequisite (W5, ask first). GO: G2 W5, teach `t *testing.T` and `strings.Builder` first (RR1 slip).
+- P1 next: psycopg 3 prerequisite Tue Nov 3 (ask first). GO: G2 via Boot.dev Ch 9 (Om's choice, same course as FCC-Go), lessons 1-9 done Nov 2, 10-13 next; then `go-notes.md`, then `t *testing.T` and `strings.Builder` shown next to pytest. Never open with a recall test before teaching (coach error Nov 2).
 - Continuity (W4 close): Go last Oct 24, AT LIMIT, G2 must run W5; Kubernetes K1 Oct 26; LLD L1 use note Oct 30, idle W5, MP2 W6.
 - Coach errors W4 (Claude): 9, 34m measured, in the W4 close. W5: none yet.
 - Local Postgres 16 works in the container (run as user claude); used for SQL teaching with real output.
