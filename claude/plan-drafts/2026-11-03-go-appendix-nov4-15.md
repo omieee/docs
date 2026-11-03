@@ -6,11 +6,13 @@
 
 ## Steps, in order
 
+Section lists for Learning Go chapters 2 and 3 are from O'Reilly's pages for the 2nd edition, read Nov 3 20:59.
+
 | # | Step | Where | Box | Before it can start |
 | --- | --- | --- | --- | --- |
-| A | Learning Go 2e, chapter 2 (types and declarations). Om checks the section list on his Kindle first; the coach confirms which sections | Bedside, Kindle | 0.75h | Section list checked against the taught list |
-| B | Learning Go 2e, chapter 3 (composite types): arrays, slices, strings, runes and bytes, maps. The structs section waits for G3 | Bedside, Kindle | 0.75h | A done |
-| C | Start `go-notes.md` in `learning-go-sandbox`: a slice is not a Python list copy; `'a'` is a rune, `"a"` is a string; Go does not mix `int` and `float64` | Desk | 0.25h | A and B done |
+| A | Learning Go 2e, chapter 2, all sections (checked Nov 3 against the taught list: nothing assumed that is not taught): predeclared types, zero value, literals, booleans, numeric types, a taste of strings and runes, explicit type conversion, untyped literals, `var` vs `:=`, `const`, typed and untyped constants, unused variables, naming | Bedside, Kindle | 0.75h | None |
+| B | Learning Go 2e, chapter 3, from "Arrays" to "Strings and Runes and Bytes" (arrays, slices, `len`, `append`, capacity, `make`, emptying a slice, declaring, slicing, `copy`, array and slice conversion, strings, runes and bytes). The maps sections wait for Boot.dev Ch 10 (Boot.dev first, per the strategy); the structs sections wait for G3 | Bedside, Kindle | 0.5h | A done |
+| C | Start `go-notes.md` in `learning-go-sandbox`: a slice is not a Python list copy; `'a'` is a rune, `"a"` is a string; Go does not mix `int` and `float64`. Then chapter 2's exercises, typed and run; the coach checks them against the taught list first | Desk | 0.5h | A and B done |
 | D | One file from a blank page with `t *testing.T` and a `strings.Builder` (the plan's G2 line; both slipped on Oct 24). Shown next to a pytest test first, then Om types it | Desk | 0.25h | None (both taught in G1 and RR1) |
 | E | Learn Go with Tests, "Arrays and slices", in `learning-go-sandbox`, in two sittings. It uses `t.Run` and `t.Helper` (G1) and variadic functions (Boot.dev Ch 9 lesson 6). New, and explained by the chapter itself: `slices.Equal` and `go test -cover` | Desk | 1.5h | C and D done |
 | F | Agent use step: start the Go module in PRCP's `agent/` folder (module path as in s6.2), the probe targets as a slice, and a test on what `append` to a copy does | Desk | 1h | E done; the coach checks first that Om has made a module before (G1) |
