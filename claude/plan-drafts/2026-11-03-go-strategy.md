@@ -50,8 +50,8 @@ Chapter titles are from O'Reilly's table of contents, checked Nov 3; section con
 
 ## 6. Om's copies (Nov 3 16:34) and where each is read
 
-- Learning Go 2e: paper only; Om will buy the Kindle edition if needed. Recommendation: buy it, so the depth reading moves to bedside time (phone or Kindle only) and desk time goes to typing and running code. Same book, one spine. Price and link not checked by Claude.
-- Go in Action 2e (Kindle; Manning, Aug 2026, Go 1.25+, for professionals who know an OO language; covers error wrapping, testing with TDD, benchmarks and fuzzing, concurrency, slog, modules): a second explanation only, used when a Bodner chapter does not land (switch-format rule). Its chapter order is not checked (no table of contents on Manning's page), so it is not the spine.
+- Learning Go 2e: paper and, from Nov 3 16:40, Kindle (Om bought it). The spine, read at bedside; desk time for typing and running code.
+- Go in Action 2e (Kindle; Manning, Aug 2026, Go 1.25+; full table of contents checked Nov 3 from the Manning page Om sent). Project-based: a word counter (ch 2), types with pointers before methods (ch 3, 5), runes (3.8.6), slices with append surprises, copy and nil vs empty (4.2), generics (6), errors with sentinels, custom types and errors.As (7), tests: table-driven, coverage and an HTTP server for dependencies (8.5-8.6), concurrency: WaitGroup, error groups, mutexes, context, channels, workers, fan-out and fan-in (9), standard library (10), modules and workspaces (11). Used only for the sections that match the agent's work: 8.5.5 and 8.6 (G6), 9.2.2 error groups (A2, the agent's only concurrency model), 11.3 workspaces (the agent as its own module); and as the second explanation when a Bodner chapter does not land. Not the spine: context is one section (9.3) against Bodner's chapter 14, and `select` is not named in its contents.
 - 100 Go Mistakes (Kindle): already in the plan as GO100. Bedside, after each topic is taught: read only that topic's mistakes.
 - Boot.dev (subscription): hands-on first contact for each topic that has a chapter.
 
