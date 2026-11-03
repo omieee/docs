@@ -15,6 +15,7 @@ Purpose: before Om opens any Go lesson, chapter or exercise, the coach checks ev
 | Arrays `[N]T` vs slices `[]T`, slicing, `make`, `len` and `cap`, variadic `...T`, `append` (store the result), `range`, a slice of slices | Boot.dev Ch 9 lessons 1-9 | Nov 2 | Om's screenshots, all passed |
 | Two slices sharing one array (append surprises) | Boot.dev Ch 9 lesson 10 | Nov 3 | Om's screenshot, question 3 right |
 | A string as a slice of bytes; comparing a character with `'A'` and `'Z'` | Boot.dev Ch 9 lesson 12 | Nov 3 | passed, written alone |
+| Predeclared types and the zero value; literals (integer, float, rune, string); booleans; numeric types; a first look at strings and runes; explicit type conversion (no automatic `int` to `float64`); untyped literals; `var` vs `:=`; `const`, typed and untyped constants; unused variables; naming | Learning Go 2e ch 2 (appendix step A) | Nov 3 | read at bedside, Om: done 23:09; exercises not yet typed (step C) |
 
 ## Seen once, not yet taught as a topic
 
@@ -23,7 +24,7 @@ Purpose: before Om opens any Go lesson, chapter or exercise, the coach checks ev
 | An interface as a list of required methods; calling `msg.Type()` | Boot.dev Ch 9 lesson 11 | Nov 3 | G3 |
 | A function passed as an input and called | Boot.dev Ch 9 lesson 13 | Nov 3 | Boot.dev Ch 4, Learning Go ch 5 |
 | `range` gives a copy; write to `messages[i]` to change the element | Boot.dev Ch 9 lesson 13 | Nov 3 | G2 (step E) |
-| A rune is one character in single quotes; a string uses double quotes | Boot.dev Ch 9 lesson 13 | Nov 3 | Learning Go ch 2-3 (steps A, B) |
+| A rune is one character in single quotes; a string uses double quotes | Boot.dev Ch 9 lesson 13 | Nov 3 | first look in Learning Go ch 2 (read Nov 3); full in ch 3 (step B) |
 | `strings.Contains`, `strings.ToLower` | Boot.dev Ch 9 lesson 13 tip | Nov 3 | Learning Go ch 13 |
 
 ## Not taught yet
