@@ -165,6 +165,7 @@ Updated 2026-11-01 by Claude at the W4 close.
 | W2 | Laptop RAM fix Oct 15-16 (claude/resources/laptop-2026-10-16.md) | 2 | Genuine surprise; Om: a full day, charged at his 2h/day study rate | 2 | 48 |
 | W3 | Claude coach errors (Oct 19 50m, Oct 21 15m, Oct 23 5m) | 1.2 | Coach-error minutes, not Om's pace (safeguard 7); ChatGPT's share of the MC1 review overrun not separable, UNVERIFIED | 3.2 | 46.8 |
 | W4 | Claude coach errors (Oct 27 15m and 3m, Oct 29 10m and 2m, Oct 31 4m) | 0.6 | Coach-error minutes, not Om's pace (safeguard 7); ChatGPT's Oct 26 K1 error unmeasured, UNVERIFIED | 3.8 | 46.2 |
+| W5 | Claude coach errors, G2 Go Nov 2-3 (Om's figure) | 4 | Om (Nov 3 16:12): "record 4 hours wasted from yesterday"; recorded at his figure. Claude's estimates from message times, for the weekly close: G2 Nov 2 about 150m elapsed, G2 Nov 3 about 45m (15:27-16:12); Claude's measured coach-error lines Nov 2 about 3m, Nov 3 about 5m | 7.8 | 42.2 |
 
 ## Later-refactor log
 - 2026-10-30 16:15: DECIDED by Om: "laws for growth is discipline and daily work .. so let all the changes recorded for decide on that day itself." Every pending plan change, including ChatGPT's v3.9 proposal (`chatgpt/plan-drafts/v3.9-proposal/`) and Claude's review of it, is decided at the Nov 15 re-forecast. One list: `claude/plan-drafts/2026-11-15-batch.md`.
