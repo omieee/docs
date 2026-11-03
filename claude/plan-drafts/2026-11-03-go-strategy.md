@@ -48,8 +48,15 @@ Chapter titles are from O'Reilly's table of contents, checked Nov 3; section con
 | 9 | Ch 12 concurrency, Ch 14 context | Ch 13, 14 | Concurrency, Select, Sync, Context | G7 (plus Concurrency in Go) |
 | 10 | Ch 13 standard library (net/http, slog) | - | - | A1, A4 |
 
+## 6. Om's copies (Nov 3 16:34) and where each is read
+
+- Learning Go 2e: paper only; Om will buy the Kindle edition if needed. Recommendation: buy it, so the depth reading moves to bedside time (phone or Kindle only) and desk time goes to typing and running code. Same book, one spine. Price and link not checked by Claude.
+- Go in Action 2e (Kindle; Manning, Aug 2026, Go 1.25+, for professionals who know an OO language; covers error wrapping, testing with TDD, benchmarks and fuzzing, concurrency, slog, modules): a second explanation only, used when a Bodner chapter does not land (switch-format rule). Its chapter order is not checked (no table of contents on Manning's page), so it is not the spine.
+- 100 Go Mistakes (Kindle): already in the plan as GO100. Bedside, after each topic is taught: read only that topic's mistakes.
+- Boot.dev (subscription): hands-on first contact for each topic that has a chapter.
+
 ## 5. Open for Om
 
 - Yes or no to the spine and the per-topic order.
-- Is Learning Go 2e on paper only, or also on Kindle (bedside reading)?
+- Buy the Kindle edition of Learning Go 2e: yes or no.
 - Yes or no: fix Go now under s9 trigger 1 (untaught prerequisite blocking this week's work), the other 11 batch items on Nov 15.
