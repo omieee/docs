@@ -1,6 +1,6 @@
 # Go strategy proposal (Claude, Nov 3 2026)
 
-Status: PROPOSAL, not approved, not plan content. Written so it is not forgotten; it goes into the section 9 change for Go once Om says yes. Nov 15 batch item B12.
+Status: APPROVED by Om, Nov 3 2026 16:45 IST ("Yes to all"). Nov 4-15 is covered by `2026-11-03-go-appendix-nov4-15.md`; the rest is folded into v3.9 at the right weeks on Nov 15. Nov 15 batch item B12.
 
 ## 1. The problem (evidence)
 
