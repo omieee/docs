@@ -13,3 +13,4 @@ Reflects omieee/docs @ this commit · 2026-11-02 23:22 IST. Before a verdict, ga
 - Local Postgres 16 works in the container (run as user claude); used for SQL teaching with real output.
 - Pushes: add_repo push refused at 14:11 Oct 29, granted at 21:11 on Om's yes. No token use.
 - Own process rules: fetch every branch and PR head before saying anything is missing; push a coach-error line before the reply that admits it; minutes from message times, elapsed vs active, ask only to confirm; check the clock before any timestamp; plant bugs with PYTHONDONTWRITEBYTECODE=1.
+- GO STRATEGY (proposal, Nov 3): `claude/plan-drafts/2026-11-03-go-strategy.md`. Before Om opens ANY lesson on any track, read it and check every concept it uses against what was taught; say stop or skip before he starts.
