@@ -15,7 +15,7 @@ Purpose: before Om opens any Go lesson, chapter or exercise, the coach checks ev
 | Arrays `[N]T` vs slices `[]T`, slicing, `make`, `len` and `cap`, variadic `...T`, `append` (store the result), `range`, a slice of slices | Boot.dev Ch 9 lessons 1-9 | Nov 2 | Om's screenshots, all passed |
 | Two slices sharing one array (append surprises) | Boot.dev Ch 9 lesson 10 | Nov 3 | Om's screenshot, question 3 right |
 | A string as a slice of bytes; comparing a character with `'A'` and `'Z'` | Boot.dev Ch 9 lesson 12 | Nov 3 | passed, written alone |
-| Predeclared types and the zero value; literals (integer, float, rune, string); booleans; numeric types; a first look at strings and runes; explicit type conversion (no automatic `int` to `float64`); untyped literals; `var` vs `:=`; `const`, typed and untyped constants; unused variables; naming | Learning Go 2e ch 2 (appendix step A) | Nov 3 | read at bedside, Om: done 23:09; exercises not yet typed (step C) |
+| Predeclared types and the zero value; literals (integer, float, rune, string); booleans; numeric types; a first look at strings and runes; explicit type conversion (no automatic `int` to `float64`); untyped literals; `var` vs `:=`; `const`, typed and untyped constants; unused variables; naming | Learning Go 2e ch 2 (appendix step A) | Nov 3 | read at bedside [90m], Om: done 23:09; 'literal' unclear, taught 23:12 (a value written straight in the code; literals are untyped, so `var f float64 = 42` works but `var f float64 = i` with `i int` fails, both run on Go 1.24); exercises not yet typed (step C) |
 
 ## Seen once, not yet taught as a topic
 

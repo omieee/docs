@@ -18,12 +18,12 @@ Section lists for Learning Go chapters 2 and 3 are from O'Reilly's pages for the
 | F | Agent use step: start the Go module in PRCP's `agent/` folder (module path as in s6.2), the probe targets as a slice, and a test on what `append` to a copy does | Desk | 1h | E done; the coach checks first that Om has made a module before (G1) |
 | G | G2 proof (s6.2): a test proving two slices share a backing array, explained cold, plus the three section 7 questions | Desk | 0.5h | F done |
 
-Total: 5h. Order of days: A and B in W5 (bedside fits Diwali week; Wed Nov 4 is an office day), C to G in W6 around the W6 row's other lines. Om picks the days.
+Total: 5h as first sized. Measured: step A took 1.5h (Om, Nov 3 23:11), twice its box, so step B is re-sized to 1h on the same pace: new total 6.25h. Order of days: A and B in W5 (bedside fits Diwali week; Wed Nov 4 is an office day), C to G in W6 around the W6 row's other lines. Om picks the days.
 
 ## Hours
 
 - Available for Go: 4.25h. G2's box is 3.5h (W5 2h, W6 1h, and W7's 0.5h pulled into W6); the Nov 2-3 Go time was charged to contingency at Om's figure (`phase1-log.md`, W5 row), so the box is unspent in the records. Plus 0.75h freed in W5: Y7a 0.25h (closed early, Oct 30) and the 0.5h campaign line (Om is not applying now, so it moves as the row rule says).
-- Needed: 5h. The 0.75h gap is charged to contingency only if it is used (plan BUG B12), so no other track moves before Nov 15.
+- Needed: 6.25h after the step A measurement (first sized at 5h). The 2h gap is charged to contingency only if it is used (plan BUG B12), so no other track moves before Nov 15. The Nov 15 re-forecast uses the measured reading pace.
 
 ## Not in this window (v3.9 decides order and weeks on Nov 15)
 
