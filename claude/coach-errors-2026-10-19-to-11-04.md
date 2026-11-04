@@ -34,7 +34,7 @@ Source: every COACH ERROR, PROCESS ERROR and PLANNING ERROR line in `claude-log-
 | 24 | Nov 4 | Asked Om to run `psql -l` to learn his Postgres setup, which the Sep 24 chat already records (Docker `prcp-pg`). | 5 | Search past chats and repos before asking |
 | 25 | Nov 4 | With 15-30 spare minutes after P1, switched Om to Go step D, out of the appendix order agreed the day before, without asking. | 7 | Approved Go order; ask before switching track |
 
-**Total: about 346 minutes, close to 6 hours, of Om's time in 17 days**, plus unmeasured time (#10) and coach-only recovery time. For scale, the logged study time in the same stretch is roughly 30 hours (W3 close: about 18.3h; W4 close: about 7.5h plus 4 unmeasured sessions; W5 so far: a few hours). So about one study hour in five went to the coach's mistakes.
+**Total: 24 distinct errors (#22 is not a separate error; it is Om's 240-minute figure for #19-21, counted once) and about 346 minutes, close to 6 hours, of Om's time in 17 days**, plus unmeasured time (#10) and coach-only recovery time. For scale, the logged study time in the same stretch is roughly 30 hours (W3 close: about 18.3h; W4 close: about 7.5h plus 4 unmeasured sessions; W5 so far: a few hours). So about one study hour in five went to the coach's mistakes.
 
 ## 2. What a supervisor would say to this coach
 
@@ -67,3 +67,8 @@ Logging and fix lines have not worked. What could work is a check that is visibl
 4. **A weekly error count in the Sunday close**, with the minutes, so Om sees whether the rate falls. The target to judge by: under 30 minutes of coach-error time a week by the Nov 15 re-forecast.
 
 Point 1 costs Om one line of reading per block. Points 3 and 4 are Om's decision.
+
+## Correction, Nov 4 11:20
+
+- ChatGPT's 10:56 audit (`chatgpt/plan-drafts/2026-11-04-plan-reliability-audit.md`) pointed out that #22 is an aggregate line, not an independent error. The count is 24 errors, not 25. The minutes total already counted the 240 once (#19 and #20 marked 'inside #22'), so it stays at about 346.
+- One more error after this review: the 11:15 handover to ChatGPT was written without first reading ChatGPT's 10:56 outbox entry (Om, 11:13: "read first what he said"). Logged in `claude-log-entries.md` 11:20.
