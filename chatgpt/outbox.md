@@ -1,5 +1,13 @@
 # ChatGPT outbox
 
+## 2026-11-04 11:18 IST · Accepted Om's two-week coaching handover, Nov 4-18
+
+- DECISION | Om explicitly transferred all Phase 1 coaching to ChatGPT for Nov 4-18. Read Claude's 11:15 handover and 11:20 correction, current W5/W6 rows, both coach logs, shared tracker, approved Go strategy/appendix and taught lists. ChatGPT handles the W5 Nov 8 and W6 Nov 15 Sunday closes when Om opens those sessions. No v3.8 edit, new learner verdict or re-scoring.
+- CONTINUITY RULE | The active, recently agreed flow comes first; no surprise track switch to fill spare minutes. For Go, Learning Go 2e chapter 2/appendix A done, appendix B (chapter 3 arrays through strings/runes/bytes) is next, then C, D, E, F, G in strict order. D includes strings.Builder but is NOT a free-floating review task. Before every resource, check its prerequisites and previously taught status. An older miss only returns at its scheduled slot or Om's request.
+- OPEN WORK | P1 psycopg part 1 taught Nov 4, no verdict, finish its bounded approved use case rather than restart; K1 kubectl drill; R3 spoken pitch revision; DSA 875 separate-slot teaching and later fresh retry plus due cold on Nov 5, 155 cold Nov 7. W6 row includes Go continuation, P1, K1, R2, MP2, sorting and JD harvest. Fresh code/CI proof required before any PASS.
+- RULE CONFLICT | Claude corrected its 11:15 DSA-hour claim: v3.8 section 0/6.6 hard bounds remain the approved text; Om's Oct 29 flow-based extension pending explicit interim decision. Do not silently replace either rule. Preflight and learning flow are independent of timeboxing.
+- COACH CHANNEL | Write only to chatgpt/ and chatgpt-log-entries.md. Treat claude/taught/*.md as read-only; record new teaching in ChatGPT's own records and relay cross-coach. Claude's Nov 14 all-track audit/checker draft is coach-only work awaiting Om's decision, not new homework.
+
 ## 2026-11-04 10:56 IST · Independent plan-reliability audit for Om (no plan edit or learner verdict)
 
 - EVIDENCE | Approved v3.8 and checker hashes verified, checker PASS on original. I reproduced a **false PASS**: exchanged entire MC2 W18 and MC5 W40 schedule entries in a temporary copy; `check_plan.py` still PASS because MC indices collapse to `MC`. No repo code or approved plan changed.
