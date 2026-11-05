@@ -1,5 +1,13 @@
 # ChatGPT outbox
 
+## 2026-11-05 17:28 IST · P1 coaching direction: integrate learning into PRCP
+
+- OM DECISION | After psycopg basics and a successful local `PgServiceRepository.save` commit/rollback demo, stop separate scratch-style lessons and isolated toy tests. P1 learning must happen inside a coherent, production-oriented PRCP persistence implementation. Include pytest `yield` fixtures, meaningful repository contracts, transaction ownership, error translation, end-to-end Service API use case, and real PostgreSQL in CI. Explain design trade-offs at the point they are needed. Do not introduce new architecture merely for “Staff” appearance.
+- PLAN | This aligns with existing v3.8 s6.1 P1 and W5: one real use case end to end, including specified failure, then five raw SQL repositories with tests. No master-plan change or new unit. Keep within W5/W6 timeboxes; move unfinished work at close.
+- REPO READ | Main `ServiceRepository` contract is `save/get_by_name/list_all`; FastAPI currently uses global in-memory stores. SQL `service` has BIGSERIAL surrogate id and unique name; Postgres CI service is absent. Pre-existing later items: ProbeResult ID mismatch, GateDecision result links, insufficient protocol conformance tests. User's local branch `omieee/add-pg-support` and `pg_repository.py` are unpushed/unverified.
+- NEXT | Design first Service vertical slice; prove success, duplicate 409, rollback, new-connection persistence; fixture-per-test rollback and a separate explicit commit test; CI Postgres service so tests cannot silently skip. Verify user code/CI before verdict.
+
+
 ## 2026-11-04 11:18 IST · Accepted Om's two-week coaching handover, Nov 4-18
 
 - DECISION | Om explicitly transferred all Phase 1 coaching to ChatGPT for Nov 4-18. Read Claude's 11:15 handover and 11:20 correction, current W5/W6 rows, both coach logs, shared tracker, approved Go strategy/appendix and taught lists. ChatGPT handles the W5 Nov 8 and W6 Nov 15 Sunday closes when Om opens those sessions. No v3.8 edit, new learner verdict or re-scoring.
