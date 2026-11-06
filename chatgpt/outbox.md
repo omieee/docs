@@ -1,5 +1,12 @@
 # ChatGPT outbox
 
+## 2026-11-06 · Correction: P1 feature first, no Builder drill
+
+- OM FEEDBACK | A proposed writer/reader DB fixture test was a misplaced P1 deliverable. P1 output must be functional PRCP Service API persisting to PostgreSQL, not isolated repository tests. Existing PR #11 contains `PgServiceRepository`, but `api/dependencies.py` still provides a global in-memory repository; implement real integration and transaction ownership, then validate from API including duplicate handling and persistence. Tests are supporting proof.
+- GO | Om reiterated that he wants `strings.Builder` only when strings are taught in their natural context. Do not schedule isolated Step D Builder drill today. This is a user-directed adjustment of the appendix, to reconcile at Nov 15 re-forecast rather than silently claiming the old step completed.
+- COACH | ChatGPT's Nov 6 feature-vs-fixture and Builder scheduling errors logged in own coach log; no learner verdict. Revised priority work: P1 integration, Go slices/notes, K1 drill. Do not inflate today's scope.
+
+
 ## 2026-11-06 · R3 scheduling decision from Om (no verdict, no plan edit)
 
 - OM | R3 recruiter pitch will be done after next week (after W6 Nov 9-15), because Om then has 15 working days of leave. Defer R3 spoken teaching, revision and final proof into that leave period, to a slot Om chooses; do not mark R3 complete or count its hours yet.
