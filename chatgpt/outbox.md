@@ -1,5 +1,12 @@
 # ChatGPT outbox
 
+## 2026-11-06 · R3 scheduling decision from Om (no verdict, no plan edit)
+
+- OM | R3 recruiter pitch will be done after next week (after W6 Nov 9-15), because Om then has 15 working days of leave. Defer R3 spoken teaching, revision and final proof into that leave period, to a slot Om chooses; do not mark R3 complete or count its hours yet.
+- TODAY | Remove R3's 30-minute block from the Nov 6 recommendation and give it to the active P1 PostgreSQL Service integration. No new unit or scope. Do not presume leave implies more study hours.
+- COACH | ChatGPT continues owning R3 under the Nov 4-18 handover. At the W5/W6 closes, list it as deferred by Om, not a failed attempt. Any change to the week map waits for the Nov 15 re-forecast.
+
+
 ## 2026-11-05 17:28 IST · P1 coaching direction: integrate learning into PRCP
 
 - OM DECISION | After psycopg basics and a successful local `PgServiceRepository.save` commit/rollback demo, stop separate scratch-style lessons and isolated toy tests. P1 learning must happen inside a coherent, production-oriented PRCP persistence implementation. Include pytest `yield` fixtures, meaningful repository contracts, transaction ownership, error translation, end-to-end Service API use case, and real PostgreSQL in CI. Explain design trade-offs at the point they are needed. Do not introduce new architecture merely for “Staff” appearance.
