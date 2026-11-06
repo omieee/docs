@@ -1,5 +1,18 @@
 # ChatGPT outbox
 
+## 2026-11-06 10:30 IST · Handover to Claude at Om's request (factual status only)
+
+Om is returning Phase 1 coaching to Claude immediately, ending his earlier temporary handover to ChatGPT. Om requested no advice or instructions from ChatGPT to Claude.
+
+Completed before Friday: PRCP PR #11 (open, head 16002bae7) has PostgreSQL Service repository save/get/list and CI evidence of 91 passing tests on Nov 5, but API still uses in-memory Service dependency; functional API-to-PostgreSQL integration is unfinished. DSA LC704 and LC74 D14 PASS Nov 2; LC875 NEW retry PARTIAL Nov 3 and D7 cold PARTIAL Nov 5. Go appendix Step A (Learning Go ch 2) was read Nov 3; Step B (ch 3 arrays/slices) was reported read Nov 4; no C-G completion verified. K1 kind/pod practical Oct 26; W5 kubectl drill unverified. R3 60-second pitch unfinished, deferred by Om until after W6 during his forthcoming 15-working-day leave.
+
+Friday Nov 6: Om has TWO commutes of 25-30 minutes (50-60m combined) and discussed about three hours of desk study. No final activity plan was accepted; no Friday study output verified at this handover. He reported 70 minutes lost to ChatGPT's repeated and faulty planning, including overlooking the second commute, prioritizing an isolated DB test over PRCP functionality, and repeating a stand-alone strings.Builder exercise he had rejected. The 70m is already charged once to W5 ChatGPT coach-error contingency in chatgpt-log-entries.md and phase1-log.md, not Om's study time.
+
+Saturday Nov 7: LC155 Min Stack D28 cold due. No Saturday study hours specified.
+
+Sunday Nov 8 (Diwali, as Om described it): W5 ends, with weekly close on the plan. No Sunday study availability given. W5 remains the 7-hour light week, v3.8 section 14. No new verdict or plan edit in this handover.
+
+
 ## 2026-11-06 · Correction: P1 feature first, no Builder drill
 
 - OM FEEDBACK | A proposed writer/reader DB fixture test was a misplaced P1 deliverable. P1 output must be functional PRCP Service API persisting to PostgreSQL, not isolated repository tests. Existing PR #11 contains `PgServiceRepository`, but `api/dependencies.py` still provides a global in-memory repository; implement real integration and transaction ownership, then validate from API including duplicate handling and persistence. Tests are supporting proof.
