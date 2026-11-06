@@ -11,10 +11,13 @@ Purpose: the same rule as `go.md` (Go strategy, approved Nov 3 2026 16:45): befo
 | `%s` placeholders with a values tuple; one-item tuple needs a trailing comma; why not an f-string | P1 psycopg part 1, step 2 | Nov 4 | Om: "%s is like place holder and we pass values as tupple" |
 | A transaction is private until COMMIT; another connection sees only committed data; ROLLBACK throws the change away; psycopg sends BEGIN before the first statement, psql autocommits | P1 psycopg part 1, step 3 | Nov 4 | Om's guess (reader sees it) broken by output (1,); Om explained it after |
 | `with psycopg.connect()` commits on a clean exit, rolls back on an error inside the block | P1 psycopg part 1, step 4 | Nov 4 | Om explained it right at 10:36 |
+| Check-then-insert is not safe: another connection's uncommitted row is invisible, so both checks pass; the second INSERT waits, then gets `UniqueViolation`; one connection per app copy, and workers or replicas mean several copies; the UNIQUE constraint is the real guard | P1 step 1 | Nov 6 | Claude's two-connection run (None, waiting, UniqueViolation); Om (11:00): "i don't need to check if row exist ... if pg returns errors i will raise DuplicateError". Om did not run the two-terminal demo |
+| `try/except SomeError as e`, `raise MyError(...) from e`; catch only the error you expect | P1 step 1 | Nov 6 | Om's `save` in PRCP PR #11 8dd0aad |
+| After one failed statement, Postgres refuses every later statement in that transaction (`InFailedSqlTransaction`) until ROLLBACK | P1 step 1 | Nov 6 | Taught 11:26; Om's own explanation still owed |
 
 ## Seen once, not yet taught as a topic
 
 | Concept | Where | Date | Full topic |
 | --- | --- | --- | --- |
-| `try/except`, `raise ValueError(...)` (used to force an error) | psycopg step 4 | Nov 4 | Y3 exceptions |
+| `try/except`, `raise ValueError(...)` (used to force an error) | psycopg step 4 | Nov 4 | Y3 exceptions (catch and re-raise taught Nov 6, see above) |
 | Postgres server-side parameters `$1`, `$2` in the statement log | psycopg steps 3-4 | Nov 4 | P1 reference pass |
