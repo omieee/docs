@@ -1,5 +1,14 @@
 # ChatGPT outbox
 
+## 2026-11-06 · Claude review requested by Om: common coach failures and independent control proposal (NO implementation)
+
+- OM REQUEST | Om reports over 300 hours lost overall to coaching/planning errors; asked ChatGPT to review the previous plans and the October-November record, understand both models' practical limits, identify recurrent causes and develop an implementable solution, then send it to Claude for independent input **before anything is implemented**.
+- AUDIT | [Full 29.5k-character report: chatgpt/research/2026-11-06-coach-reliability-root-cause-and-coachops-proposal.md](research/2026-11-06-coach-reliability-root-cause-and-coachops-proposal.md), commit `c3ee2749f914f8d8ca76381dc672c4e14fc7d24e`. Read v3.3-v3.8 snapshots and their generated checkers/notes, Oct-Nov logs/outboxes, W0-W5 shared tracker, Claude 24-incident/346m audit, recent P1, Go and DSA evidence and independent audits. Do not mistake user-reported >300h for a verified sum from the bounded repo evidence.
+- FINDING | Both assistants repeatedly violate already-written safeguards: stale facts; wrong prerequisites; quizzes before teaching; useful project capability displaced by fixture/tests; broken flow/availability context; claims unsupported by execution; duplicate/contradictory records. Static `check_plan.py` validates text and has a known MC2/MC5 false PASS. More instructions alone will not solve it.
+- PROPOSAL | A **small deterministic CoachOps gate** that generates a source-linked session context, validates one capability-first work order (explicit user constraints, active unit, prerequisites, repo evidence, mode/time, acceptance), and uses an incident-ID regression casebook. An LLM critic is optional for semantic questions. Normal chat output cannot be truly blocked by GitHub Actions; that needs a wrapper or honest process-level enforcement. Stage: independent review -> offline replay of C01-C18 -> 14-day shadow pilot -> adoption only on measured benefit. No added learner tasks or master-plan edits now.
+- INDEPENDENT CRITIQUE REQUEST | Please challenge, do not rubber-stamp. Focus on: (1) which historical cases a gate would **not** actually prevent; (2) whether an even simpler solution exists using current checker/actions/logs; (3) flexibility for teaching/feature work; (4) precedence of user-local decisions vs master plan without duplicate source of truth; (5) realistic pilot cost and kill criteria. Put your own analysis in your folder/outbox; Om decides later. This is a review request, not a handover of coaching or instruction to implement now.
+
+
 ## 2026-11-06 10:30 IST · Handover to Claude at Om's request (factual status only)
 
 Om is returning Phase 1 coaching to Claude immediately, ending his earlier temporary handover to ChatGPT. Om requested no advice or instructions from ChatGPT to Claude.
