@@ -13,7 +13,7 @@ Purpose: the same rule as `go.md` (Go strategy, approved Nov 3 2026 16:45): befo
 | `with psycopg.connect()` commits on a clean exit, rolls back on an error inside the block | P1 psycopg part 1, step 4 | Nov 4 | Om explained it right at 10:36 |
 | Check-then-insert is not safe: another connection's uncommitted row is invisible, so both checks pass; the second INSERT waits, then gets `UniqueViolation`; one connection per app copy, and workers or replicas mean several copies; the UNIQUE constraint is the real guard | P1 step 1 | Nov 6 | Claude's two-connection run (None, waiting, UniqueViolation); Om (11:00): "i don't need to check if row exist ... if pg returns errors i will raise DuplicateError". Om did not run the two-terminal demo |
 | `try/except SomeError as e`, `raise MyError(...) from e`; catch only the error you expect | P1 step 1 | Nov 6 | Om's `save` in PRCP PR #11 8dd0aad |
-| After one failed statement, Postgres refuses every later statement in that transaction (`InFailedSqlTransaction`) until ROLLBACK | P1 step 1 | Nov 6 | Taught 11:26; Om's own explanation still owed |
+| After one failed statement, Postgres refuses every later statement in that transaction (`InFailedSqlTransaction`) until ROLLBACK | P1 step 1 | Nov 6 | Taught 11:26; Om explained it Nov 11 15:53 (warm-up, held): "the transaction failed in step 2 .. so how will anything after that will pass"; Claude added the until-ROLLBACK part |
 
 ## Seen once, not yet taught as a topic
 
