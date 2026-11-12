@@ -17,6 +17,7 @@ Purpose: the same rule as `go.md` (Go strategy, approved Nov 3 2026 16:45): befo
 | `Annotated[T, extra]`: Python keeps T as the type and ignores the extra note; FastAPI reads a `Depends(...)` note and injects the value; a named alias (`ServiceRepoDep`) reuses it | P1 step 2, part 2 | Nov 12 | Om ran the `get_type_hints` demo; used `ServiceRepoDep` on 4 endpoints (PR #11 30166a3) |
 | `Depends(..., scope="request")` (default): code after `yield` runs after the response is sent; `scope="function"`: right after the endpoint, before the response | P1 step 2, part 2 | Nov 12 | Om's two demos: failed commit gave 201, then 500; Om: "yes clear" (16:11) |
 | A `with psycopg.connect()` yield dependency: commit on clean exit, rollback when the endpoint raises (FastAPI throws the error in at `yield`), always close | P1 step 2, part 2 | Nov 12 | Om asked when it should roll back and chose `with` himself (16:16); curl 201, 409, restart, 200 |
+| pytest's built-in `monkeypatch` fixture: `monkeypatch.setenv(NAME, value)` changes an environment variable for one test and pytest undoes it when the test ends, pass or fail | P1 step 2, part 3 | Nov 12 | Sticky-note diagram and a two-test demo; Om: "Ahh got it"; used in `tests/api/test_pg_service.py` (PR #11 ae974b0) |
 
 ## Seen once, not yet taught as a topic
 
