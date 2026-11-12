@@ -1,8 +1,8 @@
 # Claude state (cache only, max 20 lines)
-Reflects omieee/docs @ this commit · 2026-11-11 22:32 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
-- NOW W6 Nov 9-15 (12h row). Om back Nov 11 (gap Nov 7-10 ended): 739 D28 PARTIAL, 155 D28 PASS (dsa-python PR #19), P1 save point done (PRCP PR #11 cc08ebf), P1 step 2 part 1 taught. Coach arrangement after Nov 8 not decided by Om; he opened Claude Nov 10-11.
-- NEXT (Thu Nov 12): 875 D14 COLD (15m box, approach and complexity at the top), then P1 step 2 commit: FastAPI 0.136.3 runs code after `yield` after the response by default (failed commit still 201); `scope="function"` runs it before. Then POST twice 201/409, restart, GET.
-- P1: Om's yield dependency without commit is local, unpushed by design (POST 201, GET 404, POST 201 seen and explained 22:26). API tests use `dependency_overrides` (in-memory), so they stay green.
+Reflects omieee/docs @ this commit · 2026-11-12 17:55 IST. Before a verdict, gate or plan change, read the canonical logs and outboxes.
+- NOW W6 Nov 9-15 (12h row). Nov 12 (Thu, puja day: plan light): 875 D14 PARTIAL (dsa-python PR #20, approach and complexity lines missing, 3rd cold in a row); P1 step 2 done: services API on Postgres via `with` yield dependency, `scope="function"`, integration test `tests/api/test_pg_service.py` (PRCP PR #11 ae974b0, 92 passed); step cold check passed after two repairs.
+- NEXT (Fri Nov 13, suggested, Om decides): K1 kubectl drill (Kubernetes AT LIMIT), next P1 entity if time; Sat MP2 (LLD AT LIMIT); Sun W6 close + Nov 15 re-forecast. Thursdays are light days (puja).
+- P1: open until repositories for all 5 entities. Unguarded: `scope="function"` (needs a failing-commit test, `monkeypatch.setattr`, not taught). Om's PRCP_DSN/PRCP_TEST_DSN live in ~/.zshrc (zsh, not bash).
 - AT IDLE LIMIT: Kubernetes (last Oct 26) and LLD (last Oct 30): K1 kubectl drill and MP2 must run in W6. Go last Nov 4 (step B): W6 may be its idle week, then W7 must have Go. Go runs from `claude/plan-drafts/2026-11-03-go-appendix-nov4-15.md`, next step C.
 - 875: NEW retry PARTIAL 5.5/8 Nov 3; D7 PARTIAL Nov 5 (ChatGPT, complexity missing). Owed: yes/no pattern teaching (note `claude/notes/2026-11-06-LC875-teaching-note.md`, read status unverified), then one fresh question in another slot. Colds: 704 and 74 D28 Mon Nov 16.
 - R3 deferred by Om to his 15-working-day leave after W6. Campaign: Om not applying.
