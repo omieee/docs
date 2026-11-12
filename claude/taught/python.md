@@ -14,6 +14,9 @@ Purpose: the same rule as `go.md` (Go strategy, approved Nov 3 2026 16:45): befo
 | Check-then-insert is not safe: another connection's uncommitted row is invisible, so both checks pass; the second INSERT waits, then gets `UniqueViolation`; one connection per app copy, and workers or replicas mean several copies; the UNIQUE constraint is the real guard | P1 step 1 | Nov 6 | Claude's two-connection run (None, waiting, UniqueViolation); Om (11:00): "i don't need to check if row exist ... if pg returns errors i will raise DuplicateError". Om did not run the two-terminal demo |
 | `try/except SomeError as e`, `raise MyError(...) from e`; catch only the error you expect | P1 step 1 | Nov 6 | Om's `save` in PRCP PR #11 8dd0aad |
 | After one failed statement, Postgres refuses every later statement in that transaction (`InFailedSqlTransaction`) until ROLLBACK | P1 step 1 | Nov 6 | Taught 11:26; Om explained it Nov 11 15:53 (warm-up, held): "the transaction failed in step 2 .. so how will anything after that will pass"; Claude added the until-ROLLBACK part |
+| `Annotated[T, extra]`: Python keeps T as the type and ignores the extra note; FastAPI reads a `Depends(...)` note and injects the value; a named alias (`ServiceRepoDep`) reuses it | P1 step 2, part 2 | Nov 12 | Om ran the `get_type_hints` demo; used `ServiceRepoDep` on 4 endpoints (PR #11 30166a3) |
+| `Depends(..., scope="request")` (default): code after `yield` runs after the response is sent; `scope="function"`: right after the endpoint, before the response | P1 step 2, part 2 | Nov 12 | Om's two demos: failed commit gave 201, then 500; Om: "yes clear" (16:11) |
+| A `with psycopg.connect()` yield dependency: commit on clean exit, rollback when the endpoint raises (FastAPI throws the error in at `yield`), always close | P1 step 2, part 2 | Nov 12 | Om asked when it should roll back and chose `with` himself (16:16); curl 201, 409, restart, 200 |
 
 ## Seen once, not yet taught as a topic
 
