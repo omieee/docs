@@ -38,3 +38,25 @@ There are two new problems:
 PARTIAL, 4.5/6. Closed since Nov 3: the signal words, writing the full row. Still open: saying why halving is safe (if k works, every bigger k works, so N's then Y's with one change). Small trace slip on how the second middle is picked. 875 not counted yet; DSA stays 26 / 19.
 
 Next (s6.6 #11): teaching in a later, separate slot: bedside read `claude/notes/2026-11-14-LC875-why-halving-is-safe.md` (about 5 minutes); then one fresh question on the why only, in a slot after that, not the same night. 875 D28 on Thu Nov 26 is a separate cold and gets no interview.
+
+## After the verdict (Om, 20:59, verbatim; no re-score)
+
+Om on Q2: "I guess with whyyou could have infered it but yes i should change habbit."
+
+Om on Q3, a fresh trace:
+
+> 1. [1,2,3,4,5,6,7,8,9,10,11,12]
+> 2. Mid = 6 (1+12) // 2
+> 3. 6 * 6 = 36
+> 4. Last character is 6
+> 5. So the logic will be if lastCharacter(k*k) < 9:
+>    1. l = m + 1
+>    2. That mnakes l = 7
+> 6. and then we calculate m = (7+12) // 2 = 9
+>    1. 9*9 = 81
+>    2. Will again shift left and put it on 10
+>    3. ...
+>    4. ...
+> 7. So basically the return will be nothing there are no numbers
+
+Claude: this trace is right (l to 7, middle 9, l to 10, then 11 and 12, no answer). It also confirms the generous reading of "meve left to 7" as "the left pointer moves to 7". It came after Claude's verdict message gave the correct trace, so it is recorded here, not re-scored: a DSA answer is scored once (s6.6 #11), and the first answer said the search reaches 7 and returns 7. Q2 stays as scored: a why that is not written cannot be inferred, because an interviewer only scores what is said.
