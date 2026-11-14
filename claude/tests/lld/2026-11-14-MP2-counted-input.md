@@ -22,3 +22,11 @@ One finding: positions are worked out from counts, and the last section is read 
 Why question (asked 22:3x, answer in Om's own slot): why does the moving `i` stop after exactly 4 class lines, while this code also takes the holiday lines?
 
 Next: by the practice rule, "not yet" means the same skill again with a NEW problem in the next session (W7's MP slot).
+
+## Correction (Claude, 22:40 IST, after Om's 22:35 message; verdict changed)
+
+Om (22:35), verbatim in part: "after giving question you can't plant bugs .. do any of your previous question cover these situation", quoting the three required proofs.
+
+Om is right. The task said "three sections, always in this order", and the three proofs asked for (SAMPLE counts, SAMPLE last items, NO_ROOMS) are exactly what his tests prove. The holidays input adds a fourth section, so it breaks the stated format; it is not a fault in his code and is withdrawn as evidence, together with the why question built on it. Within the stated format the code has no defect found.
+
+Result corrected to **SKILL SHOWN**: counted input read correctly, including a 0 count, in about 33 minutes of coding (21:12-21:45), all three proofs right, 6/6 deliberate mistakes caught; MC1 spent about 60 minutes on input and read the wrong ladder lines. Note, no effect on the result: the taught method (one moving `i`) was not used; positions are worked out from the counts. The spec note on the return shape stays as recorded. Next MP session: skill 3 (make random things testable). Coach error logged in `claude-log-entries.md` (22:40).
