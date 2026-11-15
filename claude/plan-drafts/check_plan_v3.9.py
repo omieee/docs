@@ -22,6 +22,12 @@ v3.9 adds (Nov 15 2026): MC labels kept apart for prerequisite checks (MC2 after
 checked in v3.8); a prerequisite that ends in the same week must come earlier in that row; every v3.9 unit must exist in
 section 6 (no pillar can disappear); CL3 runs only in whole 3-hour sessions and after K6b; DS1 after G7 and H3 and
 with its use steps; the token rules, the recognition-first DSA rule and the measured-pace forecast must be present.
+
+v3.9 r2 adds (Nov 15 2026, after ChatGPT's verification): E1 and its dependencies; Gate A and Gate B items close before
+their gate week; every dated DSA review sits inside its week and names the right weekday; the live week references in
+sections 4, 6 and 14 match the map; each Go row's Learning Go chapters agree between its text and its resource key and
+with the declared map, and G2 covers chapters 2 to 5; the W7-W12 run sheet exists and its moved hours add up; the
+available-time scenarios, the short-week rule and the release-evidence table are present.
 """
 import datetime
 import re
@@ -36,8 +42,9 @@ DEPS = [("K6a", "D1"), ("K6a", "K5"), ("K7b", "K6a"), ("K6b", "A6"), ("K6b", "K6
         ("A1", "G7"), ("A3", "S5"), ("C1", "D1"), ("C1", "Y1"), ("P4", "Y8a"), ("H6", "H2"),
         ("OP1", "G7"), ("OP1", "K5"), ("OP4", "OP3"), ("OP4", "K6a"), ("OP4", "A2"),
         ("CL2", "CL1"), ("CL3", "CL2"), ("CL3", "K6a"), ("CL4", "CL3"), ("CL4", "C1"), ("K3", "D1"),
-        ("CL3", "K6b"), ("DS1", "G7"), ("DS1", "H3")]   # v3.9
-REQUIRED_UNITS = ["P1", "P2", "P3", "P4", "Y1", "Y2", "Y3", "Y4", "Y5", "Y6", "Y7a", "Y7b", "Y8a", "Y8b", "D1", "D2", "C1", "O1",
+        ("CL3", "K6b"), ("DS1", "G7"), ("DS1", "H3"),   # v3.9
+        ("E1", "P1"), ("E1", "P4"), ("E1", "S5"), ("C1", "E1"), ("A3", "E1"), ("OP4", "E1")]   # v3.9 r2
+REQUIRED_UNITS = ["P1", "P2", "P3", "P4", "E1", "Y1", "Y2", "Y3", "Y4", "Y5", "Y6", "Y7a", "Y7b", "Y8a", "Y8b", "D1", "D2", "C1", "O1",
                   "F1", "AI1", "G1", "G2", "G3", "G4", "G5", "G6", "G7", "A1", "A2", "A3", "A4", "A5", "A6", "K1", "K2", "K3",
                   "K4", "K5", "K6a", "K6b", "K7a", "K7b", "H1", "H2", "H3", "H4", "H5", "H6", "DS1", "L1", "L2", "L3", "L4",
                   "MC", "MP", "OP1", "OP2", "OP3", "OP4", "OP5", "OP6", "OP7", "CL1", "CL2", "CL3", "CL4", "RR"]   # v3.9
@@ -202,6 +209,8 @@ def tracks(lab, txt):
         if "Gate B" in (txt or "") or "checklist" in (txt or ""):
             return set(GAP_TRACKS)
         return set()
+    if lab == "DS1":   # v3.9 r2: Go code on Maelstrom, a distributed-systems (HLD) proof
+        return {"Go", "HLD"}
     if lab.startswith("OP"):
         return {"Go", "Kubernetes", "Operators"}
     if lab.startswith("CL"):
@@ -327,6 +336,143 @@ if "14. **Recognition first (v3.9" not in sec6:
 if "**Measured pace at the Nov 15 re-forecast (v3.9):**" not in sec4:
     errors.append("Section 4: the measured-pace forecast is missing")
 
+# ---------------- v3.9 r2 rules ----------------
+MONS = {m: i + 1 for i, m in enumerate(MON)}
+DAYS = "Mon Tue Wed Thu Fri Sat Sun".split()
+gate_a = max(n for n, *_r, proof in weeks if "GATE A" in proof)
+# Gate items close before their gate week (section 4)
+for u in ["P2", "P3", "P4", "G7", "K7a", "MC3"]:
+    if u not in last or last[u] >= gate_a:
+        errors.append(f"Gate A item {u} ends in W{last.get(u)}, not before the Gate A week (W{gate_a})")
+if "H6" not in first or first["H6"] >= gate_a:
+    errors.append("Gate A item Mock 1 is not before the Gate A week")
+for u in ["A2", "A3", "A4", "A5", "E1", "C1", "O1", "OP7", "CL3", "CL4", "K7b", "F1", "MC7", "AI1"]:
+    if u not in last or last[u] >= gate_b:
+        errors.append(f"Gate B item {u} ends in W{last.get(u)}, not before the Gate B week (W{gate_b})")
+# Dated reviews and any dated DSA item sit inside their week, on the right weekday (ChatGPT's finding 2)
+for n, its in items_by_week.items():
+    if n < 7:
+        continue
+    s_ = sunday(n) - datetime.timedelta(days=6)
+    for lab, _, t in its:
+        if lab != "DSA":
+            continue
+        for dname, mon, day in re.findall(r"\b(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{1,2})\b", t or ""):
+            hits = [s_ + datetime.timedelta(days=k) for k in range(7)
+                    if (s_ + datetime.timedelta(days=k)).month == MONS[mon] and (s_ + datetime.timedelta(days=k)).day == int(day)]
+            if not hits:
+                errors.append(f"Dated review: W{n} names {dname} {mon} {day}, outside the week")
+            elif DAYS[hits[0].weekday()] != dname:
+                errors.append(f"Dated review: W{n} names {dname} {mon} {day}, but that date is a {DAYS[hits[0].weekday()]}")
+# Live week references in the text match the map (ChatGPT's finding 5)
+def wk(pred):
+    return sorted({n for n, its in items_by_week.items() for l, _, t in its if pred(l, (t or "").strip())})
+sec68 = sec6.split("### 6.8")[1].split("### 6.9")[0] if "### 6.8" in sec6 else ""
+sec66 = sec6.split("### 6.6")[1].split("### 6.7")[0] if "### 6.6" in sec6 else ""
+sec64 = sec6.split("### 6.4")[1].split("### 6.5")[0] if "### 6.4" in sec6 else ""
+sec61 = sec6.split("### 6.1")[1].split("### 6.2")[0] if "### 6.1" in sec6 else ""
+tail = sec14.split("### 1c")[1] if "### 1c" in sec14 else ""
+u1 = wk(lambda l, t: l == "DSA" and t.startswith("Unseen set 1"))
+u2 = wk(lambda l, t: l == "DSA" and t.startswith("Unseen set 2"))
+blind = wk(lambda l, t: l == "DSA" and "blind mixed sets" in t)
+hm = wk(lambda l, t: l == "DSA" and t.startswith("Human live-coding mock"))
+nauk = wk(lambda l, t: l == "R1" and t.startswith("Naukri live"))
+aloud = wk(lambda l, t: l == "R2" and t.startswith("Tell the first two stories aloud"))
+write = wk(lambda l, t: l == "R2" and t.startswith("Write the first two honest stories"))
+mocks = wk(lambda l, t: l == "Mock")
+refresh = wk(lambda l, t: l == "Campaign" and t.startswith("JD harvest refresh"))
+y3 = wk(lambda l, t: l == "Y3")
+blind_pre = [n for n in blind if n < gate_b]
+c1_weeks = [n for n, *_r in weeks if phase_of.get(n) == "1c"]
+ANCHORS = [
+    ("6.6 #12 set 1", sec66, r"Set 1 runs in the Gate A week \(W(\d+)\)", u1[:1]),
+    ("6.6 #12 set 2", sec66, r"Set 2 runs in the Gate B week \(W(\d+)\)", u2[:1]),
+    ("6.6 #7 blind sets", sec66, r"In the weeks before Gate B \(W(\d+)-W(\d+);", blind_pre[:1] + blind_pre[-1:]),
+    ("6.6 #13 human mock", sec66, r"once before Gate B \(W(\d+) in v3\.9", hm[:1]),
+    ("6.8 R1 Naukri", sec68, r"Naukri complete and live about 15 days before Gate A \(W(\d+)\)", nauk[:1]),
+    ("6.8 R1 proof", sec68, r"Naukri live by W(\d+);", nauk[:1]),
+    ("6.8 R2 written", sec68, r"stories are written in W(\d+)-W(\d+)", write[:1] + write[-1:]),
+    ("6.8 R2 aloud", sec68, r"told aloud in voice mode in W(\d+)-W(\d+)", aloud[:1] + aloud[-1:]),
+    ("6.4 mock 2", sec64, r"\(mock 2 is in W(\d+)\)", mocks[1:2]),
+    ("6.1 Y3", sec61, r"The last four topics finish in W(\d+), after Gate A", y3[-1:]),
+    ("4 unseen set 1", sec4, r"Also in the Gate A week \(W(\d+)\), but never a Gate A item: unseen set 1", u1[:1]),
+    ("4 unseen set 2", sec4, r"Plus unseen set 2 \(W(\d+),", u2[:1]),
+    ("4 blind sets", sec4, r"latest blind mixed set before the gate \(W(\d+)-W(\d+)\)", blind_pre[-2:]),
+    ("4 Naukri gate list", sec4, r"Naukri \(live since W(\d+),", nauk[:1]),
+    ("4 Naukri applications", sec4, r"Naukri goes live about 15 days before Gate A \(W(\d+)\)", nauk[:1]),
+    ("4 harvest refresh", sec4, r"using the W(\d+) harvest refresh", refresh[:1]),
+    ("14 1c note", tail, r"1c keeps study light on purpose \(W(\d+) [\d.]+h, W(\d+) [\d.]+h, W(\d+) [\d.]+h, W(\d+) [\d.]+h\)", c1_weeks),
+]
+for name, where, rx, want in ANCHORS:
+    m = re.search(rx, where)
+    if not m:
+        errors.append(f"Week reference ({name}): the sentence is missing")
+    elif [int(g) for g in m.groups()] != want:
+        errors.append(f"Week reference ({name}): text says {', '.join('W' + g for g in m.groups())}, the map has {', '.join(f'W{w}' for w in want)}")
+m = re.search(r"1c keeps study light on purpose \((W\d+ [\d.]+h(?:, W\d+ [\d.]+h)*)\)", tail)
+if m:
+    for wn, hh in re.findall(r"W(\d+) ([\d.]+)h", m.group(1)):
+        lab_h = {n: lab for n, _, lab, _, _ in weeks}.get(int(wn))
+        if lab_h is None or abs(lab_h - float(hh)) > 1e-9:
+            errors.append(f"Week reference (14 1c note): W{wn} is {lab_h}h in the map, the note says {hh}h")
+# Go chapters: text and resource key agree, and both follow the declared Learning Go map (ChatGPT's proposal check)
+LG2_MAP = {"G2": {2, 3, 4, 5}, "G3": {6, 7}, "G4": {9}, "G5": {8}, "G6": {10, 11, 15}, "G7": {12, 14}, "A1": {13}}
+def nums(txt):
+    out = set()
+    for a, b in re.findall(r"(\d+)(?:-(\d+))?", txt):
+        out |= set(range(int(a), int(b or a) + 1))
+    return out
+g2_seen = set()
+for n, its in items_by_week.items():
+    if n < 4:
+        continue
+    for lab, _, t in its:
+        if lab not in LG2_MAP or not t:
+            continue
+        body_, _, key = t.partition("[")
+        prose = set()
+        for m in re.finditer(r"Learning Go 2e (chapters? [\d][\d\- ,]*(?:(?:,? and |, )(?:chapter )?\d+)*)", body_):
+            prose |= nums(m.group(1))
+        mk = re.search(r"LG2 \(ch ([\d\-, ]+)\)", key)
+        keyed = nums(mk.group(1)) if mk else set()
+        if prose and not prose <= keyed:
+            errors.append(f"Go map: W{n} {lab} text names Learning Go chapter {sorted(prose - keyed)}, its resource key says {sorted(keyed)}")
+        if keyed and not keyed <= LG2_MAP[lab]:
+            errors.append(f"Go map: W{n} {lab} cites Learning Go chapter {sorted(keyed - LG2_MAP[lab])}, outside {lab}'s declared chapters {sorted(LG2_MAP[lab])}")
+        if lab == "G2":
+            g2_seen |= keyed
+if not {2, 3, 4, 5} <= g2_seen:
+    errors.append(f"Go map: G2 never cites Learning Go chapter {sorted({2, 3, 4, 5} - g2_seen)} (the Go strategy's step 1 is chapters 2-4, then 5)")
+# The W7-W12 run sheet (ChatGPT's proposal 1): every week present, moved hours add up to the row less the week's time
+sheet = sec14.split("**Run sheet, W7 to W12")[1].split("**Resource key")[0] if "**Run sheet, W7 to W12" in sec14 else ""
+if not sheet:
+    errors.append("Section 14: the W7-W12 run sheet is missing")
+else:
+    rows_ = {int(m.group(1)): m for m in re.finditer(r"^\| W(\d+) \([^,]+, ([\d.]+)h row\) \| [^|]+ \| [^|]+ \| ([^|]+) \| ([^|]+) \|$", sheet, re.M)}
+    labels = {n: lab for n, _, lab, _, _ in weeks}
+    for n in range(7, 13):
+        if n not in rows_:
+            errors.append(f"Run sheet: W{n} is missing")
+            continue
+        m = rows_[n]
+        row_h = float(m.group(2))
+        if abs(row_h - labels[n]) > 1e-9:
+            errors.append(f"Run sheet: W{n} says a {row_h}h row, the map has {labels[n]}h")
+        cap_n = LIGHT_CAP if n in LIGHT_WEEKS else CAP
+        for c, cell in ((9, m.group(3)), (6, m.group(4))):
+            c_ = min(c, cap_n)
+            mm = re.match(r"\s*([\d.]+)h:", cell)
+            op = re.search(r"\(([\d.]+)h left open\)", cell)
+            moved, open_ = float(mm.group(1)) if mm else -1.0, float(op.group(1)) if op else 0.0
+            if abs((moved - open_) - max(0.0, labels[n] - c_)) > 1e-9:
+                errors.append(f"Run sheet: W{n} at {c}h moves {moved}h with {open_}h open; the row less {c_}h is {max(0.0, labels[n] - c_)}h")
+if "**Available-time scenarios (v3.9 r2):**" not in sec4:
+    errors.append("Section 4: the available-time scenarios (v3.9 r2) are missing")
+if "**Short weeks (v3.9 r2" not in sec14:
+    errors.append("Section 14: the short-week rule (v3.9 r2) is missing")
+if "**Release evidence (v3.9 r2" not in sec6:
+    errors.append("Section 6.1: the release-evidence case table (v3.9 r2) is missing")
+
 if errors:
     print("FAIL")
     for e in errors:
@@ -335,5 +481,6 @@ if errors:
 print("PASS: every week fits its cap and sums to its label, every unit matches section 6, totals and dependencies hold, "
       "week dates run on, phase and track totals match sections 4 and 5, gate dates match in sections 1, 4 and 11, "
       "no track breaks the continuity rule, no coaching owner is named, the v3.7 international items are in place, "
-      "every teaching part carries a typed use step, no part starts with under 30 minutes, and no row names a tool before "
-      "the unit that teaches it")
+      "every teaching part carries a typed use step, no part starts with under 30 minutes, no row names a tool before "
+      "the unit that teaches it, gate items close before their gate, dated reviews sit in their week, the week references "
+      "match the map, the Go chapters match the declared map, and the W7-W12 run sheet adds up")

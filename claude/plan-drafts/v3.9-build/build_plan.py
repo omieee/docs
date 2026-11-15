@@ -172,7 +172,8 @@ exec(open(os.path.join(D, "v39_edits.py"), encoding="utf-8").read())
 # ---------- assemble ----------
 sec46 = open(os.path.join(D, "sec04_05.md")).read().rstrip() + "\n\n---\n\n"
 sec6 = open(os.path.join(D, "sec06.md")).read().rstrip() + "\n\n---\n"
-sec14 = open(os.path.join(D, "sec14_head.md")).read().rstrip() + "\n\n" + open(os.path.join(D, "sec14.md")).read().rstrip() + "\n\n" + open(os.path.join(D, "sec14_tail.md")).read().rstrip() + "\n"
+# v3.9 r2: run sheet from python3 scenarios.py runsheet > runsheet.md
+sec14 = open(os.path.join(D, "sec14_head.md")).read().rstrip().replace("<!-- RUNSHEET -->", open(os.path.join(D, "runsheet.md")).read().rstrip()) + "\n\n" + open(os.path.join(D, "sec14.md")).read().rstrip() + "\n\n" + open(os.path.join(D, "sec14_tail.md")).read().rstrip() + "\n"
 out = s0 + s1 + s2 + s3 + sec46 + sec6 + s7 + s8 + s9 + secs[10] + s11 + s12 + s13 + sec14
 open(sys.argv[1], "w", encoding="utf-8").write(out)
 print("written", len(out.splitlines()), "lines")

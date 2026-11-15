@@ -13,7 +13,9 @@ unit("P1", "6.1", [
     (0.5, "Python prerequisite Block 1, context managers and `with`, done Oct 17 [RP (\"Python's with Statement: Manage External Resources Safely\")]"),
     (2.25, "Python prerequisites left after Block 1, Block 2 restarted Oct 18 from zero: pytest basics (what pytest is, how it finds and runs tests, reading a failure), done Oct 22; then fixtures with `return` [PCC (ch 11), RP, PYTEST (fixtures), MCODING]"),
     (1.0, "Fixtures with `yield`, right after Y3's generator basics, then dataclass equality [PYTEST (fixtures), RP, MCODING]"),
-    (7.25, "psycopg 3 prerequisite first (Getting Started: basic usage, passing parameters, transactions; a 15-line insert, select, rollback practice script); then one use case end to end through the real database, including one specified failure; then repositories for all 5 entities with rollback tests. Reuse what October taught (v3.8): the rollback fixture is a `yield` fixture and each transaction uses `with` [PSY]"),
+    (4.25, "psycopg 3 prerequisite first (Getting Started: basic usage, passing parameters, transactions; a 15-line insert, select, rollback practice script); then one use case end to end through the real database, including one specified failure: the Service repository and `POST /services` on Postgres (done Nov 4-12, PRCP PR #11) [PSY]"),
+    (3.5, "Repositories for Environment, then Probe, on the Service pattern (v3.9 r2: sized against PRCP PR #11 ae974b0): Environment save, get and list with its duplicate mapped and a saved row read back through a new connection; Probe looks up its environment and service ids first, with two plain lookups (the nested queries P2 teaches come later), saves the method and expected status, and maps a missing parent (foreign-key error) to a domain error, tested. Reuse what October taught (v3.8): the rollback fixture is a `yield` fixture and each transaction uses `with` [PSY]"),
+    (5.5, "Repositories for ProbeResult, then GateDecision with its evidence (v3.9 r2): ProbeResult gets the id the table already requires, set by `create_probe_result` the way `create_http_probe` sets a probe's id, and a test that another probe's result stays out; then a `002` SQL file adds the table linking a decision to the result ids it used, applied in CI and in both local databases; the decision and its links are saved in one transaction, and a link to a result id that does not exist makes the whole save fail, so no half decision survives, tested; tests green on a fresh clone. The commit-failure test for the API dependency (`monkeypatch.setattr`, not taught yet) waits for Y6 [PSY, PG (Constraints: foreign keys)]"),
 ])
 unit("P2", "6.1", [
     (6.25, "SQL correction, lesson before exercise: SQLBolt lessons on joins, outer joins and NULLs, then its subqueries and set-operations topics (IN, UNION); then pgexercises Joins and Subqueries. Use in PRCP (code): one repository query that joins probes to their results and one with a subquery, each tested on `prcp_test` [SQLBOLT, PG-TUT (Window Functions), PGEX]"),
@@ -56,7 +58,7 @@ unit("Y5", "6.1", [
     (2.0, "GIL, threads vs processes vs asyncio, `cProfile` before and after. Use in PRCP (code): profile PRCP's fan-out [PYDOCS (profile), BEAZ]"),
 ], deps=["Y4"])
 unit("Y6", "6.1", [
-    (4.5, "pytest beyond the basics: fixture scopes, `conftest.py`, parametrize, `monkeypatch`, `tmp_path`; then Hypothesis on `decide()`: v3.9 states the property, no PASS unless every result is positive, for every generated input [PYTEST, HYP]"),
+    (4.5, "pytest beyond the basics: fixture scopes, `conftest.py`, parametrize, `monkeypatch`, `tmp_path`; then Hypothesis on the evidence step and `decide()` together (v3.9 r2): no PASS unless every required probe has a passing result for this release, for every generated list (the r1 property, no PASS unless every result is positive, holds even when a required probe never reports); the API commit-failure test with `monkeypatch.setattr` carried from P1 [PYTEST, HYP]"),
 ])
 unit("Y7a", "6.1", [
     (1.0, "PRCP code walk, part 1 (v3.6, moved forward): before P1 changes them, explain the repository Protocols, schemas and `conftest.py` fixtures line by line; fix or log what you cannot defend [section 6.1]"),
@@ -74,6 +76,10 @@ unit("Y8b", "6.1", [
     (1.5, "Reference counting, reference cycles, the `gc` module [RP (\"Memory Management in Python\"), FLUENT (ch 6)]"),
     (1.5, "Checklist D cold re-run; repair what is still shaky [section 7]"),
 ])
+unit("E1", "6.1", [
+    (4.0, "Release evidence (v3.9 r2): each probe result names the release it probed (an Alembic migration); a pure function, before `decide()`, keeps one result per required probe of the service and environment, and only for this release, and turns a required probe with no result into UNKNOWN; `decide()` itself does not change. Tests from the case table in section 6.1: nothing received, A passes and B never reports, the same A twice, B's pass from the previous release, both pass. ADR: what counts as evidence, who owns the required list, and which result wins when one probe reports twice for the same release [section 6.1]"),
+    (3.5, "The gate endpoint: PRCP loads the probes and this release's results from Postgres, runs the evidence step and `decide()`, saves the decision with the result ids it used (P1's repository) and returns it; an integration test where B's only pass belongs to the previous release and the answer is not PASS; the coach removes the evidence step and the missing-B test must fail [section 6.1]"),
+], deps=["P1", "P4", "S5"])
 unit("D1", "6.1", [
     (3.0, "Multi-stage Dockerfile, non-root user, `.dockerignore` [NANA-DOCKER, DOCKER]"),
     (2.0, "Compose with Postgres and healthchecks [NANA-DOCKER (Compose), DOCKER]"),
@@ -81,10 +87,10 @@ unit("D1", "6.1", [
 unit("D2", "6.1", [(3.0, "Namespaces, cgroups, layers, PID 1 and SIGTERM [DOCKER]")], deps=["D1"])
 unit("C1", "6.1", [
     (4.0, "CI: lint, mypy, tests, coverage, image build [GHA]"),
-    (4.0, "Self-gating: PRCP gates its own release [GHA]"),
-], deps=["D1", "Y1"])
+    (4.5, "Self-gating: PRCP gates its own release through E1's endpoint, with the commit as the release; a planted failing probe blocks it and a required probe that never reports does not promote it (v3.9 r2, the same case table as E1) [GHA]"),
+], deps=["D1", "Y1", "E1"])
 unit("O1", "6.1", [
-    (5.5, "`/metrics`, `/live`, `/ready`; counter, gauge, histogram; label cardinality; load experiment: throughput, p50/p95/p99, saturation point, one bottleneck [PROM, VEGETA, SRE (ch 6)]"),
+    (5.5, "`/metrics`, `/live`, `/ready`; counter, gauge, histogram; label cardinality; load experiment: throughput, p50/p95/p99, saturation point, one bottleneck; v3.9 r2: the report records the input rate, the accepted rate, the error rate, p95, the hardware and the duration, the H3 ADR's prediction next to what was seen, and, if the load generator tops out first, the highest rate actually shown with the server's limit left unknown [PROM, VEGETA, SRE (ch 6)]"),
     (5.5, "PromQL on your own metrics; one symptom alert; SLI and SLO; USE and RED; tracing concepts: trace, span, context propagation, sampling [PROM, USE]"),
 ], deps=["D1"])
 unit("AI1", "6.1", [
@@ -99,7 +105,8 @@ unit("F1", "6.1", [
 unit("G1", "6.2", [(3.0, "Install Go, Hello World, Integers, Iteration [FCC-Go ch 1-3, LGWT, GOBYEX for lookups]")])
 unit("G2", "6.2", [
     (2.0, "Types, composite types and control, first contact (done Nov 2-4): Boot.dev Learn Go chapters 1-3 and chapter 9 lessons 1-9; Learning Go 2e chapter 2, and chapter 3 from Arrays to Strings, Runes and Bytes (Go appendix steps A-B) [BOOTDEV (Learn Go ch 1-3, 9), LG2 (ch 2-3)]"),
-    (4.25, "Slices in code (Go appendix steps C-G; v3.9 sizes G2 at Om's measured reading pace of Nov 3): start `go-notes.md` (a slice is not a Python list copy; `'a'` is a rune; Go does not mix `int` and `float64`) and type and run chapter 2's exercises; one file from a blank page with `t *testing.T` and a `strings.Builder`; Learn Go with Tests, Arrays and slices, in two sittings. Use in the agent (code): start the Go module in PRCP's `agent/` folder; the probe targets are a slice, with a test on what `append` to a copy does [LG2 (ch 3), LGWT (Arrays and slices), GO-SLICES]"),
+    (4.0, "Slices in code (Go appendix steps C, E, F, G; v3.9 sizes G2 at Om's measured reading pace of Nov 3; r2: step D's standalone `strings.Builder` drill is dropped, Om, Nov 6): start `go-notes.md` (a slice is not a Python list copy; `'a'` is a rune; Go does not mix `int` and `float64`) and type and run Learning Go 2e chapter 2's exercises; Learn Go with Tests, Arrays and slices, in two sittings, its test file written from a blank page. Use in the agent (code): start the Go module in PRCP's `agent/` folder; the probe targets are a slice, with a test on what `append` to a copy does [LG2 (ch 2-3), LGWT (Arrays and slices), GO-SLICES]"),
+    (3.0, "Loops and control, in the approved order (v3.9 r2; the Go strategy's step 1 names Learning Go chapter 4 and Boot.dev chapter 8, which r1 left out): Boot.dev chapter 8 (Loops), then Learning Go 2e chapter 4 (blocks and shadowing, `for` four ways, `for range` over a string giving runes, `switch`) and its exercises. Use in the agent (code): a `for range` loop that writes one line per probe target into a `strings.Builder` (strings taught in their own context, Om, Nov 6), with a test on the report text [BOOTDEV (Learn Go ch 8), LG2 (ch 4)]"),
     (2.5, "Functions as values (v3.9, the Go strategy's order): Boot.dev chapter 4's lessons left, then Learning Go 2e chapter 5 (functions as values, closures, `defer`). Use in the agent (code): a `ProbeFunc` type passed as a value, with a test that a fake function is called once per target [BOOTDEV (Learn Go ch 4), LG2 (ch 5)]"),
 ])
 unit("G3", "6.2", [
@@ -118,7 +125,7 @@ unit("G7", "6.2", [
 ])
 unit("A1", "6.2", [(6.0, "Sequential agent (v3.6: starts right after G7; v3.8: from the skeleton built in G2-G7): config, `net/http`, per-probe timeout; code-read the timeout fields of the `net/http` Client [LG2 (ch 13), LGWT (HTTP server, JSON), EFFGO]")], deps=["G7"])
 unit("A2", "6.2", [(9.0, "`errgroup` with `SetLimit` (the only concurrency model in the agent), cancellation; `-race` clean; prove the active probe count stays bounded and a slow probe is cancelled; v3.9: a down target becomes a failed `ProbeResult` and never cancels the other probes (the errgroup context is cancelled once `Wait` returns or one function errors), with a test [PIKE, GO-PIPELINES, ERRGROUP]")], deps=["A1"])
-unit("A3", "6.2", [(5.0, "POST results, retries with backoff and jitter, idempotency key; prove two simultaneous pushes with one key, and a lost response followed by a retry, create one record [SRE (ch 22)]")], deps=["A2", "S5"])
+unit("A3", "6.2", [(5.0, "POST results to E1's ingestion path, each naming the release it probed (v3.9 r2), retries with backoff and jitter, idempotency key; prove two simultaneous pushes with one key, and a lost response followed by a retry, create one record [SRE (ch 22)]")], deps=["A2", "S5", "E1"])
 unit("A4", "6.2", [(5.0, "`log/slog`, `client_golang` metrics, graceful SIGTERM that stops new work and finishes in-flight probes within a stated limit; code-read how a `client_golang` histogram records a value [GO-SLOG, CLIENTGO]")], deps=["A3"])
 unit("A5", "6.2", [(6.0, "Leak lab: remove a timeout, find it in pprof, fix it, add a test; record the load and the observation window [GO-PPROF, GO100]")], deps=["A2"])
 unit("A6", "6.2", [(5.0, "Static binary image; ADR on control plane vs data plane [DOCKER]")], deps=["A4", "D1"])
@@ -132,7 +139,7 @@ unit("DS1", "6.4", [
 # ---------- 6.3 Kubernetes ----------
 unit("K1", "6.3", [
     (1.5, "kind cluster up, first pod (done Oct 26) [KK (Core Concepts: Pods, Pods with YAML, and the Pods demo), KIND]"),
-    (2.5, "Core Concepts, architecture lessons in the course's own order (v3.9, Om Nov 13): Cluster Architecture, Docker vs containerd, etcd (skip the optional etcd commands), kube-apiserver, kube-controller-manager, kube-scheduler, kubelet, kube-proxy. Use on kind (code): find each component in `kubectl get pods -n kube-system` on your kind cluster and write one line on what it does in `k8s-notes.md` [KK (Core Concepts), KIND]"),
+    (2.5, "Core Concepts, architecture lessons in the course's own order (v3.9, Om Nov 13): Cluster Architecture, Docker vs containerd, etcd (skip the optional etcd commands), kube-apiserver, kube-controller-manager, kube-scheduler, kubelet, kube-proxy. Use on kind (code): name each Pod `kubectl get pods -n kube-system` shows on your kind cluster and what it does, then write where kubelet runs and why it is not in that list (it is a process on the node, not a Pod), one line each in `k8s-notes.md` [KK (Core Concepts), KIND]"),
 ])
 unit("K2", "6.3", [(5.0, "Core Concepts, workload lessons in the course's order: ReplicaSets, Deployments, Services, Namespaces, Imperative Commands, each with its practice test; then the `kubectl` drill (get, describe, logs, exec, events, `-o yaml`), moved here because the course's Imperative Commands lab uses `create deployment`, `scale` and `expose`; controller anatomy beyond the course: watch, cache, work queue, reconcile, requeue with backoff, finalizers, owner references, leader election. Use on kind (code): the drill on your kind cluster, its output pasted into `k8s-notes.md` [KK (Core Concepts), K8S]")], deps=["K1"])
 unit("K3", "6.3", [
@@ -167,7 +174,7 @@ unit("H2", "6.4", [
 unit("H3", "6.4", [
     (4.5, "Replication and quorums, lectures 5.1-5.3 [KLEP]"),
     (4.5, "Partitioning, consistent hashing, consistency models, lectures 7.2-7.3 [KLEP, HI]"),
-    (2.0, "PRCP scale envelope ADR (v3.9): the real problem PRCP solves (most outages start with a change) and the numbers it must hold: Om's IKS fleet as the measured base (200-300 clusters, about 19,000 workers), then a design target of a million probed endpoints: agents sharded by service, results aggregated per wave, `decide()` still pure, and where the database becomes the bottleneck first. Use in PRCP (explain): the scale-envelope ADR committed to `docs/adr/` [SRE, SREWB (Appendix C), KLEP]"),
+    (2.0, "PRCP scale envelope ADR (v3.9): the real problem PRCP solves (most outages start with a change) and the numbers it must hold: Om's IKS fleet as the measured base (200-300 clusters, about 19,000 workers), then a design target of a million probed endpoints with stated inputs (v3.9 r2, for example one result per endpoint a minute at about 500 bytes: about 16,700 results a second, 1.44 billion a day, 720 GB a day of raw payload before indexes, replication and retention): agents sharded by service, results aggregated per wave, `decide()` still pure, the first limit you expect and the observation that would prove you wrong; O1 measures against the same inputs. Use in PRCP (explain): the scale-envelope ADR committed to `docs/adr/` [SRE, SREWB (Appendix C), KLEP]"),
 ], deps=["H2"])
 unit("H4", "6.4", [
     (5.0, "Failure models, consensus, Raft, leases, split brain, lectures 2.1-2.4 and 6.1-6.2 [KLEP]"),

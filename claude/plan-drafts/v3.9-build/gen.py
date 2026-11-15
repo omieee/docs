@@ -37,7 +37,7 @@ DSA_DONE = {
     6: [(2.25, "739 and 155 D28 (late), 875 D14 (Nov 12, PARTIAL) and its fresh question (Nov 14, PARTIAL); sorting lessons not started, so they move to W7 [NC]")],
 }
 DSA_SEG = [
-    ("new", 2.5, "Due colds first (704 and 74 D28 on Mon Nov 16, 875 D28 on Thu Nov 26) and the owed 875 fresh question on why halving is safe, in its own slot; then sorting lessons 10-12: insertion, merge and quick sort as DRILLs, not counted (v3.6 funds lessons v3.5 named but did not budget; v3.9 moves them here from W5-W6) [NC]"),
+    ("new", 2.5, "Sorting lessons 10-12: insertion, merge and quick sort as DRILLs, not counted (v3.6 funds lessons v3.5 named but did not budget; v3.9 moves them here from W5-W6) [NC]"),
     ("new", 3.5, "Recursion lessons 8-9, trees 16-17; NEW 226 Invert Binary Tree, 104 Maximum Depth [NC]"),
     ("new", 4.0, "Queue lesson 7 and tree DFS and BFS lessons 19-20 (v3.6 funds them); NEW 102 Level Order Traversal; colds [NC]"),
     ("new", 3.5, "NEW 98 Validate BST; heap lessons 23-25; NEW 703 Kth Largest in a Stream [NC]"),
@@ -87,8 +87,8 @@ def parts(label, idx=None):
 
 
 LANES = {
-    "PY": parts("Y3", [0]) + parts("P1", [2]) + parts("Y7a") + parts("P1", [3]) + parts("D1") + parts("Y8a")
-          + parts("Y3", [1, 2, 3, 4, 5]) + parts("P2") + parts("P3") + parts("P4") + parts("S5") + parts("Y3", [6, 7, 8, 9])
+    "PY": parts("Y3", [0]) + parts("P1", [2]) + parts("Y7a") + parts("P1", [3, 4, 5]) + parts("D1") + parts("Y8a")
+          + parts("Y3", [1, 2, 3, 4, 5]) + parts("P2") + parts("P3") + parts("P4") + parts("S5") + parts("E1") + parts("Y3", [6, 7, 8, 9])
           # ---- 1b ----
           + parts("Y1") + parts("C1") + parts("S1", [1, 2]) + parts("AI1") + parts("Y4")
           + parts("O1") + parts("Y5") + parts("D2") + parts("S2") + parts("Y6") + parts("Y8b")
@@ -107,7 +107,9 @@ LANES = {
 LANE_ORDER = ["CAR", "GO", "K", "KB", "L", "H", "PY"]   # PY last: it takes the remainder
 
 # ---------------- week spec ----------------
-from spec import SPEC, GATES, PHASE_END, CAMP, DSA_HOURS, NOTES
+from spec import SPEC, GATES, PHASE_END, CAMP, DSA_HOURS, NOTES, DUE
+
+STOP_1A = {"GO": "A1", "K": "K6a"}
 
 # ---------------- build ----------------
 pos = {lane: [0, 0.0] for lane in LANES}           # (item index, hours used in that item)
@@ -140,6 +142,8 @@ def track_of(label):
         return ["Cloud"] + (["Kubernetes"] if label in ("CL3",) else [])
     if label == "AI1":
         return []
+    if label == "DS1":   # v3.9 r2: DS1 is Go code on Maelstrom, a distributed-systems (HLD) proof
+        return ["Go", "HLD"]
     if label in ("Mock",):
         return ["HLD"]
     if label == "MP" or label.startswith("MC") or label.startswith("L"):
@@ -163,6 +167,13 @@ def pour(lane, hours, week, items):
             return hours
         label, pi = q[i]
         ph, ptxt = U[label]["parts"][pi]
+        # v3.9 r2: in 1a the Go and Kubernetes lanes stop at their first 1b unit (section 4: the agent starts in 1b,
+        # PRCP goes onto kind at 1b's start), so the added weeks before Gate A finish the Gate A items first
+        if week <= PHASE_END["1a"] and STOP_1A.get(lane) == label and label not in first:
+            return hours
+        # v3.9 r2: the Gate A week starts no new unit; what is left stays open for Gate A repairs
+        if week == PHASE_END["1a"] and (label, pi) not in part_started:
+            return hours
         # v3.8 (A3): a lane never starts a new part with under 30 minutes; the hours go to the PY lane instead,
         # and the PY lane leaves them open
         if (label, pi) not in part_started and h_used < EPS and hours < 0.5 - EPS and ph >= 0.5 - EPS:
@@ -265,6 +276,12 @@ for n in range(0, LAST + 1):
     c = cap(n, phase)
     # DSA
     dh = s.get("DSA", DSA_HOURS(n, phase))
+    # v3.9 r2: reviews of problems solved before W7 are placed in the week they fall due, first in the row,
+    # sized at the cold boxes (10 min Easy, 15 Medium, rounded up to the quarter hour); the NEW work slides
+    for dh_, dtxt in DUE.get(n, []):
+        items.append(("DSA", dh_, dtxt))
+        dh -= dh_
+    assert dh > EPS, (n, dh)
     if s.get("dsa_skip_pool"):
         skip_pool()
     dsa_pour(dh, n, items, s.get("dsa_phase", phase))
