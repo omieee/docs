@@ -27,6 +27,8 @@ Build the evidence base so that every decision in v3.9 is backed by solid, curre
 - **His own DSA diagnosis:** "I can't tell the pattern." His example: Koko Eating Bananas can be retold a thousand ways and he should still see "this is binary search".
 - **Time:** about 2-2.5 focused desk hours a day (about 12 a week); a reading-only slot of 1-2 hours most evenings (phone or Kindle, no audio, low light); some audio-only time on walks or commutes; about 30 minutes late at night. He will add hours if the evidence says more effort is needed. Money for courses, books and tools is not a constraint.
 - Based in Bangalore, India.
+- Already paid for: NeetCode (paid account), Boot.dev, KodeKloud (including the Mumshad Mannambeth CKA course), Udemy. Rate these first; recommend a new paid resource only when it is clearly better for a specific need, and say why.
+- **Run mode (Nov 15, after two failed Fable runs):** Claude runs one part per chat (R4, then R2, R1, R5, R3), reads only sections 0-3, 5-7 and that part, opens every link it cites, and commits findings to `claude/research/v3.9/<part>.md` after each sub-question so a stopped run loses nothing.
 
 ## 3. The current plan (v3.8), in brief
 
