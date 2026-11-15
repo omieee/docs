@@ -63,7 +63,7 @@
 | E6 | Long goal: Google, Anthropic, OpenAI tier by 2028, else 2029, else 2030, no title fixed; v3.9 bridges Phase 1 into Phases 2-5, with what AI knowledge will be required by 2027 found by research | IDEA | R1 |
 | E7 | Learning method: Om learns by trial and error ("no one helps a lead"); check against v3.8's worked-example-first rule and the Oct 18 zero-knowledge rule | GAP | R5 |
 | E8 | Slot map: the most useful activity for each kind of slot (desk block, bedside reading only, walk or commute audio, office days, the short night slot) | IDEA | R5, then DECIDE |
-| E9 | More hours if needed (night); no cost cutting on time or money for resources; the 15-working-day leave after W6 | DATA | Om to confirm leave dates |
+| E9 | More hours if needed (night); no cost cutting on time or money for resources. Leave Nov 16 to Dec 4: plan the usual 2-2.5h a day; on a day with more time, Om pulls the next day's work forward (Om, Nov 15 12:15) | DATA | FOLD into W7-W9 rows |
 | E10 | Model roles: Claude drives; Fable runs research and a blind audit; ChatGPT verifies and audits separately; Om decides | IDEA | DECIDE (Nov 15) |
 
 ## F. Coach reliability
@@ -72,7 +72,7 @@
 | --- | --- | --- | --- |
 | F1 | Coach-error lessons: 24-25 logged errors, about 346 minutes, Oct 19-Nov 4 (`claude/coach-errors-2026-10-19-to-11-04.md`), plus the repeated plain-words errors with counts (owed for the Nov 15 close) turned into safeguards that prevent repeats | GAP | DECIDE with D1 |
 
-## Research briefs (drafted only after S2)
+## Research briefs (one combined brief written Nov 15 at Om's request: `fable-research-brief.md`; S2 decisions run in parallel)
 
 - **R1 Target employers and the AI shift, 2027-2030:** what Google, Anthropic, OpenAI and that tier hire for in infrastructure, platform and AI-infrastructure roles at 12-15 years; their loops now and how AI is changing them; the DSA share at that tier (B11); the AI knowledge needed (D3); follow-the-money evidence. Feeds E6 and the Phase 2-5 skeleton.
 - **R2 PRCP real problem:** release and rollout failures today (incident and postmortem data); what existing tools (Argo Rollouts, Flagger, Kayenta, Spinnaker, Keptn and others) solve and what stays unsolved; real scale numbers at large organisations to set the design envelope; candidate directions (fleet rollout gating across many clusters, release gating for AI models and agents with evaluations). Feeds E2.
