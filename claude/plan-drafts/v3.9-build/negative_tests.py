@@ -66,8 +66,13 @@ CASES = [
     ("run sheet hours do not add up", "| 6h: P1 0.5h,", "| 5h: P1 0.5h,", "Run sheet: W7 at 6h moves 5.0h"),
     ("run sheet week missing", "| W12 (Dec 21-27, 7h row) |", "| W 12 (Dec 21-27, 7h row) |", "Run sheet: W12 is missing"),
     ("run sheet removed", "**Run sheet, W7 to W12", "**Plan for the leave", "Section 14: the W7-W12 run sheet is missing"),
-    ("scenario label removed (finding 1)", "**Available-time scenarios (v3.9 r2):**", "**Pace scenarios:**", "Section 4: the available-time scenarios"),
+    ("scenario label removed (finding 1)", "**Available-time scenarios (v3.9 r2)", "**Pace scenarios", "Section 4: the available-time scenarios"),
     ("short-week rule removed", "**Short weeks (v3.9 r2", "**Weeks (v3.9 r2", "Section 14: the short-week rule"),
+    # ---- v3.9 final (ChatGPT's 16:22 review) ----
+    ("stale Gate A month in applications (finding 1)", "- After Gate A (Jun 6 2027): normal application volume.", "- After Gate A (May 2027): normal application volume.", "Applications: normal volume should start after Gate A"),
+    ("stale joining month (finding 1)", "means joining around August 2028", "means joining around May 2028", "Applications: an offer after Gate B"),
+    ("Gate A record removed (idea 4)", "**Gate A record (v3.9 final", "**Gate A notes (v3.9 final", "Section 4: the four-line Gate A record"),
+    ("slower dates read as a forecast again (finding 2)", "fixed-work illustrations (v3.9 final)", "forecast at the measured pace", "Section 4: the slower-pace dates are not labelled"),
     ("release-evidence table removed", "**Release evidence (v3.9 r2", "**Evidence (v3.9 r2", "Section 6.1: the release-evidence case table"),
 ]
 

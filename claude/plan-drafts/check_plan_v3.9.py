@@ -466,10 +466,24 @@ else:
             moved, open_ = float(mm.group(1)) if mm else -1.0, float(op.group(1)) if op else 0.0
             if abs((moved - open_) - max(0.0, labels[n] - c_)) > 1e-9:
                 errors.append(f"Run sheet: W{n} at {c}h moves {moved}h with {open_}h open; the row less {c_}h is {max(0.0, labels[n] - c_)}h")
-if "**Available-time scenarios (v3.9 r2):**" not in sec4:
+if "**Available-time scenarios (v3.9 r2)" not in sec4:
     errors.append("Section 4: the available-time scenarios (v3.9 r2) are missing")
 if "**Short weeks (v3.9 r2" not in sec14:
     errors.append("Section 14: the short-week rule (v3.9 r2) is missing")
+# v3.9 final (ChatGPT's 16:22 review, finding 1): hiring dates follow the gates
+ma = re.search(r"After Gate A \(([A-Z][a-z]{2} \d{1,2} \d{4})\): normal application volume", sec4)
+if not ma or ma.group(1) != gdate["A"]:
+    errors.append(f"Applications: normal volume should start after Gate A ({gdate['A']}), text says {ma.group(1) if ma else 'nothing'}")
+mb = re.search(r"an offer after Gate B \(([A-Z][a-z]{2} \d{1,2} \d{4})\) means joining around ([A-Z][a-z]+) (\d{4})", sec4)
+gb_d = sunday(gate_b) + datetime.timedelta(days=1)   # the first day an offer after Gate B can be accepted
+j_m, j_y = (gb_d.month + 3 - 1) % 12 + 1, gb_d.year + (gb_d.month + 3 - 1) // 12
+FULL = "January February March April May June July August September October November December".split()
+if not mb or mb.group(1) != gdate["B"] or mb.group(2) != FULL[j_m - 1] or int(mb.group(3)) != j_y:
+    errors.append(f"Applications: an offer after Gate B ({gdate['B']}) with 3 months' notice means joining around {FULL[j_m - 1]} {j_y}")
+if "**Gate A record (v3.9 final" not in sec4:
+    errors.append("Section 4: the four-line Gate A record (v3.9 final) is missing")
+if "fixed-work illustrations (v3.9 final)" not in sec4:
+    errors.append("Section 4: the slower-pace dates are not labelled fixed-work illustrations (v3.9 final)")
 if "**Release evidence (v3.9 r2" not in sec6:
     errors.append("Section 6.1: the release-evidence case table (v3.9 r2) is missing")
 

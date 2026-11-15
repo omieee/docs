@@ -1,4 +1,4 @@
-# v3.9 build scripts (draft revision 2, Claude, Nov 15 2026)
+# v3.9 build scripts (final, approved by Om Nov 15 2026; Claude)
 
 v3.9 is the Nov 15 2026 re-forecast, built on v3.8's scripts. Om's instruction (Nov 15, 13:14 IST): one coach builds, the other verifies. Claude built it; ChatGPT verified it (`chatgpt/outbox.md`, 14:54) and proposed five changes (`chatgpt/plan-drafts/2026-11-15-v3.9-execution-proposal.md`, `05b3735`). Revision 2 fixes the five bugs and carries the accepted and modified proposals; the decisions and the before-and-after numbers are in `../2026-11-15-v3.9-r2-build-note.md`. Run from this folder with plain `python3` (not `-I`, or the local imports fail).
 
@@ -8,8 +8,8 @@ v3.9 is the Nov 15 2026 re-forecast, built on v3.8's scripts. Om's instruction (
 2. `python3 scenarios.py runsheet > runsheet.md` (the W7-W12 run sheet, r2).
 3. `python3 build_plan.py ../Phase1_Master_Plan_v3.9.md` (v3.5 base, the v3.6 to v3.8 layers, then `v39_edits.py`; sections 4-6 and 14 come from the `sec*.md` files and `runsheet.md`).
 4. `python3 ../check_plan_v3.9.py ../Phase1_Master_Plan_v3.9.md` must print PASS (14 fragmentation warnings are expected: 15-minute tails of parts that started earlier).
-5. `python3 negative_tests.py ../Phase1_Master_Plan_v3.9.md ../check_plan_v3.9.py` must print ALL NEGATIVE TESTS FAIL AS EXPECTED (53 mutations, plus a check that the unmodified plan passes).
-6. `python3 ../check_plan_v3.9.py ../../../plan/Phase1_Master_Plan_v3.8.md` must FAIL: MC2 before L3 ends, CL3 before K6b, CL3 in slivers, the missing v3.9 rules, plus the r2 rules (E1 missing, P4 and K7a not before Gate A, the missing week-reference sentences, the run sheet).
+5. `python3 negative_tests.py ../Phase1_Master_Plan_v3.9.md ../check_plan_v3.9.py` must print ALL NEGATIVE TESTS FAIL AS EXPECTED (57 mutations, plus a check that the unmodified plan passes; 4 are new in the final revision).
+6. `python3 ../check_plan_v3.9.py ../Phase1_Master_Plan_v3.8.md` must FAIL (the v3.8 copy kept in `claude/plan-drafts/`, sha256 `25bb309e79a610f2`, the same as the one approved on Oct 24): MC2 before L3 ends, CL3 before K6b, CL3 in slivers, the missing v3.9 rules, plus the r2 and final rules (E1 missing, P4 and K7a not before Gate A, the missing week-reference sentences, the run sheet, the hiring dates, the Gate A record).
 
 ## Files
 
@@ -20,6 +20,6 @@ v3.9 is the Nov 15 2026 re-forecast, built on v3.8's scripts. Om's instruction (
 - `facts.py`: prints the numbers the text quotes (totals, phase hours, gate weeks, the weeks of the unseen sets, blind sets, Naukri, mocks and so on), straight from the build.
 - `gate_cases.py <PRCP src>`: runs PRCP's `decide()` on the seven release-evidence cases of section 6.1, today and with a reference evidence step. Checked on PRCP PR #11 at `ae974b0`: ALL CASES MATCH.
 - `sec04_05.md`, `sec06.md`, `sec14_head.md`, `sec14_tail.md`: sections 4, 5, 6 and the section 14 text, edited in place.
-- `negative_tests.py`: 53 mutations, 22 of them new in r2. A case may change all occurrences or apply several replacements in turn.
+- `negative_tests.py`: 57 mutations, 22 new in r2 and 4 in the final revision. A case may change all occurrences or apply several replacements in turn.
 
-On Om's approval: copy `Phase1_Master_Plan_v3.9.md` and `check_plan_v3.9.py` (renamed `check_plan.py`) into `plan/`, update `plan/README.md` with both sha256 values, and Om uploads both files to both projects the same day.
+Promoted to `plan/` on Nov 15 2026 after Om's approval (19:10): `plan/Phase1_Master_Plan_v3.9.md` and `plan/check_plan.py` (this folder's `check_plan_v3.9.py`), sha256 in `plan/README.md`. Om uploads both files to both projects the same day.

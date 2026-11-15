@@ -1,7 +1,8 @@
 """v3.9 r2: short weeks and available-time scenarios, from the same build gen.py makes (Claude, Nov 15 2026).
 
 python3 scenarios.py runsheet   prints the W7-W12 run sheet for section 14 (markdown)
-python3 scenarios.py dates      prints the gate dates if only 12, 9 or 6 hours of plan work get done each week from W7
+python3 scenarios.py dates      prints fixed-work illustrations: the gate dates if only 14, 12, 9 or 6 hours of plan work get done
+                                each week from W7, without and with the weekly close repeated in the extra calendar weeks
 
 The run sheet replays each week on its own, at 9 and at 6 hours, with one fixed order (section 14, "Short weeks"):
   1. dated DSA reviews (never skipped, section 6.6 #9);
@@ -190,7 +191,7 @@ HAND = {
 
 
 def runsheet():
-    out = ["| Week | First block | What proves the week worked | If only 9 hours: moves to the next week | If only 6 hours: moves to the next week |", "| --- | --- | --- | --- | --- |"]
+    out = ["| Week | First block | What proves the week worked (the full row done) | If only 9 hours: moves to the next week | If only 6 hours: moves to the next week |", "| --- | --- | --- | --- | --- |"]
     for n in range(7, 13):
         cap = 7 if n in LIGHT else 12
         row_h = sum(h for _, h, _ in rows[n])
@@ -220,19 +221,21 @@ LIGHT_CAL = set(LIGHT) | {week_of(datetime.date(2028, 10, 17)), week_of(datetime
                           week_of(datetime.date(2029, 11, 5)), week_of(datetime.date(2029, 12, 25)), week_of(datetime.date(2030, 1, 1))}
 
 
-def scenario(rate, start=7):
+def scenario(rate, start=7, close_h=0.0):
+    """close_h > 0 (v3.9 final, ChatGPT's 16:22 finding 2): every calendar week also spends close_h on its weekly close,
+    so the extra weeks a lower rate needs carry their own closes; the map's own weeks already hold theirs."""
     need = {}
     acc = 0.0
     for n in sorted(rows):
         if n < start:
             continue
-        acc += 7.0 if n in LIGHT else 12.0     # each map week's full time, its open repair and interview hours included
+        acc += (7.0 if n in LIGHT else 12.0) - close_h     # each map week's full time, open hours included, less its close
         for g, gw in (("A", PHASE_END["1a"]), ("B", PHASE_END["1b"]), ("C", PHASE_END["1c"])):
             if n == gw:
                 need[g] = acc
     res, done, k = {}, 0.0, start
     while len(res) < 3:
-        done += min(rate, 7.0) if k in LIGHT_CAL else rate
+        done += (min(rate, 7.0) if k in LIGHT_CAL else rate) - close_h
         for g in ("A", "B", "C"):
             if g not in res and done >= need[g] - EPS:
                 s = sunday(k)
@@ -247,4 +250,5 @@ if __name__ == "__main__":
     elif sys.argv[1:] == ["dates"]:
         for r in (14, 12, 9, 6):
             res, need = scenario(r)
-            print(r, res, {k: round(v, 2) for k, v in need.items()})
+            res2, _ = scenario(r, close_h=1 / 3)
+            print(r, "fixed work:", res, "| with a 20-minute close in every calendar week:", res2)
