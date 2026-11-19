@@ -22,8 +22,8 @@ kube-scheduler-phase1-k1-control-plane            1/1     Running   26 (23m ago)
 - **kube-apiserver** (Control-Plane): `kube-apiserver` is the component that communicates to all other components. It is the only component that conencts to `etcd`. when we issue a `kubectl` command. it goes to this component only and it then fetches the details from etcd and serve us.
 - **kube-controller-manager** (Control-Plane): `kube-controller-manager` is the program that hold many other controllers. Each `controller` watches its own part of the cluster and fixes it back to the desired state.
 - **kube-scheduler** (Control-Plane): `kube-scheduler` it just assigns which node the pod to go. based on the requirement the pod needs it see which node is best fit and assigns the pod to that node. _**Note**_: It doesnot do anything apart from allotment.
-- **kube-proxy** (Worker): `kube-proxy` is the component that helps communication between the pods .. It communicates with the services and forwards the traffic to the actual pod.
-- **kubelet** (Worker): `kubelet` is the component that actually with the help of `container-d` deploys the pod on scheduled node and monitiors the health and reoprts back to `kube-apiserver`. by efault `kubelet` is not installed in kind cluster as pod, but it runs as a program. we can view that by exec into it in docker.
+- **kube-proxy** (Worker): `kube-proxy` communicates with the services and forwards the traffic to the actual pod.
+- **kubelet** (Worker): `kubelet` is the component that actually with the help of `container-d` deploys the pod on scheduled node and monitiors the health and reoprts back to `kube-apiserver`. by efault `kubelet` is not installed in kind cluster as pod, but it runs as a program. we can view that by exec into it in docker. It needs to be seprate because it needs to setup other pods
 
 ```
 docker exec -it phase1-k1-control-plane systemctl status kubelet
