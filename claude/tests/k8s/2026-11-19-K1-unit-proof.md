@@ -45,3 +45,17 @@ Start each answer with an "Asked:" line, as in the 875 habit.
 - Q2 Failure 1/2. Both halves right with the reason ('which node to go is not known'). 'How would you notice?' not answered.
 - Q3 Transfer 1/2. Worker: kube-proxy, right; control plane only: 'all other', right. kubelet: 'the service running within docker in this case' says a service, not a Pod, but not where on the 3-node cluster (every node, three kubelets). Claude's part: Claude's Nov 13 summary said 'every worker: kubelet, kube-proxy', loose wording, and at 13:05 today let the '(Worker)' tags stand as polish; logged as a coach error.
 - Ladder 3/6, below the 4/6 bar set before the answer. Cold verdict: PARTIAL (Part A passed, ladder short). Teaching on the spot and one fresh retry per item follow.
+
+## Teaching on the spot (13:26, after scoring)
+
+- Gap 1 (Q1): the node controller is not in the Pod start chain; it watches node health and marks a node not ready when its kubelet stops reporting; nothing prepares a node per Pod. Chain shown as a diagram: kubectl to apiserver to etcd (Pod saved, no node); the scheduler watches the apiserver, picks a node, writes it into the Pod through the apiserver; the kubelet on that node watches the apiserver, sees a Pod given to its node, has containerd pull and start; status back through the apiserver.
+- Gap 2 (Q2): how to notice: `kubectl get pods` shows the new Pod at Pending; `-o wide` NODE is `<none>`; `describe` never shows the "Successfully assigned" event; the scheduler Pod is not Running in kube-system. The missed third part of the question is what an "Asked:" line catches.
+- Gap 3 (Q3): kubelet runs on every node, control plane included (three kubelets on the 3-node cluster), because every Pod on a node is started by that node's kubelet. Claude's loose Nov 13 wording ("every worker") named as part of the miss.
+
+## Fresh retries as asked (13:26), one per gap, cold
+
+1. The scheduler has just written `worker-1` as the node for a Pod called `api`. From that moment until the container is running, what happens, and which component does each step?
+2. A teammate says, "I created a Pod 10 minutes ago and nothing happened." You suspect the scheduler is down. Name two checks you would run, and what each would show if you are right.
+3. A cluster has 2 control plane nodes and 4 worker nodes. How many kubelets are running, and how many kube-proxy Pods? Why that number for kubelet?
+
+Retry answers: not given on Nov 19 (no reply after 13:26); asked again Fri Nov 20. A correct retry scores 1 for its item and clears that gap; the cold 3/6 stays recorded, so K1 closes on a short cold re-check of three new questions in a later slot this week (Claude's Nov 19 call).
