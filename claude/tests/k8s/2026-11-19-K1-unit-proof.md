@@ -59,3 +59,9 @@ Start each answer with an "Asked:" line, as in the 875 habit.
 3. A cluster has 2 control plane nodes and 4 worker nodes. How many kubelets are running, and how many kube-proxy Pods? Why that number for kubelet?
 
 Retry answers: not given on Nov 19 (no reply after 13:26); asked again Fri Nov 20. A correct retry scores 1 for its item and clears that gap; the cold 3/6 stays recorded, so K1 closes on a short cold re-check of three new questions in a later slot this week (Claude's Nov 19 call).
+
+## Nov 20 11:15: Om's objection, accepted (Claude)
+
+- Om (11:15): "none of your question was taught ... mumshad just had the introduction what is all ... he has not touched the sequence yet"; the kubelet count on a 2 control plane and 4 worker cluster was not taught either.
+- Checked against the plan: K1's line (s6.3) is the component introductions, and its proof is "each component in the lessons found where it runs on kind ... and explained in one line, cold", which is Part A. The Pod start sequence is K2's "full chain after `kubectl apply`" (proof: the apply chain as a narrative, 7/10, W11), and Pending diagnosis is one of K2's ten scenarios. No Kubernetes taught list existed (`claude/taught/` held only go.md and python.md), so the taught check was not done before Q1-Q3.
+- Result: Q1-Q3 (Nov 19) and the three retries (Nov 20) are VOID as untaught; they are not misses and are not scored. The Nov 19 cold PARTIAL rested on them and is withdrawn. Part A 6/6 cold stands. K1's close is Om's decision (Claude's recommendation in the Nov 20 log line).
