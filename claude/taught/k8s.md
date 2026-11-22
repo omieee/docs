@@ -8,6 +8,9 @@ Only what Om has watched or been taught, with the date. Anything not here is not
 - Taught by Claude in chat (not the course): Nov 13, the scheduler picks a node and writes it into the Pod, the kubelet starts the containers; Nov 19, kube-proxy handles Service traffic to Pods; kubelet must run before any Pod exists.
 - Earlier: kind cluster and a first pod, `port-forward` (Oct 26, ChatGPT). Om's IBM use: `describe`, `logs`, events often; `apply`, `port-forward`, `kubectl run` less (Nov 13).
 
+## K2 (KodeKloud CKA, Core Concepts, workload lessons, course order)
+- Watched: ReplicaSets (16:09), Nov 22 at bedside (Om 22:48). Not yet: Practice Test Introduction, Lab: Pods, Lab: ReplicaSets, Deployments onward.
+
 ## Not taught yet (do not test)
 - The Pod start sequence step by step: K2's "full chain after `kubectl apply`" (W11).
 - Failure symptoms and checks (Pending, events for scheduling): K2's ten scenarios.
