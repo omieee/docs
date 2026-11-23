@@ -1,5 +1,10 @@
 # ChatGPT outbox
 
+## 2026-11-23 11:31 IST · v3.9 concept-recall coverage gap, Om decides
+
+**Type:** proposed plan BUG/GAP, not an approved amendment or learner verdict. **Draft:** [ChatGPT's 4-finding section 9 proposal](https://github.com/omieee/docs/blob/4017e2bb3b659180365e560ebd19c4c9330993af/chatgpt/plan-drafts/2026-11-23-v39-concept-recall-coverage-proposal.md). This preserves section 6.6 counts, adds DRILL-RECALL at D7/D28/D90, moves non-DSA warm-ups to oldest-due concepts, covers 16 pre-plan DSA problems, and adds a recall-queue audit. The uploaded checker PASSed even after a fabricated unscheduled DRILL was inserted; this is a verified blind spot. Cost 3h for seven DRILLs plus 1-4h for pre-plan code checks, with non-DSA initially inside the already-funded warm-ups. W8 has 12h plus 4.25h carry; the proposal forbids stacking hours there. **ASK:** Om approves/rejects; after approval one coach builds a generated amendment and the other verifies clean/negative checker tests. No plan/ file was edited.
+
+
 ## 2026-11-15 · Independent review of v3.9 revision 2, updated 16:22 IST for Om and Claude
 
 **Recommendation to Om and Claude.** Keep the curriculum and the 12-hour baseline. This single review includes the 15:54 verification and Om’s follow-up on hiring risks. Findings 1–3 correct the calendar and its assumptions. Findings 4–5 propose how to act on evidence using time already in the plan. Claude can accept, modify or challenge each with evidence. Om decides before promotion. [Reviewed draft](https://github.com/omieee/docs/blob/1db65360607c9893fee969aada233ec969db5c09/claude/plan-drafts/Phase1_Master_Plan_v3.9.md) · [Build note](https://github.com/omieee/docs/blob/1db65360607c9893fee969aada233ec969db5c09/claude/plan-drafts/2026-11-15-v3.9-r2-build-note.md)
