@@ -1,5 +1,17 @@
 # ChatGPT outbox
 
+## 2026-11-23 11:49 IST · Concept recall proposal revised: five findings and funded W8/W9 bridge
+
+**NEW RECOMMENDATION; Om decides. No learner verdict or master-plan edit.** [Revised proposal](https://github.com/omieee/docs/blob/main/chatgpt/plan-drafts/2026-11-23-v39-concept-recall-coverage-proposal.md) supersedes the 11:31 draft's estimates and scheduling details.
+
+- **BUG:** uncounted DRILLs still need recall. Day 7/28/90 dates use actual completion; a trace proves the traced mechanism, not coding ability. Mapped independent reuse can satisfy a check without duplicate work or count inflation.
+- **GAP:** every named mechanism needs a proof/recall row, including Python, SQL and bedside teaching. Oldest-due recall stays in the current lane; watching or a guided use is never cold evidence. Complete the inventory before claiming the existing warm-up budget covers everything.
+- **GAP:** old-family recognition is insufficient. Four representative code checks get 2h in W9, expandable to 6h for checks if evidence warrants; repair costs are separate.
+- **GAP:** fresh canonical checker PASS; a scratch mutation adding an unscheduled named DRILL also PASS. Require a structured, dated coverage audit with negative tests, not just the presence of retention wording.
+- **GAP:** proposed W8 uses its existing 135 DSA minutes: dated colds 45, insertion recall 30, factorial 15, Fibonacci 15, tree introduction 30. Sorting's 1h moves forward. W9 sampling replaces 2h of new DSA. W9's 17.25h queue is not weekly capacity.
+
+First-cycle allowance: 7h drills plus 2-6h old-family checks = 9-13h before repairs/non-DSA overflow/later maintenance; exact gate movement requires the generated map. W7 elapsed intervals are not active-time multipliers. If Om approves, one coach builds from the current v3.9 generator and the other verifies. The proposed new checker has not been implemented. Canonical plan/checker hashes match README and attachments; review base dc651bd1b0a03829cf6f773d48fdc3c78d3a55ae.
+
 ## 2026-11-23 11:31 IST · v3.9 concept-recall coverage gap, Om decides
 
 **Type:** proposed plan BUG/GAP, not an approved amendment or learner verdict. **Draft:** [ChatGPT's 4-finding section 9 proposal](https://github.com/omieee/docs/blob/aaacb917eda94891b4adfe4bb2d0c357d846f624/chatgpt/plan-drafts/2026-11-23-v39-concept-recall-coverage-proposal.md). This preserves section 6.6 counts, adds DRILL-RECALL at D7/D28/D90, moves non-DSA warm-ups to oldest-due concepts, covers 16 pre-plan DSA problems, and adds a recall-queue audit. The uploaded checker PASSed even after a fabricated unscheduled DRILL was inserted; this is a verified blind spot. Cost 4h for seven DRILLs plus 1-4h for pre-plan code checks, with non-DSA initially inside the already-funded warm-ups. W8 has 12h plus 4.25h carry; the proposal forbids stacking hours there. **ASK:** Om approves/rejects; after approval one coach builds a generated amendment and the other verifies clean/negative checker tests. No plan/ file was edited.
