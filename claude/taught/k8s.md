@@ -9,8 +9,8 @@ Only what Om has watched or been taught, with the date. Anything not here is not
 - Earlier: kind cluster and a first pod, `port-forward` (Oct 26, ChatGPT). Om's IBM use: `describe`, `logs`, events often; `apply`, `port-forward`, `kubectl run` less (Nov 13).
 
 ## K2 (KodeKloud CKA, Core Concepts, workload lessons, course order)
-- Watched: ReplicaSets (16:09), Nov 22 at bedside (Om 22:48). Done before Nov 25 (KodeKloud ticks, screenshot Nov 25 18:06): Practice Test Introduction, Lab: Pods, Lab Solution: Pods. Done Nov 25: Lab: ReplicaSets (score not given). Not yet: Deployments onward.
-- Taught in chat: a ReplicaSet keeps the desired count, scaling is changing `replicas`, the scheduler (not the ReplicaSet) picks the node (Nov 22); the selector picks the Pods a ReplicaSet counts, by their labels, including matching Pods made before it (Om's own answer Nov 25, confirmed).
+- Watched: ReplicaSets (16:09), Nov 22 at bedside (Om 22:48). Done before Nov 25 (KodeKloud ticks, screenshot Nov 25 18:06): Practice Test Introduction, Lab: Pods, Lab Solution: Pods. Done Nov 25: Lab: ReplicaSets (all right, Om Nov 26). Done Nov 26: Deployments (04:21) video, Certification Tip!, Lab: Deployments (all right; last question typed `alipine` for `alpine`, Om's words). Lab Solution: Deployment (optional) not done. Not yet: Services onward.
+- Taught in chat: a ReplicaSet keeps the desired count, scaling is changing `replicas`, the scheduler (not the ReplicaSet) picks the node (Nov 22); the selector picks the Pods a ReplicaSet counts, by their labels, including matching Pods made before it (Om's own answer Nov 25, confirmed). Nov 26: a Deployment works through a ReplicaSet, never on Pods directly (Deployment, then ReplicaSet, then Pods); one Deployment has one Pod template and all its Pods are identical copies, so a frontend and a backend are two Deployments (counterexample: what would `replicas: 3` mean with two templates).
 
 ## Not taught yet (do not test)
 - The Pod start sequence step by step: K2's "full chain after `kubectl apply`" (W11).
